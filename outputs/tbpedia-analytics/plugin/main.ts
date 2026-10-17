@@ -159,7 +159,7 @@ class ResultModal extends Modal{
 class ReadingModal extends Modal{
   private values:ReadingValues;private expected:string;private saving=false;private countEdited=false;private explicitDates=new Set<ReadingKey>();
   constructor(private plugin:TbpediaAnalytics,private file:TFile,fm:Frontmatter){super(plugin.app);this.values=fromFrontmatter(fm);this.expected=trackedFingerprint(fm);}
-  onOpen(){this.render();}
+  onOpen(){this.modalEl.addClass('tbpa-reading-modal');this.render();}
   private render(){
     const el=this.contentEl;el.empty();el.lang=intlLocale();el.addClass('tbpa-reading');el.createEl('h2',{text:this.file.basename});el.createEl('p',{text:tr("閱讀資料先儲存於本機。只有手動同步才會上傳。"),cls:'setting-item-description'});
     const error=el.createDiv({cls:'tbpa-error'});

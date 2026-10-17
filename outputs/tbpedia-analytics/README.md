@@ -11,6 +11,10 @@ An offline-first Obsidian reading editor with deliberate, authenticated uploads 
 - Cloud uploads off by default. No article bodies or unrelated frontmatter are sent.
 - No analytics dashboard, event history, automatic retries or multi-device merging.
 
+## Resizable reading popup
+
+Drag the bottom-right corner of the reading popup to adjust its width and height. The form stacks its controls at narrow widths and scrolls internally. The popup stays within the available window area.
+
 ## UI languages
 
 Choose **UI language** in the plugin settings. The selection is saved locally; on first use the plugin follows Obsidian's language, with English as the fallback.

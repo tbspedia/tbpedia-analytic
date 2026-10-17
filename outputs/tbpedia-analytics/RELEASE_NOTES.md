@@ -1,10 +1,9 @@
-Adds a saved UI language selector and complete bundled catalogs for English, Japanese, French, Spanish, German, Dutch, Swedish, Korean, Traditional Chinese, Simplified Chinese, Vietnamese, Indonesian, Thai and Tibetan.
+The Tbpedia reading data popup can now be resized horizontally and vertically by dragging its bottom-right corner.
 
-- Translates 183 messages per language across settings, reading forms, commands, dropdown options, privacy notices, previews, validation, backend errors and sync progress/results.
-- Formats countries, months and numeric counters using the selected locale.
-- Preserves existing note properties, saved reading values, reader settings and credentials.
-- Uses localized fallback messages for unknown backend errors and prevents accepting an unsupported privacy notice version.
+- Keeps the popup within the available window area and scrolls long forms internally.
+- Stacks form controls at narrower widths and keeps text areas and dropdowns within the popup.
+- Retains the existing 14 UI languages and reading-data format.
 
-Validation: TypeScript checks, 24 automated tests and production builds passed. ZIP integrity and installed-plugin file hashes were checked. Native interactive Obsidian QA has not been performed. Translations were machine drafted with targeted corrections; fluent-speaker review is recommended, particularly for Tibetan and longer notices.
+Validation: TypeScript checks, all 24 automated tests and production builds passed. Release ZIP integrity and installed-plugin file hashes were verified. Native interactive Obsidian QA has not been performed.
 
-Install: copy `main.js`, `manifest.json` and `styles.css` from this release into `.obsidian/plugins/tbpedia-analytics/`, preserving your existing `data.json`, then reload the plugin or restart Obsidian. Choose **UI language** in plugin settings. Reload once more after changing languages to refresh command names and the ribbon tooltip.
+Install: copy `main.js`, `manifest.json` and `styles.css` into `.obsidian/plugins/tbpedia-analytics/`, preserving your existing `data.json`, then reload the plugin or restart Obsidian.

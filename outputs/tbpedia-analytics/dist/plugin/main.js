@@ -9443,6 +9443,7 @@ var ReadingModal = class extends import_obsidian.Modal {
   countEdited = false;
   explicitDates = /* @__PURE__ */ new Set();
   onOpen() {
+    this.modalEl.addClass("tbpa-reading-modal");
     this.render();
   }
   render() {
