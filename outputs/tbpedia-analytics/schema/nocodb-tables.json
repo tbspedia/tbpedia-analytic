@@ -1,0 +1,349 @@
+[
+  {
+    "title": "readers",
+    "description": "Reader profiles, optional demographics, consent and private token hashes.",
+    "fields": [
+      {
+        "title": "reader_id",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "nickname",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "email",
+        "type": "Email"
+      },
+      {
+        "title": "birth_year",
+        "type": "Number"
+      },
+      {
+        "title": "birth_month",
+        "type": "Number"
+      },
+      {
+        "title": "sex",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "FEMALE"
+            },
+            {
+              "title": "MALE"
+            },
+            {
+              "title": "OTHER"
+            },
+            {
+              "title": "PREFER_NOT_TO_SAY"
+            }
+          ]
+        }
+      },
+      {
+        "title": "country_code",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "reader_type",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "GENERAL"
+            },
+            {
+              "title": "NEW_REFUGE"
+            },
+            {
+              "title": "BUDDHIST_STUDENT"
+            },
+            {
+              "title": "PRACTITIONER"
+            },
+            {
+              "title": "TBS_PRACTITIONER"
+            }
+          ]
+        }
+      },
+      {
+        "title": "organisation",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "sync_token_hash",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "account_status",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "ACTIVE"
+            },
+            {
+              "title": "DISABLED"
+            }
+          ]
+        }
+      },
+      {
+        "title": "cloud_sync_enabled",
+        "type": "Checkbox"
+      },
+      {
+        "title": "profile_consent_version",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "profile_consent_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "reading_consent_version",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "reading_consent_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "created_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "updated_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "schema_version",
+        "type": "Number"
+      }
+    ]
+  },
+  {
+    "title": "content_items",
+    "description": "MVP catalogue from AnalyticsV1 canonical book and teaching folders. No article bodies or reader data.",
+    "fields": [
+      {
+        "title": "content_id",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "content_type",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "BOOK"
+            },
+            {
+              "title": "CHAPTER"
+            },
+            {
+              "title": "ARTICLE"
+            }
+          ]
+        }
+      },
+      {
+        "title": "parent_content_id",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "book_number",
+        "type": "Number"
+      },
+      {
+        "title": "book_title",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "chapter_number",
+        "type": "Number"
+      },
+      {
+        "title": "chapter_title",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "is_active",
+        "type": "Checkbox"
+      },
+      {
+        "title": "created_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "updated_at",
+        "type": "DateTime"
+      }
+    ]
+  },
+  {
+    "title": "reading_records",
+    "description": "One current snapshot per reader/content pair; all 17 reading values. Manual upload only.",
+    "fields": [
+      {
+        "title": "reader_id",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "content_id",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "client_updated_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "synced_at",
+        "type": "DateTime"
+      },
+      {
+        "title": "snapshot_hash",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "schema_version",
+        "type": "Number"
+      },
+      {
+        "title": "planned_reading",
+        "type": "Checkbox"
+      },
+      {
+        "title": "reading_status",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "UNREAD"
+            },
+            {
+              "title": "WANT_TO_READ"
+            },
+            {
+              "title": "READING"
+            },
+            {
+              "title": "COMPLETED"
+            },
+            {
+              "title": "NOT_READING"
+            },
+            {
+              "title": "ABANDONED"
+            }
+          ]
+        }
+      },
+      {
+        "title": "reading_depth",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "SKIM"
+            },
+            {
+              "title": "FULL"
+            },
+            {
+              "title": "CLOSE"
+            },
+            {
+              "title": "STUDY"
+            },
+            {
+              "title": "BASIC"
+            },
+            {
+              "title": "INSPECTIONAL"
+            },
+            {
+              "title": "ANALYTICAL"
+            },
+            {
+              "title": "SYNTOPICAL"
+            }
+          ]
+        }
+      },
+      {
+        "title": "reading_count",
+        "type": "Number"
+      },
+      {
+        "title": "want_to_read_date",
+        "type": "Date"
+      },
+      {
+        "title": "reading_start_date",
+        "type": "Date"
+      },
+      {
+        "title": "completed_date",
+        "type": "Date"
+      },
+      {
+        "title": "not_reading_date",
+        "type": "Date"
+      },
+      {
+        "title": "abandoned_date",
+        "type": "Date"
+      },
+      {
+        "title": "reading_reflection",
+        "type": "LongText"
+      },
+      {
+        "title": "my_recommendation",
+        "type": "SingleSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "RECOMMEND"
+            },
+            {
+              "title": "NOT_RECOMMEND"
+            },
+            {
+              "title": "UNDECIDED"
+            }
+          ]
+        }
+      },
+      {
+        "title": "my_rating",
+        "type": "Number"
+      },
+      {
+        "title": "my_keywords",
+        "type": "LongText"
+      },
+      {
+        "title": "my_reader_types",
+        "type": "LongText"
+      },
+      {
+        "title": "my_buddhist_level",
+        "type": "Number"
+      },
+      {
+        "title": "my_practice_level",
+        "type": "Number"
+      },
+      {
+        "title": "my_subtopics",
+        "type": "LongText"
+      }
+    ]
+  }
+]

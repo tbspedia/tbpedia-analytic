@@ -1,0 +1,11 @@
+work/
+**/node_modules/
+**/private/
+**/.wrangler/
+**/.dev.vars
+**/.env
+**/.env.*
+!**/.env.example
+*.log
+**/tbpedia-worker-dry-run/
+outputs/*.zip

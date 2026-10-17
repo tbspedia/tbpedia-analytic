@@ -1,0 +1,4190 @@
+{
+  "vault": "C:\\Users\\lotus\\OneDrive - SJKC Yu Hua Kajang\\Obsidian\\AnalyticsV1",
+  "folders": [
+    "01 文集部",
+    "02 開示部"
+  ],
+  "entries": [
+    {
+      "path": "01 文集部/154 智慧的光環/154 智慧的光環.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154",
+        "content_type": "BOOK",
+        "parent_content_id": null,
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": null,
+        "chapter_title": null,
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C00 序 道心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C00",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 0,
+        "chapter_title": "C00 序 道心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C01 我慢.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C01",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 1,
+        "chapter_title": "C01 我慢",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C02 出家.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C02",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 2,
+        "chapter_title": "C02 出家",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C03 分靈.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C03",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 3,
+        "chapter_title": "C03 分靈",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C04 感應.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C04",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 4,
+        "chapter_title": "C04 感應",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C05 自淨其意.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C05",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 5,
+        "chapter_title": "C05 自淨其意",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C06 正見.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C06",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 6,
+        "chapter_title": "C06 正見",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C07 真正的阿闍梨上師.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C07",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 7,
+        "chapter_title": "C07 真正的阿闍梨上師",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C08 妄自尊大.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C08",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 8,
+        "chapter_title": "C08 妄自尊大",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C09 四層灌頂.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C09",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 9,
+        "chapter_title": "C09 四層灌頂",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C10 供養.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C10",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 10,
+        "chapter_title": "C10 供養",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C11 供養（之二）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C11",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 11,
+        "chapter_title": "C11 供養（之二）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C12 印證.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C12",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 12,
+        "chapter_title": "C12 印證",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C13 持戒.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C13",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 13,
+        "chapter_title": "C13 持戒",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C14 持戒精神.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C14",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 14,
+        "chapter_title": "C14 持戒精神",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C15 真佛宗.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C15",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 15,
+        "chapter_title": "C15 真佛宗",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C16 實修.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C16",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 16,
+        "chapter_title": "C16 實修",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C17 敬師.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C17",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 17,
+        "chapter_title": "C17 敬師",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C18 法最齊全.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C18",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 18,
+        "chapter_title": "C18 法最齊全",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C19 不可毀謗密宗.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C19",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 19,
+        "chapter_title": "C19 不可毀謗密宗",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C20 無明妄想.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C20",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 20,
+        "chapter_title": "C20 無明妄想",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C21 自由心證.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C21",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 21,
+        "chapter_title": "C21 自由心證",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C22 顯密.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C22",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 22,
+        "chapter_title": "C22 顯密",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C23 法號.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C23",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 23,
+        "chapter_title": "C23 法號",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C24 密教的密.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C24",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 24,
+        "chapter_title": "C24 密教的密",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C25 大菩提心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C25",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 25,
+        "chapter_title": "C25 大菩提心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C26 顯密圓通.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C26",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 26,
+        "chapter_title": "C26 顯密圓通",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C27 壇城.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C27",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 27,
+        "chapter_title": "C27 壇城",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C28 即身成佛.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C28",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 28,
+        "chapter_title": "C28 即身成佛",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C29 不殺生.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C29",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 29,
+        "chapter_title": "C29 不殺生",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C30 吃葷吃素.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C30",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 30,
+        "chapter_title": "C30 吃葷吃素",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C31 酒肉供佛.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C31",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 31,
+        "chapter_title": "C31 酒肉供佛",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C32 為何學佛修行.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C32",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 32,
+        "chapter_title": "C32 為何學佛修行",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C33 上師加持力.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C33",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 33,
+        "chapter_title": "C33 上師加持力",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C34 密教珍貴.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C34",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 34,
+        "chapter_title": "C34 密教珍貴",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C35 財神法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C35",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 35,
+        "chapter_title": "C35 財神法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C36 憤怒金剛神.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C36",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 36,
+        "chapter_title": "C36 憤怒金剛神",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C37 雙身法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C37",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 37,
+        "chapter_title": "C37 雙身法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C38 密教理趣.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C38",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 38,
+        "chapter_title": "C38 密教理趣",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C39 心要口訣.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C39",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 39,
+        "chapter_title": "C39 心要口訣",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C40 意念修觀.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C40",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 40,
+        "chapter_title": "C40 意念修觀",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C41 阿字觀.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C41",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 41,
+        "chapter_title": "C41 阿字觀",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C42 選擇本尊.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C42",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 42,
+        "chapter_title": "C42 選擇本尊",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C43 四皈依與六皈依.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C43",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 43,
+        "chapter_title": "C43 四皈依與六皈依",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C44 放光加持.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C44",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 44,
+        "chapter_title": "C44 放光加持",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C45 放光召請.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C45",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 45,
+        "chapter_title": "C45 放光召請",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C46 四加行法的重要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C46",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 46,
+        "chapter_title": "C46 四加行法的重要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C47 觀空祕密.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C47",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 47,
+        "chapter_title": "C47 觀空祕密",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C48 三力說.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C48",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 48,
+        "chapter_title": "C48 三力說",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C49 尊崇「高王經」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C49",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 49,
+        "chapter_title": "C49 尊崇「高王經」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C50 大權示現之佛.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C50",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 50,
+        "chapter_title": "C50 大權示現之佛",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C51 合為一體.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C51",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 51,
+        "chapter_title": "C51 合為一體",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C52 入住融的口訣.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C52",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 52,
+        "chapter_title": "C52 入住融的口訣",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C53 外道之說.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C53",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 53,
+        "chapter_title": "C53 外道之說",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C54 修氣之必要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C54",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 54,
+        "chapter_title": "C54 修氣之必要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C55 運用「四大」修持.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C55",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 55,
+        "chapter_title": "C55 運用「四大」修持",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C56 身「曼荼羅」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C56",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 56,
+        "chapter_title": "C56 身「曼荼羅」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C57 修氣的要訣.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C57",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 57,
+        "chapter_title": "C57 修氣的要訣",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C58 有漏皆墮.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C58",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 58,
+        "chapter_title": "C58 有漏皆墮",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C59 「無漏法」觀修簡介.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C59",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 59,
+        "chapter_title": "C59 「無漏法」觀修簡介",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C60 證驗的分辨.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C60",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 60,
+        "chapter_title": "C60 證驗的分辨",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C61 相應的現象.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C61",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 61,
+        "chapter_title": "C61 相應的現象",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C62 真佛密法九品成就.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C62",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 62,
+        "chapter_title": "C62 真佛密法九品成就",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C63 一咒一法一本尊.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C63",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 63,
+        "chapter_title": "C63 一咒一法一本尊",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C64 持咒諸法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C64",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 64,
+        "chapter_title": "C64 持咒諸法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C65 密咒是法船.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C65",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 65,
+        "chapter_title": "C65 密咒是法船",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C66 嗡。部林。.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C66",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 66,
+        "chapter_title": "C66 嗡。部林。",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C67 真假本尊.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C67",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 67,
+        "chapter_title": "C67 真假本尊",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C68 虛空中的手印.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C68",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 68,
+        "chapter_title": "C68 虛空中的手印",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C69 密教修法大要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C69",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 69,
+        "chapter_title": "C69 密教修法大要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C70 蓮花童子手印與鈴杵搖法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C70",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 70,
+        "chapter_title": "C70 蓮花童子手印與鈴杵搖法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C71 密咒是諸佛無盡法藏.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C71",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 71,
+        "chapter_title": "C71 密咒是諸佛無盡法藏",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C72 密咒是禪定藏.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C72",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 72,
+        "chapter_title": "C72 密咒是禪定藏",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C73 發最大的菩提心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C73",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 73,
+        "chapter_title": "C73 發最大的菩提心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C74 護身法與結界法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C74",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 74,
+        "chapter_title": "C74 護身法與結界法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C75 見一切鬼神法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C75",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 75,
+        "chapter_title": "C75 見一切鬼神法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C76 懺悔法的懺相.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C76",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 76,
+        "chapter_title": "C76 懺悔法的懺相",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C77 知未來事法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C77",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 77,
+        "chapter_title": "C77 知未來事法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C78 密法治疾病.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C78",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 78,
+        "chapter_title": "C78 密法治疾病",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C79 入天宮的祕密.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C79",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 79,
+        "chapter_title": "C79 入天宮的祕密",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C80 摩頂與拍打.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C80",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 80,
+        "chapter_title": "C80 摩頂與拍打",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C81 敬愛法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C81",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 81,
+        "chapter_title": "C81 敬愛法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C82 降伏法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C82",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 82,
+        "chapter_title": "C82 降伏法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C83 得大智慧法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C83",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 83,
+        "chapter_title": "C83 得大智慧法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C84 鏡壇耳報法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C84",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 84,
+        "chapter_title": "C84 鏡壇耳報法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C85 心中心印.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C85",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 85,
+        "chapter_title": "C85 心中心印",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C86 雄辯法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C86",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 86,
+        "chapter_title": "C86 雄辯法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C87 打開心輪的祕密.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C87",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 87,
+        "chapter_title": "C87 打開心輪的祕密",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C88 諸尊修法儀軌.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C88",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 88,
+        "chapter_title": "C88 諸尊修法儀軌",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/154 智慧的光環/C89 密教大圓滿.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-154-C89",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-154",
+        "book_number": 154,
+        "book_title": "154 智慧的光環",
+        "chapter_number": 89,
+        "chapter_title": "C89 密教大圓滿",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/216 當代法王答客問.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216",
+        "content_type": "BOOK",
+        "parent_content_id": null,
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": null,
+        "chapter_title": null,
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C00 序 序曲.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C00",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 0,
+        "chapter_title": "C00 序 序曲",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C01 「分身救度」的事實.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C01",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 1,
+        "chapter_title": "C01 「分身救度」的事實",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C02 白度母與盧師尊的因緣.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C02",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 2,
+        "chapter_title": "C02 白度母與盧師尊的因緣",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C03 為何白度母要談戒律？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C03",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 3,
+        "chapter_title": "C03 為何白度母要談戒律？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C04 認證前世的來歷.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C04",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 4,
+        "chapter_title": "C04 認證前世的來歷",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C05 另外的一個世界.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C05",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 5,
+        "chapter_title": "C05 另外的一個世界",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C06 禪修是所必須.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C06",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 6,
+        "chapter_title": "C06 禪修是所必須",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C07 如何化解痛苦的陰影？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C07",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 7,
+        "chapter_title": "C07 如何化解痛苦的陰影？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C08 我也曾經有過不想活了.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C08",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 8,
+        "chapter_title": "C08 我也曾經有過不想活了",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C09 師父的責難.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C09",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 9,
+        "chapter_title": "C09 師父的責難",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C10 瘟神還在嗎？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C10",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 10,
+        "chapter_title": "C10 瘟神還在嗎？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C11 因果不可思議.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C11",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 11,
+        "chapter_title": "C11 因果不可思議",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C12 為什麼上師們都可以穿龍袍？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C12",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 12,
+        "chapter_title": "C12 為什麼上師們都可以穿龍袍？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C13 為什麼真佛上師可收弟子？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C13",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 13,
+        "chapter_title": "C13 為什麼真佛上師可收弟子？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C14 地球末日.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C14",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 14,
+        "chapter_title": "C14 地球末日",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C15 當災難來時該怎麼辦？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C15",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 15,
+        "chapter_title": "C15 當災難來時該怎麼辦？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C16 什麼是「無生法忍」？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C16",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 16,
+        "chapter_title": "C16 什麼是「無生法忍」？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C17 算命有根據嗎？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C17",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 17,
+        "chapter_title": "C17 算命有根據嗎？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C18 大桃花.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C18",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 18,
+        "chapter_title": "C18 大桃花",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C19 整形是否有助運勢？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C19",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 19,
+        "chapter_title": "C19 整形是否有助運勢？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C20 「同性戀」的弟子.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C20",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 20,
+        "chapter_title": "C20 「同性戀」的弟子",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C21 濫情怎麼辦？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C21",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 21,
+        "chapter_title": "C21 濫情怎麼辦？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C22 婦女的無名病？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C22",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 22,
+        "chapter_title": "C22 婦女的無名病？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C23 墮胎後，怎辦？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C23",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 23,
+        "chapter_title": "C23 墮胎後，怎辦？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C24 關於寵物.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C24",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 24,
+        "chapter_title": "C24 關於寵物",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C25 蓮華生大士何能有眾多明妃？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C25",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 25,
+        "chapter_title": "C25 蓮華生大士何能有眾多明妃？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C26 淫怒痴俱是梵行？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C26",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 26,
+        "chapter_title": "C26 淫怒痴俱是梵行？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C27 寄情於「雨」的情懷.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C27",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 27,
+        "chapter_title": "C27 寄情於「雨」的情懷",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C28 佛法轉化痴情.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C28",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 28,
+        "chapter_title": "C28 佛法轉化痴情",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C29 親人過世的傷痛？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C29",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 29,
+        "chapter_title": "C29 親人過世的傷痛？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C30 破戒的弘法人員.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C30",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 30,
+        "chapter_title": "C30 破戒的弘法人員",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C31 高學歷須要嗎？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C31",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 31,
+        "chapter_title": "C31 高學歷須要嗎？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C32 談談放光照片.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C32",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 32,
+        "chapter_title": "C32 談談放光照片",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C33 「怪物」及「不祥」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C33",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 33,
+        "chapter_title": "C33 「怪物」及「不祥」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C34 夢的解析.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C34",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 34,
+        "chapter_title": "C34 夢的解析",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C35 靈異體質.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C35",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 35,
+        "chapter_title": "C35 靈異體質",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C36 大官修行難.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C36",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 36,
+        "chapter_title": "C36 大官修行難",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C37 一日六時恆吉祥.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C37",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 37,
+        "chapter_title": "C37 一日六時恆吉祥",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C38 什麼是「法爾本然」？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C38",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 38,
+        "chapter_title": "C38 什麼是「法爾本然」？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C39 什麼又是相應呢？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C39",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 39,
+        "chapter_title": "C39 什麼又是相應呢？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C40 什麼是「四禪」？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C40",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 40,
+        "chapter_title": "C40 什麼是「四禪」？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C41 大乘菩提的修行次第.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C41",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 41,
+        "chapter_title": "C41 大乘菩提的修行次第",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C42 氣脈明點是外道法？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C42",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 42,
+        "chapter_title": "C42 氣脈明點是外道法？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C43 為什麼要成佛？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C43",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 43,
+        "chapter_title": "C43 為什麼要成佛？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C44 反對「人間佛教」？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C44",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 44,
+        "chapter_title": "C44 反對「人間佛教」？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C45 涅槃即中觀.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C45",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 45,
+        "chapter_title": "C45 涅槃即中觀",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C46 四種涅槃.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C46",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 46,
+        "chapter_title": "C46 四種涅槃",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C47 新愛情觀.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C47",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 47,
+        "chapter_title": "C47 新愛情觀",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C48 摩訶雙蓮池.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C48",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 48,
+        "chapter_title": "C48 摩訶雙蓮池",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/216 當代法王答客問/C49 人生為啥？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-216-C49",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-216",
+        "book_number": 216,
+        "book_title": "216 當代法王答客問",
+        "chapter_number": 49,
+        "chapter_title": "C49 人生為啥？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/300 回歸星河.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300",
+        "content_type": "BOOK",
+        "parent_content_id": null,
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": null,
+        "chapter_title": null,
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C00 第三百本文集（序一）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C00",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 0,
+        "chapter_title": "C00 第三百本文集（序一）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C01 第三百本文集(序二).md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C01",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 1,
+        "chapter_title": "C01 第三百本文集(序二)",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C02 第三百本文集(序三).md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C02",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 2,
+        "chapter_title": "C02 第三百本文集(序三)",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C03 至上的智慧.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C03",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 3,
+        "chapter_title": "C03 至上的智慧",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C04 一切從「苦」開始.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C04",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 4,
+        "chapter_title": "C04 一切從「苦」開始",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C05 制心一處.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C05",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 5,
+        "chapter_title": "C05 制心一處",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C06 小乘與大乘.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C06",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 6,
+        "chapter_title": "C06 小乘與大乘",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C07 我專注於「三摩地」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C07",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 7,
+        "chapter_title": "C07 我專注於「三摩地」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C08 我依「本尊」入三摩地.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C08",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 8,
+        "chapter_title": "C08 我依「本尊」入三摩地",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C09 本尊三摩地之益.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C09",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 9,
+        "chapter_title": "C09 本尊三摩地之益",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C10 「無念」三摩地.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C10",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 10,
+        "chapter_title": "C10 「無念」三摩地",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C11 「自性明光」三摩地.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C11",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 11,
+        "chapter_title": "C11 「自性明光」三摩地",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C12 一位空行母的看見.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C12",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 12,
+        "chapter_title": "C12 一位空行母的看見",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C13 我與「于于」合寫的一首詩.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C13",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 13,
+        "chapter_title": "C13 我與「于于」合寫的一首詩",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C14 修行是清淨的行法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C14",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 14,
+        "chapter_title": "C14 修行是清淨的行法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C15 消除「煩惱」的行法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C15",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 15,
+        "chapter_title": "C15 消除「煩惱」的行法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C16 四加行也可入「三摩地」嗎？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C16",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 16,
+        "chapter_title": "C16 四加行也可入「三摩地」嗎？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C17 「無我三摩地」的佛性.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C17",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 17,
+        "chapter_title": "C17 「無我三摩地」的佛性",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C18 一切皆「苦」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C18",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 18,
+        "chapter_title": "C18 一切皆「苦」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C19 我為何有分身（法身）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C19",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 19,
+        "chapter_title": "C19 我為何有分身（法身）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C20 我是阿彌陀佛的心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C20",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 20,
+        "chapter_title": "C20 我是阿彌陀佛的心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C21 修「本尊法」的祕要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C21",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 21,
+        "chapter_title": "C21 修「本尊法」的祕要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C22 為什麼要守五戒？.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C22",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 22,
+        "chapter_title": "C22 為什麼要守五戒？",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C23 修「氣」瑜伽士.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C23",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 23,
+        "chapter_title": "C23 修「氣」瑜伽士",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C24 柔軟的心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C24",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 24,
+        "chapter_title": "C24 柔軟的心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C25 一位西人弟子的見證—「我的時輪金剛治癒之旅」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C25",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 25,
+        "chapter_title": "C25 一位西人弟子的見證—「我的時輪金剛治癒之旅」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C26 修「氣」祕要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C26",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 26,
+        "chapter_title": "C26 修「氣」祕要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C27 體功法金剛拳（氣、脈、明點、拙火）的輔助.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C27",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 27,
+        "chapter_title": "C27 體功法金剛拳（氣、脈、明點、拙火）的輔助",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C28 真佛宗「二灌無漏法」祕密口訣講義.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C28",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 28,
+        "chapter_title": "C28 真佛宗「二灌無漏法」祕密口訣講義",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C29 真佛宗「三灌無上密」部份祕密口訣講義.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C29",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 29,
+        "chapter_title": "C29 真佛宗「三灌無上密」部份祕密口訣講義",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C30 體位法（金剛拳）之我見.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C30",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 30,
+        "chapter_title": "C30 體位法（金剛拳）之我見",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C31 與「本尊」相應之益.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C31",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 31,
+        "chapter_title": "C31 與「本尊」相應之益",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C32 由「大攤屍法」入三摩地.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C32",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 32,
+        "chapter_title": "C32 由「大攤屍法」入三摩地",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C33 清淨心境.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C33",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 33,
+        "chapter_title": "C33 清淨心境",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C34 盧師尊的理念.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C34",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 34,
+        "chapter_title": "C34 盧師尊的理念",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C35 盧師尊的生活.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C35",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 35,
+        "chapter_title": "C35 盧師尊的生活",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C36 發露懺悔.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C36",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 36,
+        "chapter_title": "C36 發露懺悔",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C37 大圓滿九次第精要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C37",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 37,
+        "chapter_title": "C37 大圓滿九次第精要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C38 諸尊說「愛」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C38",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 38,
+        "chapter_title": "C38 諸尊說「愛」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C39 二位佛教學者的訪談.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C39",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 39,
+        "chapter_title": "C39 二位佛教學者的訪談",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C40 眾生的真相.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C40",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 40,
+        "chapter_title": "C40 眾生的真相",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C41 無上智慧放光芒.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C41",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 41,
+        "chapter_title": "C41 無上智慧放光芒",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C42 青春女神如是說.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C42",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 42,
+        "chapter_title": "C42 青春女神如是說",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C43 相應篇.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C43",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 43,
+        "chapter_title": "C43 相應篇",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C44 蓮花曉光之所見.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C44",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 44,
+        "chapter_title": "C44 蓮花曉光之所見",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C45 蓮花彩虹的見證.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C45",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 45,
+        "chapter_title": "C45 蓮花彩虹的見證",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C46 「化虹」心得.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C46",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 46,
+        "chapter_title": "C46 「化虹」心得",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C47 蓮訶上師的報告.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C47",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 47,
+        "chapter_title": "C47 蓮訶上師的報告",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "01 文集部/300 回歸星河/C48 《煙雨微微》文集導讀—釋蓮追教授師.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBP-300-C48",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBP-300",
+        "book_number": 300,
+        "book_title": "300 回歸星河",
+        "chapter_number": 48,
+        "chapter_title": "C48 《煙雨微微》文集導讀—釋蓮追教授師",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/640 偕汝談心（一）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640",
+        "content_type": "BOOK",
+        "parent_content_id": null,
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": null,
+        "chapter_title": null,
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C01 未來師尊退隱的計劃.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C01",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 1,
+        "chapter_title": "C01 未來師尊退隱的計劃",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C02 善與惡.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C02",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 2,
+        "chapter_title": "C02 善與惡",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C03 心的影響.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C03",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 3,
+        "chapter_title": "C03 心的影響",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C04 口業.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C04",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 4,
+        "chapter_title": "C04 口業",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C05 精進修行的重要.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C05",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 5,
+        "chapter_title": "C05 精進修行的重要",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C06 金錢與毒蛇.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C06",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 6,
+        "chapter_title": "C06 金錢與毒蛇",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C07 攝心一念.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C07",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 7,
+        "chapter_title": "C07 攝心一念",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C08 一心念佛.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C08",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 8,
+        "chapter_title": "C08 一心念佛",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C09 慈悲與智慧之分別.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C09",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 9,
+        "chapter_title": "C09 慈悲與智慧之分別",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C10 忍辱.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C10",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 10,
+        "chapter_title": "C10 忍辱",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C11 口才.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C11",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 11,
+        "chapter_title": "C11 口才",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C12 發菩提心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C12",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 12,
+        "chapter_title": "C12 發菩提心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C13 出離心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C13",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 13,
+        "chapter_title": "C13 出離心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C14 談「貪」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C14",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 14,
+        "chapter_title": "C14 談「貪」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C15 真心出家.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C15",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 15,
+        "chapter_title": "C15 真心出家",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C16 威儀與感應.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C16",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 16,
+        "chapter_title": "C16 威儀與感應",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C17 修行與戒律.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C17",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 17,
+        "chapter_title": "C17 修行與戒律",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C18 求壽當求無量壽.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C18",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 18,
+        "chapter_title": "C18 求壽當求無量壽",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C19 平等無差別.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C19",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 19,
+        "chapter_title": "C19 平等無差別",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C20 中觀與中道.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C20",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 20,
+        "chapter_title": "C20 中觀與中道",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C21 循環與輪迴.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C21",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 21,
+        "chapter_title": "C21 循環與輪迴",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C22 行者的觀照.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C22",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 22,
+        "chapter_title": "C22 行者的觀照",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C23 求法精神.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C23",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 23,
+        "chapter_title": "C23 求法精神",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C24 自然、任運.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C24",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 24,
+        "chapter_title": "C24 自然、任運",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C25 雷藏寺之風水與修行.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C25",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 25,
+        "chapter_title": "C25 雷藏寺之風水與修行",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C26 生死事大.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C26",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 26,
+        "chapter_title": "C26 生死事大",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C27 六道修行與精進.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C27",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 27,
+        "chapter_title": "C27 六道修行與精進",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C28 法界同一心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C28",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 28,
+        "chapter_title": "C28 法界同一心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C29 聞、思、修.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C29",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 29,
+        "chapter_title": "C29 聞、思、修",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C30 心外求法，心內求法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C30",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 30,
+        "chapter_title": "C30 心外求法，心內求法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C31 活死人與修心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C31",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 31,
+        "chapter_title": "C31 活死人與修心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C32 珍惜當下的緣份.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C32",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 32,
+        "chapter_title": "C32 珍惜當下的緣份",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C33 最尊貴的念頭（一）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C33",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 33,
+        "chapter_title": "C33 最尊貴的念頭（一）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C34 最尊貴的念頭（二）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C34",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 34,
+        "chapter_title": "C34 最尊貴的念頭（二）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C35 眾生的本源.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C35",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 35,
+        "chapter_title": "C35 眾生的本源",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C36 實施就是實修.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C36",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 36,
+        "chapter_title": "C36 實施就是實修",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C37 談欲望與名利.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C37",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 37,
+        "chapter_title": "C37 談欲望與名利",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C38 禪定就是安住（一）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C38",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 38,
+        "chapter_title": "C38 禪定就是安住（一）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C39 禪定就是安住（二）.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C39",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 39,
+        "chapter_title": "C39 禪定就是安住（二）",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C40 破壞與保護之間的調御.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C40",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 40,
+        "chapter_title": "C40 破壞與保護之間的調御",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C41 禪定功深.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C41",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 41,
+        "chapter_title": "C41 禪定功深",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C42 斷除煩惱.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C42",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 42,
+        "chapter_title": "C42 斷除煩惱",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C43 執著、守戒.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C43",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 43,
+        "chapter_title": "C43 執著、守戒",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C44 活的人是從死之人來.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C44",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 44,
+        "chapter_title": "C44 活的人是從死之人來",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C45 談「信義」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C45",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 45,
+        "chapter_title": "C45 談「信義」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C46 談「業」.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C46",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 46,
+        "chapter_title": "C46 談「業」",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C47 輪迴、轉世、因果.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C47",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 47,
+        "chapter_title": "C47 輪迴、轉世、因果",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C48 從自然界體會佛法.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C48",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 48,
+        "chapter_title": "C48 從自然界體會佛法",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C49 時空的變幻.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C49",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 49,
+        "chapter_title": "C49 時空的變幻",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C50 寬恕的心.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C50",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 50,
+        "chapter_title": "C50 寬恕的心",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C51 法施為上.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C51",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 51,
+        "chapter_title": "C51 法施為上",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    },
+    {
+      "path": "02 開示部/640 偕汝談心（一）/C52 去我執、疑念.md",
+      "needsId": false,
+      "readingValid": true,
+      "row": {
+        "content_id": "TBS-640-C52",
+        "content_type": "CHAPTER",
+        "parent_content_id": "TBS-640",
+        "book_number": 640,
+        "book_title": "640 偕汝談心（一）",
+        "chapter_number": 52,
+        "chapter_title": "C52 去我執、疑念",
+        "is_active": true,
+        "created_at": "2026-10-17T10:50:26.728Z",
+        "updated_at": "2026-10-17T10:50:26.728Z"
+      }
+    }
+  ],
+  "errors": [],
+  "legacy": {
+    "閱讀狀態: \"沒讀\"": 245,
+    "閱讀層次: \"基礎閱讀\"": 192,
+    "閱讀推薦: null": 3,
+    "評分: 0": 3,
+    "文章評分: null": 189,
+    "閱讀層次: [\"基礎閱讀\"]": 53,
+    "閱讀推薦: [\"沒推薦\"]": 53
+  },
+  "excluded": [
+    {
+      "path": "01 文集部/300 回歸星河/C03 至上的智慧 (Supreme Wisdom).md",
+      "reason": "Translated/variant copy; canonical original is used"
+    }
+  ]
+}

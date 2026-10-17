@@ -1,0 +1,40 @@
+{
+  "tested_at": "2026-10-17T10:49:54.994Z",
+  "api": "https://tbpedia-analytics.tbspedia.workers.dev",
+  "checks": [
+    {
+      "name": "Worker health and database bindings",
+      "status": "passed"
+    },
+    {
+      "name": "Anonymous access rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Authenticated profile projection",
+      "status": "passed"
+    },
+    {
+      "name": "Demographic profile create/update and consent",
+      "status": "passed"
+    },
+    {
+      "name": "Native v3 upsert, repeated uploads and Unicode/list round-trip",
+      "status": "passed"
+    },
+    {
+      "name": "Clearing values and preserving false/zero",
+      "status": "passed"
+    },
+    {
+      "name": "Forged identity rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Profile clearing and permission revocation",
+      "status": "passed"
+    }
+  ],
+  "synthetic_rows_cleaned": true,
+  "real_reader_data_uploaded": false
+}

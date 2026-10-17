@@ -1,0 +1,21 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "tbpedia-analytics",
+  "main": "src/index.ts",
+  "account_id": "b37a3426e5cd4de1e8ab08e7dc79fb53",
+  "compatibility_date": "2026-10-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {"enabled": true, "head_sampling_rate": 1, "logs": {"enabled": true, "invocation_logs": false}},
+  "vars": {
+    "NOCODB_URL": "https://app.nocodb.com",
+    "NOCODB_BASE_ID": "pwxyh62oc4wdhbg",
+    "READERS_TABLE_ID": "m0jtd86do2fo2vv",
+    "CONTENT_TABLE_ID": "m22h8q52rgo45i8",
+    "READING_TABLE_ID": "mmphejly9cd41bk",
+    "PROFILE_NOTICE_VERSION": "profile-v1",
+    "READING_NOTICE_VERSION": "reading-v1"
+  },
+  "secrets": {"required": ["NOCODB_API_TOKEN"]}
+}

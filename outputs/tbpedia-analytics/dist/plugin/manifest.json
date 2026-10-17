@@ -1,0 +1,9 @@
+{
+  "id": "tbpedia-analytics",
+  "name": "Tbpedia Analytics",
+  "version": "0.1.1",
+  "minAppVersion": "1.6.0",
+  "description": "Privately capture reading progress locally and manually sync to NocoDB.",
+  "author": "Tbpedia",
+  "isDesktopOnly": true
+}

@@ -1,0 +1,47 @@
+{
+  "application": "tbpedia-analytics",
+  "version": "0.1.0",
+  "status": "deployed-and-live-verified",
+  "worker": {
+    "url": "https://tbpedia-analytics.tbspedia.workers.dev",
+    "health_url": "https://tbpedia-analytics.tbspedia.workers.dev/health",
+    "version_id": "24430887-19aa-4364-807b-7b243602005a",
+    "service_secret_configured": true,
+    "preview_urls_enabled": false
+  },
+  "nocodb": {
+    "base_id": "pwxyh62oc4wdhbg",
+    "project_name": "tbpedia-analytics",
+    "project_url": "https://app.nocodb.com/whvc04xw/pwxyh62oc4wdhbg",
+    "tables": {
+      "readers": "m0jtd86do2fo2vv",
+      "content_items": "m22h8q52rgo45i8",
+      "reading_records": "mmphejly9cd41bk"
+    },
+    "catalogue_items": 245,
+    "book_items": 4,
+    "chapter_items": 241,
+    "pilot_readers": 1,
+    "reading_records_after_test_cleanup": 0,
+    "service_token_name": "tbpedia-analytics-worker",
+    "service_token_scope": "Records read/write in tbpedia-analytics only",
+    "service_token_expires": "2027-10-17"
+  },
+  "vault": {
+    "path": "C:\\Users\\lotus\\OneDrive - SJKC Yu Hua Kajang\\Obsidian\\AnalyticsV1",
+    "plugin_installed": true,
+    "enabled_on_next_load": true,
+    "cloud_uploads_enabled": false,
+    "prepared_notes": 245,
+    "original_bytes_preserved_except_id_line": true,
+    "native_interactive_qa_performed": false
+  },
+  "verification": {
+    "typecheck": "passed",
+    "automated_tests_passed": 17,
+    "live_checks_passed": 8,
+    "synthetic_rows_removed": true,
+    "existing_personal_reading_data_uploaded": false
+  },
+  "next_step": "Reload Obsidian. Open Tbpedia Analytics settings and use private/pilot-reader.json for the reader token. Complete profile and explicitly accept notices before enabling manual uploads."
+}
