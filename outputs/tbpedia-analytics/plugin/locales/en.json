@@ -181,5 +181,7 @@
   "field.client_updated_at": "Last updated",
   "field.profile": "Profile",
   "field.values": "Reading data",
-  "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery."
+  "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery.",
+  "followSystem": "Follow system",
+  "followSystemHelp": "Uses Obsidian's language setting, with English as the fallback."
 }

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { backendMessage, catalogs, fieldLabel, LANGUAGES, labels, monthName, resolveLocale, setLocale, t, validationReason } from '../plugin/i18n';
+import { backendMessage, catalogs, fieldLabel, LANGUAGES, labels, monthName, resolveLocale, languagePreference, getLocale, setLocale, t, validationReason } from '../plugin/i18n';
 import { DEPTH_LABELS, FRONTMATTER_KEYS, READER_LABELS, RECOMMENDATION_LABELS, SEX_LABELS, STATUS_LABELS, defaults, readingSchema, profileSchema } from '../shared/schema';
 import { fromFrontmatter, toFrontmatter } from '../shared/frontmatter';
 
@@ -23,6 +23,19 @@ test('all fourteen catalogs are complete and preserve interpolation parameters',
 test('locale resolution handles Obsidian codes, regions, scripts and unknown languages',()=>{
   for(const [input,expected] of Object.entries({'zh-TW':'zh-TW','zh_HK':'zh-TW','zh-Hant':'zh-TW','zh':'zh-CN','zh-SG':'zh-CN','zh-Hans':'zh-CN','en-GB':'en','ja-JP':'ja','bo-CN':'bo','xx':'en'}))assert.equal(resolveLocale(input),expected);
   assert.equal(resolveLocale(null),'en');
+});
+
+test('follow system remains a saved preference and manual choices override the system language',()=>{
+  assert.equal(languagePreference(undefined),'system');
+  assert.equal(languagePreference('system'),'system');
+  const saved=JSON.parse(JSON.stringify({language:languagePreference('system')}));
+  assert.equal(setLocale(saved.language,'ja'),'ja');
+  assert.equal(setLocale(saved.language,'zh-Hant'),'zh-TW');
+  assert.equal(setLocale(saved.language,'unsupported'),'en');
+  assert.equal(setLocale(undefined,'fr-FR'),'fr');
+  assert.equal(languagePreference('de'),'de');
+  assert.equal(setLocale('de','ja'),'de');
+  assert.equal(getLocale(),'de');
 });
 
 test('all option and property labels are localized without changing saved values',()=>{

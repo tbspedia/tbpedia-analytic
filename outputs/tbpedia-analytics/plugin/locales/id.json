@@ -181,5 +181,7 @@
   "field.client_updated_at": "Terakhir diperbarui",
   "field.profile": "Profil",
   "field.values": "Membaca data",
-  "backend.BACKEND_TIMEOUT": "Respons basis data melewati batas waktu dan status penyimpanan belum pasti. Coba lagi secara manual setelah layanan pulih."
+  "backend.BACKEND_TIMEOUT": "Respons basis data melewati batas waktu dan status penyimpanan belum pasti. Coba lagi secara manual setelah layanan pulih.",
+  "followSystem": "Ikuti sistem",
+  "followSystemHelp": "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan."
 }

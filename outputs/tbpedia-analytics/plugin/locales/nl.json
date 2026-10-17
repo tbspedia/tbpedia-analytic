@@ -181,5 +181,7 @@
   "field.client_updated_at": "Laatst bijgewerkt",
   "field.profile": "Profiel",
   "field.values": "Gegevens lezen",
-  "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw."
+  "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw.",
+  "followSystem": "Systeem volgen",
+  "followSystemHelp": "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal."
 }

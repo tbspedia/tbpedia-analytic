@@ -181,5 +181,7 @@
   "field.client_updated_at": "最終更新日",
   "field.profile": "プロフィール",
   "field.values": "データの読書",
-  "backend.BACKEND_TIMEOUT": "データベースの応答がタイムアウトし、保存状況を確認できません。復旧後に手動で再試行してください。"
+  "backend.BACKEND_TIMEOUT": "データベースの応答がタイムアウトし、保存状況を確認できません。復旧後に手動で再試行してください。",
+  "followSystem": "システムに従う",
+  "followSystemHelp": "Obsidianの言語設定を使用します。未対応の言語の場合は英語を使用します。"
 }

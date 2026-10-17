@@ -181,5 +181,7 @@
   "field.client_updated_at": "Senast uppdaterad",
   "field.profile": "Profil",
   "field.values": "Läser data",
-  "backend.BACKEND_TIMEOUT": "Databasens svar tog för lång tid och det är osäkert om uppgifterna sparades. Försök igen manuellt när tjänsten fungerar."
+  "backend.BACKEND_TIMEOUT": "Databasens svar tog för lång tid och det är osäkert om uppgifterna sparades. Försök igen manuellt när tjänsten fungerar.",
+  "followSystem": "Följ systemet",
+  "followSystemHelp": "Använder Obsidians språkinställning, med engelska som reservspråk."
 }

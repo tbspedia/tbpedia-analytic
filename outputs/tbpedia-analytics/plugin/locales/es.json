@@ -181,5 +181,7 @@
   "field.client_updated_at": "Última actualización",
   "field.profile": "Perfil",
   "field.values": "Leyendo datos",
-  "backend.BACKEND_TIMEOUT": "La base de datos no respondió a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio."
+  "backend.BACKEND_TIMEOUT": "La base de datos no respondió a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio.",
+  "followSystem": "Seguir el sistema",
+  "followSystemHelp": "Usa el idioma configurado en Obsidian; si no está disponible, usa inglés."
 }

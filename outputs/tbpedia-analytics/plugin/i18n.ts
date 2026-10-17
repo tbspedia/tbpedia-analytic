@@ -19,6 +19,7 @@ export const LANGUAGES = {
   'zh-CN':'简体中文', vi:'Tiếng Việt', id:'Bahasa Indonesia', th:'ไทย', bo:'བོད་ཡིག'
 } as const;
 export type Locale = keyof typeof LANGUAGES;
+export type LanguagePreference = Locale | 'system';
 export type MessageKey = keyof typeof en;
 export const catalogs: Record<Locale, Record<string,string>> = {en,ja,fr,es,de,nl,sv,ko,'zh-TW':zhTW,'zh-CN':zhCN,vi,id,th,bo};
 let locale:Locale='en';
@@ -29,7 +30,14 @@ export function resolveLocale(value:unknown):Locale {
   return (Object.keys(LANGUAGES) as Locale[]).find(key=>key.toLowerCase()===code)
     ?? (Object.keys(LANGUAGES) as Locale[]).find(key=>key===code.split('-')[0]) ?? 'en';
 }
-export function setLocale(value:unknown){locale=resolveLocale(value);return locale;}
+export function languagePreference(value:unknown):LanguagePreference {
+  return value===undefined||value===null||value==='system'?'system':resolveLocale(value);
+}
+export function setLocale(value:unknown,systemLanguage?:string){
+  const preference=languagePreference(value);
+  locale=resolveLocale(preference==='system'?systemLanguage:preference);
+  return locale;
+}
 export function getLocale(){return locale;}
 export function intlLocale(){return locale==='zh-TW'?'zh-Hant':locale==='zh-CN'?'zh-Hans':locale;}
 export function number(value:number){return new Intl.NumberFormat(intlLocale()).format(value);}

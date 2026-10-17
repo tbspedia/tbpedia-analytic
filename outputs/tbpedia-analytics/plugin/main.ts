@@ -1,6 +1,6 @@
 import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, Platform, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
 import * as z from 'zod';
-import { t as tr, labels, LANGUAGES, setLocale, getLocale, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
+import { t as tr, labels, LANGUAGES, setLocale, languagePreference, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
 import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
 import { fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
 import { collectClientMetadata } from '../shared/client-metadata';
@@ -32,7 +32,7 @@ export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;status!:HTMLElement;private persistTail:Promise<void>=Promise.resolve();
   async onload(){
     const loaded:unknown=await this.loadData();
-    this.data=dataSchema.parse(loaded??{});setLocale(this.data.language??getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
+    this.data=dataSchema.parse(loaded??{});setLocale(this.data.language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
     this.status=this.addStatusBarItem();this.setStatus(tr("本機閱讀"));
     this.addSettingTab(new AnalyticsSettings(this.app,this));
     this.addRibbonIcon('book-open-check',tr("Tbpedia 閱讀資料"),()=>{void this.openReading();});
@@ -188,9 +188,10 @@ class ReadingModal extends Modal{
 class AnalyticsSettings extends PluginSettingTab{
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
+    setLocale(this.plugin.data.language,getLanguage());
     const el=this.containerEl;el.empty();el.lang=intlLocale();el.createEl('h2',{text:'Tbpedia Analytics'});
     const p=this.plugin;
-    new Setting(el).setName(tr('language')).setDesc(tr('languageHelp')).addDropdown(d=>d.addOptions(LANGUAGES).setValue(getLocale()).onChange(v=>{p.data.language=setLocale(v);p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
+    new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.language)).onChange(v=>{p.data.language=languagePreference(v);setLocale(p.data.language,getLanguage());p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};
     el.createEl('h3',{text:tr("連線")});
     new Setting(el).setName(tr("API 網址")).addText(t=>t.setValue(p.data.api_url).onChange(v=>{if(v===p.data.api_url)return;p.data.api_url=v.trim();p.token='';p.me=null;p.persistQuiet();}));

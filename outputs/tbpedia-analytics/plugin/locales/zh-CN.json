@@ -181,5 +181,7 @@
   "field.client_updated_at": "最后更新",
   "field.profile": "公司简介",
   "field.values": "读取数据",
-  "backend.BACKEND_TIMEOUT": "数据库响应超时，尚无法确认是否保存。服务恢复后请手动重试。"
+  "backend.BACKEND_TIMEOUT": "数据库响应超时，尚无法确认是否保存。服务恢复后请手动重试。",
+  "followSystem": "跟随系统",
+  "followSystemHelp": "使用 Obsidian 的语言设置；不支持的语言会使用英文。"
 }

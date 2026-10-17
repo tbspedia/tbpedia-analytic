@@ -25,8 +25,8 @@ for path in files:
 report={
     'version':version,'source_archive':source.name,'plugin_archive':plugin.name,
     'source_files':len(files),'credentials_excluded':True,
-    'ui_languages':14,'messages_per_locale':183,
-    'typecheck':'passed','automated_tests_passed':33,'build':'passed',
+    'ui_languages':14,'messages_per_locale':185,
+    'typecheck':'passed','automated_tests_passed':34,'build':'passed',
     'native_interactive_qa_performed':False,
     'plugin_main_sha256':hashlib.sha256((project/'dist/plugin/main.js').read_bytes()).hexdigest()
 }

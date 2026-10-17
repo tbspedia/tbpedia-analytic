@@ -181,5 +181,7 @@
   "field.client_updated_at": "Cập nhật lần cuối",
   "field.profile": "Hồ sơ",
   "field.values": "Đọc dữ liệu",
-  "backend.BACKEND_TIMEOUT": "Cơ sở dữ liệu phản hồi quá thời gian chờ, chưa thể xác nhận đã lưu. Hãy thử lại thủ công sau khi dịch vụ phục hồi."
+  "backend.BACKEND_TIMEOUT": "Cơ sở dữ liệu phản hồi quá thời gian chờ, chưa thể xác nhận đã lưu. Hãy thử lại thủ công sau khi dịch vụ phục hồi.",
+  "followSystem": "Theo hệ thống",
+  "followSystemHelp": "Sử dụng ngôn ngữ được đặt trong Obsidian; dùng tiếng Anh nếu ngôn ngữ đó không được hỗ trợ."
 }

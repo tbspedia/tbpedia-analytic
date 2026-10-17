@@ -181,5 +181,7 @@
   "field.client_updated_at": "最後更新",
   "field.profile": "公司簡介",
   "field.values": "讀取數據",
-  "backend.BACKEND_TIMEOUT": "資料庫回應逾時，尚無法確認是否儲存。服務恢復後請手動重試。"
+  "backend.BACKEND_TIMEOUT": "資料庫回應逾時，尚無法確認是否儲存。服務恢復後請手動重試。",
+  "followSystem": "跟隨系統",
+  "followSystemHelp": "使用 Obsidian 的語言設定；不支援的語言會使用英文。"
 }

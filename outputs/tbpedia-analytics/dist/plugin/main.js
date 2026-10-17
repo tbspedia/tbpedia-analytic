@@ -6444,7 +6444,9 @@ var en_default2 = {
   "field.client_updated_at": "Last updated",
   "field.profile": "Profile",
   "field.values": "Reading data",
-  "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery."
+  "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery.",
+  followSystem: "Follow system",
+  followSystemHelp: "Uses Obsidian's language setting, with English as the fallback."
 };
 
 // plugin/locales/ja.json
@@ -6631,7 +6633,9 @@ var ja_default = {
   "field.client_updated_at": "\u6700\u7D42\u66F4\u65B0\u65E5",
   "field.profile": "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB",
   "field.values": "\u30C7\u30FC\u30BF\u306E\u8AAD\u66F8",
-  "backend.BACKEND_TIMEOUT": "\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306E\u5FDC\u7B54\u304C\u30BF\u30A4\u30E0\u30A2\u30A6\u30C8\u3057\u3001\u4FDD\u5B58\u72B6\u6CC1\u3092\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u5FA9\u65E7\u5F8C\u306B\u624B\u52D5\u3067\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+  "backend.BACKEND_TIMEOUT": "\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306E\u5FDC\u7B54\u304C\u30BF\u30A4\u30E0\u30A2\u30A6\u30C8\u3057\u3001\u4FDD\u5B58\u72B6\u6CC1\u3092\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u5FA9\u65E7\u5F8C\u306B\u624B\u52D5\u3067\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  followSystem: "\u30B7\u30B9\u30C6\u30E0\u306B\u5F93\u3046",
+  followSystemHelp: "Obsidian\u306E\u8A00\u8A9E\u8A2D\u5B9A\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002\u672A\u5BFE\u5FDC\u306E\u8A00\u8A9E\u306E\u5834\u5408\u306F\u82F1\u8A9E\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6818,7 +6822,9 @@ var fr_default = {
   "field.client_updated_at": "Derni\xE8re mise \xE0 jour",
   "field.profile": "Profil",
   "field.values": "Lecture de donn\xE9es",
-  "backend.BACKEND_TIMEOUT": "Le d\xE9lai de r\xE9ponse de la base de donn\xE9es est d\xE9pass\xE9 et l\u2019enregistrement reste incertain. R\xE9essayez manuellement apr\xE8s le r\xE9tablissement du service."
+  "backend.BACKEND_TIMEOUT": "Le d\xE9lai de r\xE9ponse de la base de donn\xE9es est d\xE9pass\xE9 et l\u2019enregistrement reste incertain. R\xE9essayez manuellement apr\xE8s le r\xE9tablissement du service.",
+  followSystem: "Suivre le syst\xE8me",
+  followSystemHelp: "Utilise la langue d\xE9finie dans Obsidian, avec l\u2019anglais par d\xE9faut si elle n\u2019est pas prise en charge."
 };
 
 // plugin/locales/es.json
@@ -7005,7 +7011,9 @@ var es_default = {
   "field.client_updated_at": "\xDAltima actualizaci\xF3n",
   "field.profile": "Perfil",
   "field.values": "Leyendo datos",
-  "backend.BACKEND_TIMEOUT": "La base de datos no respondi\xF3 a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio."
+  "backend.BACKEND_TIMEOUT": "La base de datos no respondi\xF3 a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio.",
+  followSystem: "Seguir el sistema",
+  followSystemHelp: "Usa el idioma configurado en Obsidian; si no est\xE1 disponible, usa ingl\xE9s."
 };
 
 // plugin/locales/de.json
@@ -7192,7 +7200,9 @@ var de_default = {
   "field.client_updated_at": "Zuletzt aktualisiert",
   "field.profile": "Profil",
   "field.values": "Daten lesen",
-  "backend.BACKEND_TIMEOUT": "Die Datenbankantwort hat das Zeitlimit \xFCberschritten. Ob gespeichert wurde, ist unklar. Versuchen Sie es nach der Wiederherstellung manuell erneut."
+  "backend.BACKEND_TIMEOUT": "Die Datenbankantwort hat das Zeitlimit \xFCberschritten. Ob gespeichert wurde, ist unklar. Versuchen Sie es nach der Wiederherstellung manuell erneut.",
+  followSystem: "Systemsprache verwenden",
+  followSystemHelp: "Verwendet die Spracheinstellung von Obsidian. Nicht unterst\xFCtzte Sprachen werden durch Englisch ersetzt."
 };
 
 // plugin/locales/nl.json
@@ -7379,7 +7389,9 @@ var nl_default = {
   "field.client_updated_at": "Laatst bijgewerkt",
   "field.profile": "Profiel",
   "field.values": "Gegevens lezen",
-  "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw."
+  "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw.",
+  followSystem: "Systeem volgen",
+  followSystemHelp: "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal."
 };
 
 // plugin/locales/sv.json
@@ -7566,7 +7578,9 @@ var sv_default = {
   "field.client_updated_at": "Senast uppdaterad",
   "field.profile": "Profil",
   "field.values": "L\xE4ser data",
-  "backend.BACKEND_TIMEOUT": "Databasens svar tog f\xF6r l\xE5ng tid och det \xE4r os\xE4kert om uppgifterna sparades. F\xF6rs\xF6k igen manuellt n\xE4r tj\xE4nsten fungerar."
+  "backend.BACKEND_TIMEOUT": "Databasens svar tog f\xF6r l\xE5ng tid och det \xE4r os\xE4kert om uppgifterna sparades. F\xF6rs\xF6k igen manuellt n\xE4r tj\xE4nsten fungerar.",
+  followSystem: "F\xF6lj systemet",
+  followSystemHelp: "Anv\xE4nder Obsidians spr\xE5kinst\xE4llning, med engelska som reservspr\xE5k."
 };
 
 // plugin/locales/ko.json
@@ -7753,7 +7767,9 @@ var ko_default = {
   "field.client_updated_at": "\uB9C8\uC9C0\uB9C9 \uC5C5\uB370\uC774\uD2B8",
   "field.profile": "\uD504\uB85C\uD544",
   "field.values": "\uB370\uC774\uD130 \uC77D\uAE30",
-  "backend.BACKEND_TIMEOUT": "\uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uC751\uB2F5 \uC2DC\uAC04\uC774 \uCD08\uACFC\uB418\uC5B4 \uC800\uC7A5 \uC5EC\uBD80\uB97C \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC11C\uBE44\uC2A4 \uBCF5\uAD6C \uD6C4 \uC218\uB3D9\uC73C\uB85C \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694."
+  "backend.BACKEND_TIMEOUT": "\uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uC751\uB2F5 \uC2DC\uAC04\uC774 \uCD08\uACFC\uB418\uC5B4 \uC800\uC7A5 \uC5EC\uBD80\uB97C \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC11C\uBE44\uC2A4 \uBCF5\uAD6C \uD6C4 \uC218\uB3D9\uC73C\uB85C \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.",
+  followSystem: "\uC2DC\uC2A4\uD15C \uC124\uC815 \uB530\uB974\uAE30",
+  followSystemHelp: "Obsidian\uC758 \uC5B8\uC5B4 \uC124\uC815\uC744 \uC0AC\uC6A9\uD558\uBA70, \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uC5B8\uC5B4\uB294 \uC601\uC5B4\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4."
 };
 
 // plugin/locales/zh-TW.json
@@ -7940,7 +7956,9 @@ var zh_TW_default = {
   "field.client_updated_at": "\u6700\u5F8C\u66F4\u65B0",
   "field.profile": "\u516C\u53F8\u7C21\u4ECB",
   "field.values": "\u8B80\u53D6\u6578\u64DA",
-  "backend.BACKEND_TIMEOUT": "\u8CC7\u6599\u5EAB\u56DE\u61C9\u903E\u6642\uFF0C\u5C1A\u7121\u6CD5\u78BA\u8A8D\u662F\u5426\u5132\u5B58\u3002\u670D\u52D9\u6062\u5FA9\u5F8C\u8ACB\u624B\u52D5\u91CD\u8A66\u3002"
+  "backend.BACKEND_TIMEOUT": "\u8CC7\u6599\u5EAB\u56DE\u61C9\u903E\u6642\uFF0C\u5C1A\u7121\u6CD5\u78BA\u8A8D\u662F\u5426\u5132\u5B58\u3002\u670D\u52D9\u6062\u5FA9\u5F8C\u8ACB\u624B\u52D5\u91CD\u8A66\u3002",
+  followSystem: "\u8DDF\u96A8\u7CFB\u7D71",
+  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8A9E\u8A00\u8A2D\u5B9A\uFF1B\u4E0D\u652F\u63F4\u7684\u8A9E\u8A00\u6703\u4F7F\u7528\u82F1\u6587\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -8127,7 +8145,9 @@ var zh_CN_default = {
   "field.client_updated_at": "\u6700\u540E\u66F4\u65B0",
   "field.profile": "\u516C\u53F8\u7B80\u4ECB",
   "field.values": "\u8BFB\u53D6\u6570\u636E",
-  "backend.BACKEND_TIMEOUT": "\u6570\u636E\u5E93\u54CD\u5E94\u8D85\u65F6\uFF0C\u5C1A\u65E0\u6CD5\u786E\u8BA4\u662F\u5426\u4FDD\u5B58\u3002\u670D\u52A1\u6062\u590D\u540E\u8BF7\u624B\u52A8\u91CD\u8BD5\u3002"
+  "backend.BACKEND_TIMEOUT": "\u6570\u636E\u5E93\u54CD\u5E94\u8D85\u65F6\uFF0C\u5C1A\u65E0\u6CD5\u786E\u8BA4\u662F\u5426\u4FDD\u5B58\u3002\u670D\u52A1\u6062\u590D\u540E\u8BF7\u624B\u52A8\u91CD\u8BD5\u3002",
+  followSystem: "\u8DDF\u968F\u7CFB\u7EDF",
+  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8BED\u8A00\u8BBE\u7F6E\uFF1B\u4E0D\u652F\u6301\u7684\u8BED\u8A00\u4F1A\u4F7F\u7528\u82F1\u6587\u3002"
 };
 
 // plugin/locales/vi.json
@@ -8314,7 +8334,9 @@ var vi_default = {
   "field.client_updated_at": "C\u1EADp nh\u1EADt l\u1EA7n cu\u1ED1i",
   "field.profile": "H\u1ED3 s\u01A1",
   "field.values": "\u0110\u1ECDc d\u1EEF li\u1EC7u",
-  "backend.BACKEND_TIMEOUT": "C\u01A1 s\u1EDF d\u1EEF li\u1EC7u ph\u1EA3n h\u1ED3i qu\xE1 th\u1EDDi gian ch\u1EDD, ch\u01B0a th\u1EC3 x\xE1c nh\u1EADn \u0111\xE3 l\u01B0u. H\xE3y th\u1EED l\u1EA1i th\u1EE7 c\xF4ng sau khi d\u1ECBch v\u1EE5 ph\u1EE5c h\u1ED3i."
+  "backend.BACKEND_TIMEOUT": "C\u01A1 s\u1EDF d\u1EEF li\u1EC7u ph\u1EA3n h\u1ED3i qu\xE1 th\u1EDDi gian ch\u1EDD, ch\u01B0a th\u1EC3 x\xE1c nh\u1EADn \u0111\xE3 l\u01B0u. H\xE3y th\u1EED l\u1EA1i th\u1EE7 c\xF4ng sau khi d\u1ECBch v\u1EE5 ph\u1EE5c h\u1ED3i.",
+  followSystem: "Theo h\u1EC7 th\u1ED1ng",
+  followSystemHelp: "S\u1EED d\u1EE5ng ng\xF4n ng\u1EEF \u0111\u01B0\u1EE3c \u0111\u1EB7t trong Obsidian; d\xF9ng ti\u1EBFng Anh n\u1EBFu ng\xF4n ng\u1EEF \u0111\xF3 kh\xF4ng \u0111\u01B0\u1EE3c h\u1ED7 tr\u1EE3."
 };
 
 // plugin/locales/id.json
@@ -8501,7 +8523,9 @@ var id_default = {
   "field.client_updated_at": "Terakhir diperbarui",
   "field.profile": "Profil",
   "field.values": "Membaca data",
-  "backend.BACKEND_TIMEOUT": "Respons basis data melewati batas waktu dan status penyimpanan belum pasti. Coba lagi secara manual setelah layanan pulih."
+  "backend.BACKEND_TIMEOUT": "Respons basis data melewati batas waktu dan status penyimpanan belum pasti. Coba lagi secara manual setelah layanan pulih.",
+  followSystem: "Ikuti sistem",
+  followSystemHelp: "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan."
 };
 
 // plugin/locales/th.json
@@ -8688,7 +8712,9 @@ var th_default = {
   "field.client_updated_at": "\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E25\u0E48\u0E32\u0E2A\u0E38\u0E14",
   "field.profile": "\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C",
   "field.values": "\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25",
-  "backend.BACKEND_TIMEOUT": "\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E44\u0E21\u0E48\u0E15\u0E2D\u0E1A\u0E01\u0E25\u0E31\u0E1A\u0E20\u0E32\u0E22\u0E43\u0E19\u0E40\u0E27\u0E25\u0E32\u0E17\u0E35\u0E48\u0E01\u0E33\u0E2B\u0E19\u0E14 \u0E08\u0E36\u0E07\u0E22\u0E31\u0E07\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E2B\u0E25\u0E31\u0E07\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E44\u0E14\u0E49"
+  "backend.BACKEND_TIMEOUT": "\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E44\u0E21\u0E48\u0E15\u0E2D\u0E1A\u0E01\u0E25\u0E31\u0E1A\u0E20\u0E32\u0E22\u0E43\u0E19\u0E40\u0E27\u0E25\u0E32\u0E17\u0E35\u0E48\u0E01\u0E33\u0E2B\u0E19\u0E14 \u0E08\u0E36\u0E07\u0E22\u0E31\u0E07\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E2B\u0E25\u0E31\u0E07\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E44\u0E14\u0E49",
+  followSystem: "\u0E15\u0E32\u0E21\u0E23\u0E30\u0E1A\u0E1A",
+  followSystemHelp: "\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E20\u0E32\u0E29\u0E32\u0E02\u0E2D\u0E07 Obsidian \u0E41\u0E25\u0E30\u0E43\u0E0A\u0E49\u0E20\u0E32\u0E29\u0E32\u0E2D\u0E31\u0E07\u0E01\u0E24\u0E29\u0E2B\u0E32\u0E01\u0E44\u0E21\u0E48\u0E23\u0E2D\u0E07\u0E23\u0E31\u0E1A\u0E20\u0E32\u0E29\u0E32\u0E17\u0E35\u0E48\u0E40\u0E25\u0E37\u0E2D\u0E01"
 };
 
 // plugin/locales/bo.json
@@ -8875,7 +8901,9 @@ var bo_default = {
   "field.client_updated_at": "\u0F58\u0F50\u0F60\u0F0B\u0F58\u0F60\u0F72\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F0D",
   "field.profile": "\u0F44\u0F7C\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0D",
   "field.values": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0D",
-  "backend.BACKEND_TIMEOUT": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F63\u0F53\u0F0B\u0F60\u0F51\u0F7A\u0F56\u0F66\u0F0B\u0F51\u0F74\u0F66\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F56\u0F62\u0F92\u0F63\u0F0B\u0F66\u0F7C\u0F44\u0F0B\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F44\u0F7A\u0F66\u0F0B\u0F42\u0F4F\u0F53\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F5E\u0F56\u0F66\u0F0B\u0F5E\u0F74\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D"
+  "backend.BACKEND_TIMEOUT": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F63\u0F53\u0F0B\u0F60\u0F51\u0F7A\u0F56\u0F66\u0F0B\u0F51\u0F74\u0F66\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F56\u0F62\u0F92\u0F63\u0F0B\u0F66\u0F7C\u0F44\u0F0B\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F44\u0F7A\u0F66\u0F0B\u0F42\u0F4F\u0F53\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F5E\u0F56\u0F66\u0F0B\u0F5E\u0F74\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
+  followSystem: "\u0F58\u0F0B\u0F63\u0F42\u0F0B\u0F63\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F60\u0F56\u0FB2\u0F44\u0F0B\u0F0D",
+  followSystemHelp: "Obsidian \u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D \u0F62\u0F92\u0FB1\u0F56\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F62\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F61\u0F72\u0F53\u0F0B\u0F53\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F53\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -8903,11 +8931,12 @@ function resolveLocale(value) {
   if (/^zh(?:-|$)/.test(code)) return /(?:tw|hk|mo|hant)/.test(code) ? "zh-TW" : "zh-CN";
   return Object.keys(LANGUAGES).find((key) => key.toLowerCase() === code) ?? Object.keys(LANGUAGES).find((key) => key === code.split("-")[0]) ?? "en";
 }
-function setLocale(value) {
-  locale = resolveLocale(value);
-  return locale;
+function languagePreference(value) {
+  return value === void 0 || value === null || value === "system" ? "system" : resolveLocale(value);
 }
-function getLocale() {
+function setLocale(value, systemLanguage) {
+  const preference = languagePreference(value);
+  locale = resolveLocale(preference === "system" ? systemLanguage : preference);
   return locale;
 }
 function intlLocale() {
@@ -9157,7 +9186,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   async onload() {
     const loaded = await this.loadData();
     this.data = dataSchema.parse(loaded ?? {});
-    setLocale(this.data.language ?? (0, import_obsidian.getLanguage)());
+    setLocale(this.data.language, (0, import_obsidian.getLanguage)());
     this.token = this.data.remember_token ? this.data.stored_token : "";
     this.status = this.addStatusBarItem();
     this.setStatus(t("\u672C\u6A5F\u95B1\u8B80"));
@@ -9563,13 +9592,15 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
   }
   plugin;
   display() {
+    setLocale(this.plugin.data.language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
     el.empty();
     el.lang = intlLocale();
     el.createEl("h2", { text: "Tbpedia Analytics" });
     const p = this.plugin;
-    new import_obsidian.Setting(el).setName(t("language")).setDesc(t("languageHelp")).addDropdown((d) => d.addOptions(LANGUAGES).setValue(getLocale()).onChange((v) => {
-      p.data.language = setLocale(v);
+    new import_obsidian.Setting(el).setName(t("language")).setDesc(`${t("languageHelp")} ${t("followSystemHelp")}`).addDropdown((d) => d.addOption("system", t("followSystem")).addOptions(LANGUAGES).setValue(languagePreference(p.data.language)).onChange((v) => {
+      p.data.language = languagePreference(v);
+      setLocale(p.data.language, (0, import_obsidian.getLanguage)());
       p.persistQuiet();
       p.setStatus(t("\u672C\u6A5F\u95B1\u8B80"));
       this.display();

@@ -181,5 +181,7 @@
   "field.client_updated_at": "Zuletzt aktualisiert",
   "field.profile": "Profil",
   "field.values": "Daten lesen",
-  "backend.BACKEND_TIMEOUT": "Die Datenbankantwort hat das Zeitlimit überschritten. Ob gespeichert wurde, ist unklar. Versuchen Sie es nach der Wiederherstellung manuell erneut."
+  "backend.BACKEND_TIMEOUT": "Die Datenbankantwort hat das Zeitlimit überschritten. Ob gespeichert wurde, ist unklar. Versuchen Sie es nach der Wiederherstellung manuell erneut.",
+  "followSystem": "Systemsprache verwenden",
+  "followSystemHelp": "Verwendet die Spracheinstellung von Obsidian. Nicht unterstützte Sprachen werden durch Englisch ersetzt."
 }

@@ -181,5 +181,7 @@
   "field.client_updated_at": "Dernière mise à jour",
   "field.profile": "Profil",
   "field.values": "Lecture de données",
-  "backend.BACKEND_TIMEOUT": "Le délai de réponse de la base de données est dépassé et l’enregistrement reste incertain. Réessayez manuellement après le rétablissement du service."
+  "backend.BACKEND_TIMEOUT": "Le délai de réponse de la base de données est dépassé et l’enregistrement reste incertain. Réessayez manuellement après le rétablissement du service.",
+  "followSystem": "Suivre le système",
+  "followSystemHelp": "Utilise la langue définie dans Obsidian, avec l’anglais par défaut si elle n’est pas prise en charge."
 }
