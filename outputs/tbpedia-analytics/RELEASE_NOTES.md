@@ -1,9 +1,13 @@
-The Tbpedia reading data popup can now be resized horizontally and vertically by dragging its bottom-right corner.
+Reader profile uploads now populate `device_type`, `Client_version`, `os` and `user_agent` in NocoDB.
 
-- Keeps the popup within the available window area and scrolls long forms internally.
-- Stacks form controls at narrower widths and keeps text areas and dropdowns within the popup.
-- Retains the existing 14 UI languages and reading-data format.
+- Detects the reader device and operating system, uses the installed plugin version, and bounds the user-agent string.
+- Sends metadata only when the reader chooses **Save and upload profile**, after accepting the updated profile notice (`profile-v2`). The notice is updated in all 14 UI languages.
+- Validates the submitted fields, preserves the authenticated reader identity, and verifies the saved metadata before confirming success.
+- Keeps the most recently uploaded device snapshot. Local saves, connection tests and reading sync do not upload device metadata.
+- Preserves existing reader settings, credentials, note properties, the resizable popup and the updated plugin name, **True Buddha Pedia Analytics**.
 
-Validation: TypeScript checks, all 24 automated tests and production builds passed. Release ZIP integrity and installed-plugin file hashes were verified. Native interactive Obsidian QA has not been performed.
+Existing readers: upgrade/reload the plugin, accept the updated profile notice, then choose **Save and upload profile** to populate the device fields and renew consent. Reading uploads require the current profile consent even if no device metadata is supplied.
 
-Install: copy `main.js`, `manifest.json` and `styles.css` into `.obsidian/plugins/tbpedia-analytics/`, preserving your existing `data.json`, then reload the plugin or restart Obsidian.
+Validation: TypeScript checks, all 33 automated tests and production builds passed. Live API/NocoDB device metadata verification, release ZIP integrity and installed-plugin file hashes were checked. Native interactive Obsidian QA has not been performed. Fluent-speaker review remains recommended for the translated notices.
+
+Install: copy `main.js`, `manifest.json` and `styles.css` into `.obsidian/plugins/tbpedia-analytics/`, preserving `data.json`, then reload the plugin or restart Obsidian.

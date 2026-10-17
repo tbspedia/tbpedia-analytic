@@ -1,8 +1,9 @@
-import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
+import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, Platform, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
 import * as z from 'zod';
 import { t as tr, labels, LANGUAGES, setLocale, getLocale, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
 import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
 import { fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
+import { collectClientMetadata } from '../shared/client-metadata';
 
 const DEFAULT_API='https://tbpedia-analytics.tbspedia.workers.dev';
 const receiptSchema=z.object({hash:z.string(),synced_at:z.string()});
@@ -73,7 +74,8 @@ export default class TbpediaAnalytics extends Plugin{
     if(this.data.profile_notice_version!==required.profile_version)throw new UiError(tr("請先閱讀並同意個人資料說明。"));
     if(this.data.local_upload_enabled&&this.data.reading_notice_version!==required.reading_version)throw new UiError(tr("請先同意閱讀資料上傳說明。"));
     const profile=profileSchema.parse(this.data.profile);await this.persist();
-    await this.api('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:this.data.profile_notice_version,cloud_sync_enabled:this.data.local_upload_enabled,reading_notice_version:this.data.reading_notice_version});
+    const client_metadata=collectClientMetadata(Platform,this.manifest.version,typeof navigator==='undefined'?undefined:navigator.userAgent);
+    await this.api('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:this.data.profile_notice_version,cloud_sync_enabled:this.data.local_upload_enabled,reading_notice_version:this.data.reading_notice_version,client_metadata});
     this.data.profile_uploaded_hash=JSON.stringify(profile);await this.persist();
     this.me=null;await this.connect();new Notice(tr("個人資料及雲端權限已更新。"));
   }

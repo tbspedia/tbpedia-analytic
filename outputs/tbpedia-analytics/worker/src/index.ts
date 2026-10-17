@@ -2,6 +2,8 @@ import * as z from 'zod';
 import { APP_NAME, canonicalSnapshot, emptyProfile, profileRequestSchema, profileSchema, READING_NOTICE, PROFILE_NOTICE, sha256, snapshotHash, syncRequestSchema } from '../../shared/schema';
 import { ApiError, requestJson } from './errors';
 import { booleanValue, NocoDB, oneRow, readReading, readingFields, type Fetcher } from './nocodb';
+import { clientMetadataSchema } from '../../shared/client-metadata';
+import {version as APP_VERSION} from '../../package.json';
 
 const authFailure=()=>new ApiError(401,'UNAUTHENTICATED','Reconnect using an active reader credential.');
 function safeProfile(fields:Record<string,unknown>){
@@ -16,7 +18,7 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
   const requestId=crypto.randomUUID();
   try{
     const path=new URL(request.url).pathname;
-    if(path==='/health'&&request.method==='GET')return json({application:APP_NAME,version:'0.1.0',configured:Boolean(env.NOCODB_API_TOKEN&&env.READERS_TABLE_ID&&env.CONTENT_TABLE_ID&&env.READING_TABLE_ID),mode:'manual-upload'});
+    if(path==='/health'&&request.method==='GET')return json({application:APP_NAME,version:APP_VERSION,configured:Boolean(env.NOCODB_API_TOKEN&&env.READERS_TABLE_ID&&env.CONTENT_TABLE_ID&&env.READING_TABLE_ID),mode:'manual-upload'});
     if(!['/v1/me','/v1/reading/sync'].includes(path))throw new ApiError(404,'NOT_FOUND','Endpoint not found.');
     if(!env.NOCODB_API_TOKEN||!env.READERS_TABLE_ID||!env.CONTENT_TABLE_ID||!env.READING_TABLE_ID)throw new ApiError(503,'NOT_CONFIGURED','Cloud capture is awaiting database configuration. Local reading remains available.');
     const db=new NocoDB(env,fetcher);
@@ -35,10 +37,15 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
       if(payload.profile_notice_version!==env.PROFILE_NOTICE_VERSION||(payload.cloud_sync_enabled&&payload.reading_notice_version!==env.READING_NOTICE_VERSION))throw new ApiError(428,'CONSENT_REQUIRED','Review and accept the current privacy notice.');
       const now=new Date().toISOString();
       const fields:Record<string,unknown>={...payload.profile,cloud_sync_enabled:payload.cloud_sync_enabled,profile_consent_version:env.PROFILE_NOTICE_VERSION,profile_consent_at:row.fields.profile_consent_version===env.PROFILE_NOTICE_VERSION&&row.fields.profile_consent_at?row.fields.profile_consent_at:now,updated_at:now,schema_version:1};
+      if(payload.client_metadata)Object.assign(fields,payload.client_metadata);
       if(payload.cloud_sync_enabled){fields.reading_consent_version=env.READING_NOTICE_VERSION;fields.reading_consent_at=row.fields.reading_consent_version===env.READING_NOTICE_VERSION&&row.fields.reading_consent_at&&booleanValue(row.fields.cloud_sync_enabled)?row.fields.reading_consent_at:now;}
       await db.update(env.READERS_TABLE_ID,row.id,fields);
       const saved=await db.get(env.READERS_TABLE_ID,row.id);
       if(JSON.stringify(safeProfile(saved.fields))!==JSON.stringify(payload.profile)||booleanValue(saved.fields.cloud_sync_enabled)!==payload.cloud_sync_enabled)throw new ApiError(502,'BACKEND_ERROR','The profile save could not be verified.');
+      if(payload.client_metadata){
+        const metadata=clientMetadataSchema.safeParse(Object.fromEntries(Object.keys(payload.client_metadata).map(key=>[key,saved.fields[key]??null])));
+        if(!metadata.success||JSON.stringify(metadata.data)!==JSON.stringify(payload.client_metadata))throw new ApiError(502,'BACKEND_ERROR','The client metadata save could not be verified.');
+      }
       return json({reader_id:readerId,profile_saved:true,cloud_sync_enabled:payload.cloud_sync_enabled,updated_at:now,request_id:requestId});
     }
     if(path==='/v1/reading/sync'&&request.method==='POST'){

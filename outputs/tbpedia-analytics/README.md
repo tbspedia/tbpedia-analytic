@@ -11,6 +11,12 @@ An offline-first Obsidian reading editor with deliberate, authenticated uploads 
 - Cloud uploads off by default. No article bodies or unrelated frontmatter are sent.
 - No analytics dashboard, event history, automatic retries or multi-device merging.
 
+## Reader device metadata
+
+After accepting the updated profile notice (`profile-v2`), **Save and upload profile** also sends `device_type`, `Client_version` (the plugin version), `os` and `user_agent` to the reader's existing NocoDB row. Each upload replaces the last device snapshot; this is not a device-history table. Metadata is not collected from the administrator's provisioning machine, written into notes, or uploaded on startup, local saves, connection tests or reading sync. No hardware identifier is collected.
+
+Existing readers must accept the new profile notice and save/upload their profile again before cloud reading uploads resume. Older plugins remain usable locally but need upgrading for the revised notice. Clients without metadata can still submit a profile after accepting the current notice; this preserves any previous device snapshot. Device details are client-reported and are not proof of device identity.
+
 ## Resizable reading popup
 
 Drag the bottom-right corner of the reading popup to adjust its width and height. The form stacks its controls at narrow widths and scrolls internally. The popup stays within the available window area.
@@ -46,7 +52,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. Seventeen automated checks and eight live Cloudflare/NocoDB checks passed, including profile demographics, native upsert retries, clearing fields and upload permission enforcement. Synthetic test rows were removed. The pilot reader still has reading uploads disabled and no existing personal reading data was uploaded during setup. The native Obsidian interface requires a vault reload and has not been driven interactively in this session.
+The Worker is deployed and configured. The initial deployment passed seventeen automated checks and eight live Cloudflare/NocoDB checks, including profile demographics, native upsert retries, clearing fields and upload permission enforcement. Synthetic test rows were removed. The pilot reader still has reading uploads disabled and no existing personal reading data was uploaded during setup. The native Obsidian interface requires a vault reload and has not been driven interactively in this session.
 
 ## Start using the sample vault
 

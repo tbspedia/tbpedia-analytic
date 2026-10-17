@@ -29,7 +29,7 @@ try{
   createdReaderId=created.records[0]?.id;assert.ok(createdReaderId);
   const me=await gateway('/v1/me');assert.equal(me.status,200,JSON.stringify(me.data));assert.equal(me.data.reader_id,readerId);assert.equal(JSON.stringify(me.data).includes('sync_token_hash'),false);pass('Authenticated profile projection');
   const profile={...emptyProfile(),nickname:'[TEST] Worker smoke',birth_year:1984,birth_month:8,sex:'PREFER_NOT_TO_SAY' as const,country_code:'MY',organisation:'Synthetic test group'};
-  const profileBody={schema_version:1,profile,profile_notice_version:'profile-v1',cloud_sync_enabled:true,reading_notice_version:'reading-v1'};
+  const profileBody={schema_version:1,profile,profile_notice_version:'profile-v2',cloud_sync_enabled:true,reading_notice_version:'reading-v1'};
   const savedProfile=await gateway('/v1/me','PATCH',profileBody);assert.equal(savedProfile.status,200,JSON.stringify(savedProfile.data));pass('Demographic profile create/update and consent');
   const values={...defaults(),reading_status:'COMPLETED' as const,reading_depth:'BASIC' as const,reading_count:2,completed_date:'2026-10-17',reading_reflection:'合成測試\n第二行 🌸',my_rating:5,my_buddhist_level:0,my_keywords:['空性','字,句','引號"'],my_reader_types:['BUDDHIST_STUDENT' as const],my_subtopics:['測試分類']};
   const snapshot={schema_version:1,content_id:'TBP-154-C00',client_updated_at:now,values};

@@ -123,6 +123,22 @@
       {
         "title": "schema_version",
         "type": "Number"
+      },
+      {
+        "title": "device_type",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "Client_version",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "os",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "user_agent",
+        "type": "LongText"
       }
     ]
   },

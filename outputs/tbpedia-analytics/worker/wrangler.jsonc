@@ -14,7 +14,7 @@
     "READERS_TABLE_ID": "m0jtd86do2fo2vv",
     "CONTENT_TABLE_ID": "m22h8q52rgo45i8",
     "READING_TABLE_ID": "mmphejly9cd41bk",
-    "PROFILE_NOTICE_VERSION": "profile-v1",
+    "PROFILE_NOTICE_VERSION": "profile-v2",
     "READING_NOTICE_VERSION": "reading-v1"
   },
   "secrets": {"required": ["NOCODB_API_TOKEN"]}

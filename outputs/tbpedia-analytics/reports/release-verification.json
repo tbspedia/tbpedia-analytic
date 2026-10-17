@@ -1,14 +1,14 @@
 {
-  "version": "0.1.2",
-  "source_archive": "tbpedia-analytics-source-v0.1.2.zip",
-  "plugin_archive": "tbpedia-analytics-plugin-v0.1.2.zip",
-  "source_files": 56,
+  "version": "0.1.3",
+  "source_archive": "tbpedia-analytics-source-v0.1.3.zip",
+  "plugin_archive": "tbpedia-analytics-plugin-v0.1.3.zip",
+  "source_files": 59,
   "credentials_excluded": true,
   "ui_languages": 14,
   "messages_per_locale": 183,
   "typecheck": "passed",
-  "automated_tests_passed": 24,
+  "automated_tests_passed": 33,
   "build": "passed",
   "native_interactive_qa_performed": false,
-  "plugin_main_sha256": "adfc3baf7cb8a319d7fd91ae381e7017107d6af520fb8911ba7c2e6bfa1d604a"
+  "plugin_main_sha256": "1c066a3295fe6e07be5205103ada3621816b8cc4bb8ab46d1746e1b7fc9fbc1b"
 }
