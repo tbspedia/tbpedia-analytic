@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Current plugin release: **0.1.11**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.11).
+Current plugin release: **0.1.12**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.12).
 
-Version 0.1.11 removes manual reader key entry and sets up new readers automatically on profile upload. Test connection remains available without a key. Existing saved reader identities and single selections remain valid.
+Version 0.1.12 moves per-article sync receipts into article frontmatter. Existing reader settings are preserved, and matching legacy receipts migrate on the first plugin reload.
 
 ## What is implemented
 
@@ -14,6 +14,16 @@ Version 0.1.11 removes manual reader key entry and sets up new readers automatic
 - Manual uploads with native NocoDB v3 upsert, authenticated reader ownership, full-value read-back verification and local upload receipts.
 - Cloud uploads off by default. No article bodies or unrelated frontmatter are sent.
 - No analytics dashboard, event history, automatic retries or multi-device merging.
+
+## Article sync receipts
+
+Each verified reading upload writes `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at` in the same article frontmatter update. Changed-article sync compares the current snapshot with that hash; current-article sync still forces an upload. Failed uploads and notes edited during upload do not receive a receipt for the newer local version.
+
+`data.json` keeps settings, reader identity, credentials and collection metadata; it no longer stores per-article receipts or needs a full receipt-map save after each upload. Full-vault checks still scan article metadata.
+
+During the first reload after upgrading, legacy receipts for the configured server and reader migrate to existing, uniquely identified notes. Existing frontmatter hashes are preserved. The legacy map is removed only after the migration writes succeed; failed writes leave the original settings available for retry. Missing articles and receipts for other destinations are not imported. Preserve `data.json` when upgrading.
+
+This layout assumes one reader and server per vault. Receipts follow article files between devices when those files sync. Unsynced devices may upload again, and this change does not resolve conflicting edits between devices.
 
 ## Updater collection metadata
 
@@ -64,7 +74,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.6 release passes 50 automated tests plus type checking and production builds. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with uploads disabled; upgrades preserve the reader’s existing permission settings. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.12 plugin passes type checking and production builds; 67 of 68 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with uploads disabled; upgrades preserve the reader’s existing permission settings. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 

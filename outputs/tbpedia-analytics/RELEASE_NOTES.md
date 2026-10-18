@@ -1,11 +1,12 @@
-Simplifies reader setup: no reader connection key needs to be entered.
+# v0.1.12 — Article frontmatter sync receipts
 
-- Removes the Reader connection key field and Remember connection key toggle, while keeping Test connection.
-- Test connection checks server availability without creating a reader or uploading profile data. Existing saved readers can still check their reader connection and load their cloud profile.
-- Creates and saves a private local credential automatically before the first explicit, consented profile upload. Retries reuse it, and repeated clicks share one upload.
-- The Worker enrolls new readers on a valid profile upload and generates reader IDs using crypto.randomUUID(). Existing saved identities, consent requirements and manual upload permissions remain in place.
-- Updates connection messages across all 14 languages, documentation and installable bundles.
+Successful reading uploads now save `tbpedia_reading_sync_hash` beside `tbpedia_reading_sync_at` in article frontmatter. The plugin no longer stores a per-article `receipts` map in `data.json` or rewrites that map after every upload.
 
-Validation: TypeScript checks and production builds passed. 61 of 62 automated tests passed; the existing local vault catalogue test reports missing parent TBP-275 for two notes. Seven live API checks verified health without credentials, consent enforcement, automatic reader creation, disabled reading uploads and stable identity on retry. Database read-back confirmed one synthetic reader; it was removed after testing. Native interactive Obsidian QA has not been performed.
+- Changed-article sync compares the current snapshot against the frontmatter hash. Sync current article continues to force an upload.
+- Existing matching receipts migrate to existing, uniquely identified articles on the first plugin reload. Existing frontmatter hashes are preserved; failed migration writes leave the original settings file available for retry.
+- Failed or mismatched uploads do not change receipts. Articles edited during an upload remain pending.
+- Reader identity, credentials, server settings and collection metadata stay in `data.json`. Receipt fields travel between devices with synced notes; multi-device conflict resolution is unchanged.
 
-Upgrade: preserve data.json, replace main.js, manifest.json and styles.css, then reload the plugin or restart Obsidian. The matching Worker update is required for automatic enrollment. A legacy reader whose credential was not saved needs their original credential restored before cloud uploads can resume. Reader IDs use random UUIDs; database uniqueness constraints are not added in this release.
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian to migrate receipts. Missing articles and receipts for other destinations are not imported. No Worker deployment is needed for this release.
+
+Validation: TypeScript checks and production builds passed. 67 of 68 automated tests passed, including receipt migration, failed-write retry, changed-article detection and upload receipt checks. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. Native interactive Obsidian QA has not been performed.

@@ -47,8 +47,12 @@ export function readingUpdatedAt(fm: Frontmatter): string {
   const value=fm.tbpedia_reading_updated_at;
   return syncRequestSchema.shape.client_updated_at.parse(value instanceof Date?value.toISOString():value);
 }
-export function markReadingSynced(fm: Frontmatter, expectedFingerprint:string, expectedUpdatedAt:string, syncedAt:string): boolean {
+export function markReadingSynced(fm: Frontmatter, expectedFingerprint:string, expectedUpdatedAt:string, syncedAt:string, hash:string): boolean {
   if(trackedFingerprint(fm)!==expectedFingerprint||readingUpdatedAt(fm)!==expectedUpdatedAt)return false;
-  fm.tbpedia_reading_sync_at=syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  const timestamp=syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  // Validate both receipt fields before changing either property.
+  if(!/^[a-f0-9]{64}$/.test(hash))throw new Error('Invalid sync receipt hash');
+  fm.tbpedia_reading_sync_at=timestamp;
+  fm.tbpedia_reading_sync_hash=hash;
   return true;
 }

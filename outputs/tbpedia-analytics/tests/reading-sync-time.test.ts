@@ -7,14 +7,14 @@ function note(){return {...toFrontmatter(defaults()),tbpedia_content_id:'TBP-154
 test('successful sync records server time separately and keeps local save time and reading hash',async()=>{
  const fm:Record<string,unknown>=note();const fingerprint=trackedFingerprint(fm);const before=await snapshotHash('TBP-154-C00',defaults());
  assert.equal(readingUpdatedAt(fm),savedAt);
- assert.equal(markReadingSynced(fm,fingerprint,savedAt,syncedAt),true);
- assert.equal(fm.tbpedia_reading_updated_at,savedAt);assert.equal(fm.tbpedia_reading_sync_at,syncedAt);
+ assert.equal(markReadingSynced(fm,fingerprint,savedAt,syncedAt,'a'.repeat(64)),true);
+ assert.equal(fm.tbpedia_reading_sync_hash,'a'.repeat(64));assert.equal(fm.tbpedia_reading_updated_at,savedAt);assert.equal(fm.tbpedia_reading_sync_at,syncedAt);
  assert.equal(trackedFingerprint(fm),fingerprint);assert.equal(await snapshotHash('TBP-154-C00',fromFrontmatter(fm)),before);
 });
 test('a local edit or re-save during upload is never marked as synchronized',()=>{
  for(const change of [toFrontmatter({...defaults(),reading_reflection:'New reflection'}),{tbpedia_reading_updated_at:'2026-10-18T01:30:00.000Z'}]){
  const fm:Record<string,unknown>=note();const fingerprint=trackedFingerprint(fm);Object.assign(fm,change);
- assert.equal(markReadingSynced(fm,fingerprint,savedAt,syncedAt),false);assert.equal(Object.hasOwn(fm,'tbpedia_reading_sync_at'),false);
+ assert.equal(markReadingSynced(fm,fingerprint,savedAt,syncedAt,'a'.repeat(64)),false);assert.equal(Object.hasOwn(fm,'tbpedia_reading_sync_at'),false);assert.equal(Object.hasOwn(fm,'tbpedia_reading_sync_hash'),false);
  }
 });
 test('missing and invalid save timestamps cannot be sent; parsed YAML dates are supported',()=>{

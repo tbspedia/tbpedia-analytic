@@ -14,7 +14,7 @@ await mkdir(target,{recursive:true});await mkdir(backup,{recursive:true});
 const exists=async(path:string)=>{try{await access(path);return true;}catch{return false;}};
 for(const name of ['main.js','manifest.json','styles.css']){const dest=join(target,name);if(await exists(dest))await copyFile(dest,join(backup,name));await copyFile(resolve('dist/plugin',name),dest);}
 const dataPath=join(target,'data.json');
-if(!await exists(dataPath))await writeFile(dataPath,JSON.stringify({api_url:DEFAULT_API,reader_id:null,profile:emptyProfile(),local_upload_enabled:false,remember_token:false,stored_token:'',folders:['01 文集部','02 開示部'],receipts:{}},null,2));
+if(!await exists(dataPath))await writeFile(dataPath,JSON.stringify({api_url:DEFAULT_API,reader_id:null,profile:emptyProfile(),local_upload_enabled:false,remember_token:false,stored_token:'',folders:['01 文集部','02 開示部']},null,2));
 else{
   const original=await readFile(dataPath,'utf8');
   const migrated=migrateApiUrl(JSON.parse(original));

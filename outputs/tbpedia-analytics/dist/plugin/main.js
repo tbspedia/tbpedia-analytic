@@ -1315,7 +1315,6 @@ function datetime(args) {
   return new RegExp(`^${dateSource}T(?:${timeRegex})$`);
 }
 var anyString = /^[\s\S]{0,}$/;
-var integer = /^-?\d+$/;
 var number = /^-?\d+(?:\.\d+)?$/;
 var boolean = /^(?:true|false)$/i;
 var lowercase = /^[^A-Z]*$/;
@@ -2796,161 +2795,6 @@ function handleIntersectionResults(result, left, right) {
   result.value = merged.data;
   return result;
 }
-var $ZodRecord = /* @__PURE__ */ $constructor("$ZodRecord", (inst, def) => {
-  $ZodType.init(inst, def);
-  const memo2 = globalConfig.memoizer;
-  memo2?.attach(inst);
-  inst._zod.parse = (payload, ctx) => {
-    const input = payload.value;
-    if (!isPlainObject(input)) {
-      payload.issues.push({
-        expected: "record",
-        code: "invalid_type",
-        input,
-        inst
-      });
-      return payload;
-    }
-    const proms = [];
-    const values = def.keyType._zod.values;
-    if (values && !def.partial) {
-      payload.value = memo2 ? memo2.alloc(inst, payload, {}, ctx) : {};
-      const recordKeys = /* @__PURE__ */ new Set();
-      for (const key of values) {
-        if (typeof key === "string" || typeof key === "number" || typeof key === "symbol") {
-          recordKeys.add(typeof key === "number" ? key.toString() : key);
-          if (key === "__proto__")
-            continue;
-          const keyResult = def.keyType._zod.run({ value: key, issues: [] }, ctx);
-          if (keyResult instanceof Promise) {
-            throw new Error("Async schemas not supported in object keys currently");
-          }
-          if (keyResult.issues.length) {
-            payload.issues.push({
-              code: "invalid_key",
-              origin: "record",
-              issues: keyResult.issues.map((iss) => finalizeIssue(iss, ctx, config())),
-              input: key,
-              path: [key],
-              inst
-            });
-            continue;
-          }
-          const outKey = keyResult.value;
-          if (outKey === "__proto__")
-            continue;
-          const result = def.valueType._zod.run({ value: input[key], issues: [] }, ctx);
-          if (result instanceof Promise) {
-            proms.push(result.then((result2) => {
-              if (result2.issues.length) {
-                payload.issues.push(...prefixIssues(key, result2.issues));
-              }
-              payload.value[outKey] = result2.value;
-            }));
-          } else {
-            if (result.issues.length) {
-              payload.issues.push(...prefixIssues(key, result.issues));
-            }
-            payload.value[outKey] = result.value;
-          }
-        }
-      }
-      let unrecognized;
-      for (const key in input) {
-        if (!recordKeys.has(key)) {
-          if (def.mode === "loose") {
-            if (key === "__proto__")
-              continue;
-            payload.value[key] = input[key];
-          } else {
-            unrecognized = unrecognized ?? [];
-            unrecognized.push(key);
-          }
-        }
-      }
-      if (unrecognized && unrecognized.length > 0) {
-        payload.issues.push({
-          code: "unrecognized_keys",
-          input,
-          inst,
-          keys: unrecognized,
-          continue: true
-        });
-      }
-    } else {
-      payload.value = memo2 ? memo2.alloc(inst, payload, {}, ctx) : {};
-      let unrecognized;
-      for (const key of Reflect.ownKeys(input)) {
-        if (key === "__proto__")
-          continue;
-        if (!Object.prototype.propertyIsEnumerable.call(input, key))
-          continue;
-        let keyResult = def.keyType._zod.run({ value: key, issues: [] }, ctx);
-        if (keyResult instanceof Promise) {
-          throw new Error("Async schemas not supported in object keys currently");
-        }
-        const checkNumericKey = typeof key === "string" && number.test(key) && keyResult.issues.length;
-        if (checkNumericKey) {
-          const retryResult = def.keyType._zod.run({ value: Number(key), issues: [] }, ctx);
-          if (retryResult instanceof Promise) {
-            throw new Error("Async schemas not supported in object keys currently");
-          }
-          if (retryResult.issues.length === 0) {
-            keyResult = retryResult;
-          }
-        }
-        if (keyResult.issues.length) {
-          if (def.mode === "loose") {
-            payload.value[key] = input[key];
-          } else if (values) {
-            unrecognized = unrecognized ?? [];
-            unrecognized.push(key);
-          } else {
-            payload.issues.push({
-              code: "invalid_key",
-              origin: "record",
-              issues: keyResult.issues.map((iss) => finalizeIssue(iss, ctx, config())),
-              input: key,
-              path: [key],
-              inst
-            });
-          }
-          continue;
-        }
-        const outKey = keyResult.value;
-        if (outKey === "__proto__")
-          continue;
-        const result = def.valueType._zod.run({ value: input[key], issues: [] }, ctx);
-        if (result instanceof Promise) {
-          proms.push(result.then((result2) => {
-            if (result2.issues.length) {
-              payload.issues.push(...prefixIssues(key, result2.issues));
-            }
-            payload.value[outKey] = result2.value;
-          }));
-        } else {
-          if (result.issues.length) {
-            payload.issues.push(...prefixIssues(key, result.issues));
-          }
-          payload.value[outKey] = result.value;
-        }
-      }
-      if (unrecognized && unrecognized.length > 0) {
-        payload.issues.push({
-          code: "unrecognized_keys",
-          input,
-          inst,
-          keys: unrecognized,
-          continue: true
-        });
-      }
-    }
-    if (proms.length) {
-      return Promise.all(proms).then(() => payload);
-    }
-    return payload;
-  };
-});
 var $ZodEnum = /* @__PURE__ */ $constructor("$ZodEnum", (inst, def) => {
   $ZodType.init(inst, def);
   const values = getEnumValues(def.entries);
@@ -5074,112 +4918,6 @@ var intersectionProcessor = (schema, ctx, json, params) => {
   json.allOf = allOf;
   ctx.intersections.push(allOf);
 };
-function stringifyKeyNames(bySchema, json, visited) {
-  if (json.$ref) {
-    if (visited.has(json))
-      return json;
-    visited.add(json);
-    const def = bySchema.get(json)?.def;
-    if (!def)
-      return json;
-    const inlined = stringifyKeyNames(bySchema, def, visited);
-    return inlined === def ? json : inlined;
-  }
-  for (const keyword of ["anyOf", "oneOf"]) {
-    const branches = json[keyword];
-    if (!Array.isArray(branches))
-      continue;
-    const mapped2 = branches.map((branch) => stringifyKeyNames(bySchema, branch, visited));
-    if (mapped2.some((branch, i) => branch !== branches[i]))
-      json = { ...json, [keyword]: mapped2 };
-  }
-  const types = Array.isArray(json.type) ? json.type : [json.type];
-  const numericType = !types.includes("string") && types.some((t2) => t2 === "number" || t2 === "integer");
-  const values = json.enum ?? (json.const !== void 0 ? [json.const] : void 0);
-  if (!numericType && !values?.some((v) => typeof v === "number"))
-    return json;
-  const { minimum, maximum, exclusiveMinimum, exclusiveMaximum, multipleOf, format, id, ...rest } = json;
-  if (rest.enum)
-    rest.enum = rest.enum.map((v) => typeof v === "number" ? String(v) : v);
-  else if (typeof rest.const === "number")
-    rest.const = String(rest.const);
-  if (!numericType)
-    return rest;
-  rest.type = "string";
-  if (!values)
-    rest.pattern = (types.includes("number") ? number : integer).source;
-  return rest;
-}
-var pendingRecords = /* @__PURE__ */ new WeakMap();
-function rewriteKeyNames(ctx) {
-  const bySchema = /* @__PURE__ */ new Map();
-  for (const entry of ctx.seen.values()) {
-    if (entry.def && !bySchema.has(entry.schema))
-      bySchema.set(entry.schema, entry);
-  }
-  const rewrites = /* @__PURE__ */ new Map();
-  for (const record3 of pendingRecords.get(ctx) ?? []) {
-    const seen = ctx.seen.get(record3);
-    const names = (seen?.def ?? seen?.schema)?.propertyNames;
-    if (!names || names === true || rewrites.has(names))
-      continue;
-    const rewritten = stringifyKeyNames(bySchema, names, /* @__PURE__ */ new Set());
-    if (rewritten !== names)
-      rewrites.set(names, rewritten);
-  }
-  if (!rewrites.size)
-    return;
-  for (const entry of ctx.seen.values()) {
-    for (const carrier of [entry.schema, entry.def]) {
-      const rewritten = carrier && rewrites.get(carrier.propertyNames);
-      if (rewritten)
-        carrier.propertyNames = rewritten;
-    }
-  }
-}
-var recordProcessor = (schema, ctx, _json, params) => {
-  const json = _json;
-  const def = schema._zod.def;
-  json.type = "object";
-  const keyType = def.keyType;
-  const patterns = aggregateChecks(keyType).patterns;
-  if (def.mode === "loose" && patterns && patterns.size > 0) {
-    const valueSchema = processSchema(def.valueType, ctx, {
-      ...params,
-      path: [...params.path, "patternProperties", "*"]
-    });
-    json.patternProperties = {};
-    for (const pattern of patterns) {
-      assignProp(json.patternProperties, exactPattern(pattern).source, valueSchema);
-    }
-  } else {
-    if (ctx.target === "draft-07" || ctx.target === "draft-2020-12") {
-      json.propertyNames = processSchema(def.keyType, ctx, {
-        ...params,
-        path: [...params.path, "propertyNames"]
-      });
-      let pending = pendingRecords.get(ctx);
-      if (!pending) {
-        pending = [];
-        pendingRecords.set(ctx, pending);
-        ctx.deferred.push(() => rewriteKeyNames(ctx));
-      }
-      pending.push(schema);
-    }
-    json.additionalProperties = processSchema(def.valueType, ctx, {
-      ...params,
-      path: [...params.path, "additionalProperties"]
-    });
-  }
-  const keyValues = keyType._zod.values;
-  const omittableOnInput = ctx.io === "input" && inputOptin(def.valueType) !== void 0;
-  if (keyValues && !def.partial && !omittableOnInput) {
-    const validKeyValues = [...keyValues].filter((v) => typeof v === "string" || typeof v === "number");
-    if (validKeyValues.length > 0) {
-      json.required = validKeyValues.map(String);
-    }
-  }
-};
 var nullableProcessor = (schema, ctx, json, params) => {
   const def = schema._zod.def;
   const inner = processSchema(def.innerType, ctx, params);
@@ -5969,30 +5707,6 @@ function intersection(left, right) {
     type: "intersection",
     left,
     right
-  });
-}
-var ZodRecord = /* @__PURE__ */ $constructor("ZodRecord", (inst, def) => {
-  _ensureDefaultMemoizer();
-  $ZodRecord.init(inst, def);
-  ZodType.init(inst, def);
-  inst._zod.processJSONSchema = (ctx, json, params) => recordProcessor(inst, ctx, json, params);
-  inst.keyType = def.keyType;
-  inst.valueType = def.valueType;
-});
-function record(keyType, valueType, params) {
-  if (!valueType || !valueType._zod) {
-    return new ZodRecord({
-      type: "record",
-      keyType: string2(),
-      valueType: keyType,
-      ...util_exports.normalizeParams(valueType)
-    });
-  }
-  return new ZodRecord({
-    type: "record",
-    keyType,
-    valueType,
-    ...util_exports.normalizeParams(params)
   });
 }
 var ZodEnum = /* @__PURE__ */ $constructor("ZodEnum", (inst, def) => {
@@ -9245,9 +8959,12 @@ function readingUpdatedAt(fm) {
   const value = fm.tbpedia_reading_updated_at;
   return syncRequestSchema.shape.client_updated_at.parse(value instanceof Date ? value.toISOString() : value);
 }
-function markReadingSynced(fm, expectedFingerprint, expectedUpdatedAt, syncedAt) {
+function markReadingSynced(fm, expectedFingerprint, expectedUpdatedAt, syncedAt, hash) {
   if (trackedFingerprint(fm) !== expectedFingerprint || readingUpdatedAt(fm) !== expectedUpdatedAt) return false;
-  fm.tbpedia_reading_sync_at = syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  const timestamp = syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  if (!/^[a-f0-9]{64}$/.test(hash)) throw new Error("Invalid sync receipt hash");
+  fm.tbpedia_reading_sync_at = timestamp;
+  fm.tbpedia_reading_sync_hash = hash;
   return true;
 }
 
@@ -9312,8 +9029,7 @@ function migrateApiUrl(value) {
 }
 
 // plugin/main.ts
-var receiptSchema = object({ hash: string2(), synced_at: string2() });
-var dataSchema = object({ ...updaterMetadataSchema.shape, interface_language: string2().default("system"), api_url: string2().default(DEFAULT_API), reader_id: string2().nullable().default(null), profile: profileSchema.safeExtend({ nickname: string2().max(100) }).default(emptyProfile), profile_notice_version: string2().nullable().default(null), reading_notice_version: string2().nullable().default(null), local_upload_enabled: boolean2().default(false), remember_token: boolean2().default(false), stored_token: string2().default(""), folders: array(string2()).default(["01 \u6587\u96C6\u90E8", "02 \u958B\u793A\u90E8"]), receipts: record(string2(), receiptSchema).default({}), profile_uploaded_hash: string2().nullable().default(null) });
+var dataSchema = object({ ...updaterMetadataSchema.shape, interface_language: string2().default("system"), api_url: string2().default(DEFAULT_API), reader_id: string2().nullable().default(null), profile: profileSchema.safeExtend({ nickname: string2().max(100) }).default(emptyProfile), profile_notice_version: string2().nullable().default(null), reading_notice_version: string2().nullable().default(null), local_upload_enabled: boolean2().default(false), remember_token: boolean2().default(false), stored_token: string2().default(""), folders: array(string2()).default(["01 \u6587\u96C6\u90E8", "02 \u958B\u793A\u90E8"]), profile_uploaded_hash: string2().nullable().default(null) });
 var meSchema = object({ reader_id: uuid2(), profile: profileSchema, cloud_sync_enabled: boolean2(), profile_consent_version: string2().nullable(), reading_consent_version: string2().nullable(), required_notices: object({ profile_version: string2(), reading_version: string2(), profile_text: string2(), reading_text: string2() }) });
 var savedSchema = object({ content_id: contentIdSchema, status: literal("saved"), snapshot_hash: string2().regex(/^[a-f0-9]{64}$/), synced_at: iso_exports.datetime() });
 var GatewayError = class extends Error {
@@ -9328,7 +9044,7 @@ var GatewayError = class extends Error {
 function noticeSupported(version2, current) {
   return version2 === void 0 || version2 === current;
 }
-function record2(value) {
+function record(value) {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 function noteFrontmatter(text) {
@@ -9336,7 +9052,7 @@ function noteFrontmatter(text) {
   if (!info.exists) return {};
   const parsed = (0, import_obsidian.parseYaml)(info.frontmatter);
   if (parsed === null || parsed === void 0) return {};
-  if (!record2(parsed)) throw new UiError(t("\u6587\u7AE0\u5C6C\u6027\u5FC5\u9808\u662F YAML \u7269\u4EF6\u3002"));
+  if (!record(parsed)) throw new UiError(t("\u6587\u7AE0\u5C6C\u6027\u5FC5\u9808\u662F YAML \u7269\u4EF6\u3002"));
   return parsed;
 }
 function message(error2) {
@@ -9359,6 +9075,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     this.data = dataSchema.parse(migration.data);
     setLocale(this.data.interface_language, (0, import_obsidian.getLanguage)());
     this.token = this.data.remember_token ? this.data.stored_token : "";
+    await this.migrateReceipts(migration.data);
     this.status = this.addStatusBarItem();
     this.setStatus(t("\u672C\u6A5F\u95B1\u8B80"));
     this.addSettingTab(new AnalyticsSettings(this.app, this));
@@ -9441,7 +9158,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       throw new UiError(t("\u4F3A\u670D\u5668\u672A\u56DE\u50B3\u6709\u6548\u8CC7\u6599\u3002"));
     }
     if (response.status < 200 || response.status >= 300) {
-      const error2 = record2(value) && record2(value.error) ? value.error : {};
+      const error2 = record(value) && record(value.error) ? value.error : {};
       throw new GatewayError(response.status, typeof error2.code === "string" ? error2.code : "API_ERROR");
     }
     return value;
@@ -9505,7 +9222,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   async saveReading(file, values, expected) {
     const normalized = readingSchema.parse(values);
     await this.app.fileManager.processFrontMatter(file, (fm) => {
-      const current = record2(fm) ? fm : {};
+      const current = record(fm) ? fm : {};
       if (trackedFingerprint(current) !== expected) throw new UiError(t("\u6587\u7AE0\u95B1\u8B80\u8CC7\u6599\u5DF2\u88AB\u5176\u4ED6\u64CD\u4F5C\u4FEE\u6539\uFF0C\u8ACB\u91CD\u65B0\u958B\u555F\u8868\u55AE\u3002"));
       Object.assign(fm, toFrontmatter(normalized));
       fm.tbpedia_reading_updated_at = (/* @__PURE__ */ new Date()).toISOString();
@@ -9547,8 +9264,28 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     }
     return result;
   }
-  receiptKey(id) {
-    return `${this.data.api_url.replace(/\/$/, "")}|${this.data.reader_id ?? "local"}|${id}`;
+  async migrateReceipts(loaded) {
+    if (!record(loaded) || !Object.hasOwn(loaded, "receipts")) return;
+    const receipts = record(loaded.receipts) ? loaded.receipts : {};
+    const prefix = `${this.data.api_url.replace(/\/$/, "")}|${this.data.reader_id ?? "local"}|`;
+    if (Object.keys(receipts).length) {
+      const notes = await this.scan();
+      const counts = /* @__PURE__ */ new Map();
+      for (const note of notes) if (note.id) counts.set(note.id, (counts.get(note.id) ?? 0) + 1);
+      for (const note of notes) {
+        if (!note.id || !note.fm || counts.get(note.id) !== 1 || note.fm.tbpedia_reading_sync_hash !== void 0) continue;
+        const receipt = receipts[prefix + note.id];
+        if (!record(receipt) || typeof receipt.hash !== "string" || !/^[a-f0-9]{64}$/.test(receipt.hash) || !iso_exports.datetime().safeParse(receipt.synced_at).success) continue;
+        const fingerprint = trackedFingerprint(note.fm);
+        const updatedAt = readingUpdatedAt(note.fm);
+        await this.app.fileManager.processFrontMatter(note.file, (fm) => {
+          if (fm.tbpedia_reading_sync_hash === void 0 && fm.tbpedia_content_id === note.id) {
+            if (!markReadingSynced(fm, fingerprint, updatedAt, receipt.synced_at, receipt.hash)) throw new Error("Article changed during receipt migration");
+          }
+        });
+      }
+    }
+    await this.persist();
   }
   async pendingNotes() {
     const updaterMetadata = await this.metadataForSync();
@@ -9561,7 +9298,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
         if (!Object.hasOwn(note.fm, "tbpedia_reading_updated_at")) continue;
         readingUpdatedAt(note.fm);
         const hash = await snapshotHash(note.id, fromFrontmatter(note.fm), updaterMetadata);
-        if (this.data.receipts[this.receiptKey(note.id)]?.hash === hash) unchanged++;
+        if (note.fm.tbpedia_reading_sync_hash === hash) unchanged++;
         else pending.push(note.file);
       } catch {
         invalid++;
@@ -9606,9 +9343,10 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           issues.push(t("updaterChanged"));
           break;
         }
-        let id, values, hash, clientUpdatedAt, fingerprint;
+        let id, values, hash, clientUpdatedAt, fingerprint, syncedHash;
         try {
           const fm = await this.readNote(file);
+          syncedHash = fm.tbpedia_reading_sync_hash;
           if (!Object.hasOwn(fm, "tbpedia_reading_updated_at")) {
             unchanged++;
             attempted++;
@@ -9626,7 +9364,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           issues.push(`${file.basename}: ${message(e)}`);
           continue;
         }
-        if (!force && this.data.receipts[this.receiptKey(id)]?.hash === hash) {
+        if (!force && syncedHash === hash) {
           unchanged++;
           attempted++;
           continue;
@@ -9638,18 +9376,12 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           let marked = false;
           try {
             await this.app.fileManager.processFrontMatter(file, (fm) => {
-              marked = markReadingSynced(fm, fingerprint, clientUpdatedAt, result.synced_at);
+              marked = markReadingSynced(fm, fingerprint, clientUpdatedAt, result.synced_at, hash);
             });
           } catch {
             throw new UiError(t("\u96F2\u7AEF\u5DF2\u5132\u5B58\uFF0C\u4F46\u672C\u6A5F\u540C\u6B65\u8A18\u9304\u7121\u6CD5\u5132\u5B58\uFF1B\u4E0B\u6B21\u53EF\u4EE5\u91CD\u65B0\u540C\u6B65\u3002"));
           }
           if (!marked) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
-          this.data.receipts[this.receiptKey(id)] = { hash, synced_at: result.synced_at };
-          try {
-            await this.persist();
-          } catch {
-            throw new UiError(t("\u96F2\u7AEF\u5DF2\u5132\u5B58\uFF0C\u4F46\u672C\u6A5F\u540C\u6B65\u8A18\u9304\u7121\u6CD5\u5132\u5B58\uFF1B\u4E0B\u6B21\u53EF\u4EE5\u91CD\u65B0\u540C\u6B65\u3002"));
-          }
           saved++;
           attempted++;
           if (await snapshotHash(id, fromFrontmatter(await this.readNote(file)), await this.metadataForSync()) !== hash) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);

@@ -9,8 +9,7 @@ import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
 import {migrateInterfaceLanguage} from './settings-migrations';
 
 import {DEFAULT_API,migrateApiUrl} from '../shared/api';
-const receiptSchema=z.object({hash:z.string(),synced_at:z.string()});
-const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(null),reading_notice_version:z.string().nullable().default(null),local_upload_enabled:z.boolean().default(false),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),receipts:z.record(z.string(),receiptSchema).default({}),profile_uploaded_hash:z.string().nullable().default(null)});
+const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(null),reading_notice_version:z.string().nullable().default(null),local_upload_enabled:z.boolean().default(false),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),profile_uploaded_hash:z.string().nullable().default(null)});
 type PluginData=z.infer<typeof dataSchema>;
 const meSchema=z.object({reader_id:z.uuid(),profile:profileSchema,cloud_sync_enabled:z.boolean(),profile_consent_version:z.string().nullable(),reading_consent_version:z.string().nullable(),required_notices:z.object({profile_version:z.string(),reading_version:z.string(),profile_text:z.string(),reading_text:z.string()})});
 type Me=z.infer<typeof meSchema>;
@@ -40,6 +39,7 @@ export default class TbpediaAnalytics extends Plugin{
     const apiMigration=migrateApiUrl(languageMigration.data);
     const migration={data:apiMigration.data,changed:languageMigration.changed||apiMigration.changed};
     this.data=dataSchema.parse(migration.data);setLocale(this.data.interface_language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
+    await this.migrateReceipts(migration.data);
     this.status=this.addStatusBarItem();this.setStatus(tr("本機閱讀"));
     this.addSettingTab(new AnalyticsSettings(this.app,this));
     this.addRibbonIcon('book-open-check',tr("Tbpedia 閱讀資料"),()=>{void this.openReading();});
@@ -145,11 +145,33 @@ export default class TbpediaAnalytics extends Plugin{
     }
     return result;
   }
-  receiptKey(id:string){return `${this.data.api_url.replace(/\/$/,'')}|${this.data.reader_id??'local'}|${id}`;}
+  async migrateReceipts(loaded:unknown){
+    if(!record(loaded)||!Object.hasOwn(loaded,'receipts'))return;
+    const receipts=record(loaded.receipts)?loaded.receipts:{};
+    const prefix=`${this.data.api_url.replace(/\/$/,'')}|${this.data.reader_id??'local'}|`;
+    if(Object.keys(receipts).length){
+      const notes=await this.scan();const counts=new Map<string,number>();
+      for(const note of notes)if(note.id)counts.set(note.id,(counts.get(note.id)??0)+1);
+      for(const note of notes){
+        if(!note.id||!note.fm||counts.get(note.id)!==1||note.fm.tbpedia_reading_sync_hash!==undefined)continue;
+        const receipt=receipts[prefix+note.id];
+        if(!record(receipt)||typeof receipt.hash!=='string'||!/^[a-f0-9]{64}$/.test(receipt.hash)||!z.iso.datetime().safeParse(receipt.synced_at).success)continue;
+        // Copy only if the article has not changed since the scan. A retry is safe.
+        const fingerprint=trackedFingerprint(note.fm);const updatedAt=readingUpdatedAt(note.fm);
+        await this.app.fileManager.processFrontMatter(note.file,fm=>{
+          if(fm.tbpedia_reading_sync_hash===undefined&&fm.tbpedia_content_id===note.id){
+            if(!markReadingSynced(fm,fingerprint,updatedAt,receipt.synced_at as string,receipt.hash as string))throw new Error('Article changed during receipt migration');
+          }
+        });
+      }
+    }
+    // Drop legacy receipts only after every article write has succeeded.
+    await this.persist();
+  }
   async pendingNotes(){
     const updaterMetadata=await this.metadataForSync();
     const notes=(await this.scan()).filter(n=>this.inScope(n.file.path));const pending:TFile[]=[];let unchanged=0,invalid=0;
-    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);if(!Object.hasOwn(note.fm,'tbpedia_reading_updated_at'))continue;readingUpdatedAt(note.fm);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
+    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);if(!Object.hasOwn(note.fm,'tbpedia_reading_updated_at'))continue;readingUpdatedAt(note.fm);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(note.fm.tbpedia_reading_sync_hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
     return {pending,unchanged,invalid};
   }
   async previewSync(){
@@ -168,20 +190,18 @@ export default class TbpediaAnalytics extends Plugin{
       for(const file of files){
         if(!this.data.local_upload_enabled||this.data.api_url!==uploadTarget||this.data.reader_id!==uploadReader){issues.push(tr("上傳權限或連線已變更；已停止後續上傳。"));break;}
         if(JSON.stringify(await this.metadataForSync())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
-        let id:string,values:ReadingValues,hash:string,clientUpdatedAt:string,fingerprint:string;
-        try{const fm=await this.readNote(file);if(!Object.hasOwn(fm,'tbpedia_reading_updated_at')){unchanged++;attempted++;continue;}clientUpdatedAt=readingUpdatedAt(fm);fingerprint=trackedFingerprint(fm);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
+        let id:string,values:ReadingValues,hash:string,clientUpdatedAt:string,fingerprint:string,syncedHash:unknown;
+        try{const fm=await this.readNote(file);syncedHash=fm.tbpedia_reading_sync_hash;if(!Object.hasOwn(fm,'tbpedia_reading_updated_at')){unchanged++;attempted++;continue;}clientUpdatedAt=readingUpdatedAt(fm);fingerprint=trackedFingerprint(fm);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
         catch(e){invalid++;attempted++;issues.push(`${file.basename}: ${message(e)}`);continue;}
-        if(!force&&this.data.receipts[this.receiptKey(id)]?.hash===hash){unchanged++;attempted++;continue;}
+        if(!force&&syncedHash===hash){unchanged++;attempted++;continue;}
         this.setStatus(tr('progress',{current:saved+1,total:files.length}));
         try{
           const result=savedSchema.parse(await this.api('/v1/reading/sync','POST',{schema_version:1,content_id:id,client_updated_at:clientUpdatedAt,values,updater_metadata:updaterMetadata}));
           if(result.content_id!==id||result.snapshot_hash!==hash)throw new UiError(tr("伺服器確認與送出的版本不同；尚未標記完成。"));
           let marked=false;
-          try{await this.app.fileManager.processFrontMatter(file,fm=>{marked=markReadingSynced(fm,fingerprint,clientUpdatedAt,result.synced_at);});}
+          try{await this.app.fileManager.processFrontMatter(file,fm=>{marked=markReadingSynced(fm,fingerprint,clientUpdatedAt,result.synced_at,hash);});}
           catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
           if(!marked)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
-          this.data.receipts[this.receiptKey(id)]={hash,synced_at:result.synced_at};
-          try{await this.persist();}catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
           saved++;attempted++;
           if(await snapshotHash(id,fromFrontmatter(await this.readNote(file)),await this.metadataForSync())!==hash)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
         }catch(e){issues.push(`${file.basename}: ${message(e)}`);break;}

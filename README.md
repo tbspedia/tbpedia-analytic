@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.11](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.11)** — removes manual reader key entry, keeps Test connection, and sets up new readers automatically on profile upload.
+**Latest release: [v0.1.12](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.12)** — stores per-article sync hashes in frontmatter and removes the growing receipts map from plugin settings.
 
 ## Install or upgrade
 
@@ -12,6 +12,12 @@ An Obsidian plugin for local reading progress and deliberate, authenticated uplo
 4. Choose **Test connection** to check server availability. Complete your profile, accept the notices and choose **Save and upload profile** to set up your reader automatically. Explicitly enable manual uploads if desired.
 
 The configured API is `https://cfanalytics.tbpedia.org`. Cloud uploads are disabled on new installations; upgrades preserve existing permissions. Reading data stays local until you choose to sync.
+
+## Sync receipts in article frontmatter
+
+Successful uploads save `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at` together in each article. The plugin compares that hash when checking for changed articles, without rewriting all receipts in `data.json` after every upload. Server, reader, credentials and collection settings remain in `data.json`.
+
+On the first reload after upgrading, matching legacy receipts migrate to existing articles before the `receipts` map is removed from settings. Keep your existing `data.json` during installation. Receipts travel with notes when those notes sync between devices; devices whose notes have not synced may upload again. This change does not add multi-device conflict resolution.
 
 ## Collection metadata in reading sync
 
@@ -56,7 +62,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.11 release passes type checking and production builds. **55 of 56 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.12 release passes type checking and production builds. **67 of 68 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)
@@ -66,4 +72,6 @@ Private credentials, vault backups, build caches and logs remain excluded from G
 
 Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
 
-Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. Failed uploads do not update this field; notes edited during upload are not marked as synced for the newer local version.
+Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at` and the verified snapshot hash into `tbpedia_reading_sync_hash` in the same frontmatter update. Failed uploads do not update these fields; notes edited during upload are not marked as synced for the newer local version.
+
+Per-article sync receipts live in note frontmatter, rather than `data.json`. Changed-article sync compares the current reading snapshot with `tbpedia_reading_sync_hash`; current-article sync still forces an upload. On the first load after upgrading, matching legacy receipts for the configured server and reader migrate to existing, uniquely identified articles. Existing frontmatter hashes are preserved. The legacy `receipts` map is removed from settings after migration succeeds; a failed article write leaves the original settings file available for retry. Missing articles and receipts for other destinations are not imported. This layout assumes one reader and server per vault, and receipts travel between devices when the notes sync.
