@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {build} from 'esbuild';
 import {runInNewContext} from 'node:vm';
 import type TbpediaAnalytics from '../plugin/main';
+import {PROFILE_NOTICE_VERSION,READING_NOTICE_VERSION} from '../shared/schema';
 
 const bundle=await build({entryPoints:['plugin/main.ts'],bundle:true,write:false,platform:'node',format:'cjs',external:['obsidian']});
 function plugin(){
@@ -25,7 +26,11 @@ function plugin(){
 }
 
 test('Test connection sends no credential and does not create or save a reader',async()=>{
-  const p=plugin();await p.instance.testConnection();
+  const p=plugin();
+  assert.equal(p.instance.data.profile_notice_version,PROFILE_NOTICE_VERSION);
+  assert.equal(p.instance.data.reading_notice_version,READING_NOTICE_VERSION);
+  assert.equal(p.instance.data.local_upload_enabled,true);
+  await p.instance.testConnection();
   assert.equal(p.requests.length,1);
   assert.ok(p.requests[0]!.url.endsWith('/health'));
   assert.equal(p.requests[0]!.headers.Authorization,undefined);
@@ -50,7 +55,7 @@ test('automatic identity is persisted before upload and reused after a failed re
 });
 
 test('missing consent does not generate a credential or send a profile',async()=>{
-  const p=plugin();p.instance.data.profile.nickname='Reader';
+  const p=plugin();p.instance.data.profile.nickname='Reader';p.instance.data.profile_notice_version=null;
   await assert.rejects(p.instance.uploadProfile());
   assert.equal(p.instance.token,'');assert.equal(p.saved.length,0);assert.equal(p.requests.length,0);
 });

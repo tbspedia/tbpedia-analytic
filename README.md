@@ -2,16 +2,20 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.12](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.12)** — stores per-article sync hashes in frontmatter and removes the growing receipts map from plugin settings.
+**Latest release: [v0.1.13](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.13)** — simplifies the interface, updates all 14 languages, and enables the three notice/upload options by default for new setups.
 
 ## Install or upgrade
 
 1. Download the plugin ZIP or `main.js`, `manifest.json` and `styles.css` from the release assets.
 2. Place the three files in your vault’s `.obsidian/plugins/tbpedia-analytics/` folder. Preserve the existing `data.json` when upgrading.
 3. Reload the plugin or restart Obsidian. Open **Settings → True Buddha Pedia Analytics**.
-4. Choose **Test connection** to check server availability. Complete your profile, accept the notices and choose **Save and upload profile** to set up your reader automatically. Explicitly enable manual uploads if desired.
+4. Choose **Test connection** to check server availability. Complete your profile, accept the notices and choose **Save and upload profile** to set up your reader automatically. Review the three enabled notice/upload options and turn them off if desired.
 
-The configured API is `https://cfanalytics.tbpedia.org`. Cloud uploads are disabled on new installations; upgrades preserve existing permissions. Reading data stays local until you choose to sync.
+The configured API is `https://cfanalytics.tbpedia.org`. The profile notice, reading-data notice and manual upload permission are enabled by default on new installations. Upgrades preserve existing choices. Use **Save and upload profile** to apply cloud permissions; reading data uploads only when you choose to sync.
+
+## Interface and upload defaults
+
+The plugin no longer adds a status bar message or the final cloud-record deletion reminder in settings. The manual sync button and command are named **Sync changed reading data to cloud**, with corresponding translations in all 14 interface languages. Both notice options and manual upload permission default to enabled for new setups; saved choices remain unchanged on upgrades. Profile uploads and reading sync still require manual actions.
 
 ## Sync receipts in article frontmatter
 
@@ -36,7 +40,7 @@ The updater’s `baseRelease.releaseId` is not used as the installed release. Un
 
 The six values are included in sync fingerprints, so collection changes make affected notes eligible for upload again. Missing updater files do not erase previously saved collection information. Invalid or inconsistent saved metadata stops sync with a localized message.
 
-After upgrading, reload the plugin and choose **Sync changed articles** to refresh affected records. **Sync current article** forces a resend for a selected note. Neither action increments the reading count.
+After upgrading, reload the plugin and choose **Sync changed reading data to cloud** to refresh affected records. **Sync current article** forces a resend for a selected note. Neither action increments the reading count.
 
 ## Interface language
 
@@ -62,7 +66,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.12 release passes type checking and production builds. **67 of 68 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.13 release passes type checking and production builds. **67 of 68 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

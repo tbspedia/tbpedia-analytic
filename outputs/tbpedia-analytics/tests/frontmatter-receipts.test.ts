@@ -22,7 +22,6 @@ function setup(){
   instance.scan=async()=>[{file,fm:structuredClone(fm),id}];
   instance.readNote=async()=>structuredClone(fm);
   instance.metadataForSync=async()=>readUpdaterMetadata(instance.data);
-  instance.setStatus=()=>{};
   instance.data.folders=[];
   return {instance,fm,file,saved};
 }
