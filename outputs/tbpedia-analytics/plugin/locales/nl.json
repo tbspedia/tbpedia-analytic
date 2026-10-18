@@ -133,7 +133,7 @@
   "不願透露": "Zeg het liever niet",
   "language": "UI-taal",
   "languageHelp": "Wijzigingen zijn onmiddellijk van toepassing op instellingen en nieuwe leesvensters. Commandonamen worden bijgewerkt nadat de plug-in opnieuw is geladen.",
-  "connected": "Aangesloten: {name}. Artikelen worden niet automatisch geüpload.",
+  "connected": "Aangesloten: {name}",
   "connectionStatus": "Aangesloten: {name}. Toestemming voor cloudlezen: {permission}.",
   "preview": "In behandeling: {pending}; ongewijzigd: {unchanged}; correctie nodig: {invalid}. Alleen leesvelden, inclusief reflecties, worden geüpload.",
   "progress": "{current}/{total} synchroniseren",

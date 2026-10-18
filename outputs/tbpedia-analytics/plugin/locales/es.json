@@ -133,7 +133,7 @@
   "不願透露": "Prefiero no decir",
   "language": "Idioma de la interfaz de usuario",
   "languageHelp": "Los cambios se aplican inmediatamente a la configuración y a las nuevas ventanas de lectura. Los nombres de los comandos se actualizan después de recargar el complemento.",
-  "connected": "Conectado: {name}. Los artículos no se cargarán automáticamente.",
+  "connected": "Conectado: {name}",
   "connectionStatus": "Conectado: {name}. Permiso de lectura en la nube: {permission}.",
   "preview": "Pendiente: {pending}; sin cambios: {unchanged}; necesita corrección: {invalid}. Sólo se cargarán campos de lectura, incluidas las reflexiones.",
   "progress": "Sincronización de {current}/{total}",

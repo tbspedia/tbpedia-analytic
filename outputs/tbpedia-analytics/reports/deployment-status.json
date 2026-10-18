@@ -1,13 +1,15 @@
 {
   "application": "tbpedia-analytics",
-  "version": "0.1.6",
+  "version": "0.1.10",
   "status": "deployed-and-live-verified",
   "worker": {
-    "url": "https://tbpedia-analytics.tbspedia.workers.dev",
-    "health_url": "https://tbpedia-analytics.tbspedia.workers.dev/health",
-    "version_id": "c7966f0a-7b3a-45d8-bf9f-7524947d924b",
+    "url": "https://cfanalytics.tbpedia.org",
+    "health_url": "https://cfanalytics.tbpedia.org/health",
+    "version_id": "982814f4-044b-4e67-954d-3b0170c317cd",
     "service_secret_configured": true,
-    "preview_urls_enabled": false
+    "preview_urls_enabled": false,
+    "custom_domain": "cfanalytics.tbpedia.org",
+    "workers_dev_enabled": true
   },
   "nocodb": {
     "base_id": "pwxyh62oc4wdhbg",
@@ -38,7 +40,7 @@
   },
   "verification": {
     "typecheck": "passed",
-    "automated_tests_passed": 50,
+    "automated_tests_passed": 55,
     "live_checks_passed": 8,
     "synthetic_rows_removed": true,
     "existing_personal_reading_data_uploaded": false,
@@ -46,9 +48,14 @@
     "metadata_database_readback_verified": true,
     "live_updater_checks_passed": 12,
     "updater_database_readback_verified": true,
-    "deployed_version_health_verified": true
+    "deployed_version_health_verified": true,
+    "custom_domain_https_verified": true,
+    "custom_domain_authenticated_read_verified": true,
+    "automated_tests_failed": 1,
+    "known_test_failure": "Vault catalogue missing parent TBP-275",
+    "profile_multiselect_live_verified": true
   },
-  "next_step": "Reload Obsidian, then Sync changed articles to send saved analytics data.json collection metadata to reading_records.",
+  "next_step": "Reload the AnalyticsV1 plugin or restart Obsidian to load the new API URL.",
   "profile_notice_version": "profile-v2",
-  "deployed_at": "2026-10-18T08:11:36.128861+00:00"
+  "deployed_at": "2026-10-18T12:48:15.344Z"
 }

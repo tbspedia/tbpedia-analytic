@@ -6396,7 +6396,7 @@ var en_default2 = {
   \u4E0D\u9858\u900F\u9732: "Prefer not to say",
   language: "UI language",
   languageHelp: "Changes apply to settings and new reading windows immediately. Command names update after reloading the plugin.",
-  connected: "Connected: {name}. Articles will not upload automatically.",
+  connected: "Connected: {name}",
   connectionStatus: "Connected: {name}. Cloud reading permission: {permission}.",
   preview: "Pending: {pending}; unchanged: {unchanged}; needs correction: {invalid}. Only reading fields, including reflections, will be uploaded.",
   progress: "Syncing {current}/{total}",
@@ -6589,7 +6589,7 @@ var ja_default = {
   \u4E0D\u9858\u900F\u9732: "\u56DE\u7B54\u3057\u306A\u3044",
   language: "UI\u8A00\u8A9E",
   languageHelp: "\u5909\u66F4\u306F\u8A2D\u5B9A\u3068\u65B0\u3057\u3044\u8AAD\u66F8\u30A6\u30A3\u30F3\u30C9\u30A6\u306B\u3059\u3050\u306B\u9069\u7528\u3055\u308C\u307E\u3059\u3002\u30B3\u30DE\u30F3\u30C9\u540D\u306F\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u30EA\u30ED\u30FC\u30C9\u3059\u308B\u3068\u66F4\u65B0\u3055\u308C\u307E\u3059\u3002",
-  connected: "\u63A5\u7D9A\u6E08\u307F: {name}\u3002\u8A18\u4E8B\u306F\u81EA\u52D5\u7684\u306B\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u305B\u3093\u3002",
+  connected: "\u63A5\u7D9A\u6E08\u307F: {name}",
   connectionStatus: "\u63A5\u7D9A\u6E08\u307F: {name}\u3002\u30AF\u30E9\u30A6\u30C9\u8AAD\u66F8\u6A29\u9650: {permission}\u3002",
   preview: "\u4FDD\u7559\u4E2D: {pending};\u5909\u66F4\u306A\u3057: {unchanged};\u4FEE\u6B63\u304C\u5FC5\u8981\u3067\u3059: {invalid}\u3002\u611F\u60F3\u3092\u542B\u3080\u8AAD\u66F8\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u307F\u304C\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u3059\u3002",
   progress: "{current}/{total}\u3092\u540C\u671F\u4E2D",
@@ -6782,7 +6782,7 @@ var fr_default = {
   \u4E0D\u9858\u900F\u9732: "Je pr\xE9f\xE8re ne pas dire",
   language: "Langue de l'interface utilisateur",
   languageHelp: "Les modifications s\u2019appliquent imm\xE9diatement aux param\xE8tres et aux nouvelles fen\xEAtres de lecture. Les noms des commandes sont mis \xE0 jour apr\xE8s le rechargement du plugin.",
-  connected: "Connect\xE9\xA0: {name}. Les articles ne seront pas t\xE9l\xE9vers\xE9s automatiquement.",
+  connected: "Connect\xE9\xA0: {name}",
   connectionStatus: "Connect\xE9\xA0: {name}. Autorisation de lecture du cloud\xA0: {permission}.",
   preview: "En attente\xA0: {pending}\xA0; inchang\xE9\xA0: {unchanged}\xA0; doit \xEAtre corrig\xE9\xA0: {invalid}. Seuls les champs de lecture, y compris les r\xE9flexions, seront t\xE9l\xE9vers\xE9s.",
   progress: "Synchronisation {current}/{total}",
@@ -6975,7 +6975,7 @@ var es_default = {
   \u4E0D\u9858\u900F\u9732: "Prefiero no decir",
   language: "Idioma de la interfaz de usuario",
   languageHelp: "Los cambios se aplican inmediatamente a la configuraci\xF3n y a las nuevas ventanas de lectura. Los nombres de los comandos se actualizan despu\xE9s de recargar el complemento.",
-  connected: "Conectado: {name}. Los art\xEDculos no se cargar\xE1n autom\xE1ticamente.",
+  connected: "Conectado: {name}",
   connectionStatus: "Conectado: {name}. Permiso de lectura en la nube: {permission}.",
   preview: "Pendiente: {pending}; sin cambios: {unchanged}; necesita correcci\xF3n: {invalid}. S\xF3lo se cargar\xE1n campos de lectura, incluidas las reflexiones.",
   progress: "Sincronizaci\xF3n de {current}/{total}",
@@ -7168,7 +7168,7 @@ var de_default = {
   \u4E0D\u9858\u900F\u9732: "Sag es lieber nicht",
   language: "UI-Sprache",
   languageHelp: "\xC4nderungen gelten sofort f\xFCr Einstellungen und neue Lesefenster. Befehlsnamen werden nach dem Neuladen des Plugins aktualisiert.",
-  connected: "Verbunden: {name}. Artikel werden nicht automatisch hochgeladen.",
+  connected: "Verbunden: {name}",
   connectionStatus: "Verbunden: {name}. Cloud-Leseberechtigung: {permission}.",
   preview: "Ausstehend: {pending}; unver\xE4ndert: {unchanged}; Korrekturbedarf: {invalid}. Es werden nur Lesefelder inklusive Reflexionen hochgeladen.",
   progress: "Synchronisierung von {current}/{total}",
@@ -7361,7 +7361,7 @@ var nl_default = {
   \u4E0D\u9858\u900F\u9732: "Zeg het liever niet",
   language: "UI-taal",
   languageHelp: "Wijzigingen zijn onmiddellijk van toepassing op instellingen en nieuwe leesvensters. Commandonamen worden bijgewerkt nadat de plug-in opnieuw is geladen.",
-  connected: "Aangesloten: {name}. Artikelen worden niet automatisch ge\xFCpload.",
+  connected: "Aangesloten: {name}",
   connectionStatus: "Aangesloten: {name}. Toestemming voor cloudlezen: {permission}.",
   preview: "In behandeling: {pending}; ongewijzigd: {unchanged}; correctie nodig: {invalid}. Alleen leesvelden, inclusief reflecties, worden ge\xFCpload.",
   progress: "{current}/{total} synchroniseren",
@@ -7554,7 +7554,7 @@ var sv_default = {
   \u4E0D\u9858\u900F\u9732: "F\xF6redrar att inte s\xE4ga",
   language: "UI-spr\xE5k",
   languageHelp: "\xC4ndringar g\xE4ller inst\xE4llningar och nya l\xE4sf\xF6nster omedelbart. Kommandonamn uppdateras efter att plugin-programmet laddats om.",
-  connected: "Ansluten: {name}. Artiklar laddas inte upp automatiskt.",
+  connected: "Ansluten: {name}",
   connectionStatus: "Ansluten: {name}. Molnl\xE4sningsbeh\xF6righet: {permission}.",
   preview: "V\xE4ntande: {pending}; of\xF6r\xE4ndrad: {unchanged}; beh\xF6ver korrigering: {invalid}. Endast l\xE4sf\xE4lt, inklusive reflektioner, kommer att laddas upp.",
   progress: "Synkroniserar {current}/{total}",
@@ -7747,7 +7747,7 @@ var ko_default = {
   \u4E0D\u9858\u900F\u9732: "\uB9D0\uD558\uC9C0 \uC54A\uB294 \uAC83\uC774 \uC88B\uC2B5\uB2C8\uB2E4",
   language: "UI \uC5B8\uC5B4",
   languageHelp: "\uBCC0\uACBD\uC0AC\uD56D\uC740 \uC124\uC815 \uBC0F \uC0C8 \uC77D\uAE30 \uCC3D\uC5D0 \uC989\uC2DC \uC801\uC6A9\uB429\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uB85C\uB4DC\uD55C \uD6C4 \uBA85\uB839 \uC774\uB984\uC774 \uC5C5\uB370\uC774\uD2B8\uB429\uB2C8\uB2E4.",
-  connected: "\uC5F0\uACB0\uB428: {name}. \uAE30\uC0AC\uB294 \uC790\uB3D9\uC73C\uB85C \uC5C5\uB85C\uB4DC\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+  connected: "\uC5F0\uACB0\uB428: {name}",
   connectionStatus: "\uC5F0\uACB0\uB428: {name}. \uD074\uB77C\uC6B0\uB4DC \uC77D\uAE30 \uAD8C\uD55C: {permission}.",
   preview: "\uBCF4\uB958 \uC911: {pending}; \uBCC0\uACBD\uB418\uC9C0 \uC54A\uC74C: {unchanged}; \uC218\uC815 \uD544\uC694: {invalid}. \uBC18\uC131\uC744 \uD3EC\uD568\uD55C \uC77D\uAE30 \uD544\uB4DC\uB9CC \uC5C5\uB85C\uB4DC\uB429\uB2C8\uB2E4.",
   progress: "{current}/{total} \uB3D9\uAE30\uD654 \uC911",
@@ -7940,7 +7940,7 @@ var zh_TW_default = {
   \u4E0D\u9858\u900F\u9732: "\u4E0D\u9858\u900F\u9732",
   language: "\u4ECB\u9762\u8A9E\u8A00",
   languageHelp: "\u8B8A\u66F4\u6703\u7ACB\u5373\u5957\u7528\u81F3\u8A2D\u5B9A\u548C\u65B0\u7684\u95B1\u8B80\u8996\u7A97\u3002\u91CD\u65B0\u8F09\u5165\u63D2\u4EF6\u5F8C\u547D\u4EE4\u540D\u7A31\u6703\u66F4\u65B0\u3002",
-  connected: "\u5DF2\u9023\u7DDA\uFF1A{name}\u3002\u6587\u7AE0\u4E0D\u6703\u81EA\u52D5\u4E0A\u50B3\u3002",
+  connected: "\u5DF2\u9023\u7DDA\uFF1A{name}",
   connectionStatus: "\u5DF2\u9023\u7DDA\uFF1A{name}\u3002\u96F2\u7AEF\u95B1\u8B80\u6B0A\u9650\uFF1A{permission}\u3002",
   preview: "{pending} \u7BC7\u5F85\u4E0A\u50B3\u3001{unchanged} \u7BC7\u672A\u8B8A\u66F4\u3001{invalid} \u7BC7\u9700\u4FEE\u6B63\u3002\u53EA\u6709\u95B1\u8B80\u6B04\u4F4D\u6703\u4E0A\u50B3\uFF0C\u5305\u62EC\u95B1\u8B80\u611F\u60F3\u3002",
   progress: "\u540C\u6B65 {current}/{total}",
@@ -8133,7 +8133,7 @@ var zh_CN_default = {
   \u4E0D\u9858\u900F\u9732: "\u5B81\u613F\u4E0D\u8BF4",
   language: "\u7528\u6237\u754C\u9762\u8BED\u8A00",
   languageHelp: "\u66F4\u6539\u4F1A\u7ACB\u5373\u5E94\u7528\u4E8E\u8BBE\u7F6E\u548C\u65B0\u7684\u9605\u8BFB\u7A97\u53E3\u3002\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u547D\u4EE4\u540D\u79F0\u4F1A\u66F4\u65B0\u3002",
-  connected: "\u8FDE\u63A5\uFF1A{name}\u3002\u6587\u7AE0\u4E0D\u4F1A\u81EA\u52A8\u4E0A\u4F20\u3002",
+  connected: "\u8FDE\u63A5\uFF1A{name}",
   connectionStatus: "\u8FDE\u63A5\uFF1A{name}\u3002\u4E91\u9605\u8BFB\u6743\u9650\uFF1A{permission}\u3002",
   preview: "\u5F85\u5B9A\uFF1A{pending}\uFF1B\u4E0D\u53D8\uFF1A{unchanged}\uFF1B\u9700\u8981\u66F4\u6B63\uFF1A{invalid}\u3002\u4EC5\u4E0A\u4F20\u9605\u8BFB\u5B57\u6BB5\uFF0C\u5305\u62EC\u53CD\u601D\u3002",
   progress: "\u6B63\u5728\u540C\u6B65 {current}/{total}",
@@ -8326,7 +8326,7 @@ var vi_default = {
   \u4E0D\u9858\u900F\u9732: "Kh\xF4ng mu\u1ED1n n\xF3i",
   language: "ng\xF4n ng\u1EEF giao di\u1EC7n ng\u01B0\u1EDDi d\xF9ng",
   languageHelp: "C\xE1c thay \u0111\u1ED5i s\u1EBD \xE1p d\u1EE5ng ngay l\u1EADp t\u1EE9c cho c\xE0i \u0111\u1EB7t v\xE0 c\u1EEDa s\u1ED5 \u0111\u1ECDc m\u1EDBi. C\u1EADp nh\u1EADt t\xEAn l\u1EC7nh sau khi t\u1EA3i l\u1EA1i plugin.",
-  connected: "\u0110\xE3 k\u1EBFt n\u1ED1i: {name}. B\xE0i vi\u1EBFt s\u1EBD kh\xF4ng \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn t\u1EF1 \u0111\u1ED9ng.",
+  connected: "\u0110\xE3 k\u1EBFt n\u1ED1i: {name}",
   connectionStatus: "\u0110\xE3 k\u1EBFt n\u1ED1i: {name}. Quy\u1EC1n \u0111\u1ECDc tr\xEAn \u0111\xE1m m\xE2y: {permission}.",
   preview: "\u0110ang ch\u1EDD x\u1EED l\xFD: {pending}; kh\xF4ng thay \u0111\u1ED5i: {unchanged}; c\u1EA7n ch\u1EC9nh s\u1EEDa: {invalid}. Ch\u1EC9 c\xE1c tr\u01B0\u1EDDng \u0111\u1ECDc, bao g\u1ED3m c\u1EA3 ph\u1EA3n \xE1nh, m\u1EDBi \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn.",
   progress: "\u0110ang \u0111\u1ED3ng b\u1ED9 h\xF3a {current}/{total}",
@@ -8519,7 +8519,7 @@ var id_default = {
   \u4E0D\u9858\u900F\u9732: "Memilih untuk tidak mengatakannya",
   language: "bahasa UI",
   languageHelp: "Perubahan segera berlaku pada pengaturan dan jendela baca baru. Nama perintah diperbarui setelah memuat ulang plugin.",
-  connected: "Terhubung: {name}. Artikel tidak akan diunggah secara otomatis.",
+  connected: "Terhubung: {name}",
   connectionStatus: "Terhubung: {name}. Izin membaca awan: {permission}.",
   preview: "Tertunda: {pending}; tidak berubah: {unchanged}; perlu koreksi: {invalid}. Hanya bidang bacaan, termasuk refleksi, yang akan diunggah.",
   progress: "Menyinkronkan {current}/{total}",
@@ -8712,7 +8712,7 @@ var th_default = {
   \u4E0D\u9858\u900F\u9732: "\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E17\u0E35\u0E48\u0E08\u0E30\u0E44\u0E21\u0E48\u0E1E\u0E39\u0E14",
   language: "\u0E20\u0E32\u0E29\u0E32 UI",
   languageHelp: "\u0E01\u0E32\u0E23\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07\u0E08\u0E30\u0E21\u0E35\u0E1C\u0E25\u0E01\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E41\u0E25\u0E30\u0E2B\u0E19\u0E49\u0E32\u0E15\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E17\u0E31\u0E19\u0E17\u0E35 \u0E0A\u0E37\u0E48\u0E2D\u0E04\u0E33\u0E2A\u0E31\u0E48\u0E07\u0E08\u0E30\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E2B\u0E25\u0E31\u0E07\u0E08\u0E32\u0E01\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E0B\u0E49\u0E33",
-  connected: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E41\u0E25\u0E49\u0E27: {name} \u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E08\u0E30\u0E44\u0E21\u0E48\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E14\u0E22\u0E2D\u0E31\u0E15\u0E42\u0E19\u0E21\u0E31\u0E15\u0E34",
+  connected: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E41\u0E25\u0E49\u0E27: {name}",
   connectionStatus: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E41\u0E25\u0E49\u0E27: {name} \u0E2A\u0E34\u0E17\u0E18\u0E34\u0E4C\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C: {permission}",
   preview: "\u0E23\u0E2D\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23: {pending}; \u0E44\u0E21\u0E48\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07: {unchanged}; \u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E01\u0E32\u0E23\u0E41\u0E01\u0E49\u0E44\u0E02: {invalid}. \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E0A\u0E48\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E23\u0E27\u0E21\u0E16\u0E36\u0E07\u0E01\u0E32\u0E23\u0E2A\u0E30\u0E17\u0E49\u0E2D\u0E19\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E16\u0E39\u0E01\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   progress: "\u0E01\u0E33\u0E25\u0E31\u0E07\u0E0B\u0E34\u0E07\u0E04\u0E4C {current}/{total}",
@@ -8905,7 +8905,7 @@ var bo_default = {
   \u4E0D\u9858\u900F\u9732: "\u0F58\u0F0B\u0F56\u0F64\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F51\u0F42\u0F60\u0F0D",
   language: "UI\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42",
   languageHelp: "\u0F56\u0F66\u0F92\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F51\u0F7A\u0F0B\u0F60\u0F55\u0FB2\u0F63\u0F0B\u0F58\u0F62\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F66\u0F92\u0F7A\u0F60\u0F74\u0F0B\u0F41\u0F74\u0F44\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F62\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F56\u0F62\u0FA1\u0F0B\u0F56\u0F40\u0F7C\u0F51\u0F0B\u0F58\u0F72\u0F44\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0D",
-  connected: "\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D: {name}. \u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F62\u0F44\u0F0B\u0F60\u0F42\u0F74\u0F63\u0F0B\u0F42\u0FB1\u0F72\u0F66\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D",
+  connected: "\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D: {name}",
   connectionStatus: "\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D: {name}. \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F58\u0F46\u0F53\u0F0D {permission}.",
   preview: "\u0F66\u0F92\u0F74\u0F42\u0F0B\u0F56\u0F5E\u0F72\u0F53\u0F0B\u0F54\u0F0D: {pending}; \u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F0D: {unchanged}; \u0F53\u0F7C\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D {invalid}. \u0F56\u0F66\u0F58\u0F0B\u0F42\u0F5E\u0F72\u0F42\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F41\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F62\u0F92\u0FB1\u0F74\u0F0B\u0F62\u0F7A\u0F51\u0F0D",
   progress: "{current}/{total}\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F0D",
@@ -9141,6 +9141,12 @@ var FRONTMATTER_KEYS = {
 };
 var defaults = () => ({ planned_reading: false, reading_status: "UNREAD", reading_depth: null, reading_count: 0, want_to_read_date: null, reading_start_date: null, completed_date: null, not_reading_date: null, abandoned_date: null, reading_reflection: null, my_recommendation: null, my_rating: null, my_keywords: [], my_reader_types: [], my_buddhist_level: null, my_practice_level: null, my_subtopics: [] });
 var COUNTRY_CODES = new Set("AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW".split(" "));
+var profileReaderTypesSchema = union([codeEnum(READER_LABELS), array(codeEnum(READER_LABELS)).max(5)]).nullable().transform((value) => {
+  if (value === null) return null;
+  const values = Array.isArray(value) ? value : [value];
+  const selected = Object.keys(READER_LABELS).filter((code) => values.includes(code));
+  return selected.length ? selected : null;
+});
 var profileSchema = object({
   nickname: string2().trim().min(1).max(100),
   email: email2().max(254).nullable(),
@@ -9149,7 +9155,7 @@ var profileSchema = object({
   birth_month: number2().int().min(1).max(12).nullable(),
   sex: codeEnum(SEX_LABELS),
   country_code: string2().refine((s) => COUNTRY_CODES.has(s), "Unknown country code").nullable(),
-  reader_type: codeEnum(READER_LABELS).nullable(),
+  reader_type: profileReaderTypesSchema,
   organisation: string2().trim().max(200).nullable()
 }).strict().refine((p) => p.birth_month === null || p.birth_year !== null, { path: ["birth_month"], message: "Birth year is required when birth month is supplied" });
 var emptyProfile = () => ({ nickname: "", email: null, birth_year: null, birth_month: null, sex: "PREFER_NOT_TO_SAY", country_code: null, reader_type: null, organisation: null });
@@ -9270,8 +9276,28 @@ function migrateInterfaceLanguage(value) {
   return { data, changed: legacy || !canonical };
 }
 
+// shared/api.ts
+var DEFAULT_API = "https://cfanalytics.tbpedia.org";
+var LEGACY_API = "https://tbpedia-analytics.tbspedia.workers.dev";
+function migrateApiUrl(value) {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return { data: value, changed: false };
+  const source = value;
+  if (typeof source.api_url !== "string" || source.api_url.replace(/\/$/, "") !== LEGACY_API) return { data: value, changed: false };
+  const data = { ...source, api_url: DEFAULT_API };
+  if (typeof source.receipts === "object" && source.receipts !== null && !Array.isArray(source.receipts)) {
+    const receipts = { ...source.receipts };
+    for (const key of Object.keys(receipts)) {
+      if (!key.startsWith(LEGACY_API + "|")) continue;
+      const replacement = DEFAULT_API + key.slice(LEGACY_API.length);
+      if (!Object.hasOwn(receipts, replacement)) receipts[replacement] = receipts[key];
+      delete receipts[key];
+    }
+    Object.assign(data, { receipts });
+  }
+  return { data, changed: true };
+}
+
 // plugin/main.ts
-var DEFAULT_API = "https://tbpedia-analytics.tbspedia.workers.dev";
 var receiptSchema = object({ hash: string2(), synced_at: string2() });
 var dataSchema = object({ ...updaterMetadataSchema.shape, interface_language: string2().default("system"), api_url: string2().default(DEFAULT_API), reader_id: string2().nullable().default(null), profile: profileSchema.safeExtend({ nickname: string2().max(100) }).default(emptyProfile), profile_notice_version: string2().nullable().default(null), reading_notice_version: string2().nullable().default(null), local_upload_enabled: boolean2().default(false), remember_token: boolean2().default(false), stored_token: string2().default(""), folders: array(string2()).default(["01 \u6587\u96C6\u90E8", "02 \u958B\u793A\u90E8"]), receipts: record(string2(), receiptSchema).default({}), profile_uploaded_hash: string2().nullable().default(null) });
 var meSchema = object({ reader_id: uuid2(), profile: profileSchema, cloud_sync_enabled: boolean2(), profile_consent_version: string2().nullable(), reading_consent_version: string2().nullable(), required_notices: object({ profile_version: string2(), reading_version: string2(), profile_text: string2(), reading_text: string2() }) });
@@ -9312,7 +9338,9 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   persistTail = Promise.resolve();
   async onload() {
     const loaded = await this.loadData();
-    const migration = migrateInterfaceLanguage(loaded ?? {});
+    const languageMigration = migrateInterfaceLanguage(loaded ?? {});
+    const apiMigration = migrateApiUrl(languageMigration.data);
+    const migration = { data: apiMigration.data, changed: languageMigration.changed || apiMigration.changed };
     this.data = dataSchema.parse(migration.data);
     setLocale(this.data.interface_language, (0, import_obsidian.getLanguage)());
     this.token = this.data.remember_token ? this.data.stored_token : "";
@@ -9792,13 +9820,6 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
       void action().then(() => this.display()).catch((e) => new import_obsidian.Notice(message(e), 12e3));
     };
     el.createEl("h3", { text: t("\u9023\u7DDA") });
-    new import_obsidian.Setting(el).setName(t("API \u7DB2\u5740")).addText((t2) => t2.setValue(p.data.api_url).onChange((v) => {
-      if (v === p.data.api_url) return;
-      p.data.api_url = v.trim();
-      p.token = "";
-      p.me = null;
-      p.persistQuiet();
-    }));
     new import_obsidian.Setting(el).setName(t("\u8B80\u8005\u9023\u7DDA\u91D1\u9470")).setDesc(t("\u7531\u7BA1\u7406\u54E1\u63D0\u4F9B\uFF1B\u4E0D\u662F NocoDB \u7BA1\u7406\u91D1\u9470\u3002")).addText((t2) => {
       t2.inputEl.type = "password";
       t2.setValue(p.token).onChange((v) => {
@@ -9853,9 +9874,14 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
         profile.country_code = v || null;
       });
     });
-    new import_obsidian.Setting(el).setName(t("\u6211\u7684\u8B80\u8005\u985E\u578B\uFF08\u9078\u586B\uFF09")).addDropdown((d) => d.addOption("", t("\u672A\u63D0\u4F9B")).addOptions(labels(READER_LABELS)).setValue(profile.reader_type ?? "").onChange((v) => {
-      profile.reader_type = v ? profileSchema.shape.reader_type.parse(v) : null;
-    }));
+    el.createEl("h4", { text: t("\u6211\u7684\u8B80\u8005\u985E\u578B\uFF08\u9078\u586B\uFF09") });
+    for (const [code, label] of Object.entries(labels(READER_LABELS))) new import_obsidian.Setting(el).setName(label).addToggle((t2) => {
+      const selected = profileSchema.shape.reader_type.parse(code)[0];
+      t2.setValue(profile.reader_type?.includes(selected) ?? false).onChange((on) => {
+        const values = profile.reader_type ?? [];
+        profile.reader_type = profileSchema.shape.reader_type.parse(on ? [...values, selected] : values.filter((value) => value !== selected));
+      });
+    });
     const required2 = p.me?.required_notices;
     el.createEl("p", { text: noticeSupported(required2?.profile_version, PROFILE_NOTICE_VERSION) ? t("profileNotice") : t("noticeUnavailable"), cls: "tbpa-notice" });
     const profileVersion = required2?.profile_version ?? PROFILE_NOTICE_VERSION;

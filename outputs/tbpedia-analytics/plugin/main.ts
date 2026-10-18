@@ -8,7 +8,7 @@ import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metad
 import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
 import {migrateInterfaceLanguage} from './settings-migrations';
 
-const DEFAULT_API='https://tbpedia-analytics.tbspedia.workers.dev';
+import {DEFAULT_API,migrateApiUrl} from '../shared/api';
 const receiptSchema=z.object({hash:z.string(),synced_at:z.string()});
 const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(null),reading_notice_version:z.string().nullable().default(null),local_upload_enabled:z.boolean().default(false),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),receipts:z.record(z.string(),receiptSchema).default({}),profile_uploaded_hash:z.string().nullable().default(null)});
 type PluginData=z.infer<typeof dataSchema>;
@@ -35,7 +35,9 @@ export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;status!:HTMLElement;private persistTail:Promise<void>=Promise.resolve();
   async onload(){
     const loaded:unknown=await this.loadData();
-    const migration=migrateInterfaceLanguage(loaded??{});
+    const languageMigration=migrateInterfaceLanguage(loaded??{});
+    const apiMigration=migrateApiUrl(languageMigration.data);
+    const migration={data:apiMigration.data,changed:languageMigration.changed||apiMigration.changed};
     this.data=dataSchema.parse(migration.data);setLocale(this.data.interface_language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
     this.status=this.addStatusBarItem();this.setStatus(tr("本機閱讀"));
     this.addSettingTab(new AnalyticsSettings(this.app,this));
@@ -229,7 +231,6 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange(v=>{p.data.interface_language=languagePreference(v);setLocale(p.data.interface_language,getLanguage());p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};
     el.createEl('h3',{text:tr("連線")});
-    new Setting(el).setName(tr("API 網址")).addText(t=>t.setValue(p.data.api_url).onChange(v=>{if(v===p.data.api_url)return;p.data.api_url=v.trim();p.token='';p.me=null;p.persistQuiet();}));
     new Setting(el).setName(tr("讀者連線金鑰")).setDesc(tr("由管理員提供；不是 NocoDB 管理金鑰。")).addText(t=>{t.inputEl.type='password';t.setValue(p.token).onChange(v=>{p.token=v.trim();p.me=null;if(p.data.remember_token)p.persistQuiet();});});
     new Setting(el).setName(tr("在本機記住連線金鑰")).setDesc(tr("預設不儲存。啟用後會存於未加密的外掛資料檔，可能被 Vault 同步或備份複製。")).addToggle(t=>t.setValue(p.data.remember_token).onChange(v=>{p.data.remember_token=v;p.persistQuiet();}));
     new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.connect())));
@@ -241,7 +242,14 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).setName(tr("出生月份（選填）")).addDropdown(d=>{d.addOption('',tr("未提供"));for(let m=1;m<=12;m++)d.addOption(String(m),monthName(m));d.setValue(profile.birth_month===null?'':String(profile.birth_month)).onChange(v=>{profile.birth_month=v?Number(v):null;});});
     new Setting(el).setName(tr("性別")).addDropdown(d=>d.addOptions(labels(SEX_LABELS)).setValue(profile.sex).onChange(v=>{profile.sex=profileSchema.shape.sex.parse(v);}));
     new Setting(el).setName(tr("國家／地區（選填）")).addDropdown(d=>{d.addOption('',tr("未提供"));for(const code of [...COUNTRY_CODES].sort((a,b)=>regionName(a).localeCompare(regionName(b),intlLocale())))d.addOption(code,`${regionName(code)} (${code})`);d.setValue(profile.country_code??'').onChange(v=>{profile.country_code=v||null;});});
-    new Setting(el).setName(tr("我的讀者類型（選填）")).addDropdown(d=>d.addOption('',tr("未提供")).addOptions(labels(READER_LABELS)).setValue(profile.reader_type??'').onChange(v=>{profile.reader_type=v?profileSchema.shape.reader_type.parse(v):null;}));
+    el.createEl('h4',{text:tr("我的讀者類型（選填）")});
+    for(const [code,label]of Object.entries(labels(READER_LABELS)))new Setting(el).setName(label).addToggle(t=>{
+      const selected=profileSchema.shape.reader_type.parse(code)![0]!;
+      t.setValue(profile.reader_type?.includes(selected)??false).onChange(on=>{
+        const values=profile.reader_type??[];
+        profile.reader_type=profileSchema.shape.reader_type.parse(on?[...values,selected]:values.filter(value=>value!==selected));
+      });
+    });
     const required=p.me?.required_notices;
     el.createEl('p',{text:noticeSupported(required?.profile_version,PROFILE_NOTICE_VERSION)?tr('profileNotice'):tr('noticeUnavailable'),cls:'tbpa-notice'});
     const profileVersion=required?.profile_version??PROFILE_NOTICE_VERSION;const profileSupported=noticeSupported(profileVersion,PROFILE_NOTICE_VERSION);

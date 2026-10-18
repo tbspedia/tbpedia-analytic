@@ -133,7 +133,7 @@
   "不願透露": "Föredrar att inte säga",
   "language": "UI-språk",
   "languageHelp": "Ändringar gäller inställningar och nya läsfönster omedelbart. Kommandonamn uppdateras efter att plugin-programmet laddats om.",
-  "connected": "Ansluten: {name}. Artiklar laddas inte upp automatiskt.",
+  "connected": "Ansluten: {name}",
   "connectionStatus": "Ansluten: {name}. Molnläsningsbehörighet: {permission}.",
   "preview": "Väntande: {pending}; oförändrad: {unchanged}; behöver korrigering: {invalid}. Endast läsfält, inklusive reflektioner, kommer att laddas upp.",
   "progress": "Synkroniserar {current}/{total}",

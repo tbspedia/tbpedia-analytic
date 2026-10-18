@@ -133,7 +133,7 @@
   "不願透露": "回答しない",
   "language": "UI言語",
   "languageHelp": "変更は設定と新しい読書ウィンドウにすぐに適用されます。コマンド名はプラグインをリロードすると更新されます。",
-  "connected": "接続済み: {name}。記事は自動的にはアップロードされません。",
+  "connected": "接続済み: {name}",
   "connectionStatus": "接続済み: {name}。クラウド読書権限: {permission}。",
   "preview": "保留中: {pending};変更なし: {unchanged};修正が必要です: {invalid}。感想を含む読書フィールドのみがアップロードされます。",
   "progress": "{current}/{total}を同期中",

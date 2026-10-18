@@ -133,7 +133,7 @@
   "不願透露": "Prefer not to say",
   "language": "UI language",
   "languageHelp": "Changes apply to settings and new reading windows immediately. Command names update after reloading the plugin.",
-  "connected": "Connected: {name}. Articles will not upload automatically.",
+  "connected": "Connected: {name}",
   "connectionStatus": "Connected: {name}. Cloud reading permission: {permission}.",
   "preview": "Pending: {pending}; unchanged: {unchanged}; needs correction: {invalid}. Only reading fields, including reflections, will be uploaded.",
   "progress": "Syncing {current}/{total}",

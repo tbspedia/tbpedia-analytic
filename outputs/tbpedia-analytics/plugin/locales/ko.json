@@ -133,7 +133,7 @@
   "不願透露": "말하지 않는 것이 좋습니다",
   "language": "UI 언어",
   "languageHelp": "변경사항은 설정 및 새 읽기 창에 즉시 적용됩니다. 플러그인을 다시 로드한 후 명령 이름이 업데이트됩니다.",
-  "connected": "연결됨: {name}. 기사는 자동으로 업로드되지 않습니다.",
+  "connected": "연결됨: {name}",
   "connectionStatus": "연결됨: {name}. 클라우드 읽기 권한: {permission}.",
   "preview": "보류 중: {pending}; 변경되지 않음: {unchanged}; 수정 필요: {invalid}. 반성을 포함한 읽기 필드만 업로드됩니다.",
   "progress": "{current}/{total} 동기화 중",

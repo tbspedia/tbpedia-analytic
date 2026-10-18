@@ -1,16 +1,16 @@
 {
-  "version": "0.1.9",
-  "source_archive": "tbpedia-analytics-source-v0.1.9.zip",
-  "plugin_archive": "tbpedia-analytics-plugin-v0.1.9.zip",
-  "source_files": 66,
+  "version": "0.1.10",
+  "source_archive": "tbpedia-analytics-source-v0.1.10.zip",
+  "plugin_archive": "tbpedia-analytics-plugin-v0.1.10.zip",
+  "source_files": 70,
   "credentials_excluded": true,
   "ui_languages": 14,
   "messages_per_locale": 189,
   "typecheck": "passed",
-  "automated_tests_passed": 52,
+  "automated_tests_passed": 55,
   "automated_tests_failed": 1,
   "test_failure": "Local vault catalogue: missing parent TBP-275",
   "build": "passed",
   "native_interactive_qa_performed": false,
-  "plugin_main_sha256": "833759a518d8eace43a072a943307491647a642afc60d0fde375534a96d1f463"
+  "plugin_main_sha256": "5e17ec69e0b0ada2e58f925b2e8aae00925364745c80a52a4f3f5bba5e4c4ce8"
 }

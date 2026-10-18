@@ -1,11 +1,10 @@
-Separates local reading edits from successful cloud synchronization.
+Moves the API to https://cfanalytics.tbpedia.org and improves reader profile settings.
 
-- Sends the note frontmatter tbpedia_reading_updated_at as NocoDB client_updated_at instead of using upload time.
-- Writes tbpedia_reading_sync_at after a verified upload, using the same server timestamp stored in NocoDB synced_at.
-- Leaves sync timestamps untouched on failed uploads and does not mark a newer local edit or re-save as synchronized.
-- Validates local save timestamps and keeps manual uploads restricted to notes with tbpedia_reading_updated_at.
-- Preserves settings, credentials, reading values and sync receipts during upgrades. Existing cloud timestamps change on the next upload.
+- Automatically migrates the previous API URL and sync receipts while preserving reader keys, upload permissions and custom API endpoints. Existing reader connection keys continue working.
+- Removes the API URL field from Connection settings and shortens the successful connection message in all 14 interface languages.
+- Allows multiple reader types in the reader profile. Existing single selections are preserved, and NocoDB now stores multiple choices.
+- Updates the Worker custom-domain configuration, provisioning and installation scripts, documentation and installable plugin bundle.
 
-Validation: TypeScript checks and production builds passed. 52 of 53 tests passed, including three new timestamp tests; the existing local vault catalogue test reports missing parent TBP-275 for two notes. Native interactive Obsidian QA has not been performed.
+Validation: TypeScript checks and production builds passed. 55 of 56 tests passed; the existing local vault catalogue test reports missing parent TBP-275 for two notes. Live API checks verified HTTPS, reader authentication, and saving, loading and clearing multiple reader types. Temporary test records were removed. Native interactive Obsidian QA has not been performed.
 
-Upgrade: preserve data.json, replace main.js, manifest.json and styles.css, then reload the plugin or restart Obsidian.
+Upgrade: preserve data.json, replace main.js, manifest.json and styles.css, then reload the plugin or restart Obsidian. The previous workers.dev endpoint remains available for older installations.

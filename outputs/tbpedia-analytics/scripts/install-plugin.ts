@@ -1,3 +1,4 @@
+import {DEFAULT_API,migrateApiUrl} from '../shared/api';
 import {readFile,writeFile,copyFile,mkdir,access} from 'node:fs/promises';
 import {resolve,join,sep} from 'node:path';
 import {z} from 'zod';
@@ -15,7 +16,12 @@ for(const name of ['main.js','manifest.json','styles.css']){const dest=join(targ
 const dataPath=join(target,'data.json');
 const credentialPath=resolve('private/pilot-reader.json');
 const pilot=await exists(credentialPath)?z.object({reader_id:z.uuid(),nickname:z.string()}).parse(JSON.parse(await readFile(credentialPath,'utf8'))):null;
-if(!await exists(dataPath))await writeFile(dataPath,JSON.stringify({api_url:'https://tbpedia-analytics.tbspedia.workers.dev',reader_id:pilot?.reader_id??null,profile:{...emptyProfile(),nickname:pilot?.nickname??''},local_upload_enabled:false,remember_token:false,stored_token:'',folders:['01 文集部','02 開示部'],receipts:{}},null,2));
+if(!await exists(dataPath))await writeFile(dataPath,JSON.stringify({api_url:DEFAULT_API,reader_id:pilot?.reader_id??null,profile:{...emptyProfile(),nickname:pilot?.nickname??''},local_upload_enabled:false,remember_token:false,stored_token:'',folders:['01 文集部','02 開示部'],receipts:{}},null,2));
+else{
+  const original=await readFile(dataPath,'utf8');
+  const migrated=migrateApiUrl(JSON.parse(original));
+  if(migrated.changed){await writeFile(join(backup,'data.json'),original);await writeFile(dataPath,JSON.stringify(migrated.data,null,2));}
+}
 if(process.argv.includes('--enable')){
   const listPath=join(vault,'.obsidian','community-plugins.json');
   const original=await readFile(listPath,'utf8');const enabled=z.array(z.string()).parse(JSON.parse(original));

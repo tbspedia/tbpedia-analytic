@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-10-18T10:18:26.587Z",
+  "api": "https://cfanalytics.tbpedia.org",
+  "health_status": 200,
+  "health": {
+    "application": "tbpedia-analytics",
+    "version": "0.1.9",
+    "configured": true,
+    "mode": "manual-upload"
+  },
+  "anonymous_status": 401,
+  "authenticated_profile_status": 200,
+  "reader_identity_verified": true
+}

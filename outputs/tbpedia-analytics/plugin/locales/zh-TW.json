@@ -133,7 +133,7 @@
   "不願透露": "不願透露",
   "language": "介面語言",
   "languageHelp": "變更會立即套用至設定和新的閱讀視窗。重新載入插件後命令名稱會更新。",
-  "connected": "已連線：{name}。文章不會自動上傳。",
+  "connected": "已連線：{name}",
   "connectionStatus": "已連線：{name}。雲端閱讀權限：{permission}。",
   "preview": "{pending} 篇待上傳、{unchanged} 篇未變更、{invalid} 篇需修正。只有閱讀欄位會上傳，包括閱讀感想。",
   "progress": "同步 {current}/{total}",

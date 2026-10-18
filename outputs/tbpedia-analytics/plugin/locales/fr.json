@@ -133,7 +133,7 @@
   "不願透露": "Je préfère ne pas dire",
   "language": "Langue de l'interface utilisateur",
   "languageHelp": "Les modifications s’appliquent immédiatement aux paramètres et aux nouvelles fenêtres de lecture. Les noms des commandes sont mis à jour après le rechargement du plugin.",
-  "connected": "Connecté : {name}. Les articles ne seront pas téléversés automatiquement.",
+  "connected": "Connecté : {name}",
   "connectionStatus": "Connecté : {name}. Autorisation de lecture du cloud : {permission}.",
   "preview": "En attente : {pending} ; inchangé : {unchanged} ; doit être corrigé : {invalid}. Seuls les champs de lecture, y compris les réflexions, seront téléversés.",
   "progress": "Synchronisation {current}/{total}",

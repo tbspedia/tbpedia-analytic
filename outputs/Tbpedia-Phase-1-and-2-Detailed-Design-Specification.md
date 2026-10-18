@@ -774,8 +774,8 @@ The application name is `tbpedia-analytics` for the Obsidian plugin, Cloudflare 
 
 | Resource | Implemented value |
 |---|---|
-| Worker API | `https://tbpedia-analytics.tbspedia.workers.dev` |
-| Health endpoint | `https://tbpedia-analytics.tbspedia.workers.dev/health` |
+| Worker API | `https://cfanalytics.tbpedia.org` |
+| Health endpoint | `https://cfanalytics.tbpedia.org/health` |
 | NocoDB base | `pwxyh62oc4wdhbg` |
 | Readers table | `m0jtd86do2fo2vv` |
 | Catalogue table | `m22h8q52rgo45i8` |

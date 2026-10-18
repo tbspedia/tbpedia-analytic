@@ -133,7 +133,7 @@
   "不願透露": "Sag es lieber nicht",
   "language": "UI-Sprache",
   "languageHelp": "Änderungen gelten sofort für Einstellungen und neue Lesefenster. Befehlsnamen werden nach dem Neuladen des Plugins aktualisiert.",
-  "connected": "Verbunden: {name}. Artikel werden nicht automatisch hochgeladen.",
+  "connected": "Verbunden: {name}",
   "connectionStatus": "Verbunden: {name}. Cloud-Leseberechtigung: {permission}.",
   "preview": "Ausstehend: {pending}; unverändert: {unchanged}; Korrekturbedarf: {invalid}. Es werden nur Lesefelder inklusive Reflexionen hochgeladen.",
   "progress": "Synchronisierung von {current}/{total}",

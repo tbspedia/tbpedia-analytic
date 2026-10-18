@@ -6,6 +6,7 @@
   "compatibility_date": "2026-10-17",
   "compatibility_flags": ["nodejs_compat"],
   "workers_dev": true,
+  "routes": [{"pattern": "cfanalytics.tbpedia.org", "custom_domain": true}],
   "preview_urls": false,
   "observability": {"enabled": true, "head_sampling_rate": 1, "logs": {"enabled": true, "invocation_logs": false}},
   "vars": {

@@ -44,6 +44,26 @@ async function backend(){
 function req(path:string,method='GET',body?:unknown,credential=token){return new Request('https://worker.example'+path,{method,headers:{Authorization:`Bearer ${credential}`,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});}
 function payload(){return {schema_version:1,content_id:'TBP-154-C00',client_updated_at:'2026-10-17T08:00:00Z',values:{...defaults(),my_rating:5,my_buddhist_level:0,reading_reflection:'中文\n第二行 🌸',my_keywords:['空性','引號"','逗,號']}};}
 
+test('profile reader types migrate single values and round-trip multiple selections and clearing',async()=>{
+  const b=await backend();
+  const row=b.tables[env.READERS_TABLE_ID]![0]!;
+  row.fields.reader_type='PRACTITIONER';
+  const legacy=await handle(req('/v1/me'),env,b.fetcher);
+  assert.equal(legacy.status,200);
+  assert.deepEqual((await legacy.json() as {profile:{reader_type:unknown}}).profile.reader_type,['PRACTITIONER']);
+  for(const [input,expected]of [[['PRACTITIONER','GENERAL','GENERAL'],['GENERAL','PRACTITIONER']],[[],null],['NEW_REFUGE',['NEW_REFUGE']]] as const){
+    const profile={...emptyProfile(),nickname:'Pilot',reader_type:input};
+    const saved=await handle(req('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);
+    assert.equal(saved.status,200);
+    const response=await handle(req('/v1/me'),env,b.fetcher);
+    assert.deepEqual((await response.json() as {profile:{reader_type:unknown}}).profile.reader_type,expected);
+  }
+  const writes=b.calls.filter(call=>call.method==='PATCH').length;
+  const invalid=await handle(req('/v1/me','PATCH',{schema_version:1,profile:{...emptyProfile(),nickname:'Pilot',reader_type:['INVALID']},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);
+  assert.equal(invalid.status,422);
+  assert.equal(b.calls.filter(call=>call.method==='PATCH').length,writes);
+});
+
 test('GET profile contains demographics and never credential fields',async()=>{
   const b=await backend();b.tables[env.READERS_TABLE_ID]![0]!.fields.birth_year=1975;b.tables[env.READERS_TABLE_ID]![0]!.fields.organisation='讀書會';
   const response=await handle(req('/v1/me'),env,b.fetcher);assert.equal(response.status,200);const text=await response.text();const body=JSON.parse(text);assert.equal(body.profile.birth_year,1975);assert.equal(body.profile.organisation,'讀書會');assert.equal(text.includes('sync_token_hash'),false);assert.equal(text.includes('test-service-token'),false);

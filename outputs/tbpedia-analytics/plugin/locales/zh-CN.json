@@ -133,7 +133,7 @@
   "不願透露": "宁愿不说",
   "language": "用户界面语言",
   "languageHelp": "更改会立即应用于设置和新的阅读窗口。重新加载插件后命令名称会更新。",
-  "connected": "连接：{name}。文章不会自动上传。",
+  "connected": "连接：{name}",
   "connectionStatus": "连接：{name}。云阅读权限：{permission}。",
   "preview": "待定：{pending}；不变：{unchanged}；需要更正：{invalid}。仅上传阅读字段，包括反思。",
   "progress": "正在同步 {current}/{total}",

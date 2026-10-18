@@ -1,6 +1,6 @@
 {
   "name": "tbpedia-analytics",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "private": true,
   "type": "module",
   "description": "Offline-first Tbpedia reading capture for Obsidian and NocoDB",

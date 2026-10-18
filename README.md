@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.9](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.9)** — separates local save time from successful sync time.
+**Latest release: [v0.1.10](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.10)** — adds the custom API domain, multiple profile reader types, and simpler connection settings.
 
 ## Install or upgrade
 
@@ -11,7 +11,7 @@ An Obsidian plugin for local reading progress and deliberate, authenticated uplo
 3. Reload the plugin or restart Obsidian. Open **Settings → True Buddha Pedia Analytics**.
 4. Enter the reader connection key supplied by your administrator and test the connection. Accept the notices and explicitly enable manual uploads if desired.
 
-The configured API is `https://tbpedia-analytics.tbspedia.workers.dev`. Cloud uploads are disabled on new installations; upgrades preserve existing permissions. Reading data stays local until you choose to sync.
+The configured API is `https://cfanalytics.tbpedia.org`. Cloud uploads are disabled on new installations; upgrades preserve existing permissions. Reading data stays local until you choose to sync.
 
 ## Collection metadata in reading sync
 
@@ -40,6 +40,7 @@ Choose **Follow system** to follow Obsidian’s language setting, with English a
 
 ## Other features
 
+- Multiple reader types in your profile, with existing single selections preserved.
 - Local editing of 17 reading fields with safe frontmatter writes and deliberate rereading transitions.
 - Scrollable pending-article preview with titles and vault paths before manual uploads.
 - Resizable reading popup with a responsive form.
@@ -55,7 +56,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.9 release passes type checking and production builds. **52 of 53 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.10 release passes type checking and production builds. **55 of 56 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

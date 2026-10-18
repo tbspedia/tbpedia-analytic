@@ -133,7 +133,7 @@
   "不願透露": "Memilih untuk tidak mengatakannya",
   "language": "bahasa UI",
   "languageHelp": "Perubahan segera berlaku pada pengaturan dan jendela baca baru. Nama perintah diperbarui setelah memuat ulang plugin.",
-  "connected": "Terhubung: {name}. Artikel tidak akan diunggah secara otomatis.",
+  "connected": "Terhubung: {name}",
   "connectionStatus": "Terhubung: {name}. Izin membaca awan: {permission}.",
   "preview": "Tertunda: {pending}; tidak berubah: {unchanged}; perlu koreksi: {invalid}. Hanya bidang bacaan, termasuk refleksi, yang akan diunggah.",
   "progress": "Menyinkronkan {current}/{total}",

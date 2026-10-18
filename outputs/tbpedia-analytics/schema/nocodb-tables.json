@@ -49,7 +49,7 @@
       },
       {
         "title": "reader_type",
-        "type": "SingleSelect",
+        "type": "MultiSelect",
         "options": {
           "choices": [
             {

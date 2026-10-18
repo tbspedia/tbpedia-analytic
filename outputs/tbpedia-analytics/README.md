@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Current plugin release: **0.1.6**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.6).
+Current plugin release: **0.1.10**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.10).
 
-Version 0.1.6 fixes the metadata source used by reading sync: it validates the six collection fields from the analytics plugin’s saved `data.json`. The updater is read directly so a false file-existence result cannot erase readable metadata. If the updater file is missing, existing saved collection information is retained. A saved-file read or consistency failure stops sync with a localized message.
+Version 0.1.10 uses `https://cfanalytics.tbpedia.org`, simplifies Connection settings, and supports multiple reader types in the profile. Existing reader connection keys and single selections remain valid.
 
 ## What is implemented
 
@@ -52,7 +52,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 | Resource | Value |
 |---|---|
 | Worker name | `tbpedia-analytics` |
-| Expected API URL | `https://tbpedia-analytics.tbspedia.workers.dev` |
+| Expected API URL | `https://cfanalytics.tbpedia.org` |
 | NocoDB project | `tbpedia-analytics` |
 | NocoDB base ID | `pwxyh62oc4wdhbg` |
 | Readers table | `m0jtd86do2fo2vv` |
@@ -140,6 +140,8 @@ The installer is deliberately restricted to the user-named sample vault. It pres
 `npx tsx scripts/verify-vault.ts` checks the prepared notes byte-for-byte against the original backups. It is intended immediately after preparation; later deliberate reader edits will naturally differ from those backups.
 
 ## Worker configuration
+
+The primary API is `https://cfanalytics.tbpedia.org`. The Wrangler custom-domain route provisions its DNS and certificate. The previous workers.dev endpoint remains enabled for older installations. Upgrades automatically migrate the previous API setting and its sync receipts, while preserving reader credentials, upload permissions and custom API endpoints.
 
 Use a NocoDB API token restricted to this base with Records read/write permission, stored only as the Cloudflare `NOCODB_API_TOKEN` secret. Do not put the service credential in JSON configuration, a command-line argument, source control or the plugin. Other NocoDB capabilities are unnecessary for normal capture.
 

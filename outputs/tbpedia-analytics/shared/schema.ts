@@ -50,11 +50,18 @@ export const FRONTMATTER_KEYS: Record<ReadingKey, string> = {
 };
 export const defaults = (): ReadingValues => ({ planned_reading: false, reading_status: 'UNREAD', reading_depth: null, reading_count: 0, want_to_read_date: null, reading_start_date: null, completed_date: null, not_reading_date: null, abandoned_date: null, reading_reflection: null, my_recommendation: null, my_rating: null, my_keywords: [], my_reader_types: [], my_buddhist_level: null, my_practice_level: null, my_subtopics: [] });
 export const COUNTRY_CODES = new Set('AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW'.split(' '));
+// Accept previous single selections when loading settings or receiving older clients.
+export const profileReaderTypesSchema=z.union([codeEnum(READER_LABELS),z.array(codeEnum(READER_LABELS)).max(5)]).nullable().transform(value=>{
+  if(value===null)return null;
+  const values=Array.isArray(value)?value:[value];
+  const selected=(Object.keys(READER_LABELS) as Array<keyof typeof READER_LABELS>).filter(code=>values.includes(code));
+  return selected.length?selected:null;
+});
 export const profileSchema = z.object({
   nickname: z.string().trim().min(1).max(100), email: z.email().max(254).nullable(),
   // Workers can freeze the module-initialization clock; evaluate the year per validation.
   birth_year: z.number().int().min(1900).refine(year=>year<=new Date().getUTCFullYear(),'Birth year cannot be in the future').nullable(), birth_month: z.number().int().min(1).max(12).nullable(),
-  sex: codeEnum(SEX_LABELS), country_code: z.string().refine(s => COUNTRY_CODES.has(s), 'Unknown country code').nullable(), reader_type: codeEnum(READER_LABELS).nullable(), organisation: z.string().trim().max(200).nullable()
+  sex: codeEnum(SEX_LABELS), country_code: z.string().refine(s => COUNTRY_CODES.has(s), 'Unknown country code').nullable(), reader_type: profileReaderTypesSchema, organisation: z.string().trim().max(200).nullable()
 }).strict().refine(p => p.birth_month === null || p.birth_year !== null, { path: ['birth_month'], message: 'Birth year is required when birth month is supplied' });
 export type ReaderProfile = z.infer<typeof profileSchema>;
 export const emptyProfile = (): ReaderProfile => ({ nickname: '', email: null, birth_year: null, birth_month: null, sex: 'PREFER_NOT_TO_SAY', country_code: null, reader_type: null, organisation: null });
