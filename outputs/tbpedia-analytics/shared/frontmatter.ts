@@ -1,4 +1,4 @@
-import { defaults, DEPTH_LABELS, FRONTMATTER_KEYS, READER_LABELS, readingSchema, READING_KEYS, RECOMMENDATION_LABELS, STATUS_LABELS, type ReadingValues, type ReadingKey } from './schema';
+import { syncRequestSchema, defaults, DEPTH_LABELS, FRONTMATTER_KEYS, READER_LABELS, readingSchema, READING_KEYS, RECOMMENDATION_LABELS, STATUS_LABELS, type ReadingValues, type ReadingKey } from './schema';
 
 export type Frontmatter = Record<string, unknown>;
 function one(value: unknown): unknown { return Array.isArray(value) && value.length === 1 ? value[0] : value; }
@@ -41,4 +41,14 @@ export function toFrontmatter(values: ReadingValues): Frontmatter {
 }
 export function trackedFingerprint(fm: Frontmatter): string {
   return JSON.stringify({id:fm.tbpedia_content_id ?? null, values: fromFrontmatter(fm)});
+}
+
+export function readingUpdatedAt(fm: Frontmatter): string {
+  const value=fm.tbpedia_reading_updated_at;
+  return syncRequestSchema.shape.client_updated_at.parse(value instanceof Date?value.toISOString():value);
+}
+export function markReadingSynced(fm: Frontmatter, expectedFingerprint:string, expectedUpdatedAt:string, syncedAt:string): boolean {
+  if(trackedFingerprint(fm)!==expectedFingerprint||readingUpdatedAt(fm)!==expectedUpdatedAt)return false;
+  fm.tbpedia_reading_sync_at=syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  return true;
 }

@@ -9221,6 +9221,15 @@ function toFrontmatter(values) {
 function trackedFingerprint(fm) {
   return JSON.stringify({ id: fm.tbpedia_content_id ?? null, values: fromFrontmatter(fm) });
 }
+function readingUpdatedAt(fm) {
+  const value = fm.tbpedia_reading_updated_at;
+  return syncRequestSchema.shape.client_updated_at.parse(value instanceof Date ? value.toISOString() : value);
+}
+function markReadingSynced(fm, expectedFingerprint, expectedUpdatedAt, syncedAt) {
+  if (trackedFingerprint(fm) !== expectedFingerprint || readingUpdatedAt(fm) !== expectedUpdatedAt) return false;
+  fm.tbpedia_reading_sync_at = syncRequestSchema.shape.client_updated_at.parse(syncedAt);
+  return true;
+}
 
 // plugin/updater.ts
 async function loadUpdaterMetadata(adapter, configDir) {
@@ -9488,6 +9497,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       try {
         if (!note.id || !note.fm) throw new UiError(note.error);
         if (!Object.hasOwn(note.fm, "tbpedia_reading_updated_at")) continue;
+        readingUpdatedAt(note.fm);
         const hash = await snapshotHash(note.id, fromFrontmatter(note.fm), updaterMetadata);
         if (this.data.receipts[this.receiptKey(note.id)]?.hash === hash) unchanged++;
         else pending.push(note.file);
@@ -9534,7 +9544,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           issues.push(t("updaterChanged"));
           break;
         }
-        let id, values, hash;
+        let id, values, hash, clientUpdatedAt, fingerprint;
         try {
           const fm = await this.readNote(file);
           if (!Object.hasOwn(fm, "tbpedia_reading_updated_at")) {
@@ -9542,6 +9552,8 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
             attempted++;
             continue;
           }
+          clientUpdatedAt = readingUpdatedAt(fm);
+          fingerprint = trackedFingerprint(fm);
           id = contentIdSchema.parse(fm.tbpedia_content_id);
           if (counts.get(id) !== 1) throw new UiError(t("Vault \u4E2D\u6709\u91CD\u8907\u5167\u5BB9\u7DE8\u865F\uFF0C\u8ACB\u5148\u4FEE\u6B63\u3002"));
           values = fromFrontmatter(fm);
@@ -9559,8 +9571,17 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
         }
         this.setStatus(t("progress", { current: saved + 1, total: files.length }));
         try {
-          const result = savedSchema.parse(await this.api("/v1/reading/sync", "POST", { schema_version: 1, content_id: id, client_updated_at: (/* @__PURE__ */ new Date()).toISOString(), values, updater_metadata: updaterMetadata }));
+          const result = savedSchema.parse(await this.api("/v1/reading/sync", "POST", { schema_version: 1, content_id: id, client_updated_at: clientUpdatedAt, values, updater_metadata: updaterMetadata }));
           if (result.content_id !== id || result.snapshot_hash !== hash) throw new UiError(t("\u4F3A\u670D\u5668\u78BA\u8A8D\u8207\u9001\u51FA\u7684\u7248\u672C\u4E0D\u540C\uFF1B\u5C1A\u672A\u6A19\u8A18\u5B8C\u6210\u3002"));
+          let marked = false;
+          try {
+            await this.app.fileManager.processFrontMatter(file, (fm) => {
+              marked = markReadingSynced(fm, fingerprint, clientUpdatedAt, result.synced_at);
+            });
+          } catch {
+            throw new UiError(t("\u96F2\u7AEF\u5DF2\u5132\u5B58\uFF0C\u4F46\u672C\u6A5F\u540C\u6B65\u8A18\u9304\u7121\u6CD5\u5132\u5B58\uFF1B\u4E0B\u6B21\u53EF\u4EE5\u91CD\u65B0\u540C\u6B65\u3002"));
+          }
+          if (!marked) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
           this.data.receipts[this.receiptKey(id)] = { hash, synced_at: result.synced_at };
           try {
             await this.persist();

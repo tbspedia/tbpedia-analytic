@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.8](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.8)** — requires `tbpedia_reading_updated_at` before manual reading uploads.
+**Latest release: [v0.1.9](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.9)** — separates local save time from successful sync time.
 
 ## Install or upgrade
 
@@ -55,7 +55,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.8 release passes type checking and production builds. **49 of 50 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.9 release passes type checking and production builds. **52 of 53 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)
@@ -64,3 +64,5 @@ The v0.1.8 release passes type checking and production builds. **49 of 50 automa
 Private credentials, vault backups, build caches and logs remain excluded from Git and release ZIPs.
 
 Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
+
+Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. Failed uploads do not update this field; notes edited during upload are not marked as synced for the newer local version.

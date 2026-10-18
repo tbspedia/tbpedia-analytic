@@ -2,7 +2,7 @@ import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, Platform, getF
 import * as z from 'zod';
 import { t as tr, labels, LANGUAGES, setLocale, languagePreference, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
 import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
-import { fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
+import { readingUpdatedAt, markReadingSynced, fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
 import { collectClientMetadata } from '../shared/client-metadata';
 import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metadata';
 import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
@@ -131,7 +131,7 @@ export default class TbpediaAnalytics extends Plugin{
   async pendingNotes(){
     const updaterMetadata=await this.metadataForSync();
     const notes=(await this.scan()).filter(n=>this.inScope(n.file.path));const pending:TFile[]=[];let unchanged=0,invalid=0;
-    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);if(!Object.hasOwn(note.fm,'tbpedia_reading_updated_at'))continue;const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
+    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);if(!Object.hasOwn(note.fm,'tbpedia_reading_updated_at'))continue;readingUpdatedAt(note.fm);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
     return {pending,unchanged,invalid};
   }
   async previewSync(){
@@ -150,14 +150,18 @@ export default class TbpediaAnalytics extends Plugin{
       for(const file of files){
         if(!this.data.local_upload_enabled||this.data.api_url!==uploadTarget||this.data.reader_id!==uploadReader){issues.push(tr("上傳權限或連線已變更；已停止後續上傳。"));break;}
         if(JSON.stringify(await this.metadataForSync())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
-        let id:string,values:ReadingValues,hash:string;
-        try{const fm=await this.readNote(file);if(!Object.hasOwn(fm,'tbpedia_reading_updated_at')){unchanged++;attempted++;continue;}id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
+        let id:string,values:ReadingValues,hash:string,clientUpdatedAt:string,fingerprint:string;
+        try{const fm=await this.readNote(file);if(!Object.hasOwn(fm,'tbpedia_reading_updated_at')){unchanged++;attempted++;continue;}clientUpdatedAt=readingUpdatedAt(fm);fingerprint=trackedFingerprint(fm);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
         catch(e){invalid++;attempted++;issues.push(`${file.basename}: ${message(e)}`);continue;}
         if(!force&&this.data.receipts[this.receiptKey(id)]?.hash===hash){unchanged++;attempted++;continue;}
         this.setStatus(tr('progress',{current:saved+1,total:files.length}));
         try{
-          const result=savedSchema.parse(await this.api('/v1/reading/sync','POST',{schema_version:1,content_id:id,client_updated_at:new Date().toISOString(),values,updater_metadata:updaterMetadata}));
+          const result=savedSchema.parse(await this.api('/v1/reading/sync','POST',{schema_version:1,content_id:id,client_updated_at:clientUpdatedAt,values,updater_metadata:updaterMetadata}));
           if(result.content_id!==id||result.snapshot_hash!==hash)throw new UiError(tr("伺服器確認與送出的版本不同；尚未標記完成。"));
+          let marked=false;
+          try{await this.app.fileManager.processFrontMatter(file,fm=>{marked=markReadingSynced(fm,fingerprint,clientUpdatedAt,result.synced_at);});}
+          catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
+          if(!marked)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
           this.data.receipts[this.receiptKey(id)]={hash,synced_at:result.synced_at};
           try{await this.persist();}catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
           saved++;attempted++;

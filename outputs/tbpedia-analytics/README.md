@@ -171,3 +171,5 @@ The Tbpedia updater must preserve personal reading properties. This plugin canno
 The later Community Edition target uses SQLite; NocoDB Cloud manages its own backend. Table and data portability is designed in, but an actual SQLite deployment/cutover requires the same native-API compatibility checks on the chosen edition/version. No paid-only uniqueness or UUID field is required.
 
 Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
+
+Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. Failed uploads do not update this field; notes edited during upload are not marked as synced for the newer local version.
