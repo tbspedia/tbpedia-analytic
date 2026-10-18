@@ -11,6 +11,14 @@ An offline-first Obsidian reading editor with deliberate, authenticated uploads 
 - Cloud uploads off by default. No article bodies or unrelated frontmatter are sent.
 - No analytics dashboard, event history, automatic retries or multi-device merging.
 
+## Updater collection metadata
+
+The analytics plugin copies only `seriesId`, `editionId`, `tbpedia`, `releaseId`, `languageCode` and `title` from `<vault config directory>/plugins/tbpedia-update/data.json` into its own `data.json`. It reads the installed content release from `installed.releaseId` (with support for a flat top-level `releaseId`), never from `baseRelease.releaseId`. Unrelated updater settings are not copied or uploaded. The collection `languageCode` does not override the analytics UI language setting (`interface_language`). The previous `language` settings key is migrated automatically, preserving the selected language.
+
+The fields refresh on plugin startup, sync preview and before uploads. Each manual reading sync sends them to the matching `reading_records` row. They are included in the sync fingerprint, so a collection or release change makes otherwise unchanged notes eligible for sync again. A collection change during a batch stops further uploads; preview and retry with the newly installed content. Existing note properties are preserved.
+
+If the updater is absent, the six fields are null. Invalid or unreadable updater settings stop cloud sync with a localized message; local reading editing remains available. Requests from older clients without updater context still work and clear the six attribution fields rather than retain stale release information. Records remain keyed by reader and content: these fields describe the latest synced snapshot rather than a release history.
+
 ## Reader device metadata
 
 After accepting the updated profile notice (`profile-v2`), **Save and upload profile** also sends `device_type`, `Client_version` (the plugin version), `os` and `user_agent` to the reader's existing NocoDB row. Each upload replaces the last device snapshot; this is not a device-history table. Metadata is not collected from the administrator's provisioning machine, written into notes, or uploaded on startup, local saves, connection tests or reading sync. No hardware identifier is collected.
@@ -27,7 +35,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 185 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 188 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 

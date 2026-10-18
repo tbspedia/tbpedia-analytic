@@ -4,6 +4,7 @@ import { ApiError, requestJson } from './errors';
 import { booleanValue, NocoDB, oneRow, readReading, readingFields, type Fetcher } from './nocodb';
 import { clientMetadataSchema } from '../../shared/client-metadata';
 import {version as APP_VERSION} from '../../package.json';
+import {emptyUpdaterMetadata,readUpdaterMetadata} from '../../shared/updater-metadata';
 
 const authFailure=()=>new ApiError(401,'UNAUTHENTICATED','Reconnect using an active reader credential.');
 function safeProfile(fields:Record<string,unknown>){
@@ -56,9 +57,12 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
       if(!booleanValue(content.fields.is_active))throw new ApiError(422,'VALIDATION_FAILED','This catalogue item is inactive.');
       const existing=await db.find(env.READING_TABLE_ID,{reader_id:readerId,content_id:payload.content_id});
       if(existing.length>1)throw new ApiError(409,'DUPLICATE_KEY','Duplicate reading records require administrator repair.');
-      const hash=await snapshotHash(payload.content_id,payload.values);const now=new Date().toISOString();
-      const saved=await db.upsertReading({...readingFields(payload.values),reader_id:readerId,content_id:payload.content_id,client_updated_at:payload.client_updated_at,synced_at:now,snapshot_hash:hash,schema_version:1});
-      if(saved.fields.reader_id!==readerId||saved.fields.content_id!==payload.content_id||saved.fields.snapshot_hash!==hash||canonicalSnapshot(payload.content_id,readReading(saved.fields))!==canonicalSnapshot(payload.content_id,payload.values))throw new ApiError(502,'BACKEND_ERROR','The reading save could not be verified.');
+      const metadata=payload.updater_metadata??emptyUpdaterMetadata();
+      const hash=await snapshotHash(payload.content_id,payload.values,payload.updater_metadata);const now=new Date().toISOString();
+      const saved=await db.upsertReading({...readingFields(payload.values),...metadata,reader_id:readerId,content_id:payload.content_id,client_updated_at:payload.client_updated_at,synced_at:now,snapshot_hash:hash,schema_version:1});
+      let verifiedMetadata;
+      try{verifiedMetadata=readUpdaterMetadata(saved.fields);}catch{throw new ApiError(502,'BACKEND_ERROR','The updater metadata save could not be verified.');}
+      if(saved.fields.reader_id!==readerId||saved.fields.content_id!==payload.content_id||saved.fields.snapshot_hash!==hash||JSON.stringify(verifiedMetadata)!==JSON.stringify(metadata)||canonicalSnapshot(payload.content_id,readReading(saved.fields),payload.updater_metadata===undefined?undefined:verifiedMetadata)!==canonicalSnapshot(payload.content_id,payload.values,payload.updater_metadata))throw new ApiError(502,'BACKEND_ERROR','The reading save could not be verified.');
       return json({content_id:payload.content_id,status:'saved',snapshot_hash:hash,synced_at:now,request_id:requestId});
     }
     throw new ApiError(405,'METHOD_NOT_ALLOWED','Method not allowed.');

@@ -1,0 +1,64 @@
+{
+  "tested_at": "2026-10-18T07:16:09.525880+00:00",
+  "checks": [
+    {
+      "name": "Deployed Worker health",
+      "status": "passed"
+    },
+    {
+      "name": "Installed updater context ingested and fingerprint verified",
+      "status": "passed"
+    },
+    {
+      "name": "Repeat upload retains the same fingerprint",
+      "status": "passed"
+    },
+    {
+      "name": "Changed release creates a new fingerprint",
+      "status": "passed"
+    },
+    {
+      "name": "Changed collection language creates a new fingerprint",
+      "status": "passed"
+    },
+    {
+      "name": "Changed collection title creates a new fingerprint",
+      "status": "passed"
+    },
+    {
+      "name": "Legacy reading upload remains compatible",
+      "status": "passed"
+    },
+    {
+      "name": "Explicitly missing updater fields are supported",
+      "status": "passed"
+    },
+    {
+      "name": "Metadata cannot override the authenticated reader",
+      "status": "passed"
+    },
+    {
+      "name": "Oversized release identifier is rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Oversized collection title is rejected",
+      "status": "passed"
+    },
+    {
+      "name": "Restore installed context for database read-back",
+      "status": "passed"
+    }
+  ],
+  "database_readback_verified": true,
+  "synthetic_rows_removed": true,
+  "real_reader_data_uploaded": false,
+  "fields_verified": [
+    "seriesId",
+    "editionId",
+    "tbpedia",
+    "releaseId",
+    "languageCode",
+    "title"
+  ]
+}

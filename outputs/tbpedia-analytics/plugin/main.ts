@@ -4,10 +4,13 @@ import { t as tr, labels, LANGUAGES, setLocale, languagePreference, intlLocale, 
 import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
 import { fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
 import { collectClientMetadata } from '../shared/client-metadata';
+import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metadata';
+import {loadUpdaterMetadata} from './updater';
+import {migrateInterfaceLanguage} from './settings-migrations';
 
 const DEFAULT_API='https://tbpedia-analytics.tbspedia.workers.dev';
 const receiptSchema=z.object({hash:z.string(),synced_at:z.string()});
-const dataSchema=z.object({language:z.string().optional(),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(null),reading_notice_version:z.string().nullable().default(null),local_upload_enabled:z.boolean().default(false),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),receipts:z.record(z.string(),receiptSchema).default({}),profile_uploaded_hash:z.string().nullable().default(null)});
+const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(null),reading_notice_version:z.string().nullable().default(null),local_upload_enabled:z.boolean().default(false),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),receipts:z.record(z.string(),receiptSchema).default({}),profile_uploaded_hash:z.string().nullable().default(null)});
 type PluginData=z.infer<typeof dataSchema>;
 const meSchema=z.object({reader_id:z.uuid(),profile:profileSchema,cloud_sync_enabled:z.boolean(),profile_consent_version:z.string().nullable(),reading_consent_version:z.string().nullable(),required_notices:z.object({profile_version:z.string(),reading_version:z.string(),profile_text:z.string(),reading_text:z.string()})});
 type Me=z.infer<typeof meSchema>;
@@ -32,7 +35,8 @@ export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;status!:HTMLElement;private persistTail:Promise<void>=Promise.resolve();
   async onload(){
     const loaded:unknown=await this.loadData();
-    this.data=dataSchema.parse(loaded??{});setLocale(this.data.language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
+    const migration=migrateInterfaceLanguage(loaded??{});
+    this.data=dataSchema.parse(migration.data);setLocale(this.data.interface_language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
     this.status=this.addStatusBarItem();this.setStatus(tr("本機閱讀"));
     this.addSettingTab(new AnalyticsSettings(this.app,this));
     this.addRibbonIcon('book-open-check',tr("Tbpedia 閱讀資料"),()=>{void this.openReading();});
@@ -42,6 +46,14 @@ export default class TbpediaAnalytics extends Plugin{
     this.addCommand({id:'reread',name:tr("開始重讀"),callback:()=>{void this.quickStatus('READING');}});
     this.addCommand({id:'sync-note',name:tr("同步目前文章"),callback:()=>{const f=this.app.workspace.getActiveFile();if(f)void this.runSync([f],true);}});
     this.addCommand({id:'sync-changed',name:tr("同步已變更文章"),callback:()=>{void this.previewSync();}});
+    try{if(migration.changed)await this.persist();await this.refreshUpdaterMetadata();}catch(e){new Notice(message(e),10000);}
+  }
+  async refreshUpdaterMetadata(){
+    const metadata=await loadUpdaterMetadata(this.app.vault.adapter,this.app.vault.configDir);
+    if(JSON.stringify(readUpdaterMetadata(this.data))!==JSON.stringify(metadata)){
+      Object.assign(this.data,metadata);await this.persist();
+    }
+    return metadata;
   }
   setStatus(text:string){this.status?.setText(`Tbpedia · ${text}`);}
   async persist(){const snapshot=structuredClone({...this.data,stored_token:this.data.remember_token?this.token:''});const task=this.persistTail.then(()=>this.saveData(snapshot));this.persistTail=task.catch(()=>undefined);await task;}
@@ -110,12 +122,13 @@ export default class TbpediaAnalytics extends Plugin{
   }
   receiptKey(id:string){return `${this.data.api_url.replace(/\/$/,'')}|${this.data.reader_id??'local'}|${id}`;}
   async pendingNotes(){
+    const updaterMetadata=await this.refreshUpdaterMetadata();
     const notes=(await this.scan()).filter(n=>this.inScope(n.file.path));const pending:TFile[]=[];let unchanged=0,invalid=0;
-    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm));if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
+    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
     return {pending,unchanged,invalid};
   }
   async previewSync(){
-    try{if(this.busy)throw new UiError(tr("同步正在進行。"));const result=await this.pendingNotes();new ConfirmModal(this.app,tr("手動上傳閱讀資料"),tr('preview',{pending:result.pending.length,unchanged:result.unchanged,invalid:result.invalid}),()=>this.runSync(result.pending,false)).open();}
+    try{if(this.busy)throw new UiError(tr("同步正在進行。"));const result=await this.pendingNotes();new ConfirmModal(this.app,tr("手動上傳閱讀資料"),`${tr('preview',{pending:result.pending.length,unchanged:result.unchanged,invalid:result.invalid})} ${tr('updaterSyncNotice')}`,()=>this.runSync(result.pending,false)).open();}
     catch(e){new Notice(message(e),10000);}
   }
   async runSync(files:TFile[],force:boolean){
@@ -125,21 +138,23 @@ export default class TbpediaAnalytics extends Plugin{
       if(!this.data.local_upload_enabled)throw new UiError(tr("雲端上傳已停用。閱讀資料仍保存在本機。"));
       await this.connect();if(!noticeSupported(this.me?.required_notices.profile_version,PROFILE_NOTICE_VERSION)||!noticeSupported(this.me?.required_notices.reading_version,READING_NOTICE_VERSION))throw new UiError(tr('noticeUnavailable'));if(!this.me?.cloud_sync_enabled)throw new UiError(tr("請先在設定中儲存並上傳個人資料，以套用雲端權限。"));
       const uploadTarget=this.data.api_url;const uploadReader=this.data.reader_id;
+      const updaterMetadata=await this.refreshUpdaterMetadata();
       const all=await this.scan();const counts=new Map<string,number>();for(const n of all)if(n.id)counts.set(n.id,(counts.get(n.id)??0)+1);
       for(const file of files){
         if(!this.data.local_upload_enabled||this.data.api_url!==uploadTarget||this.data.reader_id!==uploadReader){issues.push(tr("上傳權限或連線已變更；已停止後續上傳。"));break;}
+        if(JSON.stringify(await this.refreshUpdaterMetadata())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
         let id:string,values:ReadingValues,hash:string;
-        try{const fm=await this.readNote(file);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values);}
+        try{const fm=await this.readNote(file);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
         catch(e){invalid++;attempted++;issues.push(`${file.basename}: ${message(e)}`);continue;}
         if(!force&&this.data.receipts[this.receiptKey(id)]?.hash===hash){unchanged++;attempted++;continue;}
         this.setStatus(tr('progress',{current:saved+1,total:files.length}));
         try{
-          const result=savedSchema.parse(await this.api('/v1/reading/sync','POST',{schema_version:1,content_id:id,client_updated_at:new Date().toISOString(),values}));
+          const result=savedSchema.parse(await this.api('/v1/reading/sync','POST',{schema_version:1,content_id:id,client_updated_at:new Date().toISOString(),values,updater_metadata:updaterMetadata}));
           if(result.content_id!==id||result.snapshot_hash!==hash)throw new UiError(tr("伺服器確認與送出的版本不同；尚未標記完成。"));
           this.data.receipts[this.receiptKey(id)]={hash,synced_at:result.synced_at};
           try{await this.persist();}catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
           saved++;attempted++;
-          if(await snapshotHash(id,fromFrontmatter(await this.readNote(file)))!==hash)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
+          if(await snapshotHash(id,fromFrontmatter(await this.readNote(file)),await this.refreshUpdaterMetadata())!==hash)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
         }catch(e){issues.push(`${file.basename}: ${message(e)}`);break;}
       }
       const summary=tr('summary',{saved,unchanged,invalid,remaining:files.length-attempted});
@@ -188,10 +203,10 @@ class ReadingModal extends Modal{
 class AnalyticsSettings extends PluginSettingTab{
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
-    setLocale(this.plugin.data.language,getLanguage());
+    setLocale(this.plugin.data.interface_language,getLanguage());
     const el=this.containerEl;el.empty();el.lang=intlLocale();el.createEl('h2',{text:'Tbpedia Analytics'});
     const p=this.plugin;
-    new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.language)).onChange(v=>{p.data.language=languagePreference(v);setLocale(p.data.language,getLanguage());p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
+    new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange(v=>{p.data.interface_language=languagePreference(v);setLocale(p.data.interface_language,getLanguage());p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};
     el.createEl('h3',{text:tr("連線")});
     new Setting(el).setName(tr("API 網址")).addText(t=>t.setValue(p.data.api_url).onChange(v=>{if(v===p.data.api_url)return;p.data.api_url=v.trim();p.token='';p.me=null;p.persistQuiet();}));

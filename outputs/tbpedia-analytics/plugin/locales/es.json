@@ -140,7 +140,7 @@
   "summary": "Guardado: {saved}; sin cambios: {unchanged}; no válido: {invalid}; incompleto: {remaining}.",
   "changedDuringUpload": "Se realizaron cambios durante la carga. Sincroniza nuevamente para subirlos.",
   "profileNotice": "Su perfil se almacena localmente. Solo Guardar y cargar el perfil lo envía a NocoDB de Tbpedia. Incluye su apodo y cualquier correo electrónico opcional, año/mes de nacimiento, sexo, país, tipo de lector y organización que proporcione, para la gestión de lectores y estadísticas de lectura futuras. Estos campos no están escritos en artículos. Puede editar su perfil o pedirle al administrador que elimine los datos de la nube. Cada carga del perfil también envía el tipo de dispositivo, la versión del complemento, el sistema operativo y la cadena de agente de usuario para comprobar la compatibilidad y resolver problemas. Solo se conservan los datos del dispositivo de la última carga del perfil; no se recopilan identificadores de hardware.",
-  "readingNotice": "Cuando el permiso de la nube está habilitado, solo los datos de lectura que usted sincroniza manualmente se envían a NocoDB de Tbpedia, incluidos el progreso, las fechas, las calificaciones, las clasificaciones y las reflexiones. Los cuerpos de los artículos y las propiedades no relacionadas no se cargan. Deshabilitar las cargas detiene las cargas futuras pero no elimina los datos existentes en la nube.",
+  "readingNotice": "Cuando el permiso de la nube está habilitado, solo los datos de lectura que usted sincroniza manualmente se envían a NocoDB de Tbpedia, incluidos el progreso, las fechas, las calificaciones, las clasificaciones y las reflexiones. Los cuerpos de los artículos y las propiedades no relacionadas no se cargan. Deshabilitar las cargas detiene las cargas futuras pero no elimina los datos existentes en la nube. Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada.",
   "noticeUnavailable": "Este servidor requiere un aviso de privacidad más reciente. Actualice el complemento antes de aceptarlo o cargarlo.",
   "invalidField": "Verifique el valor y el formato de este campo.",
   "invalidChoice": "Elija una de las opciones disponibles.",
@@ -183,5 +183,8 @@
   "field.values": "Leyendo datos",
   "backend.BACKEND_TIMEOUT": "La base de datos no respondió a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio.",
   "followSystem": "Seguir el sistema",
-  "followSystemHelp": "Usa el idioma configurado en Obsidian; si no está disponible, usa inglés."
+  "followSystemHelp": "Usa el idioma configurado en Obsidian; si no está disponible, usa inglés.",
+  "updaterReadError": "No se pudo leer la configuración del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
+  "updaterChanged": "La colección instalada cambió durante la sincronización. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
+  "updaterSyncNotice": "Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada."
 }

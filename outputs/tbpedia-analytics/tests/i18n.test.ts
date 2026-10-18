@@ -28,10 +28,10 @@ test('locale resolution handles Obsidian codes, regions, scripts and unknown lan
 test('follow system remains a saved preference and manual choices override the system language',()=>{
   assert.equal(languagePreference(undefined),'system');
   assert.equal(languagePreference('system'),'system');
-  const saved=JSON.parse(JSON.stringify({language:languagePreference('system')}));
-  assert.equal(setLocale(saved.language,'ja'),'ja');
-  assert.equal(setLocale(saved.language,'zh-Hant'),'zh-TW');
-  assert.equal(setLocale(saved.language,'unsupported'),'en');
+  const saved=JSON.parse(JSON.stringify({interface_language:languagePreference('system')}));
+  assert.equal(setLocale(saved.interface_language,'ja'),'ja');
+  assert.equal(setLocale(saved.interface_language,'zh-Hant'),'zh-TW');
+  assert.equal(setLocale(saved.interface_language,'unsupported'),'en');
   assert.equal(setLocale(undefined,'fr-FR'),'fr');
   assert.equal(languagePreference('de'),'de');
   assert.equal(setLocale('de','ja'),'de');

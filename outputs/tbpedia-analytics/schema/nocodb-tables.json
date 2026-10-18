@@ -359,6 +359,30 @@
       {
         "title": "my_subtopics",
         "type": "LongText"
+      },
+      {
+        "title": "seriesId",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "editionId",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "tbpedia",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "releaseId",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "languageCode",
+        "type": "SingleLineText"
+      },
+      {
+        "title": "title",
+        "type": "LongText"
       }
     ]
   }

@@ -140,7 +140,7 @@
   "summary": "Sparad: {saved}; oförändrad: {unchanged}; ogiltig: {invalid}; ofullständig: {remaining}.",
   "changedDuringUpload": "Ändringar gjordes under uppladdningen. Synkronisera igen för att ladda upp dem.",
   "profileNotice": "Din profil lagras lokalt. Endast Spara och ladda upp profil skickar den till Tbpedias NocoDB. Det inkluderar ditt smeknamn och valfri e-post, födelseår/månad, kön, land, läsartyp och organisation du tillhandahåller, för läsarhantering och framtida lässtatistik. Dessa fält är inte inskrivna i artiklar. Du kan redigera din profil eller be administratören att radera molndata. Varje profiluppladdning skickar även enhetstyp, tilläggsversion, operativsystem och användaragentsträng för kompatibilitet och felsökning. Endast enhetsuppgifterna från den senaste profiluppladdningen sparas; inga maskinvaruidentifierare samlas in.",
-  "readingNotice": "När molnbehörighet är aktiverad skickas endast läsdata som du manuellt synkroniserar till Tbpedias NocoDB, inklusive framsteg, datum, betyg, klassificeringar och reflektioner. Artikeltexter och icke-relaterade egenskaper laddas inte upp. Om du inaktiverar uppladdningar stoppas framtida uppladdningar men befintlig molndata raderas inte.",
+  "readingNotice": "När molnbehörighet är aktiverad skickas endast läsdata som du manuellt synkroniserar till Tbpedias NocoDB, inklusive framsteg, datum, betyg, klassificeringar och reflektioner. Artikeltexter och icke-relaterade egenskaper laddas inte upp. Om du inaktiverar uppladdningar stoppas framtida uppladdningar men befintlig molndata raderas inte. Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel.",
   "noticeUnavailable": "Den här servern kräver ett nyare sekretessmeddelande. Uppdatera plugin-programmet innan du accepterar det eller laddar upp det.",
   "invalidField": "Kontrollera detta fälts värde och format.",
   "invalidChoice": "Välj ett av de tillgängliga alternativen.",
@@ -183,5 +183,8 @@
   "field.values": "Läser data",
   "backend.BACKEND_TIMEOUT": "Databasens svar tog för lång tid och det är osäkert om uppgifterna sparades. Försök igen manuellt när tjänsten fungerar.",
   "followSystem": "Följ systemet",
-  "followSystemHelp": "Använder Obsidians språkinställning, med engelska som reservspråk."
+  "followSystemHelp": "Använder Obsidians språkinställning, med engelska som reservspråk.",
+  "updaterReadError": "Det gick inte att läsa inställningarna för Tbpedia-uppdateraren. Kontrollera dess data.json och försök igen. Läsdata är fortfarande sparade lokalt.",
+  "updaterChanged": "Den installerade samlingen ändrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska förhandsvisningen och synkronisera igen.",
+  "updaterSyncNotice": "Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel."
 }

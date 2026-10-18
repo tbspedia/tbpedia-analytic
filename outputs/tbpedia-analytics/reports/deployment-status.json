@@ -1,11 +1,11 @@
 {
   "application": "tbpedia-analytics",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "status": "deployed-and-live-verified",
   "worker": {
     "url": "https://tbpedia-analytics.tbspedia.workers.dev",
     "health_url": "https://tbpedia-analytics.tbspedia.workers.dev/health",
-    "version_id": "7e3d4bc5-8505-4d33-9a7a-17f50ed4ea4b",
+    "version_id": "ca424610-7d07-4d12-9b6a-5039cca38d6c",
     "service_secret_configured": true,
     "preview_urls_enabled": false
   },
@@ -38,14 +38,17 @@
   },
   "verification": {
     "typecheck": "passed",
-    "automated_tests_passed": 33,
+    "automated_tests_passed": 47,
     "live_checks_passed": 8,
     "synthetic_rows_removed": true,
     "existing_personal_reading_data_uploaded": false,
     "live_metadata_checks_passed": 8,
-    "metadata_database_readback_verified": true
+    "metadata_database_readback_verified": true,
+    "live_updater_checks_passed": 12,
+    "updater_database_readback_verified": true,
+    "deployed_version_health_verified": true
   },
-  "next_step": "Reload Obsidian, accept the updated profile notice, then Save and upload profile to populate device_type, Client_version, os and user_agent.",
+  "next_step": "Reload Obsidian and manually sync reading records to attach the installed updater collection context.",
   "profile_notice_version": "profile-v2",
-  "deployed_at": "2026-10-17T15:54:26.616379+00:00"
+  "deployed_at": "2026-10-18T07:21:46.334173+00:00"
 }

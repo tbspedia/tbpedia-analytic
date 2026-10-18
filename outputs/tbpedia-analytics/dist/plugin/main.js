@@ -6403,7 +6403,7 @@ var en_default2 = {
   summary: "Saved: {saved}; unchanged: {unchanged}; invalid: {invalid}; incomplete: {remaining}.",
   changedDuringUpload: "Changes were made during upload. Sync again to upload them.",
   profileNotice: "Your profile is stored locally. Only Save and upload profile sends it to Tbpedia's NocoDB. It includes your nickname and any optional email, birth year/month, sex, country, reader type and organisation you provide, for reader management and future reading statistics. These fields are not written into articles. You can edit your profile or ask the administrator to delete cloud data. Each profile upload also sends your device type, plugin version, operating system and user-agent string for compatibility and troubleshooting. Only the device details from your latest profile upload are kept; no hardware identifiers are collected.",
-  readingNotice: "When cloud permission is enabled, only reading data you manually sync is sent to Tbpedia's NocoDB, including progress, dates, ratings, classifications and reflections. Article bodies and unrelated properties are not uploaded. Disabling uploads stops future uploads but does not delete existing cloud data.",
+  readingNotice: "When cloud permission is enabled, only reading data you manually sync is sent to Tbpedia's NocoDB, including progress, dates, ratings, classifications and reflections. Article bodies and unrelated properties are not uploaded. Disabling uploads stops future uploads but does not delete existing cloud data. Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
   noticeUnavailable: "This server requires a newer privacy notice. Update the plugin before accepting it or uploading.",
   invalidField: "Check this field's value and format.",
   invalidChoice: "Choose one of the available options.",
@@ -6446,7 +6446,10 @@ var en_default2 = {
   "field.values": "Reading data",
   "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery.",
   followSystem: "Follow system",
-  followSystemHelp: "Uses Obsidian's language setting, with English as the fallback."
+  followSystemHelp: "Uses Obsidian's language setting, with English as the fallback.",
+  updaterReadError: "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
+  updaterChanged: "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
+  updaterSyncNotice: "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title."
 };
 
 // plugin/locales/ja.json
@@ -6592,7 +6595,7 @@ var ja_default = {
   summary: "\u4FDD\u5B58\u6E08\u307F: {saved};\u5909\u66F4\u306A\u3057: {unchanged};\u7121\u52B9: {invalid};\u4E0D\u5B8C\u5168: {remaining}\u3002",
   changedDuringUpload: "\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u4E2D\u306B\u5909\u66F4\u304C\u52A0\u3048\u3089\u308C\u307E\u3057\u305F\u3002\u518D\u5EA6\u540C\u671F\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3057\u307E\u3059\u3002",
   profileNotice: "\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u307E\u3059\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u4FDD\u5B58\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u3060\u3051\u3067\u3001\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u304C Tbpedia \u306E NocoDB \u306B\u9001\u4FE1\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u306B\u306F\u3001\u8AAD\u8005\u306E\u7BA1\u7406\u3068\u5C06\u6765\u306E\u8AAD\u66F8\u7D71\u8A08\u306E\u305F\u3081\u306B\u3001\u30CB\u30C3\u30AF\u30CD\u30FC\u30E0\u3068\u30AA\u30D7\u30B7\u30E7\u30F3\u306E\u96FB\u5B50\u30E1\u30FC\u30EB\u3001\u8A95\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u56FD\u3001\u8AAD\u8005\u306E\u7A2E\u985E\u3001\u7D44\u7E54\u304C\u63D0\u4F9B\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u3089\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306F\u8A18\u4E8B\u306B\u306F\u66F8\u304D\u8FBC\u307E\u308C\u307E\u305B\u3093\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u7DE8\u96C6\u3057\u305F\u308A\u3001\u7BA1\u7406\u8005\u306B\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306E\u524A\u9664\u3092\u4F9D\u983C\u3057\u305F\u308A\u3067\u304D\u307E\u3059\u3002 \u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u305F\u3073\u306B\u3001\u4E92\u63DB\u6027\u306E\u78BA\u8A8D\u3068\u554F\u984C\u306E\u8ABF\u67FB\u306E\u305F\u3081\u3001\u7AEF\u672B\u306E\u7A2E\u985E\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001OS\u3001\u30E6\u30FC\u30B6\u30FC\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u6587\u5B57\u5217\u3082\u9001\u4FE1\u3057\u307E\u3059\u3002\u6700\u65B0\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u6642\u306E\u7AEF\u672B\u60C5\u5831\u306E\u307F\u3092\u4FDD\u6301\u3057\u3001\u30CF\u30FC\u30C9\u30A6\u30A7\u30A2\u8B58\u5225\u5B50\u306F\u53CE\u96C6\u3057\u307E\u305B\u3093\u3002",
-  readingNotice: "\u30AF\u30E9\u30A6\u30C9\u8A31\u53EF\u304C\u6709\u52B9\u306B\u306A\u3063\u3066\u3044\u308B\u5834\u5408\u3001\u624B\u52D5\u3067\u540C\u671F\u3057\u305F\u8AAD\u66F8\u30C7\u30FC\u30BF\u306E\u307F\u304C Tbpedia \u306E NocoDB \u306B\u9001\u4FE1\u3055\u308C\u307E\u3059 (\u9032\u884C\u72B6\u6CC1\u3001\u65E5\u4ED8\u3001\u8A55\u4FA1\u3001\u5206\u985E\u3001\u53CD\u6620\u306A\u3069)\u3002\u8A18\u4E8B\u672C\u6587\u3084\u95A2\u9023\u306E\u306A\u3044\u30D7\u30ED\u30D1\u30C6\u30A3\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u305B\u3093\u3002\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u7121\u52B9\u306B\u3059\u308B\u3068\u3001\u4ECA\u5F8C\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u306F\u505C\u6B62\u3055\u308C\u307E\u3059\u304C\u3001\u65E2\u5B58\u306E\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306F\u524A\u9664\u3055\u308C\u307E\u305B\u3093\u3002",
+  readingNotice: "\u30AF\u30E9\u30A6\u30C9\u8A31\u53EF\u304C\u6709\u52B9\u306B\u306A\u3063\u3066\u3044\u308B\u5834\u5408\u3001\u624B\u52D5\u3067\u540C\u671F\u3057\u305F\u8AAD\u66F8\u30C7\u30FC\u30BF\u306E\u307F\u304C Tbpedia \u306E NocoDB \u306B\u9001\u4FE1\u3055\u308C\u307E\u3059 (\u9032\u884C\u72B6\u6CC1\u3001\u65E5\u4ED8\u3001\u8A55\u4FA1\u3001\u5206\u985E\u3001\u53CD\u6620\u306A\u3069)\u3002\u8A18\u4E8B\u672C\u6587\u3084\u95A2\u9023\u306E\u306A\u3044\u30D7\u30ED\u30D1\u30C6\u30A3\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u305B\u3093\u3002\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u7121\u52B9\u306B\u3059\u308B\u3068\u3001\u4ECA\u5F8C\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u306F\u505C\u6B62\u3055\u308C\u307E\u3059\u304C\u3001\u65E2\u5B58\u306E\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306F\u524A\u9664\u3055\u308C\u307E\u305B\u3093\u3002 \u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002",
   noticeUnavailable: "\u30B5\u30FC\u30D0\u30FC\u304C\u65B0\u3057\u3044\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u901A\u77E5\u3078\u306E\u540C\u610F\u3092\u6C42\u3081\u3066\u3044\u307E\u3059\u3002\u540C\u610F\u307E\u305F\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u524D\u306B\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u66F4\u65B0\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   invalidField: "\u3053\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u5024\u3068\u5F62\u5F0F\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   invalidChoice: "\u5229\u7528\u53EF\u80FD\u306A\u30AA\u30D7\u30B7\u30E7\u30F3\u306E\u3044\u305A\u308C\u304B\u3092\u9078\u629E\u3057\u307E\u3059\u3002",
@@ -6635,7 +6638,10 @@ var ja_default = {
   "field.values": "\u30C7\u30FC\u30BF\u306E\u8AAD\u66F8",
   "backend.BACKEND_TIMEOUT": "\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306E\u5FDC\u7B54\u304C\u30BF\u30A4\u30E0\u30A2\u30A6\u30C8\u3057\u3001\u4FDD\u5B58\u72B6\u6CC1\u3092\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u5FA9\u65E7\u5F8C\u306B\u624B\u52D5\u3067\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   followSystem: "\u30B7\u30B9\u30C6\u30E0\u306B\u5F93\u3046",
-  followSystemHelp: "Obsidian\u306E\u8A00\u8A9E\u8A2D\u5B9A\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002\u672A\u5BFE\u5FDC\u306E\u8A00\u8A9E\u306E\u5834\u5408\u306F\u82F1\u8A9E\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002"
+  followSystemHelp: "Obsidian\u306E\u8A00\u8A9E\u8A2D\u5B9A\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002\u672A\u5BFE\u5FDC\u306E\u8A00\u8A9E\u306E\u5834\u5408\u306F\u82F1\u8A9E\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002",
+  updaterReadError: "Tbpedia\u66F4\u65B0\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u8A2D\u5B9A\u3092\u8AAD\u307F\u53D6\u308C\u307E\u305B\u3093\u3002data.json\u3092\u78BA\u8A8D\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8AAD\u66F8\u30C7\u30FC\u30BF\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
+  updaterChanged: "\u540C\u671F\u4E2D\u306B\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u304C\u5909\u66F4\u3055\u308C\u305F\u305F\u3081\u3001\u4EE5\u964D\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u505C\u6B62\u3057\u307E\u3057\u305F\u3002\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30D3\u30E5\u30FC\u3057\u3066\u540C\u671F\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  updaterSyncNotice: "\u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6781,7 +6787,7 @@ var fr_default = {
   summary: "Enregistr\xE9\xA0: {saved}\xA0; inchang\xE9\xA0: {unchanged}\xA0; invalide\xA0: {invalid}\xA0; incomplet : {remaining}.",
   changedDuringUpload: "Des modifications ont \xE9t\xE9 apport\xE9es lors du t\xE9l\xE9versement. Synchronisez \xE0 nouveau pour les t\xE9l\xE9verser.",
   profileNotice: "Votre profil est conserv\xE9 localement. Seul le bouton \xAB Enregistrer et t\xE9l\xE9verser le profil \xBB l\u2019envoie \xE0 NocoDB de Tbpedia. Il comprend votre pseudonyme et les renseignements facultatifs fournis : courriel, ann\xE9e et mois de naissance, sexe, pays, type de lecteur et organisation. Ils servent \xE0 g\xE9rer les lecteurs et aux futures statistiques de lecture. Ces champs ne sont pas ajout\xE9s aux articles. Vous pouvez modifier votre profil ou demander \xE0 l\u2019administrateur de supprimer les donn\xE9es dans le cloud. Chaque t\xE9l\xE9versement du profil transmet aussi le type d\u2019appareil, la version du module, le syst\xE8me d\u2019exploitation et la cha\xEEne d\u2019agent utilisateur pour la compatibilit\xE9 et le d\xE9pannage. Seules les informations de l\u2019appareil du dernier t\xE9l\xE9versement du profil sont conserv\xE9es ; aucun identifiant mat\xE9riel n\u2019est collect\xE9.",
-  readingNotice: "Lorsque l'autorisation cloud est activ\xE9e, seules les donn\xE9es de lecture que vous synchronisez manuellement sont envoy\xE9es \xE0 NocoDB de Tbpedia, y compris la progression, les dates, les notes, les classifications et les r\xE9flexions. Les corps des articles et les propri\xE9t\xE9s non li\xE9es ne sont pas t\xE9l\xE9vers\xE9s. La d\xE9sactivation des t\xE9l\xE9versements arr\xEAte les futurs t\xE9l\xE9versements mais ne supprime pas les donn\xE9es cloud existantes.",
+  readingNotice: "Lorsque l'autorisation cloud est activ\xE9e, seules les donn\xE9es de lecture que vous synchronisez manuellement sont envoy\xE9es \xE0 NocoDB de Tbpedia, y compris la progression, les dates, les notes, les classifications et les r\xE9flexions. Les corps des articles et les propri\xE9t\xE9s non li\xE9es ne sont pas t\xE9l\xE9vers\xE9s. La d\xE9sactivation des t\xE9l\xE9versements arr\xEAte les futurs t\xE9l\xE9versements mais ne supprime pas les donn\xE9es cloud existantes. Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e.",
   noticeUnavailable: "Le serveur exige une nouvelle notice de confidentialit\xE9. Mettez \xE0 jour le module avant de donner votre accord ou de t\xE9l\xE9verser des donn\xE9es.",
   invalidField: "V\xE9rifiez la valeur et le format de ce champ.",
   invalidChoice: "Choisissez l'une des options disponibles.",
@@ -6824,7 +6830,10 @@ var fr_default = {
   "field.values": "Lecture de donn\xE9es",
   "backend.BACKEND_TIMEOUT": "Le d\xE9lai de r\xE9ponse de la base de donn\xE9es est d\xE9pass\xE9 et l\u2019enregistrement reste incertain. R\xE9essayez manuellement apr\xE8s le r\xE9tablissement du service.",
   followSystem: "Suivre le syst\xE8me",
-  followSystemHelp: "Utilise la langue d\xE9finie dans Obsidian, avec l\u2019anglais par d\xE9faut si elle n\u2019est pas prise en charge."
+  followSystemHelp: "Utilise la langue d\xE9finie dans Obsidian, avec l\u2019anglais par d\xE9faut si elle n\u2019est pas prise en charge.",
+  updaterReadError: "Impossible de lire les param\xE8tres du module de mise \xE0 jour Tbpedia. V\xE9rifiez son fichier data.json, puis r\xE9essayez. Les donn\xE9es de lecture restent enregistr\xE9es localement.",
+  updaterChanged: "La collection install\xE9e a chang\xE9 pendant la synchronisation. Les t\xE9l\xE9versements suivants ont \xE9t\xE9 arr\xEAt\xE9s. V\xE9rifiez l\u2019aper\xE7u et relancez la synchronisation.",
+  updaterSyncNotice: "Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e."
 };
 
 // plugin/locales/es.json
@@ -6970,7 +6979,7 @@ var es_default = {
   summary: "Guardado: {saved}; sin cambios: {unchanged}; no v\xE1lido: {invalid}; incompleto: {remaining}.",
   changedDuringUpload: "Se realizaron cambios durante la carga. Sincroniza nuevamente para subirlos.",
   profileNotice: "Su perfil se almacena localmente. Solo Guardar y cargar el perfil lo env\xEDa a NocoDB de Tbpedia. Incluye su apodo y cualquier correo electr\xF3nico opcional, a\xF1o/mes de nacimiento, sexo, pa\xEDs, tipo de lector y organizaci\xF3n que proporcione, para la gesti\xF3n de lectores y estad\xEDsticas de lectura futuras. Estos campos no est\xE1n escritos en art\xEDculos. Puede editar su perfil o pedirle al administrador que elimine los datos de la nube. Cada carga del perfil tambi\xE9n env\xEDa el tipo de dispositivo, la versi\xF3n del complemento, el sistema operativo y la cadena de agente de usuario para comprobar la compatibilidad y resolver problemas. Solo se conservan los datos del dispositivo de la \xFAltima carga del perfil; no se recopilan identificadores de hardware.",
-  readingNotice: "Cuando el permiso de la nube est\xE1 habilitado, solo los datos de lectura que usted sincroniza manualmente se env\xEDan a NocoDB de Tbpedia, incluidos el progreso, las fechas, las calificaciones, las clasificaciones y las reflexiones. Los cuerpos de los art\xEDculos y las propiedades no relacionadas no se cargan. Deshabilitar las cargas detiene las cargas futuras pero no elimina los datos existentes en la nube.",
+  readingNotice: "Cuando el permiso de la nube est\xE1 habilitado, solo los datos de lectura que usted sincroniza manualmente se env\xEDan a NocoDB de Tbpedia, incluidos el progreso, las fechas, las calificaciones, las clasificaciones y las reflexiones. Los cuerpos de los art\xEDculos y las propiedades no relacionadas no se cargan. Deshabilitar las cargas detiene las cargas futuras pero no elimina los datos existentes en la nube. Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada.",
   noticeUnavailable: "Este servidor requiere un aviso de privacidad m\xE1s reciente. Actualice el complemento antes de aceptarlo o cargarlo.",
   invalidField: "Verifique el valor y el formato de este campo.",
   invalidChoice: "Elija una de las opciones disponibles.",
@@ -7013,7 +7022,10 @@ var es_default = {
   "field.values": "Leyendo datos",
   "backend.BACKEND_TIMEOUT": "La base de datos no respondi\xF3 a tiempo y no se puede confirmar si se guardaron los datos. Vuelva a intentarlo manualmente cuando se restablezca el servicio.",
   followSystem: "Seguir el sistema",
-  followSystemHelp: "Usa el idioma configurado en Obsidian; si no est\xE1 disponible, usa ingl\xE9s."
+  followSystemHelp: "Usa el idioma configurado en Obsidian; si no est\xE1 disponible, usa ingl\xE9s.",
+  updaterReadError: "No se pudo leer la configuraci\xF3n del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
+  updaterChanged: "La colecci\xF3n instalada cambi\xF3 durante la sincronizaci\xF3n. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
+  updaterSyncNotice: "Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada."
 };
 
 // plugin/locales/de.json
@@ -7159,7 +7171,7 @@ var de_default = {
   summary: "Gespeichert: {saved}; unver\xE4ndert: {unchanged}; ung\xFCltig: {invalid}; unvollst\xE4ndig: {remaining}.",
   changedDuringUpload: "Beim Hochladen wurden \xC4nderungen vorgenommen. Synchronisieren Sie erneut, um sie hochzuladen.",
   profileNotice: "Ihr Profil wird lokal gespeichert. Nur \u201EProfil speichern und hochladen\u201C sendet es an die NocoDB von Tbpedia. Dazu geh\xF6ren Ihr Spitzname und alle optionalen E-Mail-Adressen, Geburtsjahr/-monat, Geschlecht, Land, Lesertyp und Organisation, die Sie f\xFCr die Leserverwaltung und zuk\xFCnftige Lesestatistiken angeben. Diese Felder werden nicht in Artikel geschrieben. Sie k\xF6nnen Ihr Profil bearbeiten oder den Administrator bitten, Cloud-Daten zu l\xF6schen. Bei jedem Profil-Upload werden auch Ger\xE4tetyp, Plugin-Version, Betriebssystem und User-Agent-Zeichenfolge zur Kompatibilit\xE4tspr\xFCfung und Fehlerbehebung gesendet. Gespeichert werden nur die Ger\xE4tedaten des letzten Profil-Uploads; Hardware-Kennungen werden nicht erfasst.",
-  readingNotice: "Wenn die Cloud-Berechtigung aktiviert ist, werden nur Lesedaten, die Sie manuell synchronisieren, an die NocoDB von Tbpedia gesendet, einschlie\xDFlich Fortschritt, Daten, Bewertungen, Klassifizierungen und Reflexionen. Artikeltexte und nicht verwandte Eigenschaften werden nicht hochgeladen. Durch das Deaktivieren von Uploads werden zuk\xFCnftige Uploads gestoppt, vorhandene Cloud-Daten werden jedoch nicht gel\xF6scht.",
+  readingNotice: "Wenn die Cloud-Berechtigung aktiviert ist, werden nur Lesedaten, die Sie manuell synchronisieren, an die NocoDB von Tbpedia gesendet, einschlie\xDFlich Fortschritt, Daten, Bewertungen, Klassifizierungen und Reflexionen. Artikeltexte und nicht verwandte Eigenschaften werden nicht hochgeladen. Durch das Deaktivieren von Uploads werden zuk\xFCnftige Uploads gestoppt, vorhandene Cloud-Daten werden jedoch nicht gel\xF6scht. Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
   noticeUnavailable: "F\xFCr diesen Server ist eine neuere Datenschutzerkl\xE4rung erforderlich. Aktualisieren Sie das Plugin, bevor Sie es akzeptieren oder hochladen.",
   invalidField: "\xDCberpr\xFCfen Sie den Wert und das Format dieses Feldes.",
   invalidChoice: "W\xE4hlen Sie eine der verf\xFCgbaren Optionen.",
@@ -7202,7 +7214,10 @@ var de_default = {
   "field.values": "Daten lesen",
   "backend.BACKEND_TIMEOUT": "Die Datenbankantwort hat das Zeitlimit \xFCberschritten. Ob gespeichert wurde, ist unklar. Versuchen Sie es nach der Wiederherstellung manuell erneut.",
   followSystem: "Systemsprache verwenden",
-  followSystemHelp: "Verwendet die Spracheinstellung von Obsidian. Nicht unterst\xFCtzte Sprachen werden durch Englisch ersetzt."
+  followSystemHelp: "Verwendet die Spracheinstellung von Obsidian. Nicht unterst\xFCtzte Sprachen werden durch Englisch ersetzt.",
+  updaterReadError: "Die Einstellungen des Tbpedia-Updaters konnten nicht gelesen werden. Pr\xFCfen Sie dessen data.json und versuchen Sie es erneut. Lesedaten bleiben lokal gespeichert.",
+  updaterChanged: "Die installierte Sammlung wurde w\xE4hrend der Synchronisierung ge\xE4ndert. Weitere Uploads wurden gestoppt. Pr\xFCfen Sie die Vorschau und synchronisieren Sie erneut.",
+  updaterSyncNotice: "Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung."
 };
 
 // plugin/locales/nl.json
@@ -7348,7 +7363,7 @@ var nl_default = {
   summary: "Opgeslagen: {saved}; ongewijzigd: {unchanged}; ongeldig: {invalid}; onvolledig: {remaining}.",
   changedDuringUpload: "Er zijn wijzigingen aangebracht tijdens het uploaden. Synchroniseer opnieuw om ze te uploaden.",
   profileNotice: "Uw profiel wordt lokaal opgeslagen. Alleen het profiel Opslaan en uploaden stuurt het naar NocoDB van Tbpedia. Het omvat uw bijnaam en eventuele optionele e-mail, geboortejaar/maand, geslacht, land, lezerstype en organisatie die u opgeeft, voor lezersbeheer en toekomstige leesstatistieken. Deze velden worden niet in artikelen geschreven. U kunt uw profiel bewerken of de beheerder vragen cloudgegevens te verwijderen. Bij elke profielupload worden ook het apparaattype, de plug-inversie, het besturingssysteem en de user-agenttekenreeks verzonden voor compatibiliteit en probleemoplossing. Alleen de apparaatgegevens van de laatste profielupload worden bewaard; er worden geen hardware-identificatoren verzameld.",
-  readingNotice: "Wanneer cloudtoestemming is ingeschakeld, worden alleen leesgegevens die u handmatig synchroniseert naar Tbpedia's NocoDB verzonden, inclusief voortgang, datums, beoordelingen, classificaties en reflecties. Artikelteksten en niet-gerelateerde eigenschappen worden niet ge\xFCpload. Als u uploads uitschakelt, worden toekomstige uploads gestopt, maar worden bestaande cloudgegevens niet verwijderd.",
+  readingNotice: "Wanneer cloudtoestemming is ingeschakeld, worden alleen leesgegevens die u handmatig synchroniseert naar Tbpedia's NocoDB verzonden, inclusief voortgang, datums, beoordelingen, classificaties en reflecties. Artikelteksten en niet-gerelateerde eigenschappen worden niet ge\xFCpload. Als u uploads uitschakelt, worden toekomstige uploads gestopt, maar worden bestaande cloudgegevens niet verwijderd. Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie.",
   noticeUnavailable: "Voor deze server is een nieuwere privacyverklaring vereist. Update de plug-in voordat u deze accepteert of uploadt.",
   invalidField: "Controleer de waarde en indeling van dit veld.",
   invalidChoice: "Kies een van de beschikbare opties.",
@@ -7391,7 +7406,10 @@ var nl_default = {
   "field.values": "Gegevens lezen",
   "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw.",
   followSystem: "Systeem volgen",
-  followSystemHelp: "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal."
+  followSystemHelp: "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal.",
+  updaterReadError: "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
+  updaterChanged: "De ge\xEFnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
+  updaterSyncNotice: "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie."
 };
 
 // plugin/locales/sv.json
@@ -7537,7 +7555,7 @@ var sv_default = {
   summary: "Sparad: {saved}; of\xF6r\xE4ndrad: {unchanged}; ogiltig: {invalid}; ofullst\xE4ndig: {remaining}.",
   changedDuringUpload: "\xC4ndringar gjordes under uppladdningen. Synkronisera igen f\xF6r att ladda upp dem.",
   profileNotice: "Din profil lagras lokalt. Endast Spara och ladda upp profil skickar den till Tbpedias NocoDB. Det inkluderar ditt smeknamn och valfri e-post, f\xF6delse\xE5r/m\xE5nad, k\xF6n, land, l\xE4sartyp och organisation du tillhandah\xE5ller, f\xF6r l\xE4sarhantering och framtida l\xE4sstatistik. Dessa f\xE4lt \xE4r inte inskrivna i artiklar. Du kan redigera din profil eller be administrat\xF6ren att radera molndata. Varje profiluppladdning skickar \xE4ven enhetstyp, till\xE4ggsversion, operativsystem och anv\xE4ndaragentstr\xE4ng f\xF6r kompatibilitet och fels\xF6kning. Endast enhetsuppgifterna fr\xE5n den senaste profiluppladdningen sparas; inga maskinvaruidentifierare samlas in.",
-  readingNotice: "N\xE4r molnbeh\xF6righet \xE4r aktiverad skickas endast l\xE4sdata som du manuellt synkroniserar till Tbpedias NocoDB, inklusive framsteg, datum, betyg, klassificeringar och reflektioner. Artikeltexter och icke-relaterade egenskaper laddas inte upp. Om du inaktiverar uppladdningar stoppas framtida uppladdningar men befintlig molndata raderas inte.",
+  readingNotice: "N\xE4r molnbeh\xF6righet \xE4r aktiverad skickas endast l\xE4sdata som du manuellt synkroniserar till Tbpedias NocoDB, inklusive framsteg, datum, betyg, klassificeringar och reflektioner. Artikeltexter och icke-relaterade egenskaper laddas inte upp. Om du inaktiverar uppladdningar stoppas framtida uppladdningar men befintlig molndata raderas inte. L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel.",
   noticeUnavailable: "Den h\xE4r servern kr\xE4ver ett nyare sekretessmeddelande. Uppdatera plugin-programmet innan du accepterar det eller laddar upp det.",
   invalidField: "Kontrollera detta f\xE4lts v\xE4rde och format.",
   invalidChoice: "V\xE4lj ett av de tillg\xE4ngliga alternativen.",
@@ -7580,7 +7598,10 @@ var sv_default = {
   "field.values": "L\xE4ser data",
   "backend.BACKEND_TIMEOUT": "Databasens svar tog f\xF6r l\xE5ng tid och det \xE4r os\xE4kert om uppgifterna sparades. F\xF6rs\xF6k igen manuellt n\xE4r tj\xE4nsten fungerar.",
   followSystem: "F\xF6lj systemet",
-  followSystemHelp: "Anv\xE4nder Obsidians spr\xE5kinst\xE4llning, med engelska som reservspr\xE5k."
+  followSystemHelp: "Anv\xE4nder Obsidians spr\xE5kinst\xE4llning, med engelska som reservspr\xE5k.",
+  updaterReadError: "Det gick inte att l\xE4sa inst\xE4llningarna f\xF6r Tbpedia-uppdateraren. Kontrollera dess data.json och f\xF6rs\xF6k igen. L\xE4sdata \xE4r fortfarande sparade lokalt.",
+  updaterChanged: "Den installerade samlingen \xE4ndrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska f\xF6rhandsvisningen och synkronisera igen.",
+  updaterSyncNotice: "L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel."
 };
 
 // plugin/locales/ko.json
@@ -7726,7 +7747,7 @@ var ko_default = {
   summary: "\uC800\uC7A5\uB428: {saved}; \uBCC0\uACBD\uB418\uC9C0 \uC54A\uC74C: {unchanged}; \uC720\uD6A8\uD558\uC9C0 \uC54A\uC74C: {invalid}; \uBD88\uC644\uC804: {remaining}.",
   changedDuringUpload: "\uC5C5\uB85C\uB4DC \uC911\uC5D0 \uBCC0\uACBD\uC0AC\uD56D\uC774 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC5C5\uB85C\uB4DC\uD558\uB824\uBA74 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
   profileNotice: "\uADC0\uD558\uC758 \uD504\uB85C\uD544\uC740 \uB85C\uCEEC\uC5D0 \uC800\uC7A5\uB429\uB2C8\uB2E4. \uD504\uB85C\uD544 \uC800\uC7A5 \uBC0F \uC5C5\uB85C\uB4DC\uB9CC Tbpedia\uC758 NocoDB\uB85C \uBCF4\uB0C5\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC790 \uAD00\uB9AC \uBC0F \uD5A5\uD6C4 \uB3C5\uC11C \uD1B5\uACC4\uB97C \uC704\uD574 \uADC0\uD558\uC758 \uB2C9\uB124\uC784\uACFC \uC120\uD0DD\uC801 \uC774\uBA54\uC77C, \uC0DD\uB144\uC6D4\uC77C, \uC131\uBCC4, \uAD6D\uAC00, \uB3C5\uC790 \uC720\uD615 \uBC0F \uADC0\uD558\uAC00 \uC81C\uACF5\uD558\uB294 \uC870\uC9C1\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uC774\uB7EC\uD55C \uD544\uB4DC\uB294 \uAE30\uC0AC\uC5D0 \uAE30\uB85D\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uD3B8\uC9D1\uD558\uAC70\uB098 \uAD00\uB9AC\uC790\uC5D0\uAC8C \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130 \uC0AD\uC81C\uB97C \uC694\uCCAD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uC5C5\uB85C\uB4DC\uD560 \uB54C\uB9C8\uB2E4 \uD638\uD658\uC131 \uD655\uC778\uACFC \uBB38\uC81C \uD574\uACB0\uC744 \uC704\uD574 \uAE30\uAE30 \uC720\uD615, \uD50C\uB7EC\uADF8\uC778 \uBC84\uC804, \uC6B4\uC601 \uCCB4\uC81C \uBC0F \uC0AC\uC6A9\uC790 \uC5D0\uC774\uC804\uD2B8 \uBB38\uC790\uC5F4\uB3C4 \uC804\uC1A1\uD569\uB2C8\uB2E4. \uAC00\uC7A5 \uCD5C\uADFC \uD504\uB85C\uD544 \uC5C5\uB85C\uB4DC\uC758 \uAE30\uAE30 \uC815\uBCF4\uB9CC \uC800\uC7A5\uD558\uBA70 \uD558\uB4DC\uC6E8\uC5B4 \uC2DD\uBCC4\uC790\uB294 \uC218\uC9D1\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
-  readingNotice: "\uD074\uB77C\uC6B0\uB4DC \uAD8C\uD55C\uC744 \uD65C\uC131\uD654\uD574\uB3C4 \uC9C1\uC811 \uB3D9\uAE30\uD654\uD55C \uB3C5\uC11C \uB370\uC774\uD130\uB9CC Tbpedia\uC758 NocoDB\uB85C \uC804\uC1A1\uB429\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC11C \uC9C4\uD589 \uC0C1\uD669, \uB0A0\uC9DC, \uD3C9\uC810, \uBD84\uB958 \uBC0F \uAC10\uC0C1\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uAE00 \uBCF8\uBB38\uC774\uB098 \uAD00\uB828 \uC5C6\uB294 \uC18D\uC131\uC740 \uC5C5\uB85C\uB4DC\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC5C5\uB85C\uB4DC\uB97C \uBE44\uD65C\uC131\uD654\uD558\uBA74 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB294 \uC911\uC9C0\uB418\uC9C0\uB9CC \uAE30\uC874 \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130\uB294 \uC0AD\uC81C\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+  readingNotice: "\uD074\uB77C\uC6B0\uB4DC \uAD8C\uD55C\uC744 \uD65C\uC131\uD654\uD574\uB3C4 \uC9C1\uC811 \uB3D9\uAE30\uD654\uD55C \uB3C5\uC11C \uB370\uC774\uD130\uB9CC Tbpedia\uC758 NocoDB\uB85C \uC804\uC1A1\uB429\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC11C \uC9C4\uD589 \uC0C1\uD669, \uB0A0\uC9DC, \uD3C9\uC810, \uBD84\uB958 \uBC0F \uAC10\uC0C1\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uAE00 \uBCF8\uBB38\uC774\uB098 \uAD00\uB828 \uC5C6\uB294 \uC18D\uC131\uC740 \uC5C5\uB85C\uB4DC\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC5C5\uB85C\uB4DC\uB97C \uBE44\uD65C\uC131\uD654\uD558\uBA74 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB294 \uC911\uC9C0\uB418\uC9C0\uB9CC \uAE30\uC874 \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130\uB294 \uC0AD\uC81C\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4.",
   noticeUnavailable: "\uC774 \uC11C\uBC84\uC5D0\uB294 \uCD5C\uC2E0 \uAC1C\uC778 \uC815\uBCF4 \uBCF4\uD638 \uC815\uCC45\uC774 \uD544\uC694\uD569\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uC218\uB77D\uD558\uAC70\uB098 \uC5C5\uB85C\uB4DC\uD558\uAE30 \uC804\uC5D0 \uD50C\uB7EC\uADF8\uC778\uC744 \uC5C5\uB370\uC774\uD2B8\uD558\uC138\uC694.",
   invalidField: "\uC774 \uD544\uB4DC\uC758 \uAC12\uACFC \uD615\uC2DD\uC744 \uD655\uC778\uD558\uC138\uC694.",
   invalidChoice: "\uC0AC\uC6A9 \uAC00\uB2A5\uD55C \uC635\uC158 \uC911 \uD558\uB098\uB97C \uC120\uD0DD\uD558\uC2ED\uC2DC\uC624.",
@@ -7769,7 +7790,10 @@ var ko_default = {
   "field.values": "\uB370\uC774\uD130 \uC77D\uAE30",
   "backend.BACKEND_TIMEOUT": "\uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uC751\uB2F5 \uC2DC\uAC04\uC774 \uCD08\uACFC\uB418\uC5B4 \uC800\uC7A5 \uC5EC\uBD80\uB97C \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC11C\uBE44\uC2A4 \uBCF5\uAD6C \uD6C4 \uC218\uB3D9\uC73C\uB85C \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.",
   followSystem: "\uC2DC\uC2A4\uD15C \uC124\uC815 \uB530\uB974\uAE30",
-  followSystemHelp: "Obsidian\uC758 \uC5B8\uC5B4 \uC124\uC815\uC744 \uC0AC\uC6A9\uD558\uBA70, \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uC5B8\uC5B4\uB294 \uC601\uC5B4\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4."
+  followSystemHelp: "Obsidian\uC758 \uC5B8\uC5B4 \uC124\uC815\uC744 \uC0AC\uC6A9\uD558\uBA70, \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uC5B8\uC5B4\uB294 \uC601\uC5B4\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
+  updaterReadError: "Tbpedia \uC5C5\uB370\uC774\uD2B8 \uD50C\uB7EC\uADF8\uC778\uC758 \uC124\uC815\uC744 \uC77D\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. data.json \uD30C\uC77C\uC744 \uD655\uC778\uD55C \uB4A4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694. \uB3C5\uC11C \uB370\uC774\uD130\uB294 \uB85C\uCEEC\uC5D0 \uBCF4\uAD00\uB429\uB2C8\uB2E4.",
+  updaterChanged: "\uB3D9\uAE30\uD654 \uC911 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC774 \uBCC0\uACBD\uB418\uC5B4 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB97C \uC911\uC9C0\uD588\uC2B5\uB2C8\uB2E4. \uBBF8\uB9AC\uBCF4\uAE30\uB97C \uD655\uC778\uD558\uACE0 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
+  updaterSyncNotice: "\uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4."
 };
 
 // plugin/locales/zh-TW.json
@@ -7915,7 +7939,7 @@ var zh_TW_default = {
   summary: "{saved} \u7BC7\u5DF2\u5132\u5B58\u3001{unchanged} \u7BC7\u672A\u8B8A\u66F4\u3001{invalid} \u7BC7\u7121\u6548\u3001{remaining} \u7BC7\u672A\u5B8C\u6210\u3002",
   changedDuringUpload: "\u4E0A\u50B3\u671F\u9593\u6709\u65B0\u4FEE\u6539\uFF0C\u4ECD\u9700\u518D\u6B21\u540C\u6B65\u3002",
   profileNotice: "\u8B80\u8005\u8CC7\u6599\u4FDD\u5B58\u5728\u672C\u6A5F\uFF0C\u53EA\u6709\u6309\u300C\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u300D\u624D\u6703\u50B3\u9001\u81F3 Tbpedia \u7684 NocoDB\u3002\u8CC7\u6599\u5305\u62EC\u66B1\u7A31\uFF0C\u4EE5\u53CA\u81EA\u9858\u586B\u5BEB\u7684\u96FB\u90F5\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u570B\u5BB6\u3001\u8B80\u8005\u985E\u578B\u548C\u6A5F\u69CB\uFF0C\u7528\u65BC\u7BA1\u7406\u8B80\u8005\u53CA\u672A\u4F86\u7684\u95B1\u8B80\u7D71\u8A08\u3002\u6BCF\u6B21\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u4EA6\u6703\u50B3\u9001\u88DD\u7F6E\u985E\u578B\u3001\u5916\u639B\u7248\u672C\u3001\u4F5C\u696D\u7CFB\u7D71\u53CA\u4F7F\u7528\u8005\u4EE3\u7406\u5B57\u4E32\uFF0C\u7528\u65BC\u76F8\u5BB9\u6027\u8207\u554F\u984C\u6392\u67E5\uFF1B\u6BCF\u4F4D\u8B80\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u50B3\u7684\u88DD\u7F6E\u8CC7\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u9AD4\u8B58\u5225\u78BC\u3002\u9019\u4E9B\u6B04\u4F4D\u4E0D\u6703\u5BEB\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8CC7\u6599\uFF0C\u6216\u806F\u7D61\u7BA1\u7406\u54E1\u8981\u6C42\u522A\u9664\u96F2\u7AEF\u8CC7\u6599\u3002",
-  readingNotice: "\u958B\u555F\u96F2\u7AEF\u6B0A\u9650\u5F8C\uFF0C\u53EA\u6709\u60A8\u624B\u52D5\u540C\u6B65\u7684\u95B1\u8B80\u8CC7\u6599\u6703\u50B3\u9001\u81F3 Tbpedia \u7684 NocoDB\uFF0C\u5305\u62EC\u95B1\u8B80\u9032\u5EA6\u3001\u65E5\u671F\u3001\u8A55\u5206\u3001\u5206\u985E\u53CA\u95B1\u8B80\u611F\u60F3\u3002\u6587\u7AE0\u6B63\u6587\u53CA\u7121\u95DC\u5C6C\u6027\u4E0D\u6703\u4E0A\u50B3\u3002\u505C\u7528\u6703\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\uFF0C\u4F46\u4E0D\u6703\u522A\u9664\u65E2\u6709\u96F2\u7AEF\u8CC7\u6599\u3002",
+  readingNotice: "\u958B\u555F\u96F2\u7AEF\u6B0A\u9650\u5F8C\uFF0C\u53EA\u6709\u60A8\u624B\u52D5\u540C\u6B65\u7684\u95B1\u8B80\u8CC7\u6599\u6703\u50B3\u9001\u81F3 Tbpedia \u7684 NocoDB\uFF0C\u5305\u62EC\u95B1\u8B80\u9032\u5EA6\u3001\u65E5\u671F\u3001\u8A55\u5206\u3001\u5206\u985E\u53CA\u95B1\u8B80\u611F\u60F3\u3002\u6587\u7AE0\u6B63\u6587\u53CA\u7121\u95DC\u5C6C\u6027\u4E0D\u6703\u4E0A\u50B3\u3002\u505C\u7528\u6703\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\uFF0C\u4F46\u4E0D\u6703\u522A\u9664\u65E2\u6709\u96F2\u7AEF\u8CC7\u6599\u3002 \u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002",
   noticeUnavailable: "\u8A72\u4F3A\u670D\u5668\u9700\u8981\u66F4\u65B0\u7684\u96B1\u79C1\u6B0A\u8072\u660E\u3002\u5728\u63A5\u53D7\u6216\u4E0A\u50B3\u4E4B\u524D\u66F4\u65B0\u5916\u639B\u7A0B\u5F0F\u3002",
   invalidField: "\u6AA2\u67E5\u8A72\u6B04\u4F4D\u7684\u503C\u548C\u683C\u5F0F\u3002",
   invalidChoice: "\u9078\u64C7\u53EF\u7528\u9078\u9805\u4E4B\u4E00\u3002",
@@ -7958,7 +7982,10 @@ var zh_TW_default = {
   "field.values": "\u8B80\u53D6\u6578\u64DA",
   "backend.BACKEND_TIMEOUT": "\u8CC7\u6599\u5EAB\u56DE\u61C9\u903E\u6642\uFF0C\u5C1A\u7121\u6CD5\u78BA\u8A8D\u662F\u5426\u5132\u5B58\u3002\u670D\u52D9\u6062\u5FA9\u5F8C\u8ACB\u624B\u52D5\u91CD\u8A66\u3002",
   followSystem: "\u8DDF\u96A8\u7CFB\u7D71",
-  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8A9E\u8A00\u8A2D\u5B9A\uFF1B\u4E0D\u652F\u63F4\u7684\u8A9E\u8A00\u6703\u4F7F\u7528\u82F1\u6587\u3002"
+  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8A9E\u8A00\u8A2D\u5B9A\uFF1B\u4E0D\u652F\u63F4\u7684\u8A9E\u8A00\u6703\u4F7F\u7528\u82F1\u6587\u3002",
+  updaterReadError: "\u7121\u6CD5\u8B80\u53D6 Tbpedia \u66F4\u65B0\u5916\u639B\u8A2D\u5B9A\u3002\u8ACB\u6AA2\u67E5\u5176 data.json \u5F8C\u518D\u8A66\u3002\u95B1\u8B80\u8CC7\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u6A5F\u3002",
+  updaterChanged: "\u540C\u6B65\u671F\u9593\u5DF2\u5B89\u88DD\u7684\u6587\u96C6\u7248\u672C\u767C\u751F\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002\u8ACB\u91CD\u65B0\u9810\u89BD\u4E26\u540C\u6B65\u3002",
+  updaterSyncNotice: "\u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -8104,7 +8131,7 @@ var zh_CN_default = {
   summary: "\u5DF2\u4FDD\u5B58\uFF1A{saved}\uFF1B\u4E0D\u53D8\uFF1A{unchanged}\uFF1B\u65E0\u6548\uFF1A{invalid}\uFF1B\u4E0D\u5B8C\u6574\uFF1A{remaining}\u3002",
   changedDuringUpload: "\u4E0A\u4F20\u8FC7\u7A0B\u4E2D\u8FDB\u884C\u4E86\u66F4\u6539\u3002\u518D\u6B21\u540C\u6B65\u4EE5\u4E0A\u4F20\u5B83\u4EEC\u3002",
   profileNotice: "\u8BFB\u8005\u8D44\u6599\u4FDD\u5B58\u5728\u672C\u5730\uFF0C\u53EA\u6709\u6309\u201C\u4FDD\u5B58\u5E76\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u201D\u624D\u4F1A\u4F20\u9001\u81F3 Tbpedia \u7684 NocoDB\u3002\u8D44\u6599\u5305\u62EC\u6635\u79F0\uFF0C\u4EE5\u53CA\u81EA\u613F\u586B\u5199\u7684\u90AE\u7BB1\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u522B\u3001\u56FD\u5BB6\u3001\u8BFB\u8005\u7C7B\u578B\u548C\u673A\u6784\uFF0C\u7528\u4E8E\u7BA1\u7406\u8BFB\u8005\u53CA\u672A\u6765\u7684\u9605\u8BFB\u7EDF\u8BA1\u3002\u8FD9\u4E9B\u5B57\u6BB5\u4E0D\u4F1A\u5199\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8D44\u6599\uFF0C\u6216\u8054\u7CFB\u7BA1\u7406\u5458\u8981\u6C42\u5220\u9664\u4E91\u7AEF\u8D44\u6599\u3002 \u6BCF\u6B21\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u4E5F\u4F1A\u53D1\u9001\u8BBE\u5907\u7C7B\u578B\u3001\u63D2\u4EF6\u7248\u672C\u3001\u64CD\u4F5C\u7CFB\u7EDF\u53CA\u7528\u6237\u4EE3\u7406\u5B57\u7B26\u4E32\uFF0C\u7528\u4E8E\u517C\u5BB9\u6027\u68C0\u67E5\u548C\u6545\u969C\u6392\u67E5\u3002\u6BCF\u4F4D\u8BFB\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u4F20\u7684\u8BBE\u5907\u8D44\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u4EF6\u6807\u8BC6\u7B26\u3002",
-  readingNotice: "\u5F00\u542F\u4E91\u7AEF\u6743\u9650\u540E\uFF0C\u53EA\u6709\u60A8\u624B\u52A8\u540C\u6B65\u7684\u9605\u8BFB\u8D44\u6599\u4F1A\u4F20\u9001\u81F3 Tbpedia \u7684 NocoDB\uFF0C\u5305\u62EC\u9605\u8BFB\u8FDB\u5EA6\u3001\u65E5\u671F\u3001\u8BC4\u5206\u3001\u5206\u7C7B\u53CA\u9605\u8BFB\u611F\u60F3\u3002\u6587\u7AE0\u6B63\u6587\u53CA\u65E0\u5173\u5C5E\u6027\u4E0D\u4F1A\u4E0A\u4F20\u3002\u505C\u7528\u4F1A\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\uFF0C\u4F46\u4E0D\u4F1A\u5220\u9664\u65E2\u6709\u4E91\u7AEF\u8D44\u6599\u3002",
+  readingNotice: "\u5F00\u542F\u4E91\u7AEF\u6743\u9650\u540E\uFF0C\u53EA\u6709\u60A8\u624B\u52A8\u540C\u6B65\u7684\u9605\u8BFB\u8D44\u6599\u4F1A\u4F20\u9001\u81F3 Tbpedia \u7684 NocoDB\uFF0C\u5305\u62EC\u9605\u8BFB\u8FDB\u5EA6\u3001\u65E5\u671F\u3001\u8BC4\u5206\u3001\u5206\u7C7B\u53CA\u9605\u8BFB\u611F\u60F3\u3002\u6587\u7AE0\u6B63\u6587\u53CA\u65E0\u5173\u5C5E\u6027\u4E0D\u4F1A\u4E0A\u4F20\u3002\u505C\u7528\u4F1A\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\uFF0C\u4F46\u4E0D\u4F1A\u5220\u9664\u65E2\u6709\u4E91\u7AEF\u8D44\u6599\u3002 \u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002",
   noticeUnavailable: "\u8BE5\u670D\u52A1\u5668\u9700\u8981\u66F4\u65B0\u7684\u9690\u79C1\u58F0\u660E\u3002\u5728\u63A5\u53D7\u6216\u4E0A\u4F20\u4E4B\u524D\u66F4\u65B0\u63D2\u4EF6\u3002",
   invalidField: "\u68C0\u67E5\u8BE5\u5B57\u6BB5\u7684\u503C\u548C\u683C\u5F0F\u3002",
   invalidChoice: "\u9009\u62E9\u53EF\u7528\u9009\u9879\u4E4B\u4E00\u3002",
@@ -8147,7 +8174,10 @@ var zh_CN_default = {
   "field.values": "\u8BFB\u53D6\u6570\u636E",
   "backend.BACKEND_TIMEOUT": "\u6570\u636E\u5E93\u54CD\u5E94\u8D85\u65F6\uFF0C\u5C1A\u65E0\u6CD5\u786E\u8BA4\u662F\u5426\u4FDD\u5B58\u3002\u670D\u52A1\u6062\u590D\u540E\u8BF7\u624B\u52A8\u91CD\u8BD5\u3002",
   followSystem: "\u8DDF\u968F\u7CFB\u7EDF",
-  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8BED\u8A00\u8BBE\u7F6E\uFF1B\u4E0D\u652F\u6301\u7684\u8BED\u8A00\u4F1A\u4F7F\u7528\u82F1\u6587\u3002"
+  followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8BED\u8A00\u8BBE\u7F6E\uFF1B\u4E0D\u652F\u6301\u7684\u8BED\u8A00\u4F1A\u4F7F\u7528\u82F1\u6587\u3002",
+  updaterReadError: "\u65E0\u6CD5\u8BFB\u53D6 Tbpedia \u66F4\u65B0\u63D2\u4EF6\u8BBE\u7F6E\u3002\u8BF7\u68C0\u67E5\u5176 data.json \u540E\u91CD\u8BD5\u3002\u9605\u8BFB\u8D44\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u5730\u3002",
+  updaterChanged: "\u540C\u6B65\u671F\u95F4\u5DF2\u5B89\u88C5\u7684\u6587\u96C6\u7248\u672C\u53D1\u751F\u53D8\u5316\uFF0C\u5DF2\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\u3002\u8BF7\u91CD\u65B0\u9884\u89C8\u5E76\u540C\u6B65\u3002",
+  updaterSyncNotice: "\u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002"
 };
 
 // plugin/locales/vi.json
@@ -8293,7 +8323,7 @@ var vi_default = {
   summary: "\u0110\xE3 l\u01B0u: {saved}; kh\xF4ng thay \u0111\u1ED5i: {unchanged}; kh\xF4ng h\u1EE3p l\u1EC7: {invalid}; ch\u01B0a ho\xE0n thi\u1EC7n: {remaining}.",
   changedDuringUpload: "Nh\u1EEFng thay \u0111\u1ED5i \u0111\xE3 \u0111\u01B0\u1EE3c th\u1EF1c hi\u1EC7n trong qu\xE1 tr\xECnh t\u1EA3i l\xEAn. \u0110\u1ED3ng b\u1ED9 h\xF3a l\u1EA1i \u0111\u1EC3 t\u1EA3i ch\xFAng l\xEAn.",
   profileNotice: "H\u1ED3 s\u01A1 c\u1EE7a b\u1EA1n \u0111\u01B0\u1EE3c l\u01B0u tr\u1EEF c\u1EE5c b\u1ED9. Ch\u1EC9 L\u01B0u v\xE0 t\u1EA3i l\xEAn h\u1ED3 s\u01A1 m\u1EDBi g\u1EEDi n\xF3 t\u1EDBi NocoDB c\u1EE7a Tbpedia. N\xF3 bao g\u1ED3m bi\u1EC7t hi\u1EC7u c\u1EE7a b\u1EA1n v\xE0 b\u1EA5t k\u1EF3 email t\xF9y ch\u1ECDn n\xE0o, n\u0103m/th\xE1ng sinh, gi\u1EDBi t\xEDnh, qu\u1ED1c gia, lo\u1EA1i ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 t\u1ED5 ch\u1EE9c m\xE0 b\u1EA1n cung c\u1EA5p \u0111\u1EC3 qu\u1EA3n l\xFD ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 th\u1ED1ng k\xEA vi\u1EC7c \u0111\u1ECDc trong t\u01B0\u01A1ng lai. Nh\u1EEFng tr\u01B0\u1EDDng n\xE0y kh\xF4ng \u0111\u01B0\u1EE3c vi\u1EBFt th\xE0nh b\xE0i vi\u1EBFt. B\u1EA1n c\xF3 th\u1EC3 ch\u1EC9nh s\u1EEDa h\u1ED3 s\u01A1 c\u1EE7a m\xECnh ho\u1EB7c y\xEAu c\u1EA7u qu\u1EA3n tr\u1ECB vi\xEAn x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y. M\u1ED7i l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn c\u0169ng g\u1EEDi lo\u1EA1i thi\u1EBFt b\u1ECB, phi\xEAn b\u1EA3n ph\u1EA7n b\u1ED5 tr\u1EE3, h\u1EC7 \u0111i\u1EC1u h\xE0nh v\xE0 chu\u1ED7i t\xE1c nh\xE2n ng\u01B0\u1EDDi d\xF9ng \u0111\u1EC3 ki\u1EC3m tra t\xEDnh t\u01B0\u01A1ng th\xEDch v\xE0 kh\u1EAFc ph\u1EE5c s\u1EF1 c\u1ED1. Ch\u1EC9 l\u01B0u th\xF4ng tin thi\u1EBFt b\u1ECB c\u1EE7a l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn g\u1EA7n nh\u1EA5t; kh\xF4ng thu th\u1EADp m\xE3 \u0111\u1ECBnh danh ph\u1EA7n c\u1EE9ng.",
-  readingNotice: "Khi quy\u1EC1n \u0111\xE1m m\xE2y \u0111\u01B0\u1EE3c b\u1EADt, ch\u1EC9 \u0111\u1ECDc d\u1EEF li\u1EC7u b\u1EA1n \u0111\u1ED3ng b\u1ED9 h\xF3a th\u1EE7 c\xF4ng m\u1EDBi \u0111\u01B0\u1EE3c g\u1EEDi t\u1EDBi NocoDB c\u1EE7a Tbpedia, bao g\u1ED3m ti\u1EBFn tr\xECnh, ng\xE0y th\xE1ng, x\u1EBFp h\u1EA1ng, ph\xE2n lo\u1EA1i v\xE0 ph\u1EA3n \xE1nh. N\u1ED9i dung b\xE0i vi\u1EBFt v\xE0 c\xE1c thu\u1ED9c t\xEDnh kh\xF4ng li\xEAn quan kh\xF4ng \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn. Vi\u1EC7c t\u1EAFt t\u1EA3i l\xEAn s\u1EBD d\u1EEBng t\u1EA3i l\xEAn trong t\u01B0\u01A1ng lai nh\u01B0ng kh\xF4ng x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y hi\u1EC7n c\xF3.",
+  readingNotice: "Khi quy\u1EC1n \u0111\xE1m m\xE2y \u0111\u01B0\u1EE3c b\u1EADt, ch\u1EC9 \u0111\u1ECDc d\u1EEF li\u1EC7u b\u1EA1n \u0111\u1ED3ng b\u1ED9 h\xF3a th\u1EE7 c\xF4ng m\u1EDBi \u0111\u01B0\u1EE3c g\u1EEDi t\u1EDBi NocoDB c\u1EE7a Tbpedia, bao g\u1ED3m ti\u1EBFn tr\xECnh, ng\xE0y th\xE1ng, x\u1EBFp h\u1EA1ng, ph\xE2n lo\u1EA1i v\xE0 ph\u1EA3n \xE1nh. N\u1ED9i dung b\xE0i vi\u1EBFt v\xE0 c\xE1c thu\u1ED9c t\xEDnh kh\xF4ng li\xEAn quan kh\xF4ng \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn. Vi\u1EC7c t\u1EAFt t\u1EA3i l\xEAn s\u1EBD d\u1EEBng t\u1EA3i l\xEAn trong t\u01B0\u01A1ng lai nh\u01B0ng kh\xF4ng x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y hi\u1EC7n c\xF3. B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t.",
   noticeUnavailable: "M\xE1y ch\u1EE7 n\xE0y y\xEAu c\u1EA7u th\xF4ng b\xE1o b\u1EA3o m\u1EADt m\u1EDBi h\u01A1n. C\u1EADp nh\u1EADt plugin tr\u01B0\u1EDBc khi ch\u1EA5p nh\u1EADn ho\u1EB7c t\u1EA3i l\xEAn.",
   invalidField: "Ki\u1EC3m tra gi\xE1 tr\u1ECB v\xE0 \u0111\u1ECBnh d\u1EA1ng c\u1EE7a tr\u01B0\u1EDDng n\xE0y.",
   invalidChoice: "Ch\u1ECDn m\u1ED9t trong c\xE1c t\xF9y ch\u1ECDn c\xF3 s\u1EB5n.",
@@ -8336,7 +8366,10 @@ var vi_default = {
   "field.values": "\u0110\u1ECDc d\u1EEF li\u1EC7u",
   "backend.BACKEND_TIMEOUT": "C\u01A1 s\u1EDF d\u1EEF li\u1EC7u ph\u1EA3n h\u1ED3i qu\xE1 th\u1EDDi gian ch\u1EDD, ch\u01B0a th\u1EC3 x\xE1c nh\u1EADn \u0111\xE3 l\u01B0u. H\xE3y th\u1EED l\u1EA1i th\u1EE7 c\xF4ng sau khi d\u1ECBch v\u1EE5 ph\u1EE5c h\u1ED3i.",
   followSystem: "Theo h\u1EC7 th\u1ED1ng",
-  followSystemHelp: "S\u1EED d\u1EE5ng ng\xF4n ng\u1EEF \u0111\u01B0\u1EE3c \u0111\u1EB7t trong Obsidian; d\xF9ng ti\u1EBFng Anh n\u1EBFu ng\xF4n ng\u1EEF \u0111\xF3 kh\xF4ng \u0111\u01B0\u1EE3c h\u1ED7 tr\u1EE3."
+  followSystemHelp: "S\u1EED d\u1EE5ng ng\xF4n ng\u1EEF \u0111\u01B0\u1EE3c \u0111\u1EB7t trong Obsidian; d\xF9ng ti\u1EBFng Anh n\u1EBFu ng\xF4n ng\u1EEF \u0111\xF3 kh\xF4ng \u0111\u01B0\u1EE3c h\u1ED7 tr\u1EE3.",
+  updaterReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc c\xE0i \u0111\u1EB7t c\u1EE7a tr\xECnh c\u1EADp nh\u1EADt Tbpedia. Ki\u1EC3m tra t\u1EC7p data.json r\u1ED3i th\u1EED l\u1EA1i. D\u1EEF li\u1EC7u \u0111\u1ECDc v\u1EABn \u0111\u01B0\u1EE3c l\u01B0u c\u1EE5c b\u1ED9.",
+  updaterChanged: "B\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t thay \u0111\u1ED5i trong khi \u0111\u1ED3ng b\u1ED9. \u0110\xE3 d\u1EEBng c\xE1c l\u01B0\u1EE3t t\u1EA3i l\xEAn ti\u1EBFp theo. Xem tr\u01B0\u1EDBc v\xE0 \u0111\u1ED3ng b\u1ED9 l\u1EA1i.",
+  updaterSyncNotice: "B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t."
 };
 
 // plugin/locales/id.json
@@ -8482,7 +8515,7 @@ var id_default = {
   summary: "Disimpan: {saved}; tidak berubah: {unchanged}; tidak valid: {invalid}; tidak lengkap: {remaining}.",
   changedDuringUpload: "Perubahan dilakukan saat pengunggahan. Sinkronkan lagi untuk mengunggahnya.",
   profileNotice: "Profil Anda disimpan secara lokal. Hanya Simpan dan unggah profil yang mengirimkannya ke NocoDB Tbpedia. Ini mencakup nama panggilan Anda dan email opsional apa pun, tahun/bulan lahir, jenis kelamin, negara, jenis pembaca, dan organisasi yang Anda berikan, untuk manajemen pembaca dan statistik bacaan di masa mendatang. Bidang-bidang ini tidak ditulis menjadi artikel. Anda dapat mengedit profil Anda atau meminta administrator untuk menghapus data cloud. Setiap unggahan profil juga mengirim jenis perangkat, versi plugin, sistem operasi, dan string agen pengguna untuk kompatibilitas dan pemecahan masalah. Hanya detail perangkat dari unggahan profil terbaru yang disimpan; pengenal perangkat keras tidak dikumpulkan.",
-  readingNotice: "Ketika izin cloud diaktifkan, hanya data bacaan yang Anda sinkronkan secara manual yang dikirim ke NocoDB Tbpedia, termasuk kemajuan, tanggal, peringkat, klasifikasi, dan refleksi. Badan artikel dan properti yang tidak terkait tidak diunggah. Menonaktifkan unggahan akan menghentikan unggahan berikutnya tetapi tidak menghapus data cloud yang ada.",
+  readingNotice: "Ketika izin cloud diaktifkan, hanya data bacaan yang Anda sinkronkan secara manual yang dikirim ke NocoDB Tbpedia, termasuk kemajuan, tanggal, peringkat, klasifikasi, dan refleksi. Badan artikel dan properti yang tidak terkait tidak diunggah. Menonaktifkan unggahan akan menghentikan unggahan berikutnya tetapi tidak menghapus data cloud yang ada. Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
   noticeUnavailable: "Server ini memerlukan pemberitahuan privasi yang lebih baru. Perbarui plugin sebelum menerimanya atau mengunggahnya.",
   invalidField: "Periksa nilai dan format bidang ini.",
   invalidChoice: "Pilih salah satu opsi yang tersedia.",
@@ -8525,7 +8558,10 @@ var id_default = {
   "field.values": "Membaca data",
   "backend.BACKEND_TIMEOUT": "Respons basis data melewati batas waktu dan status penyimpanan belum pasti. Coba lagi secara manual setelah layanan pulih.",
   followSystem: "Ikuti sistem",
-  followSystemHelp: "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan."
+  followSystemHelp: "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan.",
+  updaterReadError: "Tidak dapat membaca pengaturan pembaru Tbpedia. Periksa berkas data.json, lalu coba lagi. Data bacaan tetap tersimpan secara lokal.",
+  updaterChanged: "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
+  updaterSyncNotice: "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang."
 };
 
 // plugin/locales/th.json
@@ -8671,7 +8707,7 @@ var th_default = {
   summary: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E49\u0E27: {saved}; \u0E44\u0E21\u0E48\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07: {unchanged}; \u0E44\u0E21\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07: {invalid}; \u0E44\u0E21\u0E48\u0E2A\u0E21\u0E1A\u0E39\u0E23\u0E13\u0E4C: {remaining}",
   changedDuringUpload: "\u0E21\u0E35\u0E01\u0E32\u0E23\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14 \u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   profileNotice: "\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E16\u0E39\u0E01\u0E08\u0E31\u0E14\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07 \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07 NocoDB \u0E02\u0E2D\u0E07 Tbpedia \u0E1B\u0E23\u0E30\u0E01\u0E2D\u0E1A\u0E14\u0E49\u0E27\u0E22\u0E0A\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E41\u0E25\u0E30\u0E2D\u0E35\u0E40\u0E21\u0E25\u0E40\u0E2A\u0E23\u0E34\u0E21 \u0E1B\u0E35\u0E40\u0E01\u0E34\u0E14/\u0E40\u0E14\u0E37\u0E2D\u0E19 \u0E40\u0E1E\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E17\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19 \u0E41\u0E25\u0E30\u0E2D\u0E07\u0E04\u0E4C\u0E01\u0E23\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E23\u0E30\u0E1A\u0E38 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E08\u0E31\u0E14\u0E01\u0E32\u0E23\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E41\u0E25\u0E30\u0E2A\u0E16\u0E34\u0E15\u0E34\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E0A\u0E48\u0E2D\u0E07\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E35\u0E49\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E40\u0E02\u0E35\u0E22\u0E19\u0E25\u0E07\u0E43\u0E19\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21 \u0E04\u0E38\u0E13\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E41\u0E01\u0E49\u0E44\u0E02\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E2B\u0E23\u0E37\u0E2D\u0E02\u0E2D\u0E43\u0E2B\u0E49\u0E1C\u0E39\u0E49\u0E14\u0E39\u0E41\u0E25\u0E23\u0E30\u0E1A\u0E1A\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49 \u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E41\u0E15\u0E48\u0E25\u0E30\u0E04\u0E23\u0E31\u0E49\u0E07\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19 \u0E23\u0E30\u0E1A\u0E1A\u0E1B\u0E0F\u0E34\u0E1A\u0E31\u0E15\u0E34\u0E01\u0E32\u0E23 \u0E41\u0E25\u0E30\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E15\u0E31\u0E27\u0E41\u0E17\u0E19\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E40\u0E02\u0E49\u0E32\u0E01\u0E31\u0E19\u0E44\u0E14\u0E49\u0E41\u0E25\u0E30\u0E41\u0E01\u0E49\u0E44\u0E02\u0E1B\u0E31\u0E0D\u0E2B\u0E32\u0E14\u0E49\u0E27\u0E22 \u0E42\u0E14\u0E22\u0E40\u0E01\u0E47\u0E1A\u0E40\u0E09\u0E1E\u0E32\u0E30\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C\u0E08\u0E32\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E04\u0E23\u0E31\u0E49\u0E07\u0E25\u0E48\u0E32\u0E2A\u0E38\u0E14 \u0E41\u0E25\u0E30\u0E44\u0E21\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E30\u0E1A\u0E38\u0E2E\u0E32\u0E23\u0E4C\u0E14\u0E41\u0E27\u0E23\u0E4C",
-  readingNotice: "\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E40\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E01\u0E32\u0E23\u0E2D\u0E19\u0E38\u0E0D\u0E32\u0E15\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E16\u0E39\u0E01\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07 NocoDB \u0E02\u0E2D\u0E07 Tbpedia \u0E23\u0E27\u0E21\u0E16\u0E36\u0E07\u0E04\u0E27\u0E32\u0E21\u0E04\u0E37\u0E1A\u0E2B\u0E19\u0E49\u0E32 \u0E27\u0E31\u0E19\u0E17\u0E35\u0E48 \u0E01\u0E32\u0E23\u0E43\u0E2B\u0E49\u0E04\u0E30\u0E41\u0E19\u0E19 \u0E01\u0E32\u0E23\u0E08\u0E33\u0E41\u0E19\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17 \u0E41\u0E25\u0E30\u0E01\u0E32\u0E23\u0E2A\u0E30\u0E17\u0E49\u0E2D\u0E19\u0E01\u0E25\u0E31\u0E1A \u0E40\u0E19\u0E37\u0E49\u0E2D\u0E2B\u0E32\u0E02\u0E2D\u0E07\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E41\u0E25\u0E30\u0E04\u0E38\u0E13\u0E2A\u0E21\u0E1A\u0E31\u0E15\u0E34\u0E17\u0E35\u0E48\u0E44\u0E21\u0E48\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E02\u0E49\u0E2D\u0E07\u0E08\u0E30\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14 \u0E01\u0E32\u0E23\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E08\u0E30\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E41\u0E15\u0E48\u0E08\u0E30\u0E44\u0E21\u0E48\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E17\u0E35\u0E48\u0E21\u0E35\u0E2D\u0E22\u0E39\u0E48",
+  readingNotice: "\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E40\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E01\u0E32\u0E23\u0E2D\u0E19\u0E38\u0E0D\u0E32\u0E15\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E16\u0E39\u0E01\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07 NocoDB \u0E02\u0E2D\u0E07 Tbpedia \u0E23\u0E27\u0E21\u0E16\u0E36\u0E07\u0E04\u0E27\u0E32\u0E21\u0E04\u0E37\u0E1A\u0E2B\u0E19\u0E49\u0E32 \u0E27\u0E31\u0E19\u0E17\u0E35\u0E48 \u0E01\u0E32\u0E23\u0E43\u0E2B\u0E49\u0E04\u0E30\u0E41\u0E19\u0E19 \u0E01\u0E32\u0E23\u0E08\u0E33\u0E41\u0E19\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17 \u0E41\u0E25\u0E30\u0E01\u0E32\u0E23\u0E2A\u0E30\u0E17\u0E49\u0E2D\u0E19\u0E01\u0E25\u0E31\u0E1A \u0E40\u0E19\u0E37\u0E49\u0E2D\u0E2B\u0E32\u0E02\u0E2D\u0E07\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E41\u0E25\u0E30\u0E04\u0E38\u0E13\u0E2A\u0E21\u0E1A\u0E31\u0E15\u0E34\u0E17\u0E35\u0E48\u0E44\u0E21\u0E48\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E02\u0E49\u0E2D\u0E07\u0E08\u0E30\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14 \u0E01\u0E32\u0E23\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E08\u0E30\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E41\u0E15\u0E48\u0E08\u0E30\u0E44\u0E21\u0E48\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E17\u0E35\u0E48\u0E21\u0E35\u0E2D\u0E22\u0E39\u0E48 \u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22",
   noticeUnavailable: "\u0E40\u0E0B\u0E34\u0E23\u0E4C\u0E1F\u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E19\u0E35\u0E49\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E1B\u0E23\u0E30\u0E01\u0E32\u0E28\u0E04\u0E27\u0E32\u0E21\u0E40\u0E1B\u0E47\u0E19\u0E2A\u0E48\u0E27\u0E19\u0E15\u0E31\u0E27\u0E17\u0E35\u0E48\u0E43\u0E2B\u0E21\u0E48\u0E01\u0E27\u0E48\u0E32 \u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E01\u0E48\u0E2D\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E22\u0E2D\u0E21\u0E23\u0E31\u0E1A\u0E2B\u0E23\u0E37\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   invalidField: "\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E04\u0E48\u0E32\u0E41\u0E25\u0E30\u0E23\u0E39\u0E1B\u0E41\u0E1A\u0E1A\u0E02\u0E2D\u0E07\u0E0A\u0E48\u0E2D\u0E07\u0E19\u0E35\u0E49",
   invalidChoice: "\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E43\u0E19\u0E15\u0E31\u0E27\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E17\u0E35\u0E48\u0E21\u0E35",
@@ -8714,7 +8750,10 @@ var th_default = {
   "field.values": "\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25",
   "backend.BACKEND_TIMEOUT": "\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E44\u0E21\u0E48\u0E15\u0E2D\u0E1A\u0E01\u0E25\u0E31\u0E1A\u0E20\u0E32\u0E22\u0E43\u0E19\u0E40\u0E27\u0E25\u0E32\u0E17\u0E35\u0E48\u0E01\u0E33\u0E2B\u0E19\u0E14 \u0E08\u0E36\u0E07\u0E22\u0E31\u0E07\u0E22\u0E37\u0E19\u0E22\u0E31\u0E19\u0E01\u0E32\u0E23\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E2B\u0E25\u0E31\u0E07\u0E1A\u0E23\u0E34\u0E01\u0E32\u0E23\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E44\u0E14\u0E49",
   followSystem: "\u0E15\u0E32\u0E21\u0E23\u0E30\u0E1A\u0E1A",
-  followSystemHelp: "\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E20\u0E32\u0E29\u0E32\u0E02\u0E2D\u0E07 Obsidian \u0E41\u0E25\u0E30\u0E43\u0E0A\u0E49\u0E20\u0E32\u0E29\u0E32\u0E2D\u0E31\u0E07\u0E01\u0E24\u0E29\u0E2B\u0E32\u0E01\u0E44\u0E21\u0E48\u0E23\u0E2D\u0E07\u0E23\u0E31\u0E1A\u0E20\u0E32\u0E29\u0E32\u0E17\u0E35\u0E48\u0E40\u0E25\u0E37\u0E2D\u0E01"
+  followSystemHelp: "\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E20\u0E32\u0E29\u0E32\u0E02\u0E2D\u0E07 Obsidian \u0E41\u0E25\u0E30\u0E43\u0E0A\u0E49\u0E20\u0E32\u0E29\u0E32\u0E2D\u0E31\u0E07\u0E01\u0E24\u0E29\u0E2B\u0E32\u0E01\u0E44\u0E21\u0E48\u0E23\u0E2D\u0E07\u0E23\u0E31\u0E1A\u0E20\u0E32\u0E29\u0E32\u0E17\u0E35\u0E48\u0E40\u0E25\u0E37\u0E2D\u0E01",
+  updaterReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15 Tbpedia \u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E44\u0E1F\u0E25\u0E4C data.json \u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07 \u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E22\u0E31\u0E07\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07",
+  updaterChanged: "\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C \u0E08\u0E36\u0E07\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E17\u0E35\u0E48\u0E40\u0E2B\u0E25\u0E37\u0E2D \u0E42\u0E1B\u0E23\u0E14\u0E14\u0E39\u0E15\u0E31\u0E27\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E41\u0E25\u0E30\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
+  updaterSyncNotice: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22"
 };
 
 // plugin/locales/bo.json
@@ -8860,7 +8899,7 @@ var bo_default = {
   summary: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0D: {saved}; \u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F0D: {unchanged}; \u0F53\u0F74\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0B: {invalid}; \u0F58\u0F0B\u0F5A\u0F44\u0F0B\u0F56\u0F0D: {remaining}.",
   changedDuringUpload: "\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F51\u0F7A\u0F0B\u0F51\u0F42\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F46\u0F7A\u0F51\u0F0B\u0F51\u0F74\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
   profileNotice: "\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F51\u0F7A\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F42\u0F66\u0F7C\u0F42\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F61\u0F72\u0F66\u0F0BTbpedia\u0F61\u0F72\u0F0BNocoDB\u0F63\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F56\u0F0B\u0F62\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F58\u0F72\u0F44\u0F0B\u0F60\u0F51\u0F7C\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F42\u0F51\u0F58\u0F0B\u0F42\u0F60\u0F72\u0F0B\u0F42\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F55\u0FB2\u0F72\u0F53\u0F0B\u0F42\u0F44\u0F0B\u0F62\u0F74\u0F44\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0FB1\u0F7A\u0F66\u0F0B\u0F63\u0F7C\u0F0D \u0F5F\u0FB3\u0F0B\u0F56\u0F0D \u0F55\u0F7C\u0F0B\u0F58\u0F7C\u0F0D \u0F62\u0F92\u0FB1\u0F63\u0F0B\u0F41\u0F56\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F58\u0F41\u0F7C\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F60\u0F5B\u0F74\u0F42\u0F66\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F61\u0F72\u0F42\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F51\u0F42\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F4F\u0F74\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F74\u0F56\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F44\u0F0B\u0F54\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F56\u0F40\u0F60\u0F0B\u0F56\u0F4F\u0F44\u0F0B\u0F46\u0F7C\u0F42 \u0F66\u0F92\u0F7A\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F7A\u0F44\u0F66\u0F0B\u0F62\u0F7A\u0F62\u0F0D \u0F58\u0F50\u0F74\u0F53\u0F0B\u0F60\u0F42\u0FB2\u0F72\u0F42\u0F0B\u0F51\u0F44\u0F0B\u0F51\u0F40\u0F60\u0F0B\u0F44\u0F63\u0F0B\u0F66\u0F7A\u0F63\u0F0B\u0F46\u0F7A\u0F51\u0F0D \u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F56\u0F40\u0F7C\u0F63\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F63\u0F42 \u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F0B\u0F5A\u0F56\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F55\u0FB2\u0F7A\u0F44\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F46\u0F7A\u0F66\u0F0B\u0F58\u0F50\u0F60\u0F0B\u0F58\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0D \u0F66\u0FB2\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F58\u0F72\u0F0B\u0F56\u0F66\u0FA1\u0F74\u0F0D",
-  readingNotice: "\u0F58\u0F41\u0F60\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F44\u0F66\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F58\u0F46\u0F53\u0F0B\u0F63\u0F42\u0F0B\u0F56\u0F66\u0F9F\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F51\u0F74\u0F66\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F56\u0F5F\u0F7C\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0BTbpedia\u0F61\u0F72\u0F0BNocoDB\u0F63\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F56\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F51\u0F7A\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F62\u0F92\u0FB1\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F5A\u0F7A\u0F66\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0D \u0F5A\u0F51\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F60\u0F56\u0FB1\u0F7A\u0F51\u0F0D \u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F55\u0F74\u0F44\u0F0B\u0F54\u0F7C\u0F0B\u0F51\u0F44\u0F0B\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0F92\u0FB1\u0F74\u0F0B\u0F53\u0F7C\u0F62\u0F0B\u0F55\u0F56\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F63\u0F95\u0F7C\u0F42\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F56\u0F5F\u0F7C\u0F66\u0F0B\u0F53\u0F0B\u0F58\u0F0B\u0F60\u0F7C\u0F44\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D",
+  readingNotice: "\u0F58\u0F41\u0F60\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F44\u0F66\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F58\u0F46\u0F53\u0F0B\u0F63\u0F42\u0F0B\u0F56\u0F66\u0F9F\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F51\u0F74\u0F66\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F56\u0F5F\u0F7C\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0BTbpedia\u0F61\u0F72\u0F0BNocoDB\u0F63\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F56\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F51\u0F7A\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F62\u0F92\u0FB1\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F5A\u0F7A\u0F66\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0D \u0F5A\u0F51\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F60\u0F56\u0FB1\u0F7A\u0F51\u0F0D \u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F55\u0F74\u0F44\u0F0B\u0F54\u0F7C\u0F0B\u0F51\u0F44\u0F0B\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0F92\u0FB1\u0F74\u0F0B\u0F53\u0F7C\u0F62\u0F0B\u0F55\u0F56\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F63\u0F95\u0F7C\u0F42\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F56\u0F5F\u0F7C\u0F66\u0F0B\u0F53\u0F0B\u0F58\u0F0B\u0F60\u0F7C\u0F44\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   noticeUnavailable: "\u0F42\u0F66\u0F56\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F63\u0F0B\u0F66\u0F92\u0F7A\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F56\u0F62\u0FA1\u0F0B\u0F50\u0F7C\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D \u0F44\u0F7C\u0F66\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F51\u0F7A\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   invalidField: "\u0F61\u0F72\u0F42\u0F0B\u0F51\u0F74\u0F58\u0F0B\u0F60\u0F51\u0F72\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F53\u0F0B\u0F50\u0F44\u0F0B\u0F51\u0F44\u0F0B\u0F62\u0FA3\u0F58\u0F0B\u0F42\u0F5E\u0F42\u0F0B\u0F63\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0D",
   invalidChoice: "\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F51\u0F58\u0F0B\u0F42\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0D",
@@ -8903,7 +8942,10 @@ var bo_default = {
   "field.values": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0D",
   "backend.BACKEND_TIMEOUT": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F63\u0F53\u0F0B\u0F60\u0F51\u0F7A\u0F56\u0F66\u0F0B\u0F51\u0F74\u0F66\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F56\u0F62\u0F92\u0F63\u0F0B\u0F66\u0F7C\u0F44\u0F0B\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F44\u0F7A\u0F66\u0F0B\u0F42\u0F4F\u0F53\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F5E\u0F56\u0F66\u0F0B\u0F5E\u0F74\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
   followSystem: "\u0F58\u0F0B\u0F63\u0F42\u0F0B\u0F63\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F60\u0F56\u0FB2\u0F44\u0F0B\u0F0D",
-  followSystemHelp: "Obsidian \u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D \u0F62\u0F92\u0FB1\u0F56\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F62\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F61\u0F72\u0F53\u0F0B\u0F53\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F53\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D"
+  followSystemHelp: "Obsidian \u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D \u0F62\u0F92\u0FB1\u0F56\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F62\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F61\u0F72\u0F53\u0F0B\u0F53\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F53\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D",
+  updaterReadError: "Tbpedia \u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F60\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D data.json \u0F61\u0F72\u0F42\u0F0B\u0F46\u0F62\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F49\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
+  updaterChanged: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F63\u0F0B\u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F56\u0F5E\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F66\u0F94\u0F7C\u0F53\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
+  updaterSyncNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -9005,6 +9047,30 @@ function collectClientMetadata(platform, version2, userAgent) {
   return clientMetadataSchema.parse({ device_type, Client_version: version2, os, user_agent: userAgent?.trim().slice(0, 2048) || null });
 }
 
+// shared/updater-metadata.ts
+var identifier = string2().trim().min(1).max(256).nullable().default(null);
+var languageCode = string2().trim().min(1).max(64).nullable().default(null);
+var title = string2().trim().min(1).max(1e3).nullable().default(null);
+var updaterMetadataSchema = object({ seriesId: identifier, editionId: identifier, tbpedia: identifier, releaseId: identifier, languageCode, title }).strict();
+var UPDATER_METADATA_KEYS = ["seriesId", "editionId", "tbpedia", "releaseId", "languageCode", "title"];
+var emptyUpdaterMetadata = () => updaterMetadataSchema.parse({});
+var updaterDataSchema = object({
+  seriesId: identifier,
+  editionId: identifier,
+  tbpedia: identifier,
+  releaseId: identifier,
+  languageCode,
+  title,
+  installed: object({ releaseId: identifier }).nullish()
+});
+function extractUpdaterMetadata(value) {
+  const parsed = updaterDataSchema.parse(value);
+  return updaterMetadataSchema.parse({ seriesId: parsed.seriesId, editionId: parsed.editionId, tbpedia: parsed.tbpedia, releaseId: parsed.installed?.releaseId ?? parsed.releaseId, languageCode: parsed.languageCode, title: parsed.title });
+}
+function readUpdaterMetadata(fields) {
+  return updaterMetadataSchema.parse(Object.fromEntries(UPDATER_METADATA_KEYS.map((key) => [key, fields[key] ?? null])));
+}
+
 // shared/schema.ts
 var PROFILE_NOTICE_VERSION = "profile-v2";
 var READING_NOTICE_VERSION = "reading-v1";
@@ -9075,17 +9141,17 @@ var profileSchema = object({
 }).strict().refine((p) => p.birth_month === null || p.birth_year !== null, { path: ["birth_month"], message: "Birth year is required when birth month is supplied" });
 var emptyProfile = () => ({ nickname: "", email: null, birth_year: null, birth_month: null, sex: "PREFER_NOT_TO_SAY", country_code: null, reader_type: null, organisation: null });
 var profileRequestSchema = object({ schema_version: literal(1), profile: profileSchema, profile_notice_version: string2().max(40), cloud_sync_enabled: boolean2(), reading_notice_version: string2().max(40).nullable(), client_metadata: clientMetadataSchema.optional() }).strict();
-var syncRequestSchema = object({ schema_version: literal(1), content_id: contentIdSchema, client_updated_at: iso_exports.datetime({ offset: true }), values: readingSchema }).strict();
-function canonicalSnapshot(contentId, values) {
+var syncRequestSchema = object({ schema_version: literal(1), content_id: contentIdSchema, client_updated_at: iso_exports.datetime({ offset: true }), values: readingSchema, updater_metadata: updaterMetadataSchema.optional() }).strict();
+function canonicalSnapshot(contentId, values, updaterMetadata) {
   const normalized = readingSchema.parse(values);
   const ordered = Object.fromEntries(READING_KEYS.map((key) => [key, normalized[key]]));
-  return JSON.stringify({ schema_version: 1, content_id: contentIdSchema.parse(contentId), values: ordered });
+  return JSON.stringify({ schema_version: 1, content_id: contentIdSchema.parse(contentId), values: ordered, ...updaterMetadata === void 0 ? {} : { updater_metadata: updaterMetadataSchema.parse(updaterMetadata) } });
 }
 async function sha256(value) {
   const data = new TextEncoder().encode(value);
   return [...new Uint8Array(await crypto.subtle.digest("SHA-256", data))].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
-var snapshotHash = (id, values) => sha256(canonicalSnapshot(id, values));
+var snapshotHash = (id, values, updaterMetadata) => sha256(canonicalSnapshot(id, values, updaterMetadata));
 function localDate(d = /* @__PURE__ */ new Date()) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
@@ -9143,10 +9209,35 @@ function trackedFingerprint(fm) {
   return JSON.stringify({ id: fm.tbpedia_content_id ?? null, values: fromFrontmatter(fm) });
 }
 
+// plugin/updater.ts
+async function loadUpdaterMetadata(adapter, configDir) {
+  const path = `${configDir.replace(/\/+$/, "")}/plugins/tbpedia-update/data.json`;
+  try {
+    if (!await adapter.exists(path)) return emptyUpdaterMetadata();
+    const text = await adapter.read(path);
+    if (text.length > 1024 * 1024) throw new Error("Updater settings exceed the read limit");
+    return extractUpdaterMetadata(JSON.parse(text.replace(/^\uFEFF/, "")));
+  } catch {
+    throw new UiError(t("updaterReadError"));
+  }
+}
+
+// plugin/settings-migrations.ts
+function migrateInterfaceLanguage(value) {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return { data: value, changed: false };
+  const source = value;
+  const data = { ...source };
+  const legacy = Object.hasOwn(source, "language");
+  const canonical = Object.hasOwn(source, "interface_language");
+  if (!canonical) data.interface_language = source.language ?? "system";
+  delete data.language;
+  return { data, changed: legacy || !canonical };
+}
+
 // plugin/main.ts
 var DEFAULT_API = "https://tbpedia-analytics.tbspedia.workers.dev";
 var receiptSchema = object({ hash: string2(), synced_at: string2() });
-var dataSchema = object({ language: string2().optional(), api_url: string2().default(DEFAULT_API), reader_id: string2().nullable().default(null), profile: profileSchema.safeExtend({ nickname: string2().max(100) }).default(emptyProfile), profile_notice_version: string2().nullable().default(null), reading_notice_version: string2().nullable().default(null), local_upload_enabled: boolean2().default(false), remember_token: boolean2().default(false), stored_token: string2().default(""), folders: array(string2()).default(["01 \u6587\u96C6\u90E8", "02 \u958B\u793A\u90E8"]), receipts: record(string2(), receiptSchema).default({}), profile_uploaded_hash: string2().nullable().default(null) });
+var dataSchema = object({ ...updaterMetadataSchema.shape, interface_language: string2().default("system"), api_url: string2().default(DEFAULT_API), reader_id: string2().nullable().default(null), profile: profileSchema.safeExtend({ nickname: string2().max(100) }).default(emptyProfile), profile_notice_version: string2().nullable().default(null), reading_notice_version: string2().nullable().default(null), local_upload_enabled: boolean2().default(false), remember_token: boolean2().default(false), stored_token: string2().default(""), folders: array(string2()).default(["01 \u6587\u96C6\u90E8", "02 \u958B\u793A\u90E8"]), receipts: record(string2(), receiptSchema).default({}), profile_uploaded_hash: string2().nullable().default(null) });
 var meSchema = object({ reader_id: uuid2(), profile: profileSchema, cloud_sync_enabled: boolean2(), profile_consent_version: string2().nullable(), reading_consent_version: string2().nullable(), required_notices: object({ profile_version: string2(), reading_version: string2(), profile_text: string2(), reading_text: string2() }) });
 var savedSchema = object({ content_id: contentIdSchema, status: literal("saved"), snapshot_hash: string2().regex(/^[a-f0-9]{64}$/), synced_at: iso_exports.datetime() });
 var GatewayError = class extends Error {
@@ -9185,8 +9276,9 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   persistTail = Promise.resolve();
   async onload() {
     const loaded = await this.loadData();
-    this.data = dataSchema.parse(loaded ?? {});
-    setLocale(this.data.language, (0, import_obsidian.getLanguage)());
+    const migration = migrateInterfaceLanguage(loaded ?? {});
+    this.data = dataSchema.parse(migration.data);
+    setLocale(this.data.interface_language, (0, import_obsidian.getLanguage)());
     this.token = this.data.remember_token ? this.data.stored_token : "";
     this.status = this.addStatusBarItem();
     this.setStatus(t("\u672C\u6A5F\u95B1\u8B80"));
@@ -9213,6 +9305,20 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     this.addCommand({ id: "sync-changed", name: t("\u540C\u6B65\u5DF2\u8B8A\u66F4\u6587\u7AE0"), callback: () => {
       void this.previewSync();
     } });
+    try {
+      if (migration.changed) await this.persist();
+      await this.refreshUpdaterMetadata();
+    } catch (e) {
+      new import_obsidian.Notice(message(e), 1e4);
+    }
+  }
+  async refreshUpdaterMetadata() {
+    const metadata = await loadUpdaterMetadata(this.app.vault.adapter, this.app.vault.configDir);
+    if (JSON.stringify(readUpdaterMetadata(this.data)) !== JSON.stringify(metadata)) {
+      Object.assign(this.data, metadata);
+      await this.persist();
+    }
+    return metadata;
   }
   setStatus(text) {
     this.status?.setText(`Tbpedia \xB7 ${text}`);
@@ -9340,13 +9446,14 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     return `${this.data.api_url.replace(/\/$/, "")}|${this.data.reader_id ?? "local"}|${id}`;
   }
   async pendingNotes() {
+    const updaterMetadata = await this.refreshUpdaterMetadata();
     const notes = (await this.scan()).filter((n) => this.inScope(n.file.path));
     const pending = [];
     let unchanged = 0, invalid = 0;
     for (const note of notes) {
       try {
         if (!note.id || !note.fm) throw new UiError(note.error);
-        const hash = await snapshotHash(note.id, fromFrontmatter(note.fm));
+        const hash = await snapshotHash(note.id, fromFrontmatter(note.fm), updaterMetadata);
         if (this.data.receipts[this.receiptKey(note.id)]?.hash === hash) unchanged++;
         else pending.push(note.file);
       } catch {
@@ -9359,7 +9466,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     try {
       if (this.busy) throw new UiError(t("\u540C\u6B65\u6B63\u5728\u9032\u884C\u3002"));
       const result = await this.pendingNotes();
-      new ConfirmModal(this.app, t("\u624B\u52D5\u4E0A\u50B3\u95B1\u8B80\u8CC7\u6599"), t("preview", { pending: result.pending.length, unchanged: result.unchanged, invalid: result.invalid }), () => this.runSync(result.pending, false)).open();
+      new ConfirmModal(this.app, t("\u624B\u52D5\u4E0A\u50B3\u95B1\u8B80\u8CC7\u6599"), `${t("preview", { pending: result.pending.length, unchanged: result.unchanged, invalid: result.invalid })} ${t("updaterSyncNotice")}`, () => this.runSync(result.pending, false)).open();
     } catch (e) {
       new import_obsidian.Notice(message(e), 1e4);
     }
@@ -9379,6 +9486,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       if (!this.me?.cloud_sync_enabled) throw new UiError(t("\u8ACB\u5148\u5728\u8A2D\u5B9A\u4E2D\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\uFF0C\u4EE5\u5957\u7528\u96F2\u7AEF\u6B0A\u9650\u3002"));
       const uploadTarget = this.data.api_url;
       const uploadReader = this.data.reader_id;
+      const updaterMetadata = await this.refreshUpdaterMetadata();
       const all = await this.scan();
       const counts = /* @__PURE__ */ new Map();
       for (const n of all) if (n.id) counts.set(n.id, (counts.get(n.id) ?? 0) + 1);
@@ -9387,13 +9495,17 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           issues.push(t("\u4E0A\u50B3\u6B0A\u9650\u6216\u9023\u7DDA\u5DF2\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002"));
           break;
         }
+        if (JSON.stringify(await this.refreshUpdaterMetadata()) !== JSON.stringify(updaterMetadata)) {
+          issues.push(t("updaterChanged"));
+          break;
+        }
         let id, values, hash;
         try {
           const fm = await this.readNote(file);
           id = contentIdSchema.parse(fm.tbpedia_content_id);
           if (counts.get(id) !== 1) throw new UiError(t("Vault \u4E2D\u6709\u91CD\u8907\u5167\u5BB9\u7DE8\u865F\uFF0C\u8ACB\u5148\u4FEE\u6B63\u3002"));
           values = fromFrontmatter(fm);
-          hash = await snapshotHash(id, values);
+          hash = await snapshotHash(id, values, updaterMetadata);
         } catch (e) {
           invalid++;
           attempted++;
@@ -9407,7 +9519,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
         }
         this.setStatus(t("progress", { current: saved + 1, total: files.length }));
         try {
-          const result = savedSchema.parse(await this.api("/v1/reading/sync", "POST", { schema_version: 1, content_id: id, client_updated_at: (/* @__PURE__ */ new Date()).toISOString(), values }));
+          const result = savedSchema.parse(await this.api("/v1/reading/sync", "POST", { schema_version: 1, content_id: id, client_updated_at: (/* @__PURE__ */ new Date()).toISOString(), values, updater_metadata: updaterMetadata }));
           if (result.content_id !== id || result.snapshot_hash !== hash) throw new UiError(t("\u4F3A\u670D\u5668\u78BA\u8A8D\u8207\u9001\u51FA\u7684\u7248\u672C\u4E0D\u540C\uFF1B\u5C1A\u672A\u6A19\u8A18\u5B8C\u6210\u3002"));
           this.data.receipts[this.receiptKey(id)] = { hash, synced_at: result.synced_at };
           try {
@@ -9417,7 +9529,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           }
           saved++;
           attempted++;
-          if (await snapshotHash(id, fromFrontmatter(await this.readNote(file))) !== hash) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
+          if (await snapshotHash(id, fromFrontmatter(await this.readNote(file)), await this.refreshUpdaterMetadata()) !== hash) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
         } catch (e) {
           issues.push(`${file.basename}: ${message(e)}`);
           break;
@@ -9592,15 +9704,15 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
   }
   plugin;
   display() {
-    setLocale(this.plugin.data.language, (0, import_obsidian.getLanguage)());
+    setLocale(this.plugin.data.interface_language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
     el.empty();
     el.lang = intlLocale();
     el.createEl("h2", { text: "Tbpedia Analytics" });
     const p = this.plugin;
-    new import_obsidian.Setting(el).setName(t("language")).setDesc(`${t("languageHelp")} ${t("followSystemHelp")}`).addDropdown((d) => d.addOption("system", t("followSystem")).addOptions(LANGUAGES).setValue(languagePreference(p.data.language)).onChange((v) => {
-      p.data.language = languagePreference(v);
-      setLocale(p.data.language, (0, import_obsidian.getLanguage)());
+    new import_obsidian.Setting(el).setName(t("language")).setDesc(`${t("languageHelp")} ${t("followSystemHelp")}`).addDropdown((d) => d.addOption("system", t("followSystem")).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange((v) => {
+      p.data.interface_language = languagePreference(v);
+      setLocale(p.data.interface_language, (0, import_obsidian.getLanguage)());
       p.persistQuiet();
       p.setStatus(t("\u672C\u6A5F\u95B1\u8B80"));
       this.display();

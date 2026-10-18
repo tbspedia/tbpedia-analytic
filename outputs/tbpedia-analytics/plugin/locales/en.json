@@ -140,7 +140,7 @@
   "summary": "Saved: {saved}; unchanged: {unchanged}; invalid: {invalid}; incomplete: {remaining}.",
   "changedDuringUpload": "Changes were made during upload. Sync again to upload them.",
   "profileNotice": "Your profile is stored locally. Only Save and upload profile sends it to Tbpedia's NocoDB. It includes your nickname and any optional email, birth year/month, sex, country, reader type and organisation you provide, for reader management and future reading statistics. These fields are not written into articles. You can edit your profile or ask the administrator to delete cloud data. Each profile upload also sends your device type, plugin version, operating system and user-agent string for compatibility and troubleshooting. Only the device details from your latest profile upload are kept; no hardware identifiers are collected.",
-  "readingNotice": "When cloud permission is enabled, only reading data you manually sync is sent to Tbpedia's NocoDB, including progress, dates, ratings, classifications and reflections. Article bodies and unrelated properties are not uploaded. Disabling uploads stops future uploads but does not delete existing cloud data.",
+  "readingNotice": "When cloud permission is enabled, only reading data you manually sync is sent to Tbpedia's NocoDB, including progress, dates, ratings, classifications and reflections. Article bodies and unrelated properties are not uploaded. Disabling uploads stops future uploads but does not delete existing cloud data. Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
   "noticeUnavailable": "This server requires a newer privacy notice. Update the plugin before accepting it or uploading.",
   "invalidField": "Check this field's value and format.",
   "invalidChoice": "Choose one of the available options.",
@@ -183,5 +183,8 @@
   "field.values": "Reading data",
   "backend.BACKEND_TIMEOUT": "The database response timed out and the save status is uncertain. Retry manually after recovery.",
   "followSystem": "Follow system",
-  "followSystemHelp": "Uses Obsidian's language setting, with English as the fallback."
+  "followSystemHelp": "Uses Obsidian's language setting, with English as the fallback.",
+  "updaterReadError": "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
+  "updaterChanged": "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
+  "updaterSyncNotice": "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title."
 }

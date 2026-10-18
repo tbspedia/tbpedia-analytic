@@ -1,5 +1,6 @@
 import * as z from 'zod';
 import { clientMetadataSchema } from './client-metadata';
+import {updaterMetadataSchema,type UpdaterMetadata} from './updater-metadata';
 
 export const APP_NAME = 'tbpedia-analytics';
 export const PROFILE_NOTICE_VERSION = 'profile-v2';
@@ -10,7 +11,7 @@ export const RECOMMENDATION_LABELS = { RECOMMEND: '推薦', NOT_RECOMMEND: '不�
 export const READER_LABELS = { GENERAL: '一般讀者', NEW_REFUGE: '初皈依者', BUDDHIST_STUDENT: '學佛者', PRACTITIONER: '修行者', TBS_PRACTITIONER: '真佛行者' } as const;
 export const SEX_LABELS = { FEMALE: '女', MALE: '男', OTHER: '其他', PREFER_NOT_TO_SAY: '不願透露' } as const;
 export const PROFILE_NOTICE = '讀者資料保存在本機，只有按「儲存並上傳個人資料」才會傳送至 Tbpedia 的 NocoDB。資料包括暱稱，以及自願填寫的電郵、出生年/月、性別、國家、讀者類型和機構，用於管理讀者及未來的閱讀統計。每次上傳個人資料亦會傳送裝置類型、外掛版本、作業系統及使用者代理字串，用於相容性與問題排查；每位讀者只保留最近一次上傳的裝置資料，不收集硬體識別碼。這些欄位不會寫入文章。您可以修改資料，或聯絡管理員要求刪除雲端資料。';
-export const READING_NOTICE = '開啟雲端權限後，只有您手動同步的閱讀資料會傳送至 Tbpedia 的 NocoDB，包括閱讀進度、日期、評分、分類及閱讀感想。文章正文及無關屬性不會上傳。停用會停止後續上傳，但不會刪除既有雲端資料。';
+export const READING_NOTICE = '開啟雲端權限後，只有您手動同步的閱讀資料會傳送至 Tbpedia 的 NocoDB，包括閱讀進度、日期、評分、分類及閱讀感想。文章正文及無關屬性不會上傳。停用會停止後續上傳，但不會刪除既有雲端資料。閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。';
 
 const codeEnum = <T extends Record<string, string>>(values: T) => z.enum(Object.keys(values) as [keyof T & string, ...(keyof T & string)[]]);
 export const contentIdSchema = z.string().regex(/^[A-Za-z0-9_-]{1,80}$/);
@@ -58,19 +59,19 @@ export const profileSchema = z.object({
 export type ReaderProfile = z.infer<typeof profileSchema>;
 export const emptyProfile = (): ReaderProfile => ({ nickname: '', email: null, birth_year: null, birth_month: null, sex: 'PREFER_NOT_TO_SAY', country_code: null, reader_type: null, organisation: null });
 export const profileRequestSchema = z.object({ schema_version: z.literal(1), profile: profileSchema, profile_notice_version: z.string().max(40), cloud_sync_enabled: z.boolean(), reading_notice_version: z.string().max(40).nullable(), client_metadata:clientMetadataSchema.optional() }).strict();
-export const syncRequestSchema = z.object({ schema_version: z.literal(1), content_id: contentIdSchema, client_updated_at: z.iso.datetime({offset:true}), values: readingSchema }).strict();
+export const syncRequestSchema = z.object({ schema_version: z.literal(1), content_id: contentIdSchema, client_updated_at: z.iso.datetime({offset:true}), values: readingSchema, updater_metadata:updaterMetadataSchema.optional() }).strict();
 export type SyncRequest = z.infer<typeof syncRequestSchema>;
 
-export function canonicalSnapshot(contentId: string, values: ReadingValues): string {
+export function canonicalSnapshot(contentId: string, values: ReadingValues,updaterMetadata?:UpdaterMetadata): string {
   const normalized = readingSchema.parse(values);
   const ordered = Object.fromEntries(READING_KEYS.map(key => [key, normalized[key]]));
-  return JSON.stringify({ schema_version: 1, content_id: contentIdSchema.parse(contentId), values: ordered });
+  return JSON.stringify({ schema_version: 1, content_id: contentIdSchema.parse(contentId), values: ordered,...(updaterMetadata===undefined?{}:{updater_metadata:updaterMetadataSchema.parse(updaterMetadata)}) });
 }
 export async function sha256(value: string): Promise<string> {
   const data = new TextEncoder().encode(value);
   return [...new Uint8Array(await crypto.subtle.digest('SHA-256', data))].map(b => b.toString(16).padStart(2, '0')).join('');
 }
-export const snapshotHash = (id: string, values: ReadingValues) => sha256(canonicalSnapshot(id, values));
+export const snapshotHash = (id: string, values: ReadingValues,updaterMetadata?:UpdaterMetadata) => sha256(canonicalSnapshot(id, values,updaterMetadata));
 export function localDate(d = new Date()): string { return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
 export function statusAction(current: ReadingValues, status: ReadingValues['reading_status'], day = localDate()): ReadingValues {
   if (current.reading_status === status) return { ...current };

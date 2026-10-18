@@ -140,7 +140,7 @@
   "summary": "Enregistré : {saved} ; inchangé : {unchanged} ; invalide : {invalid} ; incomplet : {remaining}.",
   "changedDuringUpload": "Des modifications ont été apportées lors du téléversement. Synchronisez à nouveau pour les téléverser.",
   "profileNotice": "Votre profil est conservé localement. Seul le bouton « Enregistrer et téléverser le profil » l’envoie à NocoDB de Tbpedia. Il comprend votre pseudonyme et les renseignements facultatifs fournis : courriel, année et mois de naissance, sexe, pays, type de lecteur et organisation. Ils servent à gérer les lecteurs et aux futures statistiques de lecture. Ces champs ne sont pas ajoutés aux articles. Vous pouvez modifier votre profil ou demander à l’administrateur de supprimer les données dans le cloud. Chaque téléversement du profil transmet aussi le type d’appareil, la version du module, le système d’exploitation et la chaîne d’agent utilisateur pour la compatibilité et le dépannage. Seules les informations de l’appareil du dernier téléversement du profil sont conservées ; aucun identifiant matériel n’est collecté.",
-  "readingNotice": "Lorsque l'autorisation cloud est activée, seules les données de lecture que vous synchronisez manuellement sont envoyées à NocoDB de Tbpedia, y compris la progression, les dates, les notes, les classifications et les réflexions. Les corps des articles et les propriétés non liées ne sont pas téléversés. La désactivation des téléversements arrête les futurs téléversements mais ne supprime pas les données cloud existantes.",
+  "readingNotice": "Lorsque l'autorisation cloud est activée, seules les données de lecture que vous synchronisez manuellement sont envoyées à NocoDB de Tbpedia, y compris la progression, les dates, les notes, les classifications et les réflexions. Les corps des articles et les propriétés non liées ne sont pas téléversés. La désactivation des téléversements arrête les futurs téléversements mais ne supprime pas les données cloud existantes. Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée.",
   "noticeUnavailable": "Le serveur exige une nouvelle notice de confidentialité. Mettez à jour le module avant de donner votre accord ou de téléverser des données.",
   "invalidField": "Vérifiez la valeur et le format de ce champ.",
   "invalidChoice": "Choisissez l'une des options disponibles.",
@@ -183,5 +183,8 @@
   "field.values": "Lecture de données",
   "backend.BACKEND_TIMEOUT": "Le délai de réponse de la base de données est dépassé et l’enregistrement reste incertain. Réessayez manuellement après le rétablissement du service.",
   "followSystem": "Suivre le système",
-  "followSystemHelp": "Utilise la langue définie dans Obsidian, avec l’anglais par défaut si elle n’est pas prise en charge."
+  "followSystemHelp": "Utilise la langue définie dans Obsidian, avec l’anglais par défaut si elle n’est pas prise en charge.",
+  "updaterReadError": "Impossible de lire les paramètres du module de mise à jour Tbpedia. Vérifiez son fichier data.json, puis réessayez. Les données de lecture restent enregistrées localement.",
+  "updaterChanged": "La collection installée a changé pendant la synchronisation. Les téléversements suivants ont été arrêtés. Vérifiez l’aperçu et relancez la synchronisation.",
+  "updaterSyncNotice": "Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée."
 }

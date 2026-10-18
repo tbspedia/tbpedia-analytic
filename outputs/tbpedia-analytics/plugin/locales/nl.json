@@ -140,7 +140,7 @@
   "summary": "Opgeslagen: {saved}; ongewijzigd: {unchanged}; ongeldig: {invalid}; onvolledig: {remaining}.",
   "changedDuringUpload": "Er zijn wijzigingen aangebracht tijdens het uploaden. Synchroniseer opnieuw om ze te uploaden.",
   "profileNotice": "Uw profiel wordt lokaal opgeslagen. Alleen het profiel Opslaan en uploaden stuurt het naar NocoDB van Tbpedia. Het omvat uw bijnaam en eventuele optionele e-mail, geboortejaar/maand, geslacht, land, lezerstype en organisatie die u opgeeft, voor lezersbeheer en toekomstige leesstatistieken. Deze velden worden niet in artikelen geschreven. U kunt uw profiel bewerken of de beheerder vragen cloudgegevens te verwijderen. Bij elke profielupload worden ook het apparaattype, de plug-inversie, het besturingssysteem en de user-agenttekenreeks verzonden voor compatibiliteit en probleemoplossing. Alleen de apparaatgegevens van de laatste profielupload worden bewaard; er worden geen hardware-identificatoren verzameld.",
-  "readingNotice": "Wanneer cloudtoestemming is ingeschakeld, worden alleen leesgegevens die u handmatig synchroniseert naar Tbpedia's NocoDB verzonden, inclusief voortgang, datums, beoordelingen, classificaties en reflecties. Artikelteksten en niet-gerelateerde eigenschappen worden niet geüpload. Als u uploads uitschakelt, worden toekomstige uploads gestopt, maar worden bestaande cloudgegevens niet verwijderd.",
+  "readingNotice": "Wanneer cloudtoestemming is ingeschakeld, worden alleen leesgegevens die u handmatig synchroniseert naar Tbpedia's NocoDB verzonden, inclusief voortgang, datums, beoordelingen, classificaties en reflecties. Artikelteksten en niet-gerelateerde eigenschappen worden niet geüpload. Als u uploads uitschakelt, worden toekomstige uploads gestopt, maar worden bestaande cloudgegevens niet verwijderd. Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie.",
   "noticeUnavailable": "Voor deze server is een nieuwere privacyverklaring vereist. Update de plug-in voordat u deze accepteert of uploadt.",
   "invalidField": "Controleer de waarde en indeling van dit veld.",
   "invalidChoice": "Kies een van de beschikbare opties.",
@@ -183,5 +183,8 @@
   "field.values": "Gegevens lezen",
   "backend.BACKEND_TIMEOUT": "De database reageerde niet op tijd. Het is onzeker of de gegevens zijn opgeslagen. Probeer het na herstel handmatig opnieuw.",
   "followSystem": "Systeem volgen",
-  "followSystemHelp": "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal."
+  "followSystemHelp": "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal.",
+  "updaterReadError": "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
+  "updaterChanged": "De geïnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
+  "updaterSyncNotice": "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie."
 }

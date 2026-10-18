@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {handle} from '../worker/src/index';
-import {defaults,emptyProfile,sha256} from '../shared/schema';
+import {defaults,emptyProfile,sha256,snapshotHash} from '../shared/schema';
 import type {Fetcher,NocoRow} from '../worker/src/nocodb';
 
 const token='A'.repeat(43);
@@ -13,7 +13,7 @@ async function backend(){
     [env.CONTENT_TABLE_ID]:[{id:1,fields:{content_id:'TBP-154-C00',is_active:true}}],
     [env.READING_TABLE_ID]:[]
   };
-  let omitRating=false,omitMetadata=false;const calls:Array<{url:string;method:string;body:unknown}>=[];
+  let omitRating=false,omitMetadata=false,omitRelease=false;const calls:Array<{url:string;method:string;body:unknown}>=[];
   const fetcher:Fetcher=async(input,init)=>{
     assert.equal(new Headers(init?.headers).get('xc-token'),env.NOCODB_API_TOKEN);
     assert.equal(init?.redirect,'manual','authenticated database requests must never follow redirects');
@@ -34,12 +34,12 @@ async function backend(){
       const fields=body.records[0].fields;
       let row=rows.find(r=>r.fields.reader_id===fields.reader_id&&r.fields.content_id===fields.content_id);
       if(!row){row={id:rows.length+1,fields:{}};rows.push(row);}
-      Object.assign(row.fields,fields);if(omitRating)delete row.fields.my_rating;
+      Object.assign(row.fields,fields);if(omitRating)delete row.fields.my_rating;if(omitRelease)delete row.fields.releaseId;
       return Response.json({records:[{id:row.id,status:'updated'}]});
     }
     throw new Error(`Unexpected mock operation ${method} ${tail}`);
   };
-  return {tables,fetcher,calls,dropRating:()=>{omitRating=true;},dropMetadata:()=>{omitMetadata=true;}};
+  return {tables,fetcher,calls,dropRating:()=>{omitRating=true;},dropMetadata:()=>{omitMetadata=true;},dropRelease:()=>{omitRelease=true;}};
 }
 function req(path:string,method='GET',body?:unknown,credential=token){return new Request('https://worker.example'+path,{method,headers:{Authorization:`Bearer ${credential}`,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});}
 function payload(){return {schema_version:1,content_id:'TBP-154-C00',client_updated_at:'2026-10-17T08:00:00Z',values:{...defaults(),my_rating:5,my_buddhist_level:0,reading_reflection:'中文\n第二行 🌸',my_keywords:['空性','引號"','逗,號']}};}
@@ -113,5 +113,37 @@ test('old consent, invalid metadata and attempts to override identity never upda
 test('metadata read-back must match before a profile save succeeds',async()=>{
   const b=await backend();b.dropMetadata();
   const response=await handle(req('/v1/me','PATCH',{...profilePayload(),client_metadata:metadata}),env,b.fetcher);
+  assert.equal(response.status,502);assert.equal((await response.json() as {error:{code:string}}).error.code,'BACKEND_ERROR');
+});
+
+const updater={seriesId:'reading',editionId:'standard',tbpedia:'V1',releaseId:'installed-release-1',languageCode:'zh-TW',title:'真佛百科閱讀系列標準版'};
+test('reading sync ingests updater context and a release change updates the same reader/content record',async()=>{
+  const b=await backend();
+  for(const releaseId of ['installed-release-1','installed-release-1','installed-release-2']){
+    const metadata={...updater,releaseId};const request={...payload(),updater_metadata:metadata};
+    const response=await handle(req('/v1/reading/sync','POST',request),env,b.fetcher);assert.equal(response.status,200,await response.clone().text());
+    const body=await response.json() as {snapshot_hash:string};assert.equal(body.snapshot_hash,await snapshotHash(request.content_id,request.values,metadata));
+    assert.equal(b.tables[env.READING_TABLE_ID]!.length,1);const row=b.tables[env.READING_TABLE_ID]![0]!;
+    for(const [key,value] of Object.entries(metadata))assert.equal(row.fields[key],value);
+    assert.equal(row.fields.reader_id,readerId);assert.equal(row.fields.reading_count,0);
+  }
+});
+test('legacy reading requests remain valid and never retain a stale updater attribution',async()=>{
+  const b=await backend();
+  assert.equal((await handle(req('/v1/reading/sync','POST',{...payload(),updater_metadata:updater}),env,b.fetcher)).status,200);
+  const response=await handle(req('/v1/reading/sync','POST',payload()),env,b.fetcher);assert.equal(response.status,200);
+  const row=b.tables[env.READING_TABLE_ID]![0]!;for(const key of Object.keys(updater))assert.equal(row.fields[key],null);
+  assert.equal((await response.json() as {snapshot_hash:string}).snapshot_hash,await snapshotHash(payload().content_id,payload().values));
+});
+test('invalid updater metadata and injected reader identity never reach a reading write',async()=>{
+  const b=await backend();
+  for(const metadata of [{...updater,seriesId:123},{...updater,releaseId:'x'.repeat(257)},{...updater,languageCode:123},{...updater,title:'x'.repeat(1001)},{...updater,reader_id:'forged'},{...updater,snapshot_hash:'forged'}]){
+    assert.equal((await handle(req('/v1/reading/sync','POST',{...payload(),updater_metadata:metadata}),env,b.fetcher)).status,422);
+  }
+  assert.equal(b.tables[env.READING_TABLE_ID]!.length,0);assert.ok(b.calls.every(call=>call.method==='GET'));
+});
+test('reading sync checks saved updater fields instead of trusting an echoed hash',async()=>{
+  const b=await backend();b.dropRelease();
+  const response=await handle(req('/v1/reading/sync','POST',{...payload(),updater_metadata:updater}),env,b.fetcher);
   assert.equal(response.status,502);assert.equal((await response.json() as {error:{code:string}}).error.code,'BACKEND_ERROR');
 });
