@@ -131,7 +131,7 @@ export default class TbpediaAnalytics extends Plugin{
   async pendingNotes(){
     const updaterMetadata=await this.metadataForSync();
     const notes=(await this.scan()).filter(n=>this.inScope(n.file.path));const pending:TFile[]=[];let unchanged=0,invalid=0;
-    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
+    for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);if(!Object.hasOwn(note.fm,'tbpedia_reading_updated_at'))continue;const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
     return {pending,unchanged,invalid};
   }
   async previewSync(){
@@ -151,7 +151,7 @@ export default class TbpediaAnalytics extends Plugin{
         if(!this.data.local_upload_enabled||this.data.api_url!==uploadTarget||this.data.reader_id!==uploadReader){issues.push(tr("上傳權限或連線已變更；已停止後續上傳。"));break;}
         if(JSON.stringify(await this.metadataForSync())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
         let id:string,values:ReadingValues,hash:string;
-        try{const fm=await this.readNote(file);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
+        try{const fm=await this.readNote(file);if(!Object.hasOwn(fm,'tbpedia_reading_updated_at')){unchanged++;attempted++;continue;}id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
         catch(e){invalid++;attempted++;issues.push(`${file.basename}: ${message(e)}`);continue;}
         if(!force&&this.data.receipts[this.receiptKey(id)]?.hash===hash){unchanged++;attempted++;continue;}
         this.setStatus(tr('progress',{current:saved+1,total:files.length}));

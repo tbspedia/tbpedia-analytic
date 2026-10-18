@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.7](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.7)** — lists pending articles before a manual reading upload.
+**Latest release: [v0.1.8](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.8)** — requires `tbpedia_reading_updated_at` before manual reading uploads.
 
 ## Install or upgrade
 
@@ -55,10 +55,12 @@ npm ci
 npm run check
 ```
 
-The v0.1.7 release passes type checking and production builds. **49 of 50 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.8 release passes type checking and production builds. **49 of 50 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)
 - [Phase 1 and 2 design specification](outputs/Tbpedia-Phase-1-and-2-Detailed-Design-Specification.md)
 
 Private credentials, vault backups, build caches and logs remain excluded from Git and release ZIPs.
+
+Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.

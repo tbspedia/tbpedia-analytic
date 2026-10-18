@@ -169,3 +169,5 @@ Synced means the last saved snapshot was verified, not continuous two-way synchr
 The Tbpedia updater must preserve personal reading properties. This plugin cannot prevent an unrelated application from replacing an entire Markdown file. Keep ordinary vault backups.
 
 The later Community Edition target uses SQLite; NocoDB Cloud manages its own backend. Table and data portability is designed in, but an actual SQLite deployment/cutover requires the same native-API compatibility checks on the chosen edition/version. No paid-only uniqueness or UUID field is required.
+
+Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.

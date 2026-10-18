@@ -9487,6 +9487,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     for (const note of notes) {
       try {
         if (!note.id || !note.fm) throw new UiError(note.error);
+        if (!Object.hasOwn(note.fm, "tbpedia_reading_updated_at")) continue;
         const hash = await snapshotHash(note.id, fromFrontmatter(note.fm), updaterMetadata);
         if (this.data.receipts[this.receiptKey(note.id)]?.hash === hash) unchanged++;
         else pending.push(note.file);
@@ -9536,6 +9537,11 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
         let id, values, hash;
         try {
           const fm = await this.readNote(file);
+          if (!Object.hasOwn(fm, "tbpedia_reading_updated_at")) {
+            unchanged++;
+            attempted++;
+            continue;
+          }
           id = contentIdSchema.parse(fm.tbpedia_content_id);
           if (counts.get(id) !== 1) throw new UiError(t("Vault \u4E2D\u6709\u91CD\u8907\u5167\u5BB9\u7DE8\u865F\uFF0C\u8ACB\u5148\u4FEE\u6B63\u3002"));
           values = fromFrontmatter(fm);

@@ -1,7 +1,7 @@
 {
-  "version": "0.1.7",
-  "source_archive": "tbpedia-analytics-source-v0.1.7.zip",
-  "plugin_archive": "tbpedia-analytics-plugin-v0.1.7.zip",
+  "version": "0.1.8",
+  "source_archive": "tbpedia-analytics-source-v0.1.8.zip",
+  "plugin_archive": "tbpedia-analytics-plugin-v0.1.8.zip",
   "source_files": 65,
   "credentials_excluded": true,
   "ui_languages": 14,
@@ -12,5 +12,5 @@
   "test_failure": "Local vault catalogue: missing parent TBP-275",
   "build": "passed",
   "native_interactive_qa_performed": false,
-  "plugin_main_sha256": "68b8ac4ef1a8192704e5cc95399d1d1a6ee2875a54c1695e39c0d2417020712b"
+  "plugin_main_sha256": "2be96495223af3216016d45295608b5508515f983320a3b7f66a92209ccf06d6"
 }

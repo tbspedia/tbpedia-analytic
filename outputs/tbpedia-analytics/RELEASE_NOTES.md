@@ -1,8 +1,10 @@
-Shows which articles are pending before a manual reading upload.
+Requires a reading-update marker before manually uploading article reading data.
 
-- Adds a scrollable, numbered list of pending article titles and vault-relative paths to the upload confirmation.
-- Keeps the pending, unchanged and invalid counts and the explicit upload confirmation.
-- Preserves existing settings, credentials and sync receipts during upgrades.
+- Only notes whose YAML frontmatter contains tbpedia_reading_updated_at are eligible for manual reading uploads.
+- Excludes notes without this field from the pending article preview.
+- Rechecks the field immediately before uploading, including forced current-article sync.
+- Saving reading data through the plugin adds the timestamp automatically.
+- Preserves existing cloud records, plugin settings and sync receipts.
 
 Validation: TypeScript checks and production builds passed. 49 of 50 tests passed; the local vault catalogue test reports missing parent TBP-275 for two notes. Native interactive Obsidian QA has not been performed.
 
