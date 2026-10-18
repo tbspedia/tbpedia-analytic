@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.13](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.13)** — simplifies the interface, updates all 14 languages, and enables the three notice/upload options by default for new setups.
+**Latest release: [v0.1.14](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.14)** — automatically scans all 10 collection categories in Traditional and Simplified Chinese and updates the profile and reading-data notices.
 
 ## Install or upgrade
 
@@ -16,6 +16,25 @@ The configured API is `https://cfanalytics.tbpedia.org`. The profile notice, rea
 ## Interface and upload defaults
 
 The plugin no longer adds a status bar message or the final cloud-record deletion reminder in settings. The manual sync button and command are named **Sync changed reading data to cloud**, with corresponding translations in all 14 interface languages. Both notice options and manual upload permission default to enabled for new setups; saved choices remain unchanged on upgrades. Profile uploads and reading sync still require manual actions.
+
+## Automatic collection scanning
+
+The folder selector has been removed. Bulk reading sync scans these root folders and their subfolders automatically, supporting both Traditional and Simplified Chinese names:
+
+| Collection | Folder names |
+| --- | --- |
+| 01 | 文集部 |
+| 02 | 開示部 / 开示部 |
+| 03 | 經藏部 / 经藏部 |
+| 04 | 頌與戒律 / 颂与戒律 |
+| 05 | 傳法部 / 传法部 |
+| 06 | 密法儀軌 / 密法仪轨 |
+| 07 | 佛語典藏 / 佛语典藏 |
+| 08 | 其他類別 / 其他类别 |
+| 09 | 蓮香上師 / 莲香上师 |
+| 10 | 真佛宗 |
+
+Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning.
 
 ## Sync receipts in article frontmatter
 
@@ -66,7 +85,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.13 release passes type checking and production builds. **67 of 68 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.14 release passes type checking and production builds. **69 of 70 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

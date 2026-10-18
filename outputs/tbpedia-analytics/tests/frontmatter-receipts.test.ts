@@ -16,15 +16,23 @@ function setup(){
     require:()=>({Plugin:class{async saveData(data:unknown){saved.push(data);}},PluginSettingTab:Empty,Modal:Empty,Setting:Empty,Notice:Empty})});
   const Constructor=(module.exports as {default:typeof TbpediaAnalytics}).default;
   const instance=new Constructor({} as never,{} as never);
-  const file={path:'articles/test.md',basename:'test'} as never;
+  const file={path:'01 文集部/test.md',basename:'test'} as never;
   const fm:Frontmatter={...toFrontmatter(defaults()),tbpedia_content_id:id,tbpedia_reading_updated_at:savedAt};
   instance.app={fileManager:{processFrontMatter:async(_file:unknown,change:(fm:Frontmatter)=>void)=>{const next=structuredClone(fm);change(next);Object.assign(fm,next);}}} as never;
   instance.scan=async()=>[{file,fm:structuredClone(fm),id}];
   instance.readNote=async()=>structuredClone(fm);
   instance.metadataForSync=async()=>readUpdaterMetadata(instance.data);
-  instance.data.folders=[];
   return {instance,fm,file,saved};
 }
+test('scanning reads only supported collection roots',async()=>{
+  const {instance}=setup();const reads:string[]=[];
+  instance.app.vault={
+    getMarkdownFiles:()=>['03 經藏部/book/note.md','03 经藏部/book/note.md','10 真佛宗/note.md','private/note.md','archive/01 文集部/note.md','08 其他類別備份/note.md'].map(path=>({path})),
+    read:async(file:{path:string})=>{reads.push(file.path);return 'No content ID';},
+  } as never;
+  await Object.getPrototypeOf(instance).scan.call(instance);
+  assert.deepEqual(reads,['03 經藏部/book/note.md','03 经藏部/book/note.md','10 真佛宗/note.md']);
+});
 test('legacy receipts migrate to frontmatter and settings saves omit the receipts map',async()=>{
   const {instance,fm,saved}=setup();const hash=await snapshotHash(id,defaults(),readUpdaterMetadata(instance.data));
   const loaded={receipts:{[`${instance.data.api_url}|local|${id}`]:{hash,synced_at:syncedAt}}};

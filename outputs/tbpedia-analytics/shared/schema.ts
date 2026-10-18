@@ -10,8 +10,8 @@ export const DEPTH_LABELS = { SKIM: '略讀', FULL: '通讀', CLOSE: '精讀', S
 export const RECOMMENDATION_LABELS = { RECOMMEND: '推薦', NOT_RECOMMEND: '不推薦', UNDECIDED: '未決定' } as const;
 export const READER_LABELS = { GENERAL: '一般讀者', NEW_REFUGE: '初皈依者', BUDDHIST_STUDENT: '學佛者', PRACTITIONER: '修行者', TBS_PRACTITIONER: '真佛行者' } as const;
 export const SEX_LABELS = { FEMALE: '女', MALE: '男', OTHER: '其他', PREFER_NOT_TO_SAY: '不願透露' } as const;
-export const PROFILE_NOTICE = '讀者資料保存在本機，只有按「儲存並上傳個人資料」才會傳送至 Tbpedia 的 NocoDB。資料包括暱稱，以及自願填寫的電郵、出生年/月、性別、國家、讀者類型和機構，用於管理讀者及未來的閱讀統計。每次上傳個人資料亦會傳送裝置類型、外掛版本、作業系統及使用者代理字串，用於相容性與問題排查；每位讀者只保留最近一次上傳的裝置資料，不收集硬體識別碼。這些欄位不會寫入文章。您可以修改資料，或聯絡管理員要求刪除雲端資料。';
-export const READING_NOTICE = '開啟雲端權限後，只有您手動同步的閱讀資料會傳送至 Tbpedia 的 NocoDB，包括閱讀進度、日期、評分、分類及閱讀感想。文章正文及無關屬性不會上傳。停用會停止後續上傳，但不會刪除既有雲端資料。閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。';
+export const PROFILE_NOTICE = "讀者資料保存在本機，只有按「儲存並上傳個人資料」才會傳送至 True Buddha Pedia Analytics 資料庫。資料包括暱稱，以及自願填寫的電郵、出生年/月、性別、國家、讀者類型和機構，用於管理讀者及未來的閱讀統計。每次上傳個人資料亦會傳送裝置類型、外掛版本、作業系統及使用者代理字串，用於相容性與問題排查；每位讀者只保留最近一次上傳的裝置資料，不收集硬體識別碼。這些欄位不會寫入文章。您可以修改資料，或聯絡管理員要求刪除雲端資料。";
+export const READING_NOTICE = "同意閱讀資料上傳說明後，只有您手動同步的閱讀資料會傳送至雲端的 True Buddha Pedia Analytics 資料庫，包括閱讀進度、日期、評分、閱讀推薦、關鍵詞、子主題、讀者類型分類、佛學級別及修行級別。 文章正文及無關屬性不會上傳。停用會停止後續上傳，但不會刪除既有雲端資料。 閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。";
 
 const codeEnum = <T extends Record<string, string>>(values: T) => z.enum(Object.keys(values) as [keyof T & string, ...(keyof T & string)[]]);
 export const contentIdSchema = z.string().regex(/^[A-Za-z0-9_-]{1,80}$/);

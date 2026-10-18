@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Current plugin release: **0.1.13**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.13).
+Current plugin release: **0.1.14**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.14).
 
-Version 0.1.13 removes the plugin status bar message and final settings reminder, renames manual sync to **Sync changed reading data to cloud**, and updates all 14 interface languages. The profile notice, reading-data notice and manual upload permission default to enabled for new setups. Existing saved choices are preserved; uploads still require manual actions. Article frontmatter receipts from v0.1.12 remain in use.
+Version 0.1.14 replaces the folder selector with automatic scanning of all 10 collection categories and their subfolders, supporting both Traditional and Simplified Chinese names. The profile and reading-data notices now name the True Buddha Pedia Analytics database and describe the revised reading-data categories in all 14 interface languages. Existing settings and article frontmatter receipts are preserved.
 
 ## What is implemented
 
@@ -14,6 +14,25 @@ Version 0.1.13 removes the plugin status bar message and final settings reminder
 - Manual uploads with native NocoDB v3 upsert, authenticated reader ownership, full-value read-back verification and local upload receipts.
 - Profile notice, reading-data notice and manual upload permission enabled by default for new setups. Uploads still require explicit profile upload and manual reading sync. No article bodies or unrelated frontmatter are sent.
 - No analytics dashboard, event history, automatic retries or multi-device merging.
+
+## Automatic collection scanning
+
+The folder selector has been removed. Bulk reading sync scans these root folders and their subfolders automatically, supporting both Traditional and Simplified Chinese names:
+
+| Collection | Folder names |
+| --- | --- |
+| 01 | 文集部 |
+| 02 | 開示部 / 开示部 |
+| 03 | 經藏部 / 经藏部 |
+| 04 | 頌與戒律 / 颂与戒律 |
+| 05 | 傳法部 / 传法部 |
+| 06 | 密法儀軌 / 密法仪轨 |
+| 07 | 佛語典藏 / 佛语典藏 |
+| 08 | 其他類別 / 其他类别 |
+| 09 | 蓮香上師 / 莲香上师 |
+| 10 | 真佛宗 |
+
+Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning.
 
 ## Article sync receipts
 
@@ -33,6 +52,10 @@ The fields refresh on plugin startup, sync preview and before uploads. Each manu
 
 If the updater is absent, its absence does not erase collection metadata already saved in analytics data.json. Fields are null only when no saved collection context is available. Invalid or unreadable updater settings stop cloud sync with a localized message; local reading editing remains available. Requests from older clients without updater context still work and clear the six attribution fields rather than retain stale release information. Records remain keyed by reader and content: these fields describe the latest synced snapshot rather than a release history.
 
+## Profile and reading-data notices
+
+The Reader Profile notice names the **True Buddha Pedia Analytics database**. The manual upload notice explains that manually synced data goes to this database in the cloud after acceptance, and lists reading progress, dates, ratings, recommendations, keywords, subtopics, reader-type classifications, Buddhist knowledge level and practice level. Existing explanations about article bodies, upload controls and collection metadata remain. All 14 languages have matching notice updates; the upload behavior is unchanged.
+
 ## Reader device metadata
 
 After accepting the updated profile notice (`profile-v2`), **Save and upload profile** also sends `device_type`, `Client_version` (the plugin version), `os` and `user_agent` to the reader's existing NocoDB row. Each upload replaces the last device snapshot; this is not a device-history table. Metadata is not collected from the administrator's provisioning machine, written into notes, or uploaded on startup, local saves, connection tests or reading sync. No hardware identifier is collected.
@@ -49,7 +72,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 182 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 180 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -74,7 +97,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.13 plugin passes type checking and production builds; 67 of 68 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.14 plugin passes type checking and production builds; 69 of 70 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 

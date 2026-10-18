@@ -7,9 +7,10 @@ import { collectClientMetadata } from '../shared/client-metadata';
 import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metadata';
 import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
 import {migrateInterfaceLanguage} from './settings-migrations';
+import {inScanScope} from './scan-scope';
 
 import {DEFAULT_API,migrateApiUrl} from '../shared/api';
-const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(PROFILE_NOTICE_VERSION),reading_notice_version:z.string().nullable().default(READING_NOTICE_VERSION),local_upload_enabled:z.boolean().default(true),remember_token:z.boolean().default(false),stored_token:z.string().default(''),folders:z.array(z.string()).default(['01 文集部','02 開示部']),profile_uploaded_hash:z.string().nullable().default(null)});
+const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(PROFILE_NOTICE_VERSION),reading_notice_version:z.string().nullable().default(READING_NOTICE_VERSION),local_upload_enabled:z.boolean().default(true),remember_token:z.boolean().default(false),stored_token:z.string().default(''),profile_uploaded_hash:z.string().nullable().default(null)});
 type PluginData=z.infer<typeof dataSchema>;
 const meSchema=z.object({reader_id:z.uuid(),profile:profileSchema,cloud_sync_enabled:z.boolean(),profile_consent_version:z.string().nullable(),reading_consent_version:z.string().nullable(),required_notices:z.object({profile_version:z.string(),reading_version:z.string(),profile_text:z.string(),reading_text:z.string()})});
 type Me=z.infer<typeof meSchema>;
@@ -37,7 +38,7 @@ export default class TbpediaAnalytics extends Plugin{
     const loaded:unknown=await this.loadData();
     const languageMigration=migrateInterfaceLanguage(loaded??{});
     const apiMigration=migrateApiUrl(languageMigration.data);
-    const migration={data:apiMigration.data,changed:languageMigration.changed||apiMigration.changed};
+    const migration={data:apiMigration.data,changed:languageMigration.changed||apiMigration.changed||(record(apiMigration.data)&&Object.hasOwn(apiMigration.data,'folders'))};
     this.data=dataSchema.parse(migration.data);setLocale(this.data.interface_language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
     await this.migrateReceipts(migration.data);
     this.addSettingTab(new AnalyticsSettings(this.app,this));
@@ -131,10 +132,11 @@ export default class TbpediaAnalytics extends Plugin{
     try{const file=this.app.workspace.getActiveFile();if(!file||file.extension!=='md')throw new UiError(tr("請先開啟文章。"));const fm=await this.readNote(file);const values=fromFrontmatter(fm);const next=statusAction(values,status);if(JSON.stringify(next)===JSON.stringify(values)){new Notice(tr("此文章已是此閱讀狀態；如要再次完成，請先開始重讀。"));return;}await this.saveReading(file,next,trackedFingerprint(fm));new Notice(tr("閱讀資料已儲存於本機。"));}
     catch(e){new Notice(message(e),10000);}
   }
-  inScope(path:string){return this.data.folders.length===0||this.data.folders.some(folder=>path.startsWith(folder.replace(/\/+$/,'')+'/'));}
+  inScope(path:string){return inScanScope(path);}
   async scan():Promise<NoteInfo[]>{
     const result:NoteInfo[]=[];
     for(const file of this.app.vault.getMarkdownFiles()){
+      if(!this.inScope(file.path))continue;
       const text=await this.app.vault.read(file);
       if(!text.includes('tbpedia_content_id:'))continue;
       try{const fm=noteFrontmatter(text);const id=contentIdSchema.parse(fm.tbpedia_content_id);result.push({file,fm,id});}
@@ -288,7 +290,6 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).setName(tr("我同意閱讀資料上傳說明")).addToggle(t=>t.setDisabled(!readingSupported).setValue(readingSupported&&p.data.reading_notice_version===readingVersion).onChange(v=>{p.data.reading_notice_version=v?readingVersion:null;if(!v)p.data.local_upload_enabled=false;p.persistQuiet();}));
     new Setting(el).setName(tr("允許手動上傳閱讀資料")).setDesc(tr("關閉會立即停止本機上傳；按下方「儲存並上傳個人資料」才套用雲端設定。")).addToggle(t=>t.setValue(p.data.local_upload_enabled).onChange(v=>{if(v&&p.data.reading_notice_version!==readingVersion){t.setValue(false);new Notice(tr("請先同意閱讀資料上傳說明。"));return;}p.data.local_upload_enabled=v;p.persistQuiet();}));
     if(!p.me||p.me.cloud_sync_enabled!==p.data.local_upload_enabled)el.createEl('p',{text:tr("雲端權限尚待確認或套用。"),cls:'setting-item-description'});
-    new Setting(el).setName(tr("掃描資料夾")).setDesc(tr("每行一個 Vault 相對路徑；空白會掃描所有有內容編號的文章。")).addTextArea(t=>t.setValue(p.data.folders.join('\n')).onChange(v=>{p.data.folders=v.split('\n').map(s=>s.trim().replace(/\\/g,'/').replace(/\/+$/,'')).filter(Boolean);p.persistQuiet();}));
     new Setting(el).addButton(b=>b.setButtonText(tr("儲存個人資料於本機")).onClick(()=>run(async()=>{profileSchema.parse(p.data.profile);await p.persist();new Notice(tr("個人資料已儲存於本機。"));}))).addButton(b=>b.setCta().setButtonText(tr("儲存並上傳個人資料")).onClick(()=>run(()=>p.uploadProfile())));
     new Setting(el).setName(tr("手動同步")).addButton(b=>b.setButtonText(tr("同步已變更閱讀資料至雲端")).onClick(()=>{void p.previewSync();}));
   }
