@@ -41,6 +41,7 @@ Choose **Follow system** to follow Obsidian’s language setting, with English a
 ## Other features
 
 - Local editing of 17 reading fields with safe frontmatter writes and deliberate rereading transitions.
+- Scrollable pending-article preview with titles and vault paths before manual uploads.
 - Resizable reading popup with a responsive form.
 - Profile uploads with device type, plugin version, operating system and user-agent information after consent.
 - Authenticated reader ownership, verified cloud saves and local sync receipts.
@@ -54,7 +55,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.6 release passes type checking, all **50 automated tests**, and production builds. Native interactive Obsidian QA has not been performed.
+The v0.1.7 release passes type checking and production builds. **49 of 50 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

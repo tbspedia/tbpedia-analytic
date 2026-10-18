@@ -135,7 +135,7 @@ export default class TbpediaAnalytics extends Plugin{
     return {pending,unchanged,invalid};
   }
   async previewSync(){
-    try{if(this.busy)throw new UiError(tr("同步正在進行。"));const result=await this.pendingNotes();new ConfirmModal(this.app,tr("手動上傳閱讀資料"),`${tr('preview',{pending:result.pending.length,unchanged:result.unchanged,invalid:result.invalid})} ${tr('updaterSyncNotice')}`,()=>this.runSync(result.pending,false)).open();}
+    try{if(this.busy)throw new UiError(tr("同步正在進行。"));const result=await this.pendingNotes();new ConfirmModal(this.app,tr("手動上傳閱讀資料"),`${tr('preview',{pending:result.pending.length,unchanged:result.unchanged,invalid:result.invalid})} ${tr('updaterSyncNotice')}`,()=>this.runSync(result.pending,false),result.pending).open();}
     catch(e){new Notice(message(e),10000);}
   }
   async runSync(files:TFile[],force:boolean){
@@ -173,8 +173,17 @@ export default class TbpediaAnalytics extends Plugin{
 }
 
 class ConfirmModal extends Modal{
-  constructor(app:App,private titleText:string,private detail:string,private action:()=>Promise<void>){super(app);}
-  onOpen(){this.contentEl.lang=intlLocale();this.contentEl.createEl('h2',{text:this.titleText});this.contentEl.createEl('p',{text:this.detail});new Setting(this.contentEl).addButton(b=>b.setButtonText(tr("取消")).onClick(()=>this.close())).addButton(b=>b.setCta().setButtonText(tr("開始上傳")).onClick(()=>{this.close();void this.action();}));}
+  constructor(app:App,private titleText:string,private detail:string,private action:()=>Promise<void>,private pendingFiles:TFile[]=[]){super(app);}
+  onOpen(){
+    this.contentEl.lang=intlLocale();this.contentEl.createEl('h2',{text:this.titleText});this.contentEl.createEl('p',{text:this.detail});
+    if(this.pendingFiles.length){
+      const list=this.contentEl.createEl('ol',{cls:'tbpa-pending-articles',attr:{tabindex:'0'}});
+      for(const file of this.pendingFiles){
+        const item=list.createEl('li');item.createEl('div',{text:file.basename});item.createEl('small',{text:file.path,cls:'setting-item-description'});
+      }
+    }
+    new Setting(this.contentEl).addButton(b=>b.setButtonText(tr("取消")).onClick(()=>this.close())).addButton(b=>b.setCta().setButtonText(tr("開始上傳")).onClick(()=>{this.close();void this.action();}));
+  }
 }
 class ResultModal extends Modal{
   constructor(app:App,private summary:string,private issues:string[]){super(app);}

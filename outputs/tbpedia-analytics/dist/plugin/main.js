@@ -9500,7 +9500,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     try {
       if (this.busy) throw new UiError(t("\u540C\u6B65\u6B63\u5728\u9032\u884C\u3002"));
       const result = await this.pendingNotes();
-      new ConfirmModal(this.app, t("\u624B\u52D5\u4E0A\u50B3\u95B1\u8B80\u8CC7\u6599"), `${t("preview", { pending: result.pending.length, unchanged: result.unchanged, invalid: result.invalid })} ${t("updaterSyncNotice")}`, () => this.runSync(result.pending, false)).open();
+      new ConfirmModal(this.app, t("\u624B\u52D5\u4E0A\u50B3\u95B1\u8B80\u8CC7\u6599"), `${t("preview", { pending: result.pending.length, unchanged: result.unchanged, invalid: result.invalid })} ${t("updaterSyncNotice")}`, () => this.runSync(result.pending, false), result.pending).open();
     } catch (e) {
       new import_obsidian.Notice(message(e), 1e4);
     }
@@ -9581,19 +9581,29 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   }
 };
 var ConfirmModal = class extends import_obsidian.Modal {
-  constructor(app, titleText, detail, action) {
+  constructor(app, titleText, detail, action, pendingFiles = []) {
     super(app);
     this.titleText = titleText;
     this.detail = detail;
     this.action = action;
+    this.pendingFiles = pendingFiles;
   }
   titleText;
   detail;
   action;
+  pendingFiles;
   onOpen() {
     this.contentEl.lang = intlLocale();
     this.contentEl.createEl("h2", { text: this.titleText });
     this.contentEl.createEl("p", { text: this.detail });
+    if (this.pendingFiles.length) {
+      const list = this.contentEl.createEl("ol", { cls: "tbpa-pending-articles", attr: { tabindex: "0" } });
+      for (const file of this.pendingFiles) {
+        const item = list.createEl("li");
+        item.createEl("div", { text: file.basename });
+        item.createEl("small", { text: file.path, cls: "setting-item-description" });
+      }
+    }
     new import_obsidian.Setting(this.contentEl).addButton((b) => b.setButtonText(t("\u53D6\u6D88")).onClick(() => this.close())).addButton((b) => b.setCta().setButtonText(t("\u958B\u59CB\u4E0A\u50B3")).onClick(() => {
       this.close();
       void this.action();
