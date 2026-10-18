@@ -186,5 +186,6 @@
   "followSystemHelp": "使用 Obsidian 的语言设置；不支持的语言会使用英文。",
   "updaterReadError": "无法读取 Tbpedia 更新插件设置。请检查其 data.json 后重试。阅读资料仍保存在本地。",
   "updaterChanged": "同步期间已安装的文集版本发生变化，已停止后续上传。请重新预览并同步。",
-  "updaterSyncNotice": "阅读记录也包含已安装文集的系列、版本类型、Tbpedia 版本、发行编号、语言代码及标题。"
+  "updaterSyncNotice": "阅读记录也包含已安装文集的系列、版本类型、Tbpedia 版本、发行编号、语言代码及标题。",
+  "analyticsMetadataReadError": "无法读取或核对 analytics data.json 中保存的文集资料。请重新加载插件后重试。"
 }

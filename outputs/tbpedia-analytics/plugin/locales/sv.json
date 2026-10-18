@@ -186,5 +186,6 @@
   "followSystemHelp": "Använder Obsidians språkinställning, med engelska som reservspråk.",
   "updaterReadError": "Det gick inte att läsa inställningarna för Tbpedia-uppdateraren. Kontrollera dess data.json och försök igen. Läsdata är fortfarande sparade lokalt.",
   "updaterChanged": "Den installerade samlingen ändrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska förhandsvisningen och synkronisera igen.",
-  "updaterSyncNotice": "Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel."
+  "updaterSyncNotice": "Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel.",
+  "analyticsMetadataReadError": "Det gick inte att läsa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om tillägget och försök igen."
 }

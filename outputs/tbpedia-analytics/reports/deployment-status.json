@@ -1,11 +1,11 @@
 {
   "application": "tbpedia-analytics",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "status": "deployed-and-live-verified",
   "worker": {
     "url": "https://tbpedia-analytics.tbspedia.workers.dev",
     "health_url": "https://tbpedia-analytics.tbspedia.workers.dev/health",
-    "version_id": "ca424610-7d07-4d12-9b6a-5039cca38d6c",
+    "version_id": "c7966f0a-7b3a-45d8-bf9f-7524947d924b",
     "service_secret_configured": true,
     "preview_urls_enabled": false
   },
@@ -38,7 +38,7 @@
   },
   "verification": {
     "typecheck": "passed",
-    "automated_tests_passed": 47,
+    "automated_tests_passed": 50,
     "live_checks_passed": 8,
     "synthetic_rows_removed": true,
     "existing_personal_reading_data_uploaded": false,
@@ -48,7 +48,7 @@
     "updater_database_readback_verified": true,
     "deployed_version_health_verified": true
   },
-  "next_step": "Reload Obsidian and manually sync reading records to attach the installed updater collection context.",
+  "next_step": "Reload Obsidian, then Sync changed articles to send saved analytics data.json collection metadata to reading_records.",
   "profile_notice_version": "profile-v2",
-  "deployed_at": "2026-10-18T07:21:46.334173+00:00"
+  "deployed_at": "2026-10-18T08:11:36.128861+00:00"
 }

@@ -186,5 +186,6 @@
   "followSystemHelp": "Verwendet die Spracheinstellung von Obsidian. Nicht unterstützte Sprachen werden durch Englisch ersetzt.",
   "updaterReadError": "Die Einstellungen des Tbpedia-Updaters konnten nicht gelesen werden. Prüfen Sie dessen data.json und versuchen Sie es erneut. Lesedaten bleiben lokal gespeichert.",
   "updaterChanged": "Die installierte Sammlung wurde während der Synchronisierung geändert. Weitere Uploads wurden gestoppt. Prüfen Sie die Vorschau und synchronisieren Sie erneut.",
-  "updaterSyncNotice": "Lesedatensätze enthalten außerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung."
+  "updaterSyncNotice": "Lesedatensätze enthalten außerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
+  "analyticsMetadataReadError": "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder bestätigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut."
 }

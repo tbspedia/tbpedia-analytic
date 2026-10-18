@@ -6449,7 +6449,8 @@ var en_default2 = {
   followSystemHelp: "Uses Obsidian's language setting, with English as the fallback.",
   updaterReadError: "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
   updaterChanged: "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
-  updaterSyncNotice: "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title."
+  updaterSyncNotice: "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
+  analyticsMetadataReadError: "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again."
 };
 
 // plugin/locales/ja.json
@@ -6641,7 +6642,8 @@ var ja_default = {
   followSystemHelp: "Obsidian\u306E\u8A00\u8A9E\u8A2D\u5B9A\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002\u672A\u5BFE\u5FDC\u306E\u8A00\u8A9E\u306E\u5834\u5408\u306F\u82F1\u8A9E\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002",
   updaterReadError: "Tbpedia\u66F4\u65B0\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u8A2D\u5B9A\u3092\u8AAD\u307F\u53D6\u308C\u307E\u305B\u3093\u3002data.json\u3092\u78BA\u8A8D\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8AAD\u66F8\u30C7\u30FC\u30BF\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   updaterChanged: "\u540C\u671F\u4E2D\u306B\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u304C\u5909\u66F4\u3055\u308C\u305F\u305F\u3081\u3001\u4EE5\u964D\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u505C\u6B62\u3057\u307E\u3057\u305F\u3002\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30D3\u30E5\u30FC\u3057\u3066\u540C\u671F\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  updaterSyncNotice: "\u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002"
+  updaterSyncNotice: "\u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002",
+  analyticsMetadataReadError: "analytics\u306Edata.json\u306B\u4FDD\u5B58\u3055\u308C\u305F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u60C5\u5831\u3092\u8AAD\u307F\u53D6\u308A\u3001\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u518D\u8AAD\u307F\u8FBC\u307F\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6833,7 +6835,8 @@ var fr_default = {
   followSystemHelp: "Utilise la langue d\xE9finie dans Obsidian, avec l\u2019anglais par d\xE9faut si elle n\u2019est pas prise en charge.",
   updaterReadError: "Impossible de lire les param\xE8tres du module de mise \xE0 jour Tbpedia. V\xE9rifiez son fichier data.json, puis r\xE9essayez. Les donn\xE9es de lecture restent enregistr\xE9es localement.",
   updaterChanged: "La collection install\xE9e a chang\xE9 pendant la synchronisation. Les t\xE9l\xE9versements suivants ont \xE9t\xE9 arr\xEAt\xE9s. V\xE9rifiez l\u2019aper\xE7u et relancez la synchronisation.",
-  updaterSyncNotice: "Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e."
+  updaterSyncNotice: "Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e.",
+  analyticsMetadataReadError: "Impossible de lire ou v\xE9rifier les informations de collection enregistr\xE9es dans le fichier data.json du module d\u2019analyse. Rechargez le module et r\xE9essayez."
 };
 
 // plugin/locales/es.json
@@ -7025,7 +7028,8 @@ var es_default = {
   followSystemHelp: "Usa el idioma configurado en Obsidian; si no est\xE1 disponible, usa ingl\xE9s.",
   updaterReadError: "No se pudo leer la configuraci\xF3n del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
   updaterChanged: "La colecci\xF3n instalada cambi\xF3 durante la sincronizaci\xF3n. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
-  updaterSyncNotice: "Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada."
+  updaterSyncNotice: "Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada.",
+  analyticsMetadataReadError: "No se pueden leer o verificar los datos de la colecci\xF3n guardados en data.json del complemento de an\xE1lisis. Recargue el complemento y vuelva a intentarlo."
 };
 
 // plugin/locales/de.json
@@ -7217,7 +7221,8 @@ var de_default = {
   followSystemHelp: "Verwendet die Spracheinstellung von Obsidian. Nicht unterst\xFCtzte Sprachen werden durch Englisch ersetzt.",
   updaterReadError: "Die Einstellungen des Tbpedia-Updaters konnten nicht gelesen werden. Pr\xFCfen Sie dessen data.json und versuchen Sie es erneut. Lesedaten bleiben lokal gespeichert.",
   updaterChanged: "Die installierte Sammlung wurde w\xE4hrend der Synchronisierung ge\xE4ndert. Weitere Uploads wurden gestoppt. Pr\xFCfen Sie die Vorschau und synchronisieren Sie erneut.",
-  updaterSyncNotice: "Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung."
+  updaterSyncNotice: "Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
+  analyticsMetadataReadError: "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder best\xE4tigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut."
 };
 
 // plugin/locales/nl.json
@@ -7409,7 +7414,8 @@ var nl_default = {
   followSystemHelp: "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal.",
   updaterReadError: "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
   updaterChanged: "De ge\xEFnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
-  updaterSyncNotice: "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie."
+  updaterSyncNotice: "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie.",
+  analyticsMetadataReadError: "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw."
 };
 
 // plugin/locales/sv.json
@@ -7601,7 +7607,8 @@ var sv_default = {
   followSystemHelp: "Anv\xE4nder Obsidians spr\xE5kinst\xE4llning, med engelska som reservspr\xE5k.",
   updaterReadError: "Det gick inte att l\xE4sa inst\xE4llningarna f\xF6r Tbpedia-uppdateraren. Kontrollera dess data.json och f\xF6rs\xF6k igen. L\xE4sdata \xE4r fortfarande sparade lokalt.",
   updaterChanged: "Den installerade samlingen \xE4ndrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska f\xF6rhandsvisningen och synkronisera igen.",
-  updaterSyncNotice: "L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel."
+  updaterSyncNotice: "L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel.",
+  analyticsMetadataReadError: "Det gick inte att l\xE4sa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om till\xE4gget och f\xF6rs\xF6k igen."
 };
 
 // plugin/locales/ko.json
@@ -7793,7 +7800,8 @@ var ko_default = {
   followSystemHelp: "Obsidian\uC758 \uC5B8\uC5B4 \uC124\uC815\uC744 \uC0AC\uC6A9\uD558\uBA70, \uC9C0\uC6D0\uD558\uC9C0 \uC54A\uB294 \uC5B8\uC5B4\uB294 \uC601\uC5B4\uB85C \uD45C\uC2DC\uD569\uB2C8\uB2E4.",
   updaterReadError: "Tbpedia \uC5C5\uB370\uC774\uD2B8 \uD50C\uB7EC\uADF8\uC778\uC758 \uC124\uC815\uC744 \uC77D\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. data.json \uD30C\uC77C\uC744 \uD655\uC778\uD55C \uB4A4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694. \uB3C5\uC11C \uB370\uC774\uD130\uB294 \uB85C\uCEEC\uC5D0 \uBCF4\uAD00\uB429\uB2C8\uB2E4.",
   updaterChanged: "\uB3D9\uAE30\uD654 \uC911 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC774 \uBCC0\uACBD\uB418\uC5B4 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB97C \uC911\uC9C0\uD588\uC2B5\uB2C8\uB2E4. \uBBF8\uB9AC\uBCF4\uAE30\uB97C \uD655\uC778\uD558\uACE0 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
-  updaterSyncNotice: "\uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4."
+  updaterSyncNotice: "\uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4.",
+  analyticsMetadataReadError: "\uBD84\uC11D \uD50C\uB7EC\uADF8\uC778\uC758 data.json\uC5D0 \uC800\uC7A5\uB41C \uCEEC\uB809\uC158 \uC815\uBCF4\uB97C \uC77D\uAC70\uB098 \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uBD88\uB7EC\uC628 \uB4A4 \uC7AC\uC2DC\uB3C4\uD558\uC138\uC694."
 };
 
 // plugin/locales/zh-TW.json
@@ -7985,7 +7993,8 @@ var zh_TW_default = {
   followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8A9E\u8A00\u8A2D\u5B9A\uFF1B\u4E0D\u652F\u63F4\u7684\u8A9E\u8A00\u6703\u4F7F\u7528\u82F1\u6587\u3002",
   updaterReadError: "\u7121\u6CD5\u8B80\u53D6 Tbpedia \u66F4\u65B0\u5916\u639B\u8A2D\u5B9A\u3002\u8ACB\u6AA2\u67E5\u5176 data.json \u5F8C\u518D\u8A66\u3002\u95B1\u8B80\u8CC7\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u6A5F\u3002",
   updaterChanged: "\u540C\u6B65\u671F\u9593\u5DF2\u5B89\u88DD\u7684\u6587\u96C6\u7248\u672C\u767C\u751F\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002\u8ACB\u91CD\u65B0\u9810\u89BD\u4E26\u540C\u6B65\u3002",
-  updaterSyncNotice: "\u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002"
+  updaterSyncNotice: "\u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002",
+  analyticsMetadataReadError: "\u7121\u6CD5\u8B80\u53D6\u6216\u6838\u5C0D analytics data.json \u4E2D\u5132\u5B58\u7684\u6587\u96C6\u8CC7\u6599\u3002\u8ACB\u91CD\u65B0\u8F09\u5165\u5916\u639B\u5F8C\u518D\u8A66\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -8177,7 +8186,8 @@ var zh_CN_default = {
   followSystemHelp: "\u4F7F\u7528 Obsidian \u7684\u8BED\u8A00\u8BBE\u7F6E\uFF1B\u4E0D\u652F\u6301\u7684\u8BED\u8A00\u4F1A\u4F7F\u7528\u82F1\u6587\u3002",
   updaterReadError: "\u65E0\u6CD5\u8BFB\u53D6 Tbpedia \u66F4\u65B0\u63D2\u4EF6\u8BBE\u7F6E\u3002\u8BF7\u68C0\u67E5\u5176 data.json \u540E\u91CD\u8BD5\u3002\u9605\u8BFB\u8D44\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u5730\u3002",
   updaterChanged: "\u540C\u6B65\u671F\u95F4\u5DF2\u5B89\u88C5\u7684\u6587\u96C6\u7248\u672C\u53D1\u751F\u53D8\u5316\uFF0C\u5DF2\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\u3002\u8BF7\u91CD\u65B0\u9884\u89C8\u5E76\u540C\u6B65\u3002",
-  updaterSyncNotice: "\u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002"
+  updaterSyncNotice: "\u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002",
+  analyticsMetadataReadError: "\u65E0\u6CD5\u8BFB\u53D6\u6216\u6838\u5BF9 analytics data.json \u4E2D\u4FDD\u5B58\u7684\u6587\u96C6\u8D44\u6599\u3002\u8BF7\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u91CD\u8BD5\u3002"
 };
 
 // plugin/locales/vi.json
@@ -8369,7 +8379,8 @@ var vi_default = {
   followSystemHelp: "S\u1EED d\u1EE5ng ng\xF4n ng\u1EEF \u0111\u01B0\u1EE3c \u0111\u1EB7t trong Obsidian; d\xF9ng ti\u1EBFng Anh n\u1EBFu ng\xF4n ng\u1EEF \u0111\xF3 kh\xF4ng \u0111\u01B0\u1EE3c h\u1ED7 tr\u1EE3.",
   updaterReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc c\xE0i \u0111\u1EB7t c\u1EE7a tr\xECnh c\u1EADp nh\u1EADt Tbpedia. Ki\u1EC3m tra t\u1EC7p data.json r\u1ED3i th\u1EED l\u1EA1i. D\u1EEF li\u1EC7u \u0111\u1ECDc v\u1EABn \u0111\u01B0\u1EE3c l\u01B0u c\u1EE5c b\u1ED9.",
   updaterChanged: "B\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t thay \u0111\u1ED5i trong khi \u0111\u1ED3ng b\u1ED9. \u0110\xE3 d\u1EEBng c\xE1c l\u01B0\u1EE3t t\u1EA3i l\xEAn ti\u1EBFp theo. Xem tr\u01B0\u1EDBc v\xE0 \u0111\u1ED3ng b\u1ED9 l\u1EA1i.",
-  updaterSyncNotice: "B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t."
+  updaterSyncNotice: "B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t.",
+  analyticsMetadataReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc ho\u1EB7c x\xE1c minh th\xF4ng tin b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 l\u01B0u trong data.json c\u1EE7a ph\u1EA7n b\u1ED5 tr\u1EE3 ph\xE2n t\xEDch. T\u1EA3i l\u1EA1i ph\u1EA7n b\u1ED5 tr\u1EE3 r\u1ED3i th\u1EED l\u1EA1i."
 };
 
 // plugin/locales/id.json
@@ -8561,7 +8572,8 @@ var id_default = {
   followSystemHelp: "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan.",
   updaterReadError: "Tidak dapat membaca pengaturan pembaru Tbpedia. Periksa berkas data.json, lalu coba lagi. Data bacaan tetap tersimpan secara lokal.",
   updaterChanged: "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
-  updaterSyncNotice: "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang."
+  updaterSyncNotice: "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
+  analyticsMetadataReadError: "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi."
 };
 
 // plugin/locales/th.json
@@ -8753,7 +8765,8 @@ var th_default = {
   followSystemHelp: "\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E20\u0E32\u0E29\u0E32\u0E02\u0E2D\u0E07 Obsidian \u0E41\u0E25\u0E30\u0E43\u0E0A\u0E49\u0E20\u0E32\u0E29\u0E32\u0E2D\u0E31\u0E07\u0E01\u0E24\u0E29\u0E2B\u0E32\u0E01\u0E44\u0E21\u0E48\u0E23\u0E2D\u0E07\u0E23\u0E31\u0E1A\u0E20\u0E32\u0E29\u0E32\u0E17\u0E35\u0E48\u0E40\u0E25\u0E37\u0E2D\u0E01",
   updaterReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15 Tbpedia \u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E44\u0E1F\u0E25\u0E4C data.json \u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07 \u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E22\u0E31\u0E07\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07",
   updaterChanged: "\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C \u0E08\u0E36\u0E07\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E17\u0E35\u0E48\u0E40\u0E2B\u0E25\u0E37\u0E2D \u0E42\u0E1B\u0E23\u0E14\u0E14\u0E39\u0E15\u0E31\u0E27\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E41\u0E25\u0E30\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
-  updaterSyncNotice: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22"
+  updaterSyncNotice: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22",
+  analyticsMetadataReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E2B\u0E23\u0E37\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E43\u0E19 data.json \u0E02\u0E2D\u0E07\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E27\u0E34\u0E40\u0E04\u0E23\u0E32\u0E30\u0E2B\u0E4C\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07"
 };
 
 // plugin/locales/bo.json
@@ -8945,7 +8958,8 @@ var bo_default = {
   followSystemHelp: "Obsidian \u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D \u0F62\u0F92\u0FB1\u0F56\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F62\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F61\u0F72\u0F53\u0F0B\u0F53\u0F0B\u0F51\u0F56\u0FB1\u0F72\u0F53\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0D",
   updaterReadError: "Tbpedia \u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F60\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D data.json \u0F61\u0F72\u0F42\u0F0B\u0F46\u0F62\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F49\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   updaterChanged: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F63\u0F0B\u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F56\u0F5E\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F66\u0F94\u0F7C\u0F53\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
-  updaterSyncNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D"
+  updaterSyncNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
+  analyticsMetadataReadError: "\u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0Bdata.json \u0F53\u0F44\u0F0B\u0F49\u0F62\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -9053,7 +9067,6 @@ var languageCode = string2().trim().min(1).max(64).nullable().default(null);
 var title = string2().trim().min(1).max(1e3).nullable().default(null);
 var updaterMetadataSchema = object({ seriesId: identifier, editionId: identifier, tbpedia: identifier, releaseId: identifier, languageCode, title }).strict();
 var UPDATER_METADATA_KEYS = ["seriesId", "editionId", "tbpedia", "releaseId", "languageCode", "title"];
-var emptyUpdaterMetadata = () => updaterMetadataSchema.parse({});
 var updaterDataSchema = object({
   seriesId: identifier,
   editionId: identifier,
@@ -9213,12 +9226,26 @@ function trackedFingerprint(fm) {
 async function loadUpdaterMetadata(adapter, configDir) {
   const path = `${configDir.replace(/\/+$/, "")}/plugins/tbpedia-update/data.json`;
   try {
-    if (!await adapter.exists(path)) return emptyUpdaterMetadata();
-    const text = await adapter.read(path);
+    let text;
+    try {
+      text = await adapter.read(path);
+    } catch (error2) {
+      if (typeof error2 === "object" && error2 !== null && "code" in error2 && error2.code === "ENOENT") return null;
+      throw error2;
+    }
     if (text.length > 1024 * 1024) throw new Error("Updater settings exceed the read limit");
     return extractUpdaterMetadata(JSON.parse(text.replace(/^\uFEFF/, "")));
   } catch {
     throw new UiError(t("updaterReadError"));
+  }
+}
+async function loadSavedUpdaterMetadata(loadData) {
+  try {
+    const saved = await loadData();
+    if (typeof saved !== "object" || saved === null || Array.isArray(saved)) throw new Error("Invalid analytics settings");
+    return readUpdaterMetadata(saved);
+  } catch {
+    throw new UiError(t("analyticsMetadataReadError"));
   }
 }
 
@@ -9314,11 +9341,18 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   }
   async refreshUpdaterMetadata() {
     const metadata = await loadUpdaterMetadata(this.app.vault.adapter, this.app.vault.configDir);
-    if (JSON.stringify(readUpdaterMetadata(this.data)) !== JSON.stringify(metadata)) {
+    if (metadata !== null && JSON.stringify(readUpdaterMetadata(this.data)) !== JSON.stringify(metadata)) {
       Object.assign(this.data, metadata);
       await this.persist();
     }
-    return metadata;
+    return readUpdaterMetadata(this.data);
+  }
+  async metadataForSync() {
+    const current = await this.refreshUpdaterMetadata();
+    await this.persistTail;
+    const saved = await loadSavedUpdaterMetadata(() => this.loadData());
+    if (JSON.stringify(saved) !== JSON.stringify(current)) throw new UiError(t("analyticsMetadataReadError"));
+    return saved;
   }
   setStatus(text) {
     this.status?.setText(`Tbpedia \xB7 ${text}`);
@@ -9446,7 +9480,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     return `${this.data.api_url.replace(/\/$/, "")}|${this.data.reader_id ?? "local"}|${id}`;
   }
   async pendingNotes() {
-    const updaterMetadata = await this.refreshUpdaterMetadata();
+    const updaterMetadata = await this.metadataForSync();
     const notes = (await this.scan()).filter((n) => this.inScope(n.file.path));
     const pending = [];
     let unchanged = 0, invalid = 0;
@@ -9486,7 +9520,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       if (!this.me?.cloud_sync_enabled) throw new UiError(t("\u8ACB\u5148\u5728\u8A2D\u5B9A\u4E2D\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\uFF0C\u4EE5\u5957\u7528\u96F2\u7AEF\u6B0A\u9650\u3002"));
       const uploadTarget = this.data.api_url;
       const uploadReader = this.data.reader_id;
-      const updaterMetadata = await this.refreshUpdaterMetadata();
+      const updaterMetadata = await this.metadataForSync();
       const all = await this.scan();
       const counts = /* @__PURE__ */ new Map();
       for (const n of all) if (n.id) counts.set(n.id, (counts.get(n.id) ?? 0) + 1);
@@ -9495,7 +9529,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           issues.push(t("\u4E0A\u50B3\u6B0A\u9650\u6216\u9023\u7DDA\u5DF2\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002"));
           break;
         }
-        if (JSON.stringify(await this.refreshUpdaterMetadata()) !== JSON.stringify(updaterMetadata)) {
+        if (JSON.stringify(await this.metadataForSync()) !== JSON.stringify(updaterMetadata)) {
           issues.push(t("updaterChanged"));
           break;
         }
@@ -9529,7 +9563,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
           }
           saved++;
           attempted++;
-          if (await snapshotHash(id, fromFrontmatter(await this.readNote(file)), await this.refreshUpdaterMetadata()) !== hash) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
+          if (await snapshotHash(id, fromFrontmatter(await this.readNote(file)), await this.metadataForSync()) !== hash) issues.push(`${file.basename}: ${t("changedDuringUpload")}`);
         } catch (e) {
           issues.push(`${file.basename}: ${message(e)}`);
           break;

@@ -186,5 +186,6 @@
   "followSystemHelp": "Menggunakan pengaturan bahasa Obsidian, dengan bahasa Inggris sebagai cadangan.",
   "updaterReadError": "Tidak dapat membaca pengaturan pembaru Tbpedia. Periksa berkas data.json, lalu coba lagi. Data bacaan tetap tersimpan secara lokal.",
   "updaterChanged": "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
-  "updaterSyncNotice": "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang."
+  "updaterSyncNotice": "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
+  "analyticsMetadataReadError": "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi."
 }

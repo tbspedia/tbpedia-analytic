@@ -186,5 +186,6 @@
   "followSystemHelp": "Utilise la langue définie dans Obsidian, avec l’anglais par défaut si elle n’est pas prise en charge.",
   "updaterReadError": "Impossible de lire les paramètres du module de mise à jour Tbpedia. Vérifiez son fichier data.json, puis réessayez. Les données de lecture restent enregistrées localement.",
   "updaterChanged": "La collection installée a changé pendant la synchronisation. Les téléversements suivants ont été arrêtés. Vérifiez l’aperçu et relancez la synchronisation.",
-  "updaterSyncNotice": "Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée."
+  "updaterSyncNotice": "Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée.",
+  "analyticsMetadataReadError": "Impossible de lire ou vérifier les informations de collection enregistrées dans le fichier data.json du module d’analyse. Rechargez le module et réessayez."
 }

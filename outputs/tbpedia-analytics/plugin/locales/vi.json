@@ -186,5 +186,6 @@
   "followSystemHelp": "Sử dụng ngôn ngữ được đặt trong Obsidian; dùng tiếng Anh nếu ngôn ngữ đó không được hỗ trợ.",
   "updaterReadError": "Không thể đọc cài đặt của trình cập nhật Tbpedia. Kiểm tra tệp data.json rồi thử lại. Dữ liệu đọc vẫn được lưu cục bộ.",
   "updaterChanged": "Bộ sưu tập đã cài đặt thay đổi trong khi đồng bộ. Đã dừng các lượt tải lên tiếp theo. Xem trước và đồng bộ lại.",
-  "updaterSyncNotice": "Bản ghi đọc cũng bao gồm loạt, ấn bản, phiên bản Tbpedia, mã bản phát hành, mã ngôn ngữ và tiêu đề của bộ sưu tập đã cài đặt."
+  "updaterSyncNotice": "Bản ghi đọc cũng bao gồm loạt, ấn bản, phiên bản Tbpedia, mã bản phát hành, mã ngôn ngữ và tiêu đề của bộ sưu tập đã cài đặt.",
+  "analyticsMetadataReadError": "Không thể đọc hoặc xác minh thông tin bộ sưu tập đã lưu trong data.json của phần bổ trợ phân tích. Tải lại phần bổ trợ rồi thử lại."
 }

@@ -186,5 +186,6 @@
   "followSystemHelp": "Uses Obsidian's language setting, with English as the fallback.",
   "updaterReadError": "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
   "updaterChanged": "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
-  "updaterSyncNotice": "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title."
+  "updaterSyncNotice": "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
+  "analyticsMetadataReadError": "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again."
 }

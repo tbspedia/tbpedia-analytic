@@ -186,5 +186,6 @@
   "followSystemHelp": "Gebruikt de taalinstelling van Obsidian, met Engels als terugvaltaal.",
   "updaterReadError": "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
   "updaterChanged": "De geïnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
-  "updaterSyncNotice": "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie."
+  "updaterSyncNotice": "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie.",
+  "analyticsMetadataReadError": "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw."
 }

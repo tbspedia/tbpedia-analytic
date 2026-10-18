@@ -5,7 +5,7 @@ import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, F
 import { fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
 import { collectClientMetadata } from '../shared/client-metadata';
 import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metadata';
-import {loadUpdaterMetadata} from './updater';
+import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
 import {migrateInterfaceLanguage} from './settings-migrations';
 
 const DEFAULT_API='https://tbpedia-analytics.tbspedia.workers.dev';
@@ -50,10 +50,17 @@ export default class TbpediaAnalytics extends Plugin{
   }
   async refreshUpdaterMetadata(){
     const metadata=await loadUpdaterMetadata(this.app.vault.adapter,this.app.vault.configDir);
-    if(JSON.stringify(readUpdaterMetadata(this.data))!==JSON.stringify(metadata)){
+    if(metadata!==null&&JSON.stringify(readUpdaterMetadata(this.data))!==JSON.stringify(metadata)){
       Object.assign(this.data,metadata);await this.persist();
     }
-    return metadata;
+    return readUpdaterMetadata(this.data);
+  }
+  async metadataForSync(){
+    const current=await this.refreshUpdaterMetadata();
+    await this.persistTail;
+    const saved=await loadSavedUpdaterMetadata(()=>this.loadData());
+    if(JSON.stringify(saved)!==JSON.stringify(current))throw new UiError(tr('analyticsMetadataReadError'));
+    return saved;
   }
   setStatus(text:string){this.status?.setText(`Tbpedia · ${text}`);}
   async persist(){const snapshot=structuredClone({...this.data,stored_token:this.data.remember_token?this.token:''});const task=this.persistTail.then(()=>this.saveData(snapshot));this.persistTail=task.catch(()=>undefined);await task;}
@@ -122,7 +129,7 @@ export default class TbpediaAnalytics extends Plugin{
   }
   receiptKey(id:string){return `${this.data.api_url.replace(/\/$/,'')}|${this.data.reader_id??'local'}|${id}`;}
   async pendingNotes(){
-    const updaterMetadata=await this.refreshUpdaterMetadata();
+    const updaterMetadata=await this.metadataForSync();
     const notes=(await this.scan()).filter(n=>this.inScope(n.file.path));const pending:TFile[]=[];let unchanged=0,invalid=0;
     for(const note of notes){try{if(!note.id||!note.fm)throw new UiError(note.error);const hash=await snapshotHash(note.id,fromFrontmatter(note.fm),updaterMetadata);if(this.data.receipts[this.receiptKey(note.id)]?.hash===hash)unchanged++;else pending.push(note.file);}catch{invalid++;}}
     return {pending,unchanged,invalid};
@@ -138,11 +145,11 @@ export default class TbpediaAnalytics extends Plugin{
       if(!this.data.local_upload_enabled)throw new UiError(tr("雲端上傳已停用。閱讀資料仍保存在本機。"));
       await this.connect();if(!noticeSupported(this.me?.required_notices.profile_version,PROFILE_NOTICE_VERSION)||!noticeSupported(this.me?.required_notices.reading_version,READING_NOTICE_VERSION))throw new UiError(tr('noticeUnavailable'));if(!this.me?.cloud_sync_enabled)throw new UiError(tr("請先在設定中儲存並上傳個人資料，以套用雲端權限。"));
       const uploadTarget=this.data.api_url;const uploadReader=this.data.reader_id;
-      const updaterMetadata=await this.refreshUpdaterMetadata();
+      const updaterMetadata=await this.metadataForSync();
       const all=await this.scan();const counts=new Map<string,number>();for(const n of all)if(n.id)counts.set(n.id,(counts.get(n.id)??0)+1);
       for(const file of files){
         if(!this.data.local_upload_enabled||this.data.api_url!==uploadTarget||this.data.reader_id!==uploadReader){issues.push(tr("上傳權限或連線已變更；已停止後續上傳。"));break;}
-        if(JSON.stringify(await this.refreshUpdaterMetadata())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
+        if(JSON.stringify(await this.metadataForSync())!==JSON.stringify(updaterMetadata)){issues.push(tr('updaterChanged'));break;}
         let id:string,values:ReadingValues,hash:string;
         try{const fm=await this.readNote(file);id=contentIdSchema.parse(fm.tbpedia_content_id);if(counts.get(id)!==1)throw new UiError(tr("Vault 中有重複內容編號，請先修正。"));values=fromFrontmatter(fm);hash=await snapshotHash(id,values,updaterMetadata);}
         catch(e){invalid++;attempted++;issues.push(`${file.basename}: ${message(e)}`);continue;}
@@ -154,7 +161,7 @@ export default class TbpediaAnalytics extends Plugin{
           this.data.receipts[this.receiptKey(id)]={hash,synced_at:result.synced_at};
           try{await this.persist();}catch{throw new UiError(tr("雲端已儲存，但本機同步記錄無法儲存；下次可以重新同步。"));}
           saved++;attempted++;
-          if(await snapshotHash(id,fromFrontmatter(await this.readNote(file)),await this.refreshUpdaterMetadata())!==hash)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
+          if(await snapshotHash(id,fromFrontmatter(await this.readNote(file)),await this.metadataForSync())!==hash)issues.push(`${file.basename}: ${tr('changedDuringUpload')}`);
         }catch(e){issues.push(`${file.basename}: ${message(e)}`);break;}
       }
       const summary=tr('summary',{saved,unchanged,invalid,remaining:files.length-attempted});

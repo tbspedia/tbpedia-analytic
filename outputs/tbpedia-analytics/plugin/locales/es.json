@@ -186,5 +186,6 @@
   "followSystemHelp": "Usa el idioma configurado en Obsidian; si no está disponible, usa inglés.",
   "updaterReadError": "No se pudo leer la configuración del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
   "updaterChanged": "La colección instalada cambió durante la sincronización. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
-  "updaterSyncNotice": "Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada."
+  "updaterSyncNotice": "Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada.",
+  "analyticsMetadataReadError": "No se pueden leer o verificar los datos de la colección guardados en data.json del complemento de análisis. Recargue el complemento y vuelva a intentarlo."
 }

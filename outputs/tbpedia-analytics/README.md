@@ -1,6 +1,10 @@
-# Tbpedia Analytics — Phase 1–2 MVP
+# True Buddha Pedia Analytics
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
+
+Current plugin release: **0.1.6**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.6).
+
+Version 0.1.6 fixes the metadata source used by reading sync: it validates the six collection fields from the analytics plugin’s saved `data.json`. The updater is read directly so a false file-existence result cannot erase readable metadata. If the updater file is missing, existing saved collection information is retained. A saved-file read or consistency failure stops sync with a localized message.
 
 ## What is implemented
 
@@ -15,9 +19,9 @@ An offline-first Obsidian reading editor with deliberate, authenticated uploads 
 
 The analytics plugin copies only `seriesId`, `editionId`, `tbpedia`, `releaseId`, `languageCode` and `title` from `<vault config directory>/plugins/tbpedia-update/data.json` into its own `data.json`. It reads the installed content release from `installed.releaseId` (with support for a flat top-level `releaseId`), never from `baseRelease.releaseId`. Unrelated updater settings are not copied or uploaded. The collection `languageCode` does not override the analytics UI language setting (`interface_language`). The previous `language` settings key is migrated automatically, preserving the selected language.
 
-The fields refresh on plugin startup, sync preview and before uploads. Each manual reading sync sends them to the matching `reading_records` row. They are included in the sync fingerprint, so a collection or release change makes otherwise unchanged notes eligible for sync again. A collection change during a batch stops further uploads; preview and retry with the newly installed content. Existing note properties are preserved.
+The fields refresh on plugin startup, sync preview and before uploads. Each manual reading sync reads and validates the six fields from the analytics plugin’s own saved `data.json`, then sends them to the matching `reading_records` row. A failed settings save or read stops sync rather than uploading mismatched context. They are included in the sync fingerprint, so a collection or release change makes otherwise unchanged notes eligible for sync again. A collection change during a batch stops further uploads; preview and retry with the newly installed content. Existing note properties are preserved.
 
-If the updater is absent, the six fields are null. Invalid or unreadable updater settings stop cloud sync with a localized message; local reading editing remains available. Requests from older clients without updater context still work and clear the six attribution fields rather than retain stale release information. Records remain keyed by reader and content: these fields describe the latest synced snapshot rather than a release history.
+If the updater is absent, its absence does not erase collection metadata already saved in analytics data.json. Fields are null only when no saved collection context is available. Invalid or unreadable updater settings stop cloud sync with a localized message; local reading editing remains available. Requests from older clients without updater context still work and clear the six attribution fields rather than retain stale release information. Records remain keyed by reader and content: these fields describe the latest synced snapshot rather than a release history.
 
 ## Reader device metadata
 
@@ -35,7 +39,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 188 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 189 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -60,17 +64,21 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The initial deployment passed seventeen automated checks and eight live Cloudflare/NocoDB checks, including profile demographics, native upsert retries, clearing fields and upload permission enforcement. Synthetic test rows were removed. The pilot reader still has reading uploads disabled and no existing personal reading data was uploaded during setup. The native Obsidian interface requires a vault reload and has not been driven interactively in this session.
+The Worker is deployed and configured. The v0.1.6 release passes 50 automated tests plus type checking and production builds. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with uploads disabled; upgrades preserve the reader’s existing permission settings. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
-1. Reload the AnalyticsV1 vault in Obsidian. The plugin is installed under `.obsidian/plugins/tbpedia-analytics` and added to the enabled-plugin list. If it does not load until restart, quit and reopen Obsidian.
-2. Open **Settings → Tbpedia Analytics**. The Worker URL is preconfigured; cloud reading uploads remain off.
-3. Open the local `private/pilot-reader.json` file in this source folder. Copy only its `reader_token` value into **讀者連線金鑰**, then choose **測試連線**. This file is excluded from distributable ZIP files. The NocoDB service token never belongs in the plugin.
-4. Fill your nickname and any optional demographic fields. Choose **儲存個人資料於本機** to save offline, or accept the profile notice and use **儲存並上傳個人資料** to upload.
-5. To enable reading upload, accept its separate notice, enable **允許手動上傳閱讀資料**, then **儲存並上傳個人資料** to apply the server permission. This does not upload any notes automatically.
-6. Open a canonical note, for example `01 文集部/154 智慧的光環/C01 我慢.md`. Run **Tbpedia Analytics: 開啟閱讀資料** from the command palette or the book ribbon icon.
-7. Save locally first. Use **同步目前文章**, **儲存並同步**, or **同步已變更文章** when you deliberately want to upload.
+1. Reload the AnalyticsV1 vault in Obsidian. The plugin is installed under `.obsidian/plugins/tbpedia-analytics`; restart Obsidian if needed.
+2. Open **Settings → True Buddha Pedia Analytics**. The Worker URL is preconfigured. New installations have reading uploads disabled; upgrades preserve existing settings.
+3. Use the reader connection key provided by your administrator. For the local pilot only, its `reader_token` is in `private/pilot-reader.json`, which is excluded from Git and release ZIPs. Paste the key into **Reader connection key** and choose **Test connection**. Never use the NocoDB service token in the plugin.
+4. Complete your nickname and optional profile fields. Choose **Save profile locally** for offline use, or accept the profile notice and choose **Save and upload profile**.
+5. To enable reading uploads, accept the reading-data notice, enable **Allow manual reading data uploads**, then choose **Save and upload profile** to apply the cloud permission. No articles upload automatically.
+6. Open a canonical note and choose **Open reading data** from the command palette or the book ribbon icon. Save locally first.
+7. Choose **Sync current article**, **Save and sync**, or **Sync changed articles** to upload deliberately. The six collection fields come from the analytics plugin’s saved `data.json`.
+
+### Refresh records that lack collection metadata
+
+After upgrading, reload the plugin, check that its `data.json` contains the six updater values, then choose **Sync changed articles**. Metadata changes affect the fingerprint and make affected notes eligible for sync. **Sync current article** forces a resend for the active note if a cloud record still needs correction. This retains reading values and does not increment the reading count.
 
 The reader token is kept only in memory unless the reader explicitly enables the remember option. When not remembered, paste it again after restarting Obsidian. Do not share the private credential file or include it in a distributed vault.
 

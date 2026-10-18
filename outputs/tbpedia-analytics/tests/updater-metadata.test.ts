@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {emptyUpdaterMetadata,extractUpdaterMetadata,readUpdaterMetadata} from '../shared/updater-metadata';
-import {loadUpdaterMetadata} from '../plugin/updater';
+import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from '../plugin/updater';
 import {setLocale,t,UiError} from '../plugin/i18n';
 import {canonicalSnapshot,defaults,snapshotHash} from '../shared/schema';
 
@@ -19,9 +19,25 @@ test('malformed identifiers and updater structures are rejected rather than coer
   for(const value of [null,[],{seriesId:1},{editionId:''},{tbpedia:'x'.repeat(257)},{installed:'bad'},{installed:{releaseId:123}},{languageCode:123},{languageCode:'x'.repeat(65)},{title:{invalid:true}},{title:'x'.repeat(1001)}])assert.throws(()=>extractUpdaterMetadata(value));
 });
 test('updater loading uses the vault config directory and tolerates an absent companion plugin',async()=>{
-  let read=false;const paths:string[]=[];
-  const result=await loadUpdaterMetadata({exists:async path=>{paths.push(path);return false;},read:async()=>{read=true;return '{}';}},'.custom-config/');
-  assert.deepEqual(paths,['.custom-config/plugins/tbpedia-update/data.json']);assert.equal(read,false);assert.deepEqual(result,emptyUpdaterMetadata());
+  const paths:string[]=[];
+  const result=await loadUpdaterMetadata({exists:async()=>false,read:async path=>{paths.push(path);throw Object.assign(new Error('Missing file'),{code:'ENOENT'});}},'.custom-config/');
+  assert.deepEqual(paths,['.custom-config/plugins/tbpedia-update/data.json']);assert.equal(result,null);
+});
+test('a false config-file existence result does not discard readable updater settings',async()=>{
+  const result=await loadUpdaterMetadata({exists:async()=>false,read:async()=>JSON.stringify(metadata)},'.obsidian');
+  assert.deepEqual(result,metadata);
+});
+test('reading sync metadata comes from the saved analytics data and excludes private settings',async()=>{
+  const saved={...metadata,interface_language:'en',stored_token:'private-placeholder',reader_id:'reader',receipts:{note:{hash:'old'}}};
+  const result=await loadSavedUpdaterMetadata(async()=>JSON.parse(JSON.stringify(saved)));
+  assert.deepEqual(result,metadata);assert.equal(Object.hasOwn(result,'stored_token'),false);
+  assert.equal(result.languageCode,'zh-TW');
+});
+test('invalid or unreadable analytics data stops sync with a localized error',async()=>{
+  setLocale('zh-TW');
+  for(const read of [async()=>null,async()=>[],async()=>({...metadata,title:123}),async()=>{throw new Error('Read failed');}]){
+    await assert.rejects(loadSavedUpdaterMetadata(read),e=>e instanceof UiError&&e.message===t('analyticsMetadataReadError'));
+  }
 });
 test('updater loading supports UTF-8 BOM and ignores unrelated settings',async()=>{
   const result=await loadUpdaterMetadata({exists:async()=>true,read:async()=> '\uFEFF'+JSON.stringify({...metadata,unrelated:{token:'not copied'}})},'.obsidian');
