@@ -33,6 +33,7 @@ function message(error:unknown):string{
 
 export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;status!:HTMLElement;private persistTail:Promise<void>=Promise.resolve();
+  private profileUpload:Promise<void>|undefined;
   async onload(){
     const loaded:unknown=await this.loadData();
     const languageMigration=migrateInterfaceLanguage(loaded??{});
@@ -67,13 +68,13 @@ export default class TbpediaAnalytics extends Plugin{
   setStatus(text:string){this.status?.setText(`Tbpedia · ${text}`);}
   async persist(){const snapshot=structuredClone({...this.data,stored_token:this.data.remember_token?this.token:''});const task=this.persistTail.then(()=>this.saveData(snapshot));this.persistTail=task.catch(()=>undefined);await task;}
   persistQuiet(){void this.persist().catch(()=>new Notice(tr("外掛設定無法儲存，請檢查 Vault 的寫入權限。")));}
-  async api(path:string,method='GET',body?:unknown):Promise<unknown>{
+  async api(path:string,method='GET',body?:unknown,authenticated=true):Promise<unknown>{
     let url:URL;try{url=new URL(this.data.api_url);}catch{throw new UiError(tr('API 請填寫主機網址，不含路徑或查詢參數。'));}
     if(url.protocol!=='https:'&&!(url.protocol==='http:'&&['localhost','127.0.0.1'].includes(url.hostname)))throw new UiError(tr("API 必須使用 HTTPS。"));
     if(url.username||url.password||url.search||url.hash||url.pathname!=='/')throw new UiError(tr("API 請填寫主機網址，不含路徑或查詢參數。"));
-    if(!/^[A-Za-z0-9_-]{43}$/.test(this.token))throw new UiError(tr("請輸入有效的讀者連線金鑰。"));
+    if(authenticated&&!/^[A-Za-z0-9_-]{43}$/.test(this.token))throw new GatewayError(401,'UNAUTHENTICATED');
     let response;
-    try{response=await requestUrl({url:new URL(path,url).toString(),method,headers:{Authorization:`Bearer ${this.token}`,'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),throw:false});}
+    try{response=await requestUrl({url:new URL(path,url).toString(),method,headers:{...(authenticated?{Authorization:`Bearer ${this.token}`} : {}),'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),throw:false});}
     catch{throw new UiError(tr("無法連線；本機資料已保留。請稍後手動再試。"));}
     let value:unknown;try{value=response.json as unknown;}catch{throw new UiError(tr("伺服器未回傳有效資料。"));}
     if(response.status<200||response.status>=300){
@@ -88,13 +89,28 @@ export default class TbpediaAnalytics extends Plugin{
     this.data.reader_id=me.reader_id;this.me=me;await this.persist();
     new Notice(tr('connected',{name:me.profile.nickname}));
   }
-  async uploadProfile(){
-    if(!this.me)await this.connect();
-    const required=this.me!.required_notices;
+  async testConnection(){
+    const health=z.object({application:z.literal('tbpedia-analytics'),configured:z.boolean()}).parse(await this.api('/health','GET',undefined,false));
+    if(!health.configured)throw new GatewayError(503,'NOT_CONFIGURED');
+    if(this.data.reader_id&&this.token){await this.connect();return;}
+    new Notice(tr('connectionAvailable'));
+  }
+  uploadProfile():Promise<void>{
+    return this.profileUpload??=this.performProfileUpload().finally(()=>{this.profileUpload=undefined;});
+  }
+  private async performProfileUpload(){
+    if(this.data.reader_id&&!this.me)await this.connect();
+    const required=this.me?.required_notices??{profile_version:PROFILE_NOTICE_VERSION,reading_version:READING_NOTICE_VERSION};
     if(!noticeSupported(required.profile_version,PROFILE_NOTICE_VERSION)||!noticeSupported(required.reading_version,READING_NOTICE_VERSION))throw new UiError(tr('noticeUnavailable'));
     if(this.data.profile_notice_version!==required.profile_version)throw new UiError(tr("請先閱讀並同意個人資料說明。"));
     if(this.data.local_upload_enabled&&this.data.reading_notice_version!==required.reading_version)throw new UiError(tr("請先同意閱讀資料上傳說明。"));
-    const profile=profileSchema.parse(this.data.profile);await this.persist();
+    const profile=profileSchema.parse(this.data.profile);
+    if(!this.token){
+      const bytes=crypto.getRandomValues(new Uint8Array(32));
+      this.token=btoa(String.fromCharCode(...bytes)).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');
+    }
+    // Persist before enrollment so a failed response can be retried with the same identity.
+    this.data.remember_token=true;await this.persist();
     const client_metadata=collectClientMetadata(Platform,this.manifest.version,typeof navigator==='undefined'?undefined:navigator.userAgent);
     await this.api('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:this.data.profile_notice_version,cloud_sync_enabled:this.data.local_upload_enabled,reading_notice_version:this.data.reading_notice_version,client_metadata});
     this.data.profile_uploaded_hash=JSON.stringify(profile);await this.persist();
@@ -231,9 +247,7 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange(v=>{p.data.interface_language=languagePreference(v);setLocale(p.data.interface_language,getLanguage());p.persistQuiet();p.setStatus(tr('本機閱讀'));this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};
     el.createEl('h3',{text:tr("連線")});
-    new Setting(el).setName(tr("讀者連線金鑰")).setDesc(tr("由管理員提供；不是 NocoDB 管理金鑰。")).addText(t=>{t.inputEl.type='password';t.setValue(p.token).onChange(v=>{p.token=v.trim();p.me=null;if(p.data.remember_token)p.persistQuiet();});});
-    new Setting(el).setName(tr("在本機記住連線金鑰")).setDesc(tr("預設不儲存。啟用後會存於未加密的外掛資料檔，可能被 Vault 同步或備份複製。")).addToggle(t=>t.setValue(p.data.remember_token).onChange(v=>{p.data.remember_token=v;p.persistQuiet();}));
-    new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.connect())));
+    new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.testConnection())));
     if(p.me){el.createEl('p',{text:tr('connectionStatus',{name:p.me.profile.nickname,permission:tr(p.me.cloud_sync_enabled?'已開啟':'已停用')})});new Setting(el).setName(tr("使用現有雲端個人資料")).setDesc(tr("按下後才會取代目前的本機草稿。")).addButton(b=>b.setButtonText(tr("載入雲端資料")).onClick(()=>run(async()=>{p.data.profile={...p.me!.profile};await p.persist();})));}
     el.createEl('h3',{text:tr("讀者個人資料")});
     const profile=p.data.profile;

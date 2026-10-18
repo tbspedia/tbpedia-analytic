@@ -1,0 +1,16 @@
+{
+  "version": "0.1.11",
+  "tested_at": "2026-10-18T13:16:10.940453+00:00",
+  "checks": [
+    "v0.1.11 HTTPS health without credentials",
+    "Anonymous reader data remains protected",
+    "Testing an unknown reader does not enroll it",
+    "Stale consent cannot create a reader",
+    "Explicit profile upload automatically enrolls a UUID reader",
+    "Enrolled profile is readable and reading uploads remain disabled",
+    "Repeated enrollment reuses the reader identity"
+  ],
+  "synthetic_rows_cleaned": true,
+  "real_reader_data_uploaded": false,
+  "database_readback_verified": true
+}

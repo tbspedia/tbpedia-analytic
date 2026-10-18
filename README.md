@@ -2,14 +2,14 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.10](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.10)** — adds the custom API domain, multiple profile reader types, and simpler connection settings.
+**Latest release: [v0.1.11](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.11)** — removes manual reader key entry, keeps Test connection, and sets up new readers automatically on profile upload.
 
 ## Install or upgrade
 
 1. Download the plugin ZIP or `main.js`, `manifest.json` and `styles.css` from the release assets.
 2. Place the three files in your vault’s `.obsidian/plugins/tbpedia-analytics/` folder. Preserve the existing `data.json` when upgrading.
 3. Reload the plugin or restart Obsidian. Open **Settings → True Buddha Pedia Analytics**.
-4. Enter the reader connection key supplied by your administrator and test the connection. Accept the notices and explicitly enable manual uploads if desired.
+4. Choose **Test connection** to check server availability. Complete your profile, accept the notices and choose **Save and upload profile** to set up your reader automatically. Explicitly enable manual uploads if desired.
 
 The configured API is `https://cfanalytics.tbpedia.org`. Cloud uploads are disabled on new installations; upgrades preserve existing permissions. Reading data stays local until you choose to sync.
 
@@ -56,7 +56,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.10 release passes type checking and production builds. **55 of 56 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.11 release passes type checking and production builds. **55 of 56 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

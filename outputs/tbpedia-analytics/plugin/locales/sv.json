@@ -153,7 +153,7 @@
   "birthYearRequired": "Ange ett födelseår när du anger en födelsemånad.",
   "invalidEmail": "Ange en giltig e-postadress.",
   "validation": "Vänligen korrigera de ogiltiga fälten.",
-  "backend.UNAUTHENTICATED": "Återanslut med en aktiv läsaranslutningsnyckel.",
+  "backend.UNAUTHENTICATED": "Det går inte att komma åt läsaren. Kontakta administratören för att återställa anslutningen.",
   "backend.NOT_FOUND": "Den begärda slutpunkten hittades inte.",
   "backend.NOT_CONFIGURED": "Molnlagring väntar på databaskonfiguration. Lokal läsning är tillgänglig.",
   "backend.BACKEND_ERROR": "Databasåtgärden kunde inte verifieras. Försök igen senare eller kontakta din administratör.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Det gick inte att läsa inställningarna för Tbpedia-uppdateraren. Kontrollera dess data.json och försök igen. Läsdata är fortfarande sparade lokalt.",
   "updaterChanged": "Den installerade samlingen ändrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska förhandsvisningen och synkronisera igen.",
   "updaterSyncNotice": "Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel.",
-  "analyticsMetadataReadError": "Det gick inte att läsa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om tillägget och försök igen."
+  "analyticsMetadataReadError": "Det gick inte att läsa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om tillägget och försök igen.",
+  "connectionAvailable": "Anslutningen lyckades. Molnlagring är tillgänglig."
 }

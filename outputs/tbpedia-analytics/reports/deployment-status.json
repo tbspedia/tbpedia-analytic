@@ -1,11 +1,11 @@
 {
   "application": "tbpedia-analytics",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "status": "deployed-and-live-verified",
   "worker": {
     "url": "https://cfanalytics.tbpedia.org",
     "health_url": "https://cfanalytics.tbpedia.org/health",
-    "version_id": "982814f4-044b-4e67-954d-3b0170c317cd",
+    "version_id": "9204c0f6-d34d-4d29-810b-30ea2078ed33",
     "service_secret_configured": true,
     "preview_urls_enabled": false,
     "custom_domain": "cfanalytics.tbpedia.org",
@@ -40,7 +40,7 @@
   },
   "verification": {
     "typecheck": "passed",
-    "automated_tests_passed": 55,
+    "automated_tests_passed": 61,
     "live_checks_passed": 8,
     "synthetic_rows_removed": true,
     "existing_personal_reading_data_uploaded": false,
@@ -53,9 +53,11 @@
     "custom_domain_authenticated_read_verified": true,
     "automated_tests_failed": 1,
     "known_test_failure": "Vault catalogue missing parent TBP-275",
-    "profile_multiselect_live_verified": true
+    "profile_multiselect_live_verified": true,
+    "automatic_reader_setup_live_checks_passed": 7,
+    "automatic_reader_setup_database_readback_verified": true
   },
-  "next_step": "Reload the AnalyticsV1 plugin or restart Obsidian to load the new API URL.",
+  "next_step": "Reload the AnalyticsV1 plugin or restart Obsidian to load v0.1.11.",
   "profile_notice_version": "profile-v2",
-  "deployed_at": "2026-10-18T12:48:15.344Z"
+  "deployed_at": "2026-10-18T13:16:33.416154+00:00"
 }

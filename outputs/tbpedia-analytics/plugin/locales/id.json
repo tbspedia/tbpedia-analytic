@@ -153,7 +153,7 @@
   "birthYearRequired": "Berikan tahun lahir saat menentukan bulan lahir.",
   "invalidEmail": "Masukkan alamat email yang valid.",
   "validation": "Harap perbaiki kolom yang tidak valid.",
-  "backend.UNAUTHENTICATED": "Hubungkan kembali dengan kunci koneksi pembaca aktif.",
+  "backend.UNAUTHENTICATED": "Tidak dapat mengakses pembaca ini. Hubungi administrator untuk memulihkan koneksi.",
   "backend.NOT_FOUND": "Titik akhir yang diminta tidak ditemukan.",
   "backend.NOT_CONFIGURED": "Penyimpanan cloud sedang menunggu konfigurasi database. Bacaan lokal tersedia.",
   "backend.BACKEND_ERROR": "Operasi database tidak dapat diverifikasi. Coba lagi nanti atau hubungi administrator Anda.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Tidak dapat membaca pengaturan pembaru Tbpedia. Periksa berkas data.json, lalu coba lagi. Data bacaan tetap tersimpan secara lokal.",
   "updaterChanged": "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
   "updaterSyncNotice": "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
-  "analyticsMetadataReadError": "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi."
+  "analyticsMetadataReadError": "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi.",
+  "connectionAvailable": "Koneksi berhasil. Penyimpanan cloud tersedia."
 }

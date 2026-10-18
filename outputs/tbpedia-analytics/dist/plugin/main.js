@@ -6416,7 +6416,7 @@ var en_default2 = {
   birthYearRequired: "Provide a birth year when specifying a birth month.",
   invalidEmail: "Enter a valid email address.",
   validation: "Please correct the invalid fields.",
-  "backend.UNAUTHENTICATED": "Reconnect with an active reader connection key.",
+  "backend.UNAUTHENTICATED": "Unable to access this reader. Contact your administrator to restore the connection.",
   "backend.NOT_FOUND": "The requested endpoint was not found.",
   "backend.NOT_CONFIGURED": "Cloud storage is awaiting database configuration. Local reading is available.",
   "backend.BACKEND_ERROR": "The database operation could not be verified. Try again later or contact your administrator.",
@@ -6450,7 +6450,8 @@ var en_default2 = {
   updaterReadError: "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
   updaterChanged: "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
   updaterSyncNotice: "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
-  analyticsMetadataReadError: "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again."
+  analyticsMetadataReadError: "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again.",
+  connectionAvailable: "Connection successful. Cloud storage is available."
 };
 
 // plugin/locales/ja.json
@@ -6609,7 +6610,7 @@ var ja_default = {
   birthYearRequired: "\u8A95\u751F\u6708\u3092\u6307\u5B9A\u3059\u308B\u5834\u5408\u306F\u3001\u8A95\u751F\u5E74\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   invalidEmail: "\u6709\u52B9\u306A\u96FB\u5B50\u30E1\u30FC\u30EB \u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   validation: "\u7121\u52B9\u306A\u30D5\u30A3\u30FC\u30EB\u30C9\u3092\u4FEE\u6B63\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  "backend.UNAUTHENTICATED": "\u30A2\u30AF\u30C6\u30A3\u30D6\u306A\u30EA\u30FC\u30C0\u30FC\u63A5\u7D9A\u30AD\u30FC\u3092\u4F7F\u7528\u3057\u3066\u518D\u63A5\u7D9A\u3057\u307E\u3059\u3002",
+  "backend.UNAUTHENTICATED": "\u3053\u306E\u8AAD\u8005\u306B\u30A2\u30AF\u30BB\u30B9\u3067\u304D\u307E\u305B\u3093\u3002\u63A5\u7D9A\u306E\u5FA9\u5143\u306B\u3064\u3044\u3066\u7BA1\u7406\u8005\u306B\u304A\u554F\u3044\u5408\u308F\u305B\u304F\u3060\u3055\u3044\u3002",
   "backend.NOT_FOUND": "\u8981\u6C42\u3055\u308C\u305F\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8\u304C\u898B\u3064\u304B\u308A\u307E\u305B\u3093\u3067\u3057\u305F\u3002",
   "backend.NOT_CONFIGURED": "\u30AF\u30E9\u30A6\u30C9 \u30B9\u30C8\u30EC\u30FC\u30B8\u306F\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306E\u69CB\u6210\u3092\u5F85\u3063\u3066\u3044\u307E\u3059\u3002\u30ED\u30FC\u30AB\u30EB\u3067\u306E\u8AAD\u66F8\u304C\u53EF\u80FD\u3067\u3059\u3002",
   "backend.BACKEND_ERROR": "\u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306E\u52D5\u4F5C\u304C\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F\u3002\u5F8C\u3067\u3082\u3046\u4E00\u5EA6\u8A66\u3059\u304B\u3001\u7BA1\u7406\u8005\u306B\u554F\u3044\u5408\u308F\u305B\u3066\u304F\u3060\u3055\u3044\u3002",
@@ -6643,7 +6644,8 @@ var ja_default = {
   updaterReadError: "Tbpedia\u66F4\u65B0\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u8A2D\u5B9A\u3092\u8AAD\u307F\u53D6\u308C\u307E\u305B\u3093\u3002data.json\u3092\u78BA\u8A8D\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8AAD\u66F8\u30C7\u30FC\u30BF\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   updaterChanged: "\u540C\u671F\u4E2D\u306B\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u304C\u5909\u66F4\u3055\u308C\u305F\u305F\u3081\u3001\u4EE5\u964D\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u505C\u6B62\u3057\u307E\u3057\u305F\u3002\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30D3\u30E5\u30FC\u3057\u3066\u540C\u671F\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   updaterSyncNotice: "\u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002",
-  analyticsMetadataReadError: "analytics\u306Edata.json\u306B\u4FDD\u5B58\u3055\u308C\u305F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u60C5\u5831\u3092\u8AAD\u307F\u53D6\u308A\u3001\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u518D\u8AAD\u307F\u8FBC\u307F\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+  analyticsMetadataReadError: "analytics\u306Edata.json\u306B\u4FDD\u5B58\u3055\u308C\u305F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u60C5\u5831\u3092\u8AAD\u307F\u53D6\u308A\u3001\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u518D\u8AAD\u307F\u8FBC\u307F\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  connectionAvailable: "\u63A5\u7D9A\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002\u30AF\u30E9\u30A6\u30C9\u4FDD\u5B58\u3092\u5229\u7528\u3067\u304D\u307E\u3059\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6802,7 +6804,7 @@ var fr_default = {
   birthYearRequired: "Indiquez une ann\xE9e de naissance lorsque vous sp\xE9cifiez un mois de naissance.",
   invalidEmail: "Entrez une adresse e-mail valide.",
   validation: "Veuillez corriger les champs invalides.",
-  "backend.UNAUTHENTICATED": "Reconnectez-vous avec une cl\xE9 de connexion de lecteur active.",
+  "backend.UNAUTHENTICATED": "Acc\xE8s \xE0 ce lecteur impossible. Contactez votre administrateur pour r\xE9tablir la connexion.",
   "backend.NOT_FOUND": "Le point de terminaison demand\xE9 n'a pas \xE9t\xE9 trouv\xE9.",
   "backend.NOT_CONFIGURED": "Le stockage cloud est en attente de configuration de la base de donn\xE9es. Des lectures locales sont disponibles.",
   "backend.BACKEND_ERROR": "Le fonctionnement de la base de donn\xE9es n'a pas pu \xEAtre v\xE9rifi\xE9. R\xE9essayez plus tard ou contactez votre administrateur.",
@@ -6836,7 +6838,8 @@ var fr_default = {
   updaterReadError: "Impossible de lire les param\xE8tres du module de mise \xE0 jour Tbpedia. V\xE9rifiez son fichier data.json, puis r\xE9essayez. Les donn\xE9es de lecture restent enregistr\xE9es localement.",
   updaterChanged: "La collection install\xE9e a chang\xE9 pendant la synchronisation. Les t\xE9l\xE9versements suivants ont \xE9t\xE9 arr\xEAt\xE9s. V\xE9rifiez l\u2019aper\xE7u et relancez la synchronisation.",
   updaterSyncNotice: "Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e.",
-  analyticsMetadataReadError: "Impossible de lire ou v\xE9rifier les informations de collection enregistr\xE9es dans le fichier data.json du module d\u2019analyse. Rechargez le module et r\xE9essayez."
+  analyticsMetadataReadError: "Impossible de lire ou v\xE9rifier les informations de collection enregistr\xE9es dans le fichier data.json du module d\u2019analyse. Rechargez le module et r\xE9essayez.",
+  connectionAvailable: "Connexion r\xE9ussie. Le stockage cloud est disponible."
 };
 
 // plugin/locales/es.json
@@ -6995,7 +6998,7 @@ var es_default = {
   birthYearRequired: "Proporcione un a\xF1o de nacimiento al especificar el mes de nacimiento.",
   invalidEmail: "Ingrese una direcci\xF3n de correo electr\xF3nico v\xE1lida.",
   validation: "Por favor corrija los campos no v\xE1lidos.",
-  "backend.UNAUTHENTICATED": "Vuelva a conectarse con una clave de conexi\xF3n de lector activa.",
+  "backend.UNAUTHENTICATED": "No se puede acceder a este lector. Contacte con su administrador para restablecer la conexi\xF3n.",
   "backend.NOT_FOUND": "No se encontr\xF3 el punto final solicitado.",
   "backend.NOT_CONFIGURED": "El almacenamiento en la nube est\xE1 a la espera de la configuraci\xF3n de la base de datos. La lectura local est\xE1 disponible.",
   "backend.BACKEND_ERROR": "No se pudo verificar el funcionamiento de la base de datos. Vuelva a intentarlo m\xE1s tarde o comun\xEDquese con su administrador.",
@@ -7029,7 +7032,8 @@ var es_default = {
   updaterReadError: "No se pudo leer la configuraci\xF3n del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
   updaterChanged: "La colecci\xF3n instalada cambi\xF3 durante la sincronizaci\xF3n. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
   updaterSyncNotice: "Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada.",
-  analyticsMetadataReadError: "No se pueden leer o verificar los datos de la colecci\xF3n guardados en data.json del complemento de an\xE1lisis. Recargue el complemento y vuelva a intentarlo."
+  analyticsMetadataReadError: "No se pueden leer o verificar los datos de la colecci\xF3n guardados en data.json del complemento de an\xE1lisis. Recargue el complemento y vuelva a intentarlo.",
+  connectionAvailable: "Conexi\xF3n correcta. El almacenamiento en la nube est\xE1 disponible."
 };
 
 // plugin/locales/de.json
@@ -7188,7 +7192,7 @@ var de_default = {
   birthYearRequired: "Geben Sie bei der Angabe eines Geburtsmonats ein Geburtsjahr an.",
   invalidEmail: "Geben Sie eine g\xFCltige E-Mail-Adresse ein.",
   validation: "Bitte korrigieren Sie die ung\xFCltigen Felder.",
-  "backend.UNAUTHENTICATED": "Stellen Sie die Verbindung mit einem aktiven Leser-Verbindungsschl\xFCssel wieder her.",
+  "backend.UNAUTHENTICATED": "Kein Zugriff auf diesen Leser. Wenden Sie sich an Ihren Administrator, um die Verbindung wiederherzustellen.",
   "backend.NOT_FOUND": "Der angeforderte Endpunkt wurde nicht gefunden.",
   "backend.NOT_CONFIGURED": "Der Cloud-Speicher wartet auf die Datenbankkonfiguration. Lokale Lekt\xFCre ist verf\xFCgbar.",
   "backend.BACKEND_ERROR": "Der Datenbankvorgang konnte nicht \xFCberpr\xFCft werden. Versuchen Sie es sp\xE4ter noch einmal oder wenden Sie sich an Ihren Administrator.",
@@ -7222,7 +7226,8 @@ var de_default = {
   updaterReadError: "Die Einstellungen des Tbpedia-Updaters konnten nicht gelesen werden. Pr\xFCfen Sie dessen data.json und versuchen Sie es erneut. Lesedaten bleiben lokal gespeichert.",
   updaterChanged: "Die installierte Sammlung wurde w\xE4hrend der Synchronisierung ge\xE4ndert. Weitere Uploads wurden gestoppt. Pr\xFCfen Sie die Vorschau und synchronisieren Sie erneut.",
   updaterSyncNotice: "Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
-  analyticsMetadataReadError: "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder best\xE4tigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut."
+  analyticsMetadataReadError: "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder best\xE4tigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut.",
+  connectionAvailable: "Verbindung erfolgreich. Cloud-Speicher ist verf\xFCgbar."
 };
 
 // plugin/locales/nl.json
@@ -7381,7 +7386,7 @@ var nl_default = {
   birthYearRequired: "Geef bij het opgeven van een geboortemaand een geboortejaar op.",
   invalidEmail: "Voer een geldig e-mailadres in.",
   validation: "Corrigeer de ongeldige velden.",
-  "backend.UNAUTHENTICATED": "Maak opnieuw verbinding met een actieve lezerverbindingssleutel.",
+  "backend.UNAUTHENTICATED": "Geen toegang tot deze lezer. Neem contact op met uw beheerder om de verbinding te herstellen.",
   "backend.NOT_FOUND": "Het aangevraagde eindpunt is niet gevonden.",
   "backend.NOT_CONFIGURED": "Cloudopslag wacht op databaseconfiguratie. Lokale lectuur is beschikbaar.",
   "backend.BACKEND_ERROR": "De databasebewerking kan niet worden geverifieerd. Probeer het later opnieuw of neem contact op met uw beheerder.",
@@ -7415,7 +7420,8 @@ var nl_default = {
   updaterReadError: "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
   updaterChanged: "De ge\xEFnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
   updaterSyncNotice: "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie.",
-  analyticsMetadataReadError: "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw."
+  analyticsMetadataReadError: "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw.",
+  connectionAvailable: "Verbinding geslaagd. Cloudopslag is beschikbaar."
 };
 
 // plugin/locales/sv.json
@@ -7574,7 +7580,7 @@ var sv_default = {
   birthYearRequired: "Ange ett f\xF6delse\xE5r n\xE4r du anger en f\xF6delsem\xE5nad.",
   invalidEmail: "Ange en giltig e-postadress.",
   validation: "V\xE4nligen korrigera de ogiltiga f\xE4lten.",
-  "backend.UNAUTHENTICATED": "\xC5teranslut med en aktiv l\xE4saranslutningsnyckel.",
+  "backend.UNAUTHENTICATED": "Det g\xE5r inte att komma \xE5t l\xE4saren. Kontakta administrat\xF6ren f\xF6r att \xE5terst\xE4lla anslutningen.",
   "backend.NOT_FOUND": "Den beg\xE4rda slutpunkten hittades inte.",
   "backend.NOT_CONFIGURED": "Molnlagring v\xE4ntar p\xE5 databaskonfiguration. Lokal l\xE4sning \xE4r tillg\xE4nglig.",
   "backend.BACKEND_ERROR": "Databas\xE5tg\xE4rden kunde inte verifieras. F\xF6rs\xF6k igen senare eller kontakta din administrat\xF6r.",
@@ -7608,7 +7614,8 @@ var sv_default = {
   updaterReadError: "Det gick inte att l\xE4sa inst\xE4llningarna f\xF6r Tbpedia-uppdateraren. Kontrollera dess data.json och f\xF6rs\xF6k igen. L\xE4sdata \xE4r fortfarande sparade lokalt.",
   updaterChanged: "Den installerade samlingen \xE4ndrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska f\xF6rhandsvisningen och synkronisera igen.",
   updaterSyncNotice: "L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel.",
-  analyticsMetadataReadError: "Det gick inte att l\xE4sa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om till\xE4gget och f\xF6rs\xF6k igen."
+  analyticsMetadataReadError: "Det gick inte att l\xE4sa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om till\xE4gget och f\xF6rs\xF6k igen.",
+  connectionAvailable: "Anslutningen lyckades. Molnlagring \xE4r tillg\xE4nglig."
 };
 
 // plugin/locales/ko.json
@@ -7767,7 +7774,7 @@ var ko_default = {
   birthYearRequired: "\uCD9C\uC0DD \uC6D4\uC744 \uC9C0\uC815\uD560 \uB54C \uCD9C\uC0DD \uC5F0\uB3C4\uB97C \uC785\uB825\uD558\uC138\uC694.",
   invalidEmail: "\uC720\uD6A8\uD55C \uC774\uBA54\uC77C \uC8FC\uC18C\uB97C \uC785\uB825\uD558\uC138\uC694.",
   validation: "\uC798\uBABB\uB41C \uD544\uB4DC\uB97C \uC218\uC815\uD558\uC138\uC694.",
-  "backend.UNAUTHENTICATED": "\uD65C\uC131 \uB9AC\uB354 \uC5F0\uACB0 \uD0A4\uB97C \uC0AC\uC6A9\uD558\uC5EC \uB2E4\uC2DC \uC5F0\uACB0\uD558\uC138\uC694.",
+  "backend.UNAUTHENTICATED": "\uC774 \uB3C5\uC790\uC5D0 \uC811\uADFC\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uC5F0\uACB0\uC744 \uBCF5\uC6D0\uD558\uB824\uBA74 \uAD00\uB9AC\uC790\uC5D0\uAC8C \uBB38\uC758\uD558\uC138\uC694.",
   "backend.NOT_FOUND": "\uC694\uCCAD\uD55C \uC5D4\uB4DC\uD3EC\uC778\uD2B8\uB97C \uCC3E\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.",
   "backend.NOT_CONFIGURED": "\uD074\uB77C\uC6B0\uB4DC \uC2A4\uD1A0\uB9AC\uC9C0\uAC00 \uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uAD6C\uC131\uC744 \uAE30\uB2E4\uB9AC\uACE0 \uC788\uC2B5\uB2C8\uB2E4. \uC9C0\uC5ED \uB3C5\uC11C\uAC00 \uAC00\uB2A5\uD569\uB2C8\uB2E4.",
   "backend.BACKEND_ERROR": "\uB370\uC774\uD130\uBCA0\uC774\uC2A4 \uC791\uC5C5\uC744 \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uB098\uC911\uC5D0 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uAC70\uB098 \uAD00\uB9AC\uC790\uC5D0\uAC8C \uBB38\uC758\uD558\uC138\uC694.",
@@ -7801,7 +7808,8 @@ var ko_default = {
   updaterReadError: "Tbpedia \uC5C5\uB370\uC774\uD2B8 \uD50C\uB7EC\uADF8\uC778\uC758 \uC124\uC815\uC744 \uC77D\uC744 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. data.json \uD30C\uC77C\uC744 \uD655\uC778\uD55C \uB4A4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694. \uB3C5\uC11C \uB370\uC774\uD130\uB294 \uB85C\uCEEC\uC5D0 \uBCF4\uAD00\uB429\uB2C8\uB2E4.",
   updaterChanged: "\uB3D9\uAE30\uD654 \uC911 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC774 \uBCC0\uACBD\uB418\uC5B4 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB97C \uC911\uC9C0\uD588\uC2B5\uB2C8\uB2E4. \uBBF8\uB9AC\uBCF4\uAE30\uB97C \uD655\uC778\uD558\uACE0 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
   updaterSyncNotice: "\uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4.",
-  analyticsMetadataReadError: "\uBD84\uC11D \uD50C\uB7EC\uADF8\uC778\uC758 data.json\uC5D0 \uC800\uC7A5\uB41C \uCEEC\uB809\uC158 \uC815\uBCF4\uB97C \uC77D\uAC70\uB098 \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uBD88\uB7EC\uC628 \uB4A4 \uC7AC\uC2DC\uB3C4\uD558\uC138\uC694."
+  analyticsMetadataReadError: "\uBD84\uC11D \uD50C\uB7EC\uADF8\uC778\uC758 data.json\uC5D0 \uC800\uC7A5\uB41C \uCEEC\uB809\uC158 \uC815\uBCF4\uB97C \uC77D\uAC70\uB098 \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uBD88\uB7EC\uC628 \uB4A4 \uC7AC\uC2DC\uB3C4\uD558\uC138\uC694.",
+  connectionAvailable: "\uC5F0\uACB0\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4. \uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC18C\uB97C \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
 };
 
 // plugin/locales/zh-TW.json
@@ -7960,7 +7968,7 @@ var zh_TW_default = {
   birthYearRequired: "\u6307\u5B9A\u51FA\u751F\u6708\u4EFD\u6642\u63D0\u4F9B\u51FA\u751F\u5E74\u4EFD\u3002",
   invalidEmail: "\u8F38\u5165\u6709\u6548\u7684\u96FB\u5B50\u90F5\u4EF6\u5730\u5740\u3002",
   validation: "\u8ACB\u66F4\u6B63\u7121\u6548\u6B04\u4F4D\u3002",
-  "backend.UNAUTHENTICATED": "\u4F7F\u7528\u6D3B\u52D5\u7684\u8B80\u5361\u6A5F\u9023\u7DDA\u91D1\u9470\u91CD\u65B0\u9023\u7DDA\u3002",
+  "backend.UNAUTHENTICATED": "\u7121\u6CD5\u5B58\u53D6\u6B64\u8B80\u8005\uFF0C\u8ACB\u806F\u7D61\u7BA1\u7406\u54E1\u6062\u5FA9\u9023\u7DDA\u3002",
   "backend.NOT_FOUND": "\u672A\u627E\u5230\u8ACB\u6C42\u7684\u7AEF\u9EDE\u3002",
   "backend.NOT_CONFIGURED": "\u96F2\u7AEF\u5132\u5B58\u6B63\u5728\u7B49\u5F85\u8CC7\u6599\u5EAB\u914D\u7F6E\u3002\u53EF\u4EE5\u672C\u5730\u95B1\u8B80\u3002",
   "backend.BACKEND_ERROR": "\u7121\u6CD5\u9A57\u8B49\u8CC7\u6599\u5EAB\u64CD\u4F5C\u3002\u8ACB\u7A0D\u5F8C\u518D\u8A66\u6216\u806F\u7D61\u60A8\u7684\u7BA1\u7406\u54E1\u3002",
@@ -7994,7 +8002,8 @@ var zh_TW_default = {
   updaterReadError: "\u7121\u6CD5\u8B80\u53D6 Tbpedia \u66F4\u65B0\u5916\u639B\u8A2D\u5B9A\u3002\u8ACB\u6AA2\u67E5\u5176 data.json \u5F8C\u518D\u8A66\u3002\u95B1\u8B80\u8CC7\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u6A5F\u3002",
   updaterChanged: "\u540C\u6B65\u671F\u9593\u5DF2\u5B89\u88DD\u7684\u6587\u96C6\u7248\u672C\u767C\u751F\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002\u8ACB\u91CD\u65B0\u9810\u89BD\u4E26\u540C\u6B65\u3002",
   updaterSyncNotice: "\u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002",
-  analyticsMetadataReadError: "\u7121\u6CD5\u8B80\u53D6\u6216\u6838\u5C0D analytics data.json \u4E2D\u5132\u5B58\u7684\u6587\u96C6\u8CC7\u6599\u3002\u8ACB\u91CD\u65B0\u8F09\u5165\u5916\u639B\u5F8C\u518D\u8A66\u3002"
+  analyticsMetadataReadError: "\u7121\u6CD5\u8B80\u53D6\u6216\u6838\u5C0D analytics data.json \u4E2D\u5132\u5B58\u7684\u6587\u96C6\u8CC7\u6599\u3002\u8ACB\u91CD\u65B0\u8F09\u5165\u5916\u639B\u5F8C\u518D\u8A66\u3002",
+  connectionAvailable: "\u9023\u7DDA\u6210\u529F\uFF0C\u96F2\u7AEF\u5132\u5B58\u53EF\u4F9B\u4F7F\u7528\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -8153,7 +8162,7 @@ var zh_CN_default = {
   birthYearRequired: "\u6307\u5B9A\u51FA\u751F\u6708\u4EFD\u65F6\u63D0\u4F9B\u51FA\u751F\u5E74\u4EFD\u3002",
   invalidEmail: "\u8F93\u5165\u6709\u6548\u7684\u7535\u5B50\u90AE\u4EF6\u5730\u5740\u3002",
   validation: "\u8BF7\u66F4\u6B63\u65E0\u6548\u5B57\u6BB5\u3002",
-  "backend.UNAUTHENTICATED": "\u4F7F\u7528\u6D3B\u52A8\u7684\u8BFB\u5361\u5668\u8FDE\u63A5\u5BC6\u94A5\u91CD\u65B0\u8FDE\u63A5\u3002",
+  "backend.UNAUTHENTICATED": "\u65E0\u6CD5\u8BBF\u95EE\u6B64\u8BFB\u8005\uFF0C\u8BF7\u8054\u7CFB\u7BA1\u7406\u5458\u6062\u590D\u8FDE\u63A5\u3002",
   "backend.NOT_FOUND": "\u672A\u627E\u5230\u8BF7\u6C42\u7684\u7AEF\u70B9\u3002",
   "backend.NOT_CONFIGURED": "\u4E91\u5B58\u50A8\u6B63\u5728\u7B49\u5F85\u6570\u636E\u5E93\u914D\u7F6E\u3002\u53EF\u4EE5\u672C\u5730\u9605\u8BFB\u3002",
   "backend.BACKEND_ERROR": "\u65E0\u6CD5\u9A8C\u8BC1\u6570\u636E\u5E93\u64CD\u4F5C\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\u6216\u8054\u7CFB\u60A8\u7684\u7BA1\u7406\u5458\u3002",
@@ -8187,7 +8196,8 @@ var zh_CN_default = {
   updaterReadError: "\u65E0\u6CD5\u8BFB\u53D6 Tbpedia \u66F4\u65B0\u63D2\u4EF6\u8BBE\u7F6E\u3002\u8BF7\u68C0\u67E5\u5176 data.json \u540E\u91CD\u8BD5\u3002\u9605\u8BFB\u8D44\u6599\u4ECD\u4FDD\u5B58\u5728\u672C\u5730\u3002",
   updaterChanged: "\u540C\u6B65\u671F\u95F4\u5DF2\u5B89\u88C5\u7684\u6587\u96C6\u7248\u672C\u53D1\u751F\u53D8\u5316\uFF0C\u5DF2\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\u3002\u8BF7\u91CD\u65B0\u9884\u89C8\u5E76\u540C\u6B65\u3002",
   updaterSyncNotice: "\u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002",
-  analyticsMetadataReadError: "\u65E0\u6CD5\u8BFB\u53D6\u6216\u6838\u5BF9 analytics data.json \u4E2D\u4FDD\u5B58\u7684\u6587\u96C6\u8D44\u6599\u3002\u8BF7\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u91CD\u8BD5\u3002"
+  analyticsMetadataReadError: "\u65E0\u6CD5\u8BFB\u53D6\u6216\u6838\u5BF9 analytics data.json \u4E2D\u4FDD\u5B58\u7684\u6587\u96C6\u8D44\u6599\u3002\u8BF7\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u91CD\u8BD5\u3002",
+  connectionAvailable: "\u8FDE\u63A5\u6210\u529F\uFF0C\u4E91\u7AEF\u5B58\u50A8\u53EF\u4F9B\u4F7F\u7528\u3002"
 };
 
 // plugin/locales/vi.json
@@ -8346,7 +8356,7 @@ var vi_default = {
   birthYearRequired: "Cung c\u1EA5p n\u0103m sinh khi ch\u1EC9 \u0111\u1ECBnh th\xE1ng sinh.",
   invalidEmail: "Nh\u1EADp \u0111\u1ECBa ch\u1EC9 email h\u1EE3p l\u1EC7.",
   validation: "Vui l\xF2ng s\u1EEDa c\xE1c tr\u01B0\u1EDDng kh\xF4ng h\u1EE3p l\u1EC7.",
-  "backend.UNAUTHENTICATED": "K\u1EBFt n\u1ED1i l\u1EA1i b\u1EB1ng ph\xEDm k\u1EBFt n\u1ED1i \u0111\u1EA7u \u0111\u1ECDc \u0111ang ho\u1EA1t \u0111\u1ED9ng.",
+  "backend.UNAUTHENTICATED": "Kh\xF4ng th\u1EC3 truy c\u1EADp ng\u01B0\u1EDDi \u0111\u1ECDc n\xE0y. H\xE3y li\xEAn h\u1EC7 qu\u1EA3n tr\u1ECB vi\xEAn \u0111\u1EC3 kh\xF4i ph\u1EE5c k\u1EBFt n\u1ED1i.",
   "backend.NOT_FOUND": "Kh\xF4ng t\xECm th\u1EA5y \u0111i\u1EC3m cu\u1ED1i \u0111\u01B0\u1EE3c y\xEAu c\u1EA7u.",
   "backend.NOT_CONFIGURED": "B\u1ED9 nh\u1EDB \u0111\xE1m m\xE2y \u0111ang ch\u1EDD c\u1EA5u h\xECnh c\u01A1 s\u1EDF d\u1EEF li\u1EC7u. \u0110\u1ECDc \u0111\u1ECBa ph\u01B0\u01A1ng c\xF3 s\u1EB5n.",
   "backend.BACKEND_ERROR": "Ho\u1EA1t \u0111\u1ED9ng c\u01A1 s\u1EDF d\u1EEF li\u1EC7u kh\xF4ng th\u1EC3 \u0111\u01B0\u1EE3c x\xE1c minh. H\xE3y th\u1EED l\u1EA1i sau ho\u1EB7c li\xEAn h\u1EC7 v\u1EDBi qu\u1EA3n tr\u1ECB vi\xEAn c\u1EE7a b\u1EA1n.",
@@ -8380,7 +8390,8 @@ var vi_default = {
   updaterReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc c\xE0i \u0111\u1EB7t c\u1EE7a tr\xECnh c\u1EADp nh\u1EADt Tbpedia. Ki\u1EC3m tra t\u1EC7p data.json r\u1ED3i th\u1EED l\u1EA1i. D\u1EEF li\u1EC7u \u0111\u1ECDc v\u1EABn \u0111\u01B0\u1EE3c l\u01B0u c\u1EE5c b\u1ED9.",
   updaterChanged: "B\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t thay \u0111\u1ED5i trong khi \u0111\u1ED3ng b\u1ED9. \u0110\xE3 d\u1EEBng c\xE1c l\u01B0\u1EE3t t\u1EA3i l\xEAn ti\u1EBFp theo. Xem tr\u01B0\u1EDBc v\xE0 \u0111\u1ED3ng b\u1ED9 l\u1EA1i.",
   updaterSyncNotice: "B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t.",
-  analyticsMetadataReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc ho\u1EB7c x\xE1c minh th\xF4ng tin b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 l\u01B0u trong data.json c\u1EE7a ph\u1EA7n b\u1ED5 tr\u1EE3 ph\xE2n t\xEDch. T\u1EA3i l\u1EA1i ph\u1EA7n b\u1ED5 tr\u1EE3 r\u1ED3i th\u1EED l\u1EA1i."
+  analyticsMetadataReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc ho\u1EB7c x\xE1c minh th\xF4ng tin b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 l\u01B0u trong data.json c\u1EE7a ph\u1EA7n b\u1ED5 tr\u1EE3 ph\xE2n t\xEDch. T\u1EA3i l\u1EA1i ph\u1EA7n b\u1ED5 tr\u1EE3 r\u1ED3i th\u1EED l\u1EA1i.",
+  connectionAvailable: "K\u1EBFt n\u1ED1i th\xE0nh c\xF4ng. C\xF3 th\u1EC3 s\u1EED d\u1EE5ng l\u01B0u tr\u1EEF \u0111\xE1m m\xE2y."
 };
 
 // plugin/locales/id.json
@@ -8539,7 +8550,7 @@ var id_default = {
   birthYearRequired: "Berikan tahun lahir saat menentukan bulan lahir.",
   invalidEmail: "Masukkan alamat email yang valid.",
   validation: "Harap perbaiki kolom yang tidak valid.",
-  "backend.UNAUTHENTICATED": "Hubungkan kembali dengan kunci koneksi pembaca aktif.",
+  "backend.UNAUTHENTICATED": "Tidak dapat mengakses pembaca ini. Hubungi administrator untuk memulihkan koneksi.",
   "backend.NOT_FOUND": "Titik akhir yang diminta tidak ditemukan.",
   "backend.NOT_CONFIGURED": "Penyimpanan cloud sedang menunggu konfigurasi database. Bacaan lokal tersedia.",
   "backend.BACKEND_ERROR": "Operasi database tidak dapat diverifikasi. Coba lagi nanti atau hubungi administrator Anda.",
@@ -8573,7 +8584,8 @@ var id_default = {
   updaterReadError: "Tidak dapat membaca pengaturan pembaru Tbpedia. Periksa berkas data.json, lalu coba lagi. Data bacaan tetap tersimpan secara lokal.",
   updaterChanged: "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
   updaterSyncNotice: "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
-  analyticsMetadataReadError: "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi."
+  analyticsMetadataReadError: "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi.",
+  connectionAvailable: "Koneksi berhasil. Penyimpanan cloud tersedia."
 };
 
 // plugin/locales/th.json
@@ -8732,7 +8744,7 @@ var th_default = {
   birthYearRequired: "\u0E23\u0E30\u0E1A\u0E38\u0E1B\u0E35\u0E40\u0E01\u0E34\u0E14\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E23\u0E30\u0E1A\u0E38\u0E40\u0E14\u0E37\u0E2D\u0E19\u0E40\u0E01\u0E34\u0E14",
   invalidEmail: "\u0E1B\u0E49\u0E2D\u0E19\u0E17\u0E35\u0E48\u0E2D\u0E22\u0E39\u0E48\u0E2D\u0E35\u0E40\u0E21\u0E25\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07",
   validation: "\u0E42\u0E1B\u0E23\u0E14\u0E41\u0E01\u0E49\u0E44\u0E02\u0E1F\u0E34\u0E25\u0E14\u0E4C\u0E17\u0E35\u0E48\u0E44\u0E21\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07",
-  "backend.UNAUTHENTICATED": "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E43\u0E2B\u0E21\u0E48\u0E14\u0E49\u0E27\u0E22\u0E04\u0E35\u0E22\u0E4C\u0E01\u0E32\u0E23\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E15\u0E31\u0E27\u0E2D\u0E48\u0E32\u0E19\u0E17\u0E35\u0E48\u0E43\u0E0A\u0E49\u0E07\u0E32\u0E19\u0E2D\u0E22\u0E39\u0E48",
+  "backend.UNAUTHENTICATED": "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E40\u0E02\u0E49\u0E32\u0E16\u0E36\u0E07\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E19\u0E35\u0E49\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E14\u0E39\u0E41\u0E25\u0E23\u0E30\u0E1A\u0E1A\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E39\u0E49\u0E04\u0E37\u0E19\u0E01\u0E32\u0E23\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D",
   "backend.NOT_FOUND": "\u0E44\u0E21\u0E48\u0E1E\u0E1A\u0E1B\u0E25\u0E32\u0E22\u0E17\u0E32\u0E07\u0E17\u0E35\u0E48\u0E23\u0E49\u0E2D\u0E07\u0E02\u0E2D",
   "backend.NOT_CONFIGURED": "\u0E17\u0E35\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E01\u0E33\u0E25\u0E31\u0E07\u0E23\u0E2D\u0E01\u0E32\u0E23\u0E01\u0E33\u0E2B\u0E19\u0E14\u0E04\u0E48\u0E32\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 \u0E21\u0E35\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E19\u0E17\u0E49\u0E2D\u0E07\u0E16\u0E34\u0E48\u0E19",
   "backend.BACKEND_ERROR": "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E01\u0E32\u0E23\u0E17\u0E33\u0E07\u0E32\u0E19\u0E02\u0E2D\u0E07\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E44\u0E14\u0E49 \u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E43\u0E19\u0E20\u0E32\u0E22\u0E2B\u0E25\u0E31\u0E07\u0E2B\u0E23\u0E37\u0E2D\u0E15\u0E34\u0E14\u0E15\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E14\u0E39\u0E41\u0E25\u0E23\u0E30\u0E1A\u0E1A\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13",
@@ -8766,7 +8778,8 @@ var th_default = {
   updaterReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15 Tbpedia \u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E44\u0E1F\u0E25\u0E4C data.json \u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07 \u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E22\u0E31\u0E07\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07",
   updaterChanged: "\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C \u0E08\u0E36\u0E07\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E17\u0E35\u0E48\u0E40\u0E2B\u0E25\u0E37\u0E2D \u0E42\u0E1B\u0E23\u0E14\u0E14\u0E39\u0E15\u0E31\u0E27\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E41\u0E25\u0E30\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
   updaterSyncNotice: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22",
-  analyticsMetadataReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E2B\u0E23\u0E37\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E43\u0E19 data.json \u0E02\u0E2D\u0E07\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E27\u0E34\u0E40\u0E04\u0E23\u0E32\u0E30\u0E2B\u0E4C\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07"
+  analyticsMetadataReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E2B\u0E23\u0E37\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E43\u0E19 data.json \u0E02\u0E2D\u0E07\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E27\u0E34\u0E40\u0E04\u0E23\u0E32\u0E30\u0E2B\u0E4C\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
+  connectionAvailable: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08 \u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E43\u0E0A\u0E49\u0E17\u0E35\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49"
 };
 
 // plugin/locales/bo.json
@@ -8925,7 +8938,7 @@ var bo_default = {
   birthYearRequired: "\u0F66\u0F90\u0FB1\u0F7A\u0F66\u0F0B\u0F5F\u0FB3\u0F0B\u0F42\u0F4F\u0F53\u0F0B\u0F60\u0F41\u0F7A\u0F63\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F66\u0F90\u0FB1\u0F7A\u0F66\u0F0B\u0F63\u0F7C\u0F0B\u0F58\u0F41\u0F7C\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   invalidEmail: "\u0F42\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F55\u0FB2\u0F72\u0F53\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F53\u0F74\u0F66\u0F0B\u0F63\u0FA1\u0F53\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0D",
   validation: "\u0F53\u0F7C\u0F62\u0F0B\u0F60\u0F41\u0FB2\u0F74\u0F63\u0F0B\u0F45\u0F53\u0F0B\u0F51\u0F42\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
-  "backend.UNAUTHENTICATED": "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0FA1\u0F7A\u0F0B\u0F58\u0F72\u0F42\u0F0B\u0F51\u0F44\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
+  "backend.UNAUTHENTICATED": "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F60\u0F51\u0F72\u0F62\u0F0B\u0F60\u0F5B\u0F74\u0F63\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F51\u0F7C\u0F0B\u0F51\u0F58\u0F0B\u0F54\u0F62\u0F0B\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
   "backend.NOT_FOUND": "\u0F62\u0F7A\u0F0B\u0F60\u0F51\u0F74\u0F53\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F58\u0F50\u0F60\u0F0B\u0F66\u0FA3\u0F7A\u0F0B\u0F51\u0F7A\u0F0B\u0F62\u0F99\u0F7A\u0F51\u0F0B\u0F58\u0F0B\u0F66\u0F7C\u0F44\u0F0B\u0F0D",
   "backend.NOT_CONFIGURED": "\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F66\u0F7C\u0F42\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F51\u0F7A\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0F40\u0F7C\u0F51\u0F0B\u0F63\u0F0B\u0F66\u0F92\u0F74\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F51\u0F54\u0F7A\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   "backend.BACKEND_ERROR": "\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F56\u0F40\u0F7C\u0F63\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F63\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F51\u0F7C\u0F0B\u0F51\u0F58\u0F0B\u0F54\u0F0B\u0F63\u0F0B\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
@@ -8959,7 +8972,8 @@ var bo_default = {
   updaterReadError: "Tbpedia \u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F60\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D data.json \u0F61\u0F72\u0F42\u0F0B\u0F46\u0F62\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F49\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   updaterChanged: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F63\u0F0B\u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F56\u0F5E\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F66\u0F94\u0F7C\u0F53\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
   updaterSyncNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
-  analyticsMetadataReadError: "\u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0Bdata.json \u0F53\u0F44\u0F0B\u0F49\u0F62\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D"
+  analyticsMetadataReadError: "\u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0Bdata.json \u0F53\u0F44\u0F0B\u0F49\u0F62\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
+  connectionAvailable: "\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0F7A\u0F42\u0F66\u0F0B\u0F42\u0FB2\u0F74\u0F56\u0F0D \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F56\u0F7A\u0F51\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F0B\u0F50\u0F74\u0F56\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -9336,6 +9350,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   busy = false;
   status;
   persistTail = Promise.resolve();
+  profileUpload;
   async onload() {
     const loaded = await this.loadData();
     const languageMigration = migrateInterfaceLanguage(loaded ?? {});
@@ -9403,7 +9418,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   persistQuiet() {
     void this.persist().catch(() => new import_obsidian.Notice(t("\u5916\u639B\u8A2D\u5B9A\u7121\u6CD5\u5132\u5B58\uFF0C\u8ACB\u6AA2\u67E5 Vault \u7684\u5BEB\u5165\u6B0A\u9650\u3002")));
   }
-  async api(path, method = "GET", body) {
+  async api(path, method = "GET", body, authenticated = true) {
     let url;
     try {
       url = new URL(this.data.api_url);
@@ -9412,10 +9427,10 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     }
     if (url.protocol !== "https:" && !(url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname))) throw new UiError(t("API \u5FC5\u9808\u4F7F\u7528 HTTPS\u3002"));
     if (url.username || url.password || url.search || url.hash || url.pathname !== "/") throw new UiError(t("API \u8ACB\u586B\u5BEB\u4E3B\u6A5F\u7DB2\u5740\uFF0C\u4E0D\u542B\u8DEF\u5F91\u6216\u67E5\u8A62\u53C3\u6578\u3002"));
-    if (!/^[A-Za-z0-9_-]{43}$/.test(this.token)) throw new UiError(t("\u8ACB\u8F38\u5165\u6709\u6548\u7684\u8B80\u8005\u9023\u7DDA\u91D1\u9470\u3002"));
+    if (authenticated && !/^[A-Za-z0-9_-]{43}$/.test(this.token)) throw new GatewayError(401, "UNAUTHENTICATED");
     let response;
     try {
-      response = await (0, import_obsidian.requestUrl)({ url: new URL(path, url).toString(), method, headers: { Authorization: `Bearer ${this.token}`, "Content-Type": "application/json" }, body: body === void 0 ? void 0 : JSON.stringify(body), throw: false });
+      response = await (0, import_obsidian.requestUrl)({ url: new URL(path, url).toString(), method, headers: { ...authenticated ? { Authorization: `Bearer ${this.token}` } : {}, "Content-Type": "application/json" }, body: body === void 0 ? void 0 : JSON.stringify(body), throw: false });
     } catch {
       throw new UiError(t("\u7121\u6CD5\u9023\u7DDA\uFF1B\u672C\u6A5F\u8CC7\u6599\u5DF2\u4FDD\u7559\u3002\u8ACB\u7A0D\u5F8C\u624B\u52D5\u518D\u8A66\u3002"));
     }
@@ -9439,13 +9454,32 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     await this.persist();
     new import_obsidian.Notice(t("connected", { name: me.profile.nickname }));
   }
-  async uploadProfile() {
-    if (!this.me) await this.connect();
-    const required2 = this.me.required_notices;
+  async testConnection() {
+    const health = object({ application: literal("tbpedia-analytics"), configured: boolean2() }).parse(await this.api("/health", "GET", void 0, false));
+    if (!health.configured) throw new GatewayError(503, "NOT_CONFIGURED");
+    if (this.data.reader_id && this.token) {
+      await this.connect();
+      return;
+    }
+    new import_obsidian.Notice(t("connectionAvailable"));
+  }
+  uploadProfile() {
+    return this.profileUpload ??= this.performProfileUpload().finally(() => {
+      this.profileUpload = void 0;
+    });
+  }
+  async performProfileUpload() {
+    if (this.data.reader_id && !this.me) await this.connect();
+    const required2 = this.me?.required_notices ?? { profile_version: PROFILE_NOTICE_VERSION, reading_version: READING_NOTICE_VERSION };
     if (!noticeSupported(required2.profile_version, PROFILE_NOTICE_VERSION) || !noticeSupported(required2.reading_version, READING_NOTICE_VERSION)) throw new UiError(t("noticeUnavailable"));
     if (this.data.profile_notice_version !== required2.profile_version) throw new UiError(t("\u8ACB\u5148\u95B1\u8B80\u4E26\u540C\u610F\u500B\u4EBA\u8CC7\u6599\u8AAA\u660E\u3002"));
     if (this.data.local_upload_enabled && this.data.reading_notice_version !== required2.reading_version) throw new UiError(t("\u8ACB\u5148\u540C\u610F\u95B1\u8B80\u8CC7\u6599\u4E0A\u50B3\u8AAA\u660E\u3002"));
     const profile = profileSchema.parse(this.data.profile);
+    if (!this.token) {
+      const bytes = crypto.getRandomValues(new Uint8Array(32));
+      this.token = btoa(String.fromCharCode(...bytes)).replaceAll("+", "-").replaceAll("/", "_").replace(/=+$/, "");
+    }
+    this.data.remember_token = true;
     await this.persist();
     const client_metadata = collectClientMetadata(import_obsidian.Platform, this.manifest.version, typeof navigator === "undefined" ? void 0 : navigator.userAgent);
     await this.api("/v1/me", "PATCH", { schema_version: 1, profile, profile_notice_version: this.data.profile_notice_version, cloud_sync_enabled: this.data.local_upload_enabled, reading_notice_version: this.data.reading_notice_version, client_metadata });
@@ -9820,19 +9854,7 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
       void action().then(() => this.display()).catch((e) => new import_obsidian.Notice(message(e), 12e3));
     };
     el.createEl("h3", { text: t("\u9023\u7DDA") });
-    new import_obsidian.Setting(el).setName(t("\u8B80\u8005\u9023\u7DDA\u91D1\u9470")).setDesc(t("\u7531\u7BA1\u7406\u54E1\u63D0\u4F9B\uFF1B\u4E0D\u662F NocoDB \u7BA1\u7406\u91D1\u9470\u3002")).addText((t2) => {
-      t2.inputEl.type = "password";
-      t2.setValue(p.token).onChange((v) => {
-        p.token = v.trim();
-        p.me = null;
-        if (p.data.remember_token) p.persistQuiet();
-      });
-    });
-    new import_obsidian.Setting(el).setName(t("\u5728\u672C\u6A5F\u8A18\u4F4F\u9023\u7DDA\u91D1\u9470")).setDesc(t("\u9810\u8A2D\u4E0D\u5132\u5B58\u3002\u555F\u7528\u5F8C\u6703\u5B58\u65BC\u672A\u52A0\u5BC6\u7684\u5916\u639B\u8CC7\u6599\u6A94\uFF0C\u53EF\u80FD\u88AB Vault \u540C\u6B65\u6216\u5099\u4EFD\u8907\u88FD\u3002")).addToggle((t2) => t2.setValue(p.data.remember_token).onChange((v) => {
-      p.data.remember_token = v;
-      p.persistQuiet();
-    }));
-    new import_obsidian.Setting(el).addButton((b) => b.setButtonText(t("\u6E2C\u8A66\u9023\u7DDA")).onClick(() => run(() => p.connect())));
+    new import_obsidian.Setting(el).addButton((b) => b.setButtonText(t("\u6E2C\u8A66\u9023\u7DDA")).onClick(() => run(() => p.testConnection())));
     if (p.me) {
       el.createEl("p", { text: t("connectionStatus", { name: p.me.profile.nickname, permission: t(p.me.cloud_sync_enabled ? "\u5DF2\u958B\u555F" : "\u5DF2\u505C\u7528") }) });
       new import_obsidian.Setting(el).setName(t("\u4F7F\u7528\u73FE\u6709\u96F2\u7AEF\u500B\u4EBA\u8CC7\u6599")).setDesc(t("\u6309\u4E0B\u5F8C\u624D\u6703\u53D6\u4EE3\u76EE\u524D\u7684\u672C\u6A5F\u8349\u7A3F\u3002")).addButton((b) => b.setButtonText(t("\u8F09\u5165\u96F2\u7AEF\u8CC7\u6599")).onClick(() => run(async () => {

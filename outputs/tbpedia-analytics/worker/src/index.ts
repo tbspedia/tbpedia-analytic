@@ -27,14 +27,26 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
     const bearer=request.headers.get('authorization')??'';
     const token=/^Bearer ([A-Za-z0-9_-]{43})$/.exec(bearer)?.[1];
     if(!token)throw authFailure();
-    const row=oneRow(await db.find(env.READERS_TABLE_ID,{sync_token_hash:await sha256(token)}),authFailure());
+    const tokenHash=await sha256(token);
+    let rows=await db.find(env.READERS_TABLE_ID,{sync_token_hash:tokenHash});
+    // Enrollment happens only on an explicit profile upload with current consent.
+    // GET, reading uploads, and revoked identities never create a reader.
+    let enrollment: z.infer<typeof profileRequestSchema>|undefined;
+    if(rows.length===0&&path==='/v1/me'&&request.method==='PATCH'){
+      enrollment=profileRequestSchema.parse(await requestJson(request,16*1024));
+      if(enrollment.profile_notice_version!==env.PROFILE_NOTICE_VERSION||(enrollment.cloud_sync_enabled&&enrollment.reading_notice_version!==env.READING_NOTICE_VERSION))throw new ApiError(428,'CONSENT_REQUIRED','Review and accept the current privacy notice.');
+      const now=new Date().toISOString();
+      await db.createReader({...enrollment.profile,...enrollment.client_metadata,reader_id:crypto.randomUUID(),sync_token_hash:tokenHash,account_status:'ACTIVE',cloud_sync_enabled:false,created_at:now,updated_at:now,schema_version:1});
+      rows=await db.find(env.READERS_TABLE_ID,{sync_token_hash:tokenHash});
+    }
+    const row=oneRow(rows,authFailure());
     if(row.fields.account_status!=='ACTIVE')throw authFailure();
     const identity=z.uuid().safeParse(row.fields.reader_id);
     if(!identity.success)throw new ApiError(502,'BACKEND_ERROR','Invalid stored reader identity.');
     const readerId=identity.data;
     if(path==='/v1/me'&&request.method==='GET')return json({reader_id:readerId,profile:safeProfile(row.fields),cloud_sync_enabled:booleanValue(row.fields.cloud_sync_enabled),profile_consent_version:row.fields.profile_consent_version??null,reading_consent_version:row.fields.reading_consent_version??null,required_notices:{profile_version:env.PROFILE_NOTICE_VERSION,reading_version:env.READING_NOTICE_VERSION,profile_text:PROFILE_NOTICE,reading_text:READING_NOTICE},request_id:requestId});
     if(path==='/v1/me'&&request.method==='PATCH'){
-      const payload=profileRequestSchema.parse(await requestJson(request,16*1024));
+      const payload=enrollment??profileRequestSchema.parse(await requestJson(request,16*1024));
       if(payload.profile_notice_version!==env.PROFILE_NOTICE_VERSION||(payload.cloud_sync_enabled&&payload.reading_notice_version!==env.READING_NOTICE_VERSION))throw new ApiError(428,'CONSENT_REQUIRED','Review and accept the current privacy notice.');
       const now=new Date().toISOString();
       const fields:Record<string,unknown>={...payload.profile,cloud_sync_enabled:payload.cloud_sync_enabled,profile_consent_version:env.PROFILE_NOTICE_VERSION,profile_consent_at:row.fields.profile_consent_version===env.PROFILE_NOTICE_VERSION&&row.fields.profile_consent_at?row.fields.profile_consent_at:now,updated_at:now,schema_version:1};

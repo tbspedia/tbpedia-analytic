@@ -153,7 +153,7 @@
   "birthYearRequired": "Provide a birth year when specifying a birth month.",
   "invalidEmail": "Enter a valid email address.",
   "validation": "Please correct the invalid fields.",
-  "backend.UNAUTHENTICATED": "Reconnect with an active reader connection key.",
+  "backend.UNAUTHENTICATED": "Unable to access this reader. Contact your administrator to restore the connection.",
   "backend.NOT_FOUND": "The requested endpoint was not found.",
   "backend.NOT_CONFIGURED": "Cloud storage is awaiting database configuration. Local reading is available.",
   "backend.BACKEND_ERROR": "The database operation could not be verified. Try again later or contact your administrator.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Unable to read the Tbpedia updater settings. Check its data.json file, then retry. Reading data remains saved locally.",
   "updaterChanged": "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
   "updaterSyncNotice": "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
-  "analyticsMetadataReadError": "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again."
+  "analyticsMetadataReadError": "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again.",
+  "connectionAvailable": "Connection successful. Cloud storage is available."
 }

@@ -153,7 +153,7 @@
   "birthYearRequired": "Proporcione un año de nacimiento al especificar el mes de nacimiento.",
   "invalidEmail": "Ingrese una dirección de correo electrónico válida.",
   "validation": "Por favor corrija los campos no válidos.",
-  "backend.UNAUTHENTICATED": "Vuelva a conectarse con una clave de conexión de lector activa.",
+  "backend.UNAUTHENTICATED": "No se puede acceder a este lector. Contacte con su administrador para restablecer la conexión.",
   "backend.NOT_FOUND": "No se encontró el punto final solicitado.",
   "backend.NOT_CONFIGURED": "El almacenamiento en la nube está a la espera de la configuración de la base de datos. La lectura local está disponible.",
   "backend.BACKEND_ERROR": "No se pudo verificar el funcionamiento de la base de datos. Vuelva a intentarlo más tarde o comuníquese con su administrador.",
@@ -187,5 +187,6 @@
   "updaterReadError": "No se pudo leer la configuración del actualizador de Tbpedia. Revise su archivo data.json y vuelva a intentarlo. Los datos de lectura siguen guardados localmente.",
   "updaterChanged": "La colección instalada cambió durante la sincronización. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
   "updaterSyncNotice": "Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada.",
-  "analyticsMetadataReadError": "No se pueden leer o verificar los datos de la colección guardados en data.json del complemento de análisis. Recargue el complemento y vuelva a intentarlo."
+  "analyticsMetadataReadError": "No se pueden leer o verificar los datos de la colección guardados en data.json del complemento de análisis. Recargue el complemento y vuelva a intentarlo.",
+  "connectionAvailable": "Conexión correcta. El almacenamiento en la nube está disponible."
 }

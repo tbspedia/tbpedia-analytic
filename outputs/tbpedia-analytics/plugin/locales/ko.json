@@ -153,7 +153,7 @@
   "birthYearRequired": "출생 월을 지정할 때 출생 연도를 입력하세요.",
   "invalidEmail": "유효한 이메일 주소를 입력하세요.",
   "validation": "잘못된 필드를 수정하세요.",
-  "backend.UNAUTHENTICATED": "활성 리더 연결 키를 사용하여 다시 연결하세요.",
+  "backend.UNAUTHENTICATED": "이 독자에 접근할 수 없습니다. 연결을 복원하려면 관리자에게 문의하세요.",
   "backend.NOT_FOUND": "요청한 엔드포인트를 찾을 수 없습니다.",
   "backend.NOT_CONFIGURED": "클라우드 스토리지가 데이터베이스 구성을 기다리고 있습니다. 지역 독서가 가능합니다.",
   "backend.BACKEND_ERROR": "데이터베이스 작업을 확인할 수 없습니다. 나중에 다시 시도하거나 관리자에게 문의하세요.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Tbpedia 업데이트 플러그인의 설정을 읽을 수 없습니다. data.json 파일을 확인한 뒤 다시 시도하세요. 독서 데이터는 로컬에 보관됩니다.",
   "updaterChanged": "동기화 중 설치된 컬렉션이 변경되어 이후 업로드를 중지했습니다. 미리보기를 확인하고 다시 동기화하세요.",
   "updaterSyncNotice": "독서 기록에는 설치된 컬렉션의 시리즈, 에디션, Tbpedia 버전, 릴리스 ID, 언어 코드 및 제목도 포함됩니다.",
-  "analyticsMetadataReadError": "분석 플러그인의 data.json에 저장된 컬렉션 정보를 읽거나 확인할 수 없습니다. 플러그인을 다시 불러온 뒤 재시도하세요."
+  "analyticsMetadataReadError": "분석 플러그인의 data.json에 저장된 컬렉션 정보를 읽거나 확인할 수 없습니다. 플러그인을 다시 불러온 뒤 재시도하세요.",
+  "connectionAvailable": "연결에 성공했습니다. 클라우드 저장소를 사용할 수 있습니다."
 }

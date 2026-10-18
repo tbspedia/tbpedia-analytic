@@ -153,7 +153,7 @@
   "birthYearRequired": "指定出生月份时提供出生年份。",
   "invalidEmail": "输入有效的电子邮件地址。",
   "validation": "请更正无效字段。",
-  "backend.UNAUTHENTICATED": "使用活动的读卡器连接密钥重新连接。",
+  "backend.UNAUTHENTICATED": "无法访问此读者，请联系管理员恢复连接。",
   "backend.NOT_FOUND": "未找到请求的端点。",
   "backend.NOT_CONFIGURED": "云存储正在等待数据库配置。可以本地阅读。",
   "backend.BACKEND_ERROR": "无法验证数据库操作。请稍后重试或联系您的管理员。",
@@ -187,5 +187,6 @@
   "updaterReadError": "无法读取 Tbpedia 更新插件设置。请检查其 data.json 后重试。阅读资料仍保存在本地。",
   "updaterChanged": "同步期间已安装的文集版本发生变化，已停止后续上传。请重新预览并同步。",
   "updaterSyncNotice": "阅读记录也包含已安装文集的系列、版本类型、Tbpedia 版本、发行编号、语言代码及标题。",
-  "analyticsMetadataReadError": "无法读取或核对 analytics data.json 中保存的文集资料。请重新加载插件后重试。"
+  "analyticsMetadataReadError": "无法读取或核对 analytics data.json 中保存的文集资料。请重新加载插件后重试。",
+  "connectionAvailable": "连接成功，云端存储可供使用。"
 }

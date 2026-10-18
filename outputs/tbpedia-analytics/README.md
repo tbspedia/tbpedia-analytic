@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Current plugin release: **0.1.10**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.10).
+Current plugin release: **0.1.11**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.11).
 
-Version 0.1.10 uses `https://cfanalytics.tbpedia.org`, simplifies Connection settings, and supports multiple reader types in the profile. Existing reader connection keys and single selections remain valid.
+Version 0.1.11 removes manual reader key entry and sets up new readers automatically on profile upload. Test connection remains available without a key. Existing saved reader identities and single selections remain valid.
 
 ## What is implemented
 
@@ -39,7 +39,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 189 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 190 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -70,7 +70,7 @@ The Worker is deployed and configured. The v0.1.6 release passes 50 automated te
 
 1. Reload the AnalyticsV1 vault in Obsidian. The plugin is installed under `.obsidian/plugins/tbpedia-analytics`; restart Obsidian if needed.
 2. Open **Settings → True Buddha Pedia Analytics**. The Worker URL is preconfigured. New installations have reading uploads disabled; upgrades preserve existing settings.
-3. Use the reader connection key provided by your administrator. For the local pilot only, its `reader_token` is in `private/pilot-reader.json`, which is excluded from Git and release ZIPs. Paste the key into **Reader connection key** and choose **Test connection**. Never use the NocoDB service token in the plugin.
+3. Choose **Test connection** to check server availability. No reader connection key is required, and testing does not create or upload a reader profile.
 4. Complete your nickname and optional profile fields. Choose **Save profile locally** for offline use, or accept the profile notice and choose **Save and upload profile**.
 5. To enable reading uploads, accept the reading-data notice, enable **Allow manual reading data uploads**, then choose **Save and upload profile** to apply the cloud permission. No articles upload automatically.
 6. Open a canonical note and choose **Open reading data** from the command palette or the book ribbon icon. Save locally first.
@@ -80,7 +80,9 @@ The Worker is deployed and configured. The v0.1.6 release passes 50 automated te
 
 After upgrading, reload the plugin, check that its `data.json` contains the six updater values, then choose **Sync changed articles**. Metadata changes affect the fingerprint and make affected notes eligible for sync. **Sync current article** forces a resend for the active note if a cloud record still needs correction. This retains reading values and does not increment the reading count.
 
-The reader token is kept only in memory unless the reader explicitly enables the remember option. When not remembered, paste it again after restarting Obsidian. Do not share the private credential file or include it in a distributed vault.
+The plugin automatically creates and saves a private reader credential in its local `data.json` before the first profile upload. Keep this file when upgrading so the same cloud reader is reused. It is unencrypted and can be copied by vault sync or backups; exclude it from distributed vaults. Existing remembered credentials are reused. A legacy reader whose credential was never saved needs their original credential restored to `stored_token` with `remember_token: true` before cloud uploads can resume. Test connection remains available without a credential.
+
+The updated Worker must be deployed together with the updated plugin to enable automatic reader setup; older Workers still support existing readers but do not enroll new readers.
 
 ## MVP content selection and compatibility
 

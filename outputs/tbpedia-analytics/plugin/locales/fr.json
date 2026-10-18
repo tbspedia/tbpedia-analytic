@@ -153,7 +153,7 @@
   "birthYearRequired": "Indiquez une année de naissance lorsque vous spécifiez un mois de naissance.",
   "invalidEmail": "Entrez une adresse e-mail valide.",
   "validation": "Veuillez corriger les champs invalides.",
-  "backend.UNAUTHENTICATED": "Reconnectez-vous avec une clé de connexion de lecteur active.",
+  "backend.UNAUTHENTICATED": "Accès à ce lecteur impossible. Contactez votre administrateur pour rétablir la connexion.",
   "backend.NOT_FOUND": "Le point de terminaison demandé n'a pas été trouvé.",
   "backend.NOT_CONFIGURED": "Le stockage cloud est en attente de configuration de la base de données. Des lectures locales sont disponibles.",
   "backend.BACKEND_ERROR": "Le fonctionnement de la base de données n'a pas pu être vérifié. Réessayez plus tard ou contactez votre administrateur.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Impossible de lire les paramètres du module de mise à jour Tbpedia. Vérifiez son fichier data.json, puis réessayez. Les données de lecture restent enregistrées localement.",
   "updaterChanged": "La collection installée a changé pendant la synchronisation. Les téléversements suivants ont été arrêtés. Vérifiez l’aperçu et relancez la synchronisation.",
   "updaterSyncNotice": "Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée.",
-  "analyticsMetadataReadError": "Impossible de lire ou vérifier les informations de collection enregistrées dans le fichier data.json du module d’analyse. Rechargez le module et réessayez."
+  "analyticsMetadataReadError": "Impossible de lire ou vérifier les informations de collection enregistrées dans le fichier data.json du module d’analyse. Rechargez le module et réessayez.",
+  "connectionAvailable": "Connexion réussie. Le stockage cloud est disponible."
 }

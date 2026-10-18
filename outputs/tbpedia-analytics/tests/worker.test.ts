@@ -29,6 +29,10 @@ async function backend(){
       for(const record of body){const row:NocoRow|undefined=rows.find(r=>r.id===record.id);assert.ok(row);Object.assign(row.fields,record.fields);if(omitMetadata)delete row.fields.Client_version;}
       return Response.json({records:body.map((r:{id:number})=>({id:r.id}))});
     }
+    if(method==='POST'&&tail===''&&tableId===env.READERS_TABLE_ID){
+      for(const record of body)rows.push({id:rows.length+1,fields:{...record.fields}});
+      return Response.json({records:[{id:rows.at(-1)!.id}]});
+    }
     if(method==='POST'&&tail==='/upsert'){
       assert.deepEqual(body.fieldsToMergeOn,['reader_id','content_id']);assert.equal(body.records.length,1);
       const fields=body.records[0].fields;
@@ -43,6 +47,39 @@ async function backend(){
 }
 function req(path:string,method='GET',body?:unknown,credential=token){return new Request('https://worker.example'+path,{method,headers:{Authorization:`Bearer ${credential}`,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});}
 function payload(){return {schema_version:1,content_id:'TBP-154-C00',client_updated_at:'2026-10-17T08:00:00Z',values:{...defaults(),my_rating:5,my_buddhist_level:0,reading_reflection:'中文\n第二行 🌸',my_keywords:['空性','引號"','逗,號']}};}
+
+test('connection test works without credentials and never reads or writes reader data',async()=>{
+  const b=await backend();
+  const response=await handle(new Request('https://worker.example/health'),env,b.fetcher);
+  assert.equal(response.status,200);
+  assert.equal((await response.json() as {configured:boolean}).configured,true);
+  assert.equal(b.calls.length,0);
+});
+
+test('first consented profile upload enrolls a reader and retries retain identity',async()=>{
+  const b=await backend();const credential='C'.repeat(43);
+  const profile={schema_version:1,profile:{...emptyProfile(),nickname:'New reader'},profile_notice_version:'profile-v2',cloud_sync_enabled:true,reading_notice_version:'reading-v1'};
+  for(let i=0;i<2;i++)assert.equal((await handle(req('/v1/me','PATCH',profile,credential),env,b.fetcher)).status,200);
+  assert.equal(b.tables[env.READERS_TABLE_ID]!.length,2);
+  const me=await handle(req('/v1/me','GET',undefined,credential),env,b.fetcher);
+  assert.equal(me.status,200);
+  const value=await me.json() as {reader_id:string;cloud_sync_enabled:boolean};
+  assert.notEqual(value.reader_id,readerId);assert.equal(value.cloud_sync_enabled,true);
+  assert.equal((await handle(req('/v1/reading/sync','POST',payload(),credential),env,b.fetcher)).status,200);
+  assert.equal(b.tables[env.READING_TABLE_ID]![0]!.fields.reader_id,value.reader_id);
+});
+
+test('enrollment requires valid profile consent and cannot reactivate revoked readers',async()=>{
+  const b=await backend();const credential='C'.repeat(43);
+  const profile={schema_version:1,profile:{...emptyProfile(),nickname:'New reader'},profile_notice_version:'old',cloud_sync_enabled:false,reading_notice_version:null};
+  assert.equal((await handle(req('/v1/me','PATCH',profile,credential),env,b.fetcher)).status,428);
+  assert.equal((await handle(req('/v1/me','PATCH',{...profile,profile:{...emptyProfile()}},credential),env,b.fetcher)).status,422);
+  assert.equal((await handle(req('/v1/me','GET',undefined,credential),env,b.fetcher)).status,401);
+  b.tables[env.READERS_TABLE_ID]![0]!.fields.account_status='DISABLED';
+  assert.equal((await handle(req('/v1/me','PATCH',{...profile,profile_notice_version:'profile-v2'}),env,b.fetcher)).status,401);
+  assert.equal(b.tables[env.READERS_TABLE_ID]!.length,1);
+  assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);
+});
 
 test('profile reader types migrate single values and round-trip multiple selections and clearing',async()=>{
   const b=await backend();

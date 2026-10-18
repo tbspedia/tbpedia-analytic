@@ -153,7 +153,7 @@
   "birthYearRequired": "指定出生月份時提供出生年份。",
   "invalidEmail": "輸入有效的電子郵件地址。",
   "validation": "請更正無效欄位。",
-  "backend.UNAUTHENTICATED": "使用活動的讀卡機連線金鑰重新連線。",
+  "backend.UNAUTHENTICATED": "無法存取此讀者，請聯絡管理員恢復連線。",
   "backend.NOT_FOUND": "未找到請求的端點。",
   "backend.NOT_CONFIGURED": "雲端儲存正在等待資料庫配置。可以本地閱讀。",
   "backend.BACKEND_ERROR": "無法驗證資料庫操作。請稍後再試或聯絡您的管理員。",
@@ -187,5 +187,6 @@
   "updaterReadError": "無法讀取 Tbpedia 更新外掛設定。請檢查其 data.json 後再試。閱讀資料仍保存在本機。",
   "updaterChanged": "同步期間已安裝的文集版本發生變更；已停止後續上傳。請重新預覽並同步。",
   "updaterSyncNotice": "閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。",
-  "analyticsMetadataReadError": "無法讀取或核對 analytics data.json 中儲存的文集資料。請重新載入外掛後再試。"
+  "analyticsMetadataReadError": "無法讀取或核對 analytics data.json 中儲存的文集資料。請重新載入外掛後再試。",
+  "connectionAvailable": "連線成功，雲端儲存可供使用。"
 }

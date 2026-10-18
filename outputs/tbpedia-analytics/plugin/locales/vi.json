@@ -153,7 +153,7 @@
   "birthYearRequired": "Cung cấp năm sinh khi chỉ định tháng sinh.",
   "invalidEmail": "Nhập địa chỉ email hợp lệ.",
   "validation": "Vui lòng sửa các trường không hợp lệ.",
-  "backend.UNAUTHENTICATED": "Kết nối lại bằng phím kết nối đầu đọc đang hoạt động.",
+  "backend.UNAUTHENTICATED": "Không thể truy cập người đọc này. Hãy liên hệ quản trị viên để khôi phục kết nối.",
   "backend.NOT_FOUND": "Không tìm thấy điểm cuối được yêu cầu.",
   "backend.NOT_CONFIGURED": "Bộ nhớ đám mây đang chờ cấu hình cơ sở dữ liệu. Đọc địa phương có sẵn.",
   "backend.BACKEND_ERROR": "Hoạt động cơ sở dữ liệu không thể được xác minh. Hãy thử lại sau hoặc liên hệ với quản trị viên của bạn.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Không thể đọc cài đặt của trình cập nhật Tbpedia. Kiểm tra tệp data.json rồi thử lại. Dữ liệu đọc vẫn được lưu cục bộ.",
   "updaterChanged": "Bộ sưu tập đã cài đặt thay đổi trong khi đồng bộ. Đã dừng các lượt tải lên tiếp theo. Xem trước và đồng bộ lại.",
   "updaterSyncNotice": "Bản ghi đọc cũng bao gồm loạt, ấn bản, phiên bản Tbpedia, mã bản phát hành, mã ngôn ngữ và tiêu đề của bộ sưu tập đã cài đặt.",
-  "analyticsMetadataReadError": "Không thể đọc hoặc xác minh thông tin bộ sưu tập đã lưu trong data.json của phần bổ trợ phân tích. Tải lại phần bổ trợ rồi thử lại."
+  "analyticsMetadataReadError": "Không thể đọc hoặc xác minh thông tin bộ sưu tập đã lưu trong data.json của phần bổ trợ phân tích. Tải lại phần bổ trợ rồi thử lại.",
+  "connectionAvailable": "Kết nối thành công. Có thể sử dụng lưu trữ đám mây."
 }

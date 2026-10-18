@@ -153,7 +153,7 @@
   "birthYearRequired": "誕生月を指定する場合は、誕生年を入力してください。",
   "invalidEmail": "有効な電子メール アドレスを入力してください。",
   "validation": "無効なフィールドを修正してください。",
-  "backend.UNAUTHENTICATED": "アクティブなリーダー接続キーを使用して再接続します。",
+  "backend.UNAUTHENTICATED": "この読者にアクセスできません。接続の復元について管理者にお問い合わせください。",
   "backend.NOT_FOUND": "要求されたエンドポイントが見つかりませんでした。",
   "backend.NOT_CONFIGURED": "クラウド ストレージはデータベースの構成を待っています。ローカルでの読書が可能です。",
   "backend.BACKEND_ERROR": "データベースの動作が確認できませんでした。後でもう一度試すか、管理者に問い合わせてください。",
@@ -187,5 +187,6 @@
   "updaterReadError": "Tbpedia更新プラグインの設定を読み取れません。data.jsonを確認して再試行してください。読書データはローカルに保存されています。",
   "updaterChanged": "同期中にインストール済みコレクションが変更されたため、以降のアップロードを停止しました。もう一度プレビューして同期してください。",
   "updaterSyncNotice": "読書記録には、インストール済みコレクションのシリーズ、エディション、Tbpediaのバージョン、リリースID、言語コード、タイトルも含まれます。",
-  "analyticsMetadataReadError": "analyticsのdata.jsonに保存されたコレクション情報を読み取り、確認できません。プラグインを再読み込みして再試行してください。"
+  "analyticsMetadataReadError": "analyticsのdata.jsonに保存されたコレクション情報を読み取り、確認できません。プラグインを再読み込みして再試行してください。",
+  "connectionAvailable": "接続に成功しました。クラウド保存を利用できます。"
 }

@@ -153,7 +153,7 @@
   "birthYearRequired": "Geef bij het opgeven van een geboortemaand een geboortejaar op.",
   "invalidEmail": "Voer een geldig e-mailadres in.",
   "validation": "Corrigeer de ongeldige velden.",
-  "backend.UNAUTHENTICATED": "Maak opnieuw verbinding met een actieve lezerverbindingssleutel.",
+  "backend.UNAUTHENTICATED": "Geen toegang tot deze lezer. Neem contact op met uw beheerder om de verbinding te herstellen.",
   "backend.NOT_FOUND": "Het aangevraagde eindpunt is niet gevonden.",
   "backend.NOT_CONFIGURED": "Cloudopslag wacht op databaseconfiguratie. Lokale lectuur is beschikbaar.",
   "backend.BACKEND_ERROR": "De databasebewerking kan niet worden geverifieerd. Probeer het later opnieuw of neem contact op met uw beheerder.",
@@ -187,5 +187,6 @@
   "updaterReadError": "De instellingen van de Tbpedia-updater kunnen niet worden gelezen. Controleer het bestand data.json en probeer opnieuw. Leesgegevens blijven lokaal opgeslagen.",
   "updaterChanged": "De geïnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
   "updaterSyncNotice": "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie.",
-  "analyticsMetadataReadError": "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw."
+  "analyticsMetadataReadError": "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw.",
+  "connectionAvailable": "Verbinding geslaagd. Cloudopslag is beschikbaar."
 }

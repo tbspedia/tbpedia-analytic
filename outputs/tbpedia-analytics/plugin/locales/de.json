@@ -153,7 +153,7 @@
   "birthYearRequired": "Geben Sie bei der Angabe eines Geburtsmonats ein Geburtsjahr an.",
   "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein.",
   "validation": "Bitte korrigieren Sie die ungültigen Felder.",
-  "backend.UNAUTHENTICATED": "Stellen Sie die Verbindung mit einem aktiven Leser-Verbindungsschlüssel wieder her.",
+  "backend.UNAUTHENTICATED": "Kein Zugriff auf diesen Leser. Wenden Sie sich an Ihren Administrator, um die Verbindung wiederherzustellen.",
   "backend.NOT_FOUND": "Der angeforderte Endpunkt wurde nicht gefunden.",
   "backend.NOT_CONFIGURED": "Der Cloud-Speicher wartet auf die Datenbankkonfiguration. Lokale Lektüre ist verfügbar.",
   "backend.BACKEND_ERROR": "Der Datenbankvorgang konnte nicht überprüft werden. Versuchen Sie es später noch einmal oder wenden Sie sich an Ihren Administrator.",
@@ -187,5 +187,6 @@
   "updaterReadError": "Die Einstellungen des Tbpedia-Updaters konnten nicht gelesen werden. Prüfen Sie dessen data.json und versuchen Sie es erneut. Lesedaten bleiben lokal gespeichert.",
   "updaterChanged": "Die installierte Sammlung wurde während der Synchronisierung geändert. Weitere Uploads wurden gestoppt. Prüfen Sie die Vorschau und synchronisieren Sie erneut.",
   "updaterSyncNotice": "Lesedatensätze enthalten außerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
-  "analyticsMetadataReadError": "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder bestätigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut."
+  "analyticsMetadataReadError": "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder bestätigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut.",
+  "connectionAvailable": "Verbindung erfolgreich. Cloud-Speicher ist verfügbar."
 }

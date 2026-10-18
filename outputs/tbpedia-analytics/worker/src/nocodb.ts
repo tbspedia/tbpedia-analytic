@@ -26,6 +26,7 @@ export class NocoDB {
   }
   async get(table:string,id:string|number):Promise<NocoRow>{return parseRow(await this.call('GET',table,`/${encodeURIComponent(String(id))}`));}
   async update(table:string,id:string|number,fields:Record<string,unknown>):Promise<void>{await this.call('PATCH',table,'',[{id,fields}]);}
+  async createReader(fields:Record<string,unknown>):Promise<void>{await this.call('POST',this.env.READERS_TABLE_ID,'',[{fields}]);}
   async upsertReading(fields:Record<string,unknown>):Promise<NocoRow>{
     const result=await this.call('POST',this.env.READING_TABLE_ID,'/upsert',{fieldsToMergeOn:['reader_id','content_id'],records:[{fields}]});
     if(!object(result)||!Array.isArray(result.records)||result.records.length!==1)throw new ApiError(502,'BACKEND_ERROR','The save could not be verified.');
