@@ -47,7 +47,8 @@ async function setup(){
   return {instance,settings,notices,display,get root(){return tab.containerEl;},get saves(){return saves;}};
 }
 test('settings omit the cloud summary and load option; all profile inputs are required',async()=>{
-  const p=await setup();p.instance.data.reader_id='550e8400-e29b-41d4-a716-446655440000';p.display();
+  const p=await setup();p.instance.data.reader_id='550e8400-e29b-41d4-a716-446655440000';
+  p.instance.me={reader_id:p.instance.data.reader_id,profile:completeProfile(),cloud_sync_enabled:true,profile_consent_version:'profile-v2',reading_consent_version:'reading-v1',required_notices:{profile_version:'profile-v2',reading_version:'reading-v1',profile_text:'Profile',reading_text:'Reading'}};p.display();
   assert.ok(!p.settings.some(s=>/Load cloud profile|Use existing cloud profile/.test(s.name+s.control.text)));
   assert.ok(!p.root.querySelectorAll('p').some(el=>/Connected:|Cloud reading permission:/.test(String(el.options.text))));
   const fields=p.settings.filter(s=>s.name.includes('(required)'));

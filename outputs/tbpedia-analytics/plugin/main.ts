@@ -305,7 +305,6 @@ class AnalyticsSettings extends PluginSettingTab{
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};
     el.createEl('h3',{text:tr("連線")});
     new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.testConnection())));
-    if(p.me){el.createEl('p',{text:tr('connectionStatus',{name:p.me.profile.nickname,permission:tr(p.me.cloud_sync_enabled?'已開啟':'已停用')})});new Setting(el).setName(tr("使用現有雲端個人資料")).setDesc(tr("按下後才會取代目前的本機草稿。")).addButton(b=>b.setButtonText(tr("載入雲端資料")).onClick(()=>run(async()=>{p.data.profile={...p.me!.profile};await p.persist();})));}
     el.createEl('h3',{text:tr("讀者個人資料")});
     if(p.data.reader_id){
       new Setting(el).setName(tr('readerId')).addText(t=>{t.setValue(p.data.reader_id!);t.inputEl.readOnly=true;});

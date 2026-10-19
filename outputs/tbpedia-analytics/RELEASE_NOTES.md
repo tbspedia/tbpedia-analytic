@@ -1,3 +1,15 @@
+# v0.1.17 — Remove obsolete connected-reader controls
+
+Released 19 October 2026.
+
+- Removes the settings line showing Connected: Nickname and Cloud reading permission: Enabled/Disabled, along with the Use existing cloud profile / Load cloud profile setting. These controls mistakenly remained visible for connected readers in v0.1.16.
+- Deletes their unused translations from all 14 catalogs.
+- Corrects the regression test to render a connected reader, which reproduces the v0.1.16 bug before the fix and passes after removal.
+- Retains reader-ID/credential recovery, required profile fields, reader-type checkboxes and the personalized successful-connection notification.
+- Validation: typecheck and build pass; 84 of 85 tests pass. The existing catalogue test still reports two notes missing parent TBP-275. Native Obsidian UI verification has not been performed.
+
+Upgrade: preserve data.json, replace main.js, manifest.json and styles.css, and reload the plugin or restart Obsidian. No Worker deployment is included.
+
 # v0.1.16 — Reader recovery and required profiles
 
 Released 19 October 2026.

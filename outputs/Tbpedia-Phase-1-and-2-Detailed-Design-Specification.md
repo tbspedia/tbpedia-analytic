@@ -6,7 +6,7 @@
 
 **Date:** 19 October 2026
 
-**Status:** Current implementation reference; published v0.1.16
+**Status:** Current implementation reference; published v0.1.17
 
 **Product:** `tbpedia-analytics` Obsidian plugin and Cloudflare Worker
 
@@ -349,7 +349,7 @@ Implement the plugin and Worker in TypeScript with shared schemas and mapping co
 
 ### 8.2 Settings layout
 
-The settings page heading is **True Buddha Pedia Analytics**. The latest published release is v0.1.16. The plugin/Worker ID remains `tbpedia-analytics`.
+The settings page heading is **True Buddha Pedia Analytics**. The latest published release is v0.1.17. The plugin/Worker ID remains `tbpedia-analytics`.
 
 | Area | Controls |
 | --- | --- |
@@ -873,10 +873,10 @@ Implementation files, operational limits and startup instructions are in `output
 
 ## 19. Current implementation and validation — 19 October 2026
 
-The latest published release is **v0.1.16**. It adds **Record my reading data** to the ribbon and Markdown tab headers, adds a cloud-sync ribbon action using the changed-reading preview, and requires a valid frontmatter `tbpedia_content_id` when opening or saving reading data and using quick-status actions. It also corrects the settings heading to **True Buddha Pedia Analytics**. Version 0.1.16 additionally removes the settings connection summary and standalone Load cloud profile option; adds recovery using reader ID plus the existing private sync credential; requires every profile field and at least one reader type on local saves/uploads; and replaces reader-type toggles with checkbox boxes. Existing incomplete profiles remain readable. Shared Worker request validation has been updated in source/build but has not been deployed. Release assets contain the plugin/source ZIPs and standalone `main.js`, `manifest.json`, `styles.css`. Preserve `data.json` when upgrading, replace only plugin installation files and reload/restart Obsidian.
+The latest published release is **v0.1.17**. It adds **Record my reading data** to the ribbon and Markdown tab headers, adds a cloud-sync ribbon action using the changed-reading preview, and requires a valid frontmatter `tbpedia_content_id` when opening or saving reading data and using quick-status actions. It also corrects the settings heading to **True Buddha Pedia Analytics**. Version 0.1.17 fixes the removal of the settings connection summary and standalone Load cloud profile option; adds recovery using reader ID plus the existing private sync credential; requires every profile field and at least one reader type on local saves/uploads; and replaces reader-type toggles with checkbox boxes. Existing incomplete profiles remain readable. Shared Worker request validation has been updated in source/build but has not been deployed. Release assets contain the plugin/source ZIPs and standalone `main.js`, `manifest.json`, `styles.css`. Preserve `data.json` when upgrading, replace only plugin installation files and reload/restart Obsidian.
 
 The implementation includes automatic reader enrollment, multi-select profile types, four device fields, six collection fields, system-language following across 14 catalogs (180 entries each), a resizable reading popup, fixed scanning across 18 Traditional/Simplified root names, manual changed-reading sync and article-frontmatter receipts. Legacy settings/receipt migrations are described above. No status bar item, manual token UI, folder selector, automatic uploader or multi-device merge is implemented.
 
-Type checking and production builds passed for v0.1.16. **84 of 85 automated tests passed**. The remaining test is the local pilot catalogue audit: two chapters in `01 文集部/275 解脫道口訣` reference missing parent `TBP-275`. A read-only audit on 18 October 2026 found **247 items (four books and 243 chapters)**; the test also retains the original 245-item expectation. Repairing catalogue completeness and updating the fixture are separate from plugin interface/sync changes. The audit/import utility's two-folder scope differs from the plugin's 10-category scan scope.
+Type checking and production builds passed for v0.1.17. **84 of 85 automated tests passed**. The remaining test is the local pilot catalogue audit: two chapters in `01 文集部/275 解脫道口訣` reference missing parent `TBP-275`. A read-only audit on 18 October 2026 found **247 items (four books and 243 chapters)**; the test also retains the original 245-item expectation. Repairing catalogue completeness and updating the fixture are separate from plugin interface/sync changes. The audit/import utility's two-folder scope differs from the plugin's 10-category scan scope.
 
 Historical live-check reports under `outputs/tbpedia-analytics/reports/` describe the specific earlier integrations they verified; they do not demonstrate a new Worker deployment, new cloud catalogue enrollment, mobile support or native interactive Obsidian QA for every subsequent release. Native interactive UI QA has not been performed. The manifest remains desktop-only, and server uniqueness/ordering and multi-device reconciliation remain pilot limits.

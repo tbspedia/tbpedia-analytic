@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.16**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.16).
+Latest published plugin release: **0.1.17**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.17).
 
-Version 0.1.16 adds existing-reader recovery using a reader ID and sync credential, requires complete profiles, replaces reader-type toggles with checkboxes, and greets the reader after a successful connection test. The connection summary and separate Load cloud profile option are removed. All 14 interface languages are updated. Existing settings and article frontmatter receipts are preserved.
+Version 0.1.17 fixes a missed settings block that still showed the connection summary and Load cloud profile option when a reader was connected in v0.1.16. Both are now removed, with a regression test covering an authenticated reader. Existing-reader recovery, required profile fields, reader-type checkboxes and the personalized connection message are retained.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
@@ -102,7 +102,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 201 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 197 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -127,7 +127,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.16 plugin passes type checking and production builds; 84 of 85 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.17 plugin passes type checking and production builds; 84 of 85 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
