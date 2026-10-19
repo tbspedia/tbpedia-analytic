@@ -1,3 +1,4 @@
+import {completeProfile} from './fixtures/profile';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {handle} from '../worker/src/index';
@@ -58,7 +59,7 @@ test('connection test works without credentials and never reads or writes reader
 
 test('first consented profile upload enrolls a reader and retries retain identity',async()=>{
   const b=await backend();const credential='C'.repeat(43);
-  const profile={schema_version:1,profile:{...emptyProfile(),nickname:'New reader'},profile_notice_version:'profile-v2',cloud_sync_enabled:true,reading_notice_version:'reading-v1'};
+  const profile={schema_version:1,profile:{...completeProfile(),nickname:'New reader'},profile_notice_version:'profile-v2',cloud_sync_enabled:true,reading_notice_version:'reading-v1'};
   for(let i=0;i<2;i++)assert.equal((await handle(req('/v1/me','PATCH',profile,credential),env,b.fetcher)).status,200);
   assert.equal(b.tables[env.READERS_TABLE_ID]!.length,2);
   const me=await handle(req('/v1/me','GET',undefined,credential),env,b.fetcher);
@@ -71,7 +72,7 @@ test('first consented profile upload enrolls a reader and retries retain identit
 
 test('enrollment requires valid profile consent and cannot reactivate revoked readers',async()=>{
   const b=await backend();const credential='C'.repeat(43);
-  const profile={schema_version:1,profile:{...emptyProfile(),nickname:'New reader'},profile_notice_version:'old',cloud_sync_enabled:false,reading_notice_version:null};
+  const profile={schema_version:1,profile:{...completeProfile(),nickname:'New reader'},profile_notice_version:'old',cloud_sync_enabled:false,reading_notice_version:null};
   assert.equal((await handle(req('/v1/me','PATCH',profile,credential),env,b.fetcher)).status,428);
   assert.equal((await handle(req('/v1/me','PATCH',{...profile,profile:{...emptyProfile()}},credential),env,b.fetcher)).status,422);
   assert.equal((await handle(req('/v1/me','GET',undefined,credential),env,b.fetcher)).status,401);
@@ -81,22 +82,22 @@ test('enrollment requires valid profile consent and cannot reactivate revoked re
   assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);
 });
 
-test('profile reader types migrate single values and round-trip multiple selections and clearing',async()=>{
+test('profile reader types migrate single values and round-trip required multiple selections',async()=>{
   const b=await backend();
   const row=b.tables[env.READERS_TABLE_ID]![0]!;
   row.fields.reader_type='PRACTITIONER';
   const legacy=await handle(req('/v1/me'),env,b.fetcher);
   assert.equal(legacy.status,200);
   assert.deepEqual((await legacy.json() as {profile:{reader_type:unknown}}).profile.reader_type,['PRACTITIONER']);
-  for(const [input,expected]of [[['PRACTITIONER','GENERAL','GENERAL'],['GENERAL','PRACTITIONER']],[[],null],['NEW_REFUGE',['NEW_REFUGE']]] as const){
-    const profile={...emptyProfile(),nickname:'Pilot',reader_type:input};
+  for(const [input,expected]of [[['PRACTITIONER','GENERAL','GENERAL'],['GENERAL','PRACTITIONER']],['NEW_REFUGE',['NEW_REFUGE']]] as const){
+    const profile={...completeProfile(),nickname:'Pilot',reader_type:input};
     const saved=await handle(req('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);
     assert.equal(saved.status,200);
     const response=await handle(req('/v1/me'),env,b.fetcher);
     assert.deepEqual((await response.json() as {profile:{reader_type:unknown}}).profile.reader_type,expected);
   }
   const writes=b.calls.filter(call=>call.method==='PATCH').length;
-  const invalid=await handle(req('/v1/me','PATCH',{schema_version:1,profile:{...emptyProfile(),nickname:'Pilot',reader_type:['INVALID']},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);
+  const invalid=await handle(req('/v1/me','PATCH',{schema_version:1,profile:{...completeProfile(),nickname:'Pilot',reader_type:['INVALID']},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);
   assert.equal(invalid.status,422);
   assert.equal(b.calls.filter(call=>call.method==='PATCH').length,writes);
 });
@@ -105,10 +106,10 @@ test('GET profile contains demographics and never credential fields',async()=>{
   const b=await backend();b.tables[env.READERS_TABLE_ID]![0]!.fields.birth_year=1975;b.tables[env.READERS_TABLE_ID]![0]!.fields.organisation='讀書會';
   const response=await handle(req('/v1/me'),env,b.fetcher);assert.equal(response.status,200);const text=await response.text();const body=JSON.parse(text);assert.equal(body.profile.birth_year,1975);assert.equal(body.profile.organisation,'讀書會');assert.equal(text.includes('sync_token_hash'),false);assert.equal(text.includes('test-service-token'),false);
 });
-test('profile edits and clearing are verified without changing identity',async()=>{
-  const b=await backend();const profile={...emptyProfile(),nickname:'Pilot',birth_year:1980,birth_month:8,organisation:'Sample group'};
+test('complete profile edits preserve identity and required fields cannot be cleared',async()=>{
+  const b=await backend();const profile={...completeProfile(),nickname:'Pilot',birth_year:1980,birth_month:8,organisation:'Sample group'};
   const response=await handle(req('/v1/me','PATCH',{schema_version:1,profile,profile_notice_version:'profile-v2',cloud_sync_enabled:true,reading_notice_version:'reading-v1'}),env,b.fetcher);assert.equal(response.status,200);assert.equal(b.tables[env.READERS_TABLE_ID]![0]!.fields.birth_month,8);assert.equal(b.tables[env.READERS_TABLE_ID]![0]!.fields.reader_id,readerId);
-  const clear=await handle(req('/v1/me','PATCH',{schema_version:1,profile:{...profile,birth_year:null,birth_month:null,organisation:null},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);assert.equal(clear.status,200);assert.equal(b.tables[env.READERS_TABLE_ID]![0]!.fields.organisation,null);
+  const clear=await handle(req('/v1/me','PATCH',{schema_version:1,profile:{...profile,birth_year:null,birth_month:null,organisation:null},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null}),env,b.fetcher);assert.equal(clear.status,422);assert.equal(b.tables[env.READERS_TABLE_ID]![0]!.fields.organisation,'Sample group');
 });
 test('native upsert creates, updates, clears and safely resends one snapshot',async()=>{
   const b=await backend();const p=payload();
@@ -141,7 +142,7 @@ test('oversized input and backend timeouts remain explicit errors',async()=>{
 });
 
 const metadata={device_type:'desktop',Client_version:'0.1.3',os:'Windows',user_agent:'Obsidian/Electron synthetic test'};
-function profilePayload(){return {schema_version:1,profile:{...emptyProfile(),nickname:'Synthetic metadata reader'},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null};}
+function profilePayload(){return {schema_version:1,profile:{...completeProfile(),nickname:'Synthetic metadata reader'},profile_notice_version:'profile-v2',cloud_sync_enabled:false,reading_notice_version:null};}
 test('profile uploads save and replace all four device fields on the authenticated reader',async()=>{
   const b=await backend();const account=b.tables[env.READERS_TABLE_ID]![0]!;
   for(const value of [metadata,{...metadata,Client_version:'0.1.4',os:'macOS',user_agent:null}]){
@@ -204,3 +205,15 @@ test('reading sync checks saved updater fields instead of trusting an echoed has
   const response=await handle(req('/v1/reading/sync','POST',{...payload(),updater_metadata:updater}),env,b.fetcher);
   assert.equal(response.status,502);assert.equal((await response.json() as {error:{code:string}}).error.code,'BACKEND_ERROR');
 });
+
+ test('incomplete profiles and empty reader types never enroll or update a cloud reader',async()=>{
+  for(const field of ['nickname','email','birth_year','birth_month','country_code','reader_type','organisation','sex']){
+    for(const credential of [token,'C'.repeat(43)]){
+      const b=await backend();const profile:Record<string,unknown>={...completeProfile()};profile[field]=null;
+      const response=await handle(req('/v1/me','PATCH',{...profilePayload(),profile},credential),env,b.fetcher);
+      assert.equal(response.status,422,field);assert.equal(b.calls.filter(call=>call.method!=='GET').length,0,field);
+    }
+  }
+  const b=await backend();const response=await handle(req('/v1/me','PATCH',{...profilePayload(),profile:{...completeProfile(),reader_type:[]}}),env,b.fetcher);
+  assert.equal(response.status,422);assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);
+ });

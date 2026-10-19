@@ -2,18 +2,32 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.15**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.15).
+Latest published plugin release: **0.1.16**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.16).
 
-Version 0.1.15 adds the reading action to Markdown tab headers, renames it to Record my reading data, adds a cloud-sync ribbon icon, and requires a valid frontmatter content ID before recording. All 14 interface languages include the new labels and validation message. Existing settings and article frontmatter receipts are preserved.
+Version 0.1.16 adds existing-reader recovery using a reader ID and sync credential, requires complete profiles, replaces reader-type toggles with checkboxes, and greets the reader after a successful connection test. The connection summary and separate Load cloud profile option are removed. All 14 interface languages are updated. Existing settings and article frontmatter receipts are preserved.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
 The reading ribbon action is **Record my reading data**, also available in each Markdown tab header. A **Sync reading data to cloud** ribbon icon opens the existing changed-reading sync preview. Notes must have a valid `tbpedia_content_id` in frontmatter before opening the reading form, using quick-status actions or saving reading data. Missing or invalid IDs show a notice without writing reading fields.
 
+## Reader profile setup
+
+The settings page no longer displays the connected-reader/permission summary or a separate **Load cloud profile** option.
+
+- For a new account, choose **Register a new reader**, complete every profile field, select at least one reader-type checkbox, then choose **Save and upload profile**. The cloud assigns a new reader ID.
+- For an existing account on an unlinked vault, choose **Connect an existing reader**, enter the existing **Reader ID** and **Sync credential**, then choose **Connect existing reader**. The plugin verifies that they match before copying the cloud profile into this vault and saving the credential. A reader ID alone cannot authenticate recovery.
+- In a linked vault, the reader ID is displayed read-only. Use **Copy sync credential** to obtain the private credential for connecting another vault. Keep it private.
+- Nickname, email, birth year, birth month, sex, country/region, organisation and at least one reader type are required before local profile saving or uploading. Reader types use labeled checkbox boxes and support multiple selections. Email format is validated; email ownership is not verified.
+- Existing incomplete profiles remain readable. Fill the missing fields before saving or uploading them. Recovery uses the existing authenticated service; it does not enroll a new cloud reader or upload profile/device data.
+
+To obtain the sync credential, open the original connected vault, reload the plugin, go to **Settings → True Buddha Pedia Analytics**, and click **Copy sync credential**. Copy the displayed **Reader ID** as well. On the new vault, select **Connect an existing reader** and enter both values. If the original credential is lost, contact the administrator; the reader ID alone cannot restore access.
+
+The plugin enforces these required fields locally. The matching Worker request-validation change is included in the source/build and requires a Worker deployment to enforce it for other clients.
+
 ## What is implemented
 
 - Three NocoDB tables: `readers`, `content_items`, `reading_records`.
-- Reader profiles including optional birth year/month, sex, country, multiple reader types and organisation. Email is optional and unverified.
+- Reader profiles with required nickname, email, birth year/month, sex, country, multiple reader types and organisation. Email ownership is unverified.
 - A local Obsidian editor for all 17 reading fields, reading/rereading actions and safe frontmatter writes.
 - Manual uploads with native NocoDB v3 upsert, authenticated reader ownership, full-value read-back verification and local upload receipts.
 - Profile notice, reading-data notice and manual upload permission enabled by default for new setups. Uploads still require explicit profile upload and manual reading sync. No article bodies or unrelated frontmatter are sent.
@@ -88,7 +102,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 183 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 201 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -113,14 +127,14 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.15 plugin passes type checking and production builds; 72 of 73 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.16 plugin passes type checking and production builds; 84 of 85 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
 1. Reload the AnalyticsV1 vault in Obsidian. The plugin is installed under `.obsidian/plugins/tbpedia-analytics`; restart Obsidian if needed.
 2. Open **Settings → True Buddha Pedia Analytics**. The Worker URL is preconfigured. New installations have both notice options and manual upload permission enabled; upgrades preserve existing settings.
 3. Choose **Test connection** to check server availability. No reader connection key is required, and testing does not create or upload a reader profile.
-4. Complete your nickname and optional profile fields. Choose **Save profile locally** for offline use, or accept the profile notice and choose **Save and upload profile**.
+4. Complete every profile field and select at least one reader-type checkbox. Choose **Save profile locally** for offline use, or accept the profile notice and choose **Save and upload profile**.
 5. Review the profile notice, reading-data notice and **Allow manual reading data uploads** options (all enabled by default), then choose **Save and upload profile** to apply the cloud permission. No articles upload automatically.
 6. Open a canonical note and choose **Open reading data** from the command palette or the book ribbon icon. Save locally first.
 7. Choose **Sync current article**, **Save and sync**, or **Sync changed reading data to cloud** to upload deliberately. The six collection fields come from the analytics plugin’s saved `data.json`.
@@ -207,7 +221,7 @@ Enter the secret through the interactive prompt. If Wrangler asks to create the 
 
 `GET /health` is public and contains application/version/configuration status only. `/v1/me` and `/v1/reading/sync` require the reader token. The gateway fails closed if its service credential is missing.
 
-Ordinary readers enroll automatically through their first explicit **Save and upload profile** action; no manual key input or remember-key setting is shown. The following utility is an optional administrator workflow, not the normal setup path. For administrator-assisted enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
+Ordinary readers enroll automatically through their first explicit **Save and upload profile** action; new-reader registration needs no manual credential input. Existing-reader recovery accepts the reader ID and sync credential. The following utility is an optional administrator workflow, not the normal setup path. For administrator-assisted enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
 
 ```powershell
 npm run provision -- --nickname "Reader nickname" --out private/new-reader.json

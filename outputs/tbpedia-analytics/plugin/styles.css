@@ -31,3 +31,10 @@
   .tbpa-reading .setting-item-control { margin-top: 8px; }
   .tbpa-reading .setting-item-control textarea { width: 100%; }
 }
+
+.tbpa-reader-types { border: 1px solid var(--background-modifier-border); border-radius: 8px; padding: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin-block: 16px; }
+.tbpa-reader-types legend { font-weight: 600; padding-inline: 6px; }
+.tbpa-reader-type-option { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid var(--background-modifier-border); border-radius: 6px; cursor: pointer; }
+.tbpa-reader-type-option:has(input:checked) { border-color: var(--interactive-accent); background: var(--background-secondary); }
+.tbpa-reader-type-option:focus-within { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
+.tbpa-reader-type-option input { flex-shrink: 0; }

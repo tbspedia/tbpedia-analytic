@@ -10,7 +10,7 @@ export const DEPTH_LABELS = { SKIM: '略讀', FULL: '通讀', CLOSE: '精讀', S
 export const RECOMMENDATION_LABELS = { RECOMMEND: '推薦', NOT_RECOMMEND: '不推薦', UNDECIDED: '未決定' } as const;
 export const READER_LABELS = { GENERAL: '一般讀者', NEW_REFUGE: '初皈依者', BUDDHIST_STUDENT: '學佛者', PRACTITIONER: '修行者', TBS_PRACTITIONER: '真佛行者' } as const;
 export const SEX_LABELS = { FEMALE: '女', MALE: '男', OTHER: '其他', PREFER_NOT_TO_SAY: '不願透露' } as const;
-export const PROFILE_NOTICE = "讀者資料保存在本機，只有按「儲存並上傳個人資料」才會傳送至 True Buddha Pedia Analytics 資料庫。資料包括暱稱，以及自願填寫的電郵、出生年/月、性別、國家、讀者類型和機構，用於管理讀者及未來的閱讀統計。每次上傳個人資料亦會傳送裝置類型、外掛版本、作業系統及使用者代理字串，用於相容性與問題排查；每位讀者只保留最近一次上傳的裝置資料，不收集硬體識別碼。這些欄位不會寫入文章。您可以修改資料，或聯絡管理員要求刪除雲端資料。";
+export const PROFILE_NOTICE = "讀者資料保存在本機，只有按「儲存並上傳個人資料」才會傳送至 True Buddha Pedia Analytics 資料庫。資料包括暱稱，電郵、出生年/月、性別、國家、讀者類型和機構，用於管理讀者及未來的閱讀統計。每次上傳個人資料亦會傳送裝置類型、外掛版本、作業系統及使用者代理字串，用於相容性與問題排查；每位讀者只保留最近一次上傳的裝置資料，不收集硬體識別碼。這些欄位不會寫入文章。您可以修改資料，或聯絡管理員要求刪除雲端資料。 儲存或上傳前，請填寫所有個人資料欄位，並至少勾選一種讀者類型。";
 export const READING_NOTICE = "同意閱讀資料上傳說明後，只有您手動同步的閱讀資料會傳送至雲端的 True Buddha Pedia Analytics 資料庫，包括閱讀進度、日期、評分、閱讀推薦、關鍵詞、子主題、讀者類型分類、佛學級別及修行級別。 文章正文及無關屬性不會上傳。停用會停止後續上傳，但不會刪除既有雲端資料。 閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。";
 
 const codeEnum = <T extends Record<string, string>>(values: T) => z.enum(Object.keys(values) as [keyof T & string, ...(keyof T & string)[]]);
@@ -65,7 +65,13 @@ export const profileSchema = z.object({
 }).strict().refine(p => p.birth_month === null || p.birth_year !== null, { path: ['birth_month'], message: 'Birth year is required when birth month is supplied' });
 export type ReaderProfile = z.infer<typeof profileSchema>;
 export const emptyProfile = (): ReaderProfile => ({ nickname: '', email: null, birth_year: null, birth_month: null, sex: 'PREFER_NOT_TO_SAY', country_code: null, reader_type: null, organisation: null });
-export const profileRequestSchema = z.object({ schema_version: z.literal(1), profile: profileSchema, profile_notice_version: z.string().max(40), cloud_sync_enabled: z.boolean(), reading_notice_version: z.string().max(40).nullable(), client_metadata:clientMetadataSchema.optional() }).strict();
+// Keep legacy/draft profiles readable; new local saves and uploads must be complete.
+export const completeProfileSchema=profileSchema.safeExtend({
+  email:z.email().max(254),birth_year:profileSchema.shape.birth_year.unwrap(),birth_month:profileSchema.shape.birth_month.unwrap(),
+  country_code:profileSchema.shape.country_code.unwrap(),organisation:z.string().trim().min(1).max(200),
+  reader_type:profileReaderTypesSchema.refine(value=>value!==null&&value.length>0,'Select at least one reader type')
+});
+export const profileRequestSchema = z.object({ schema_version: z.literal(1), profile: completeProfileSchema, profile_notice_version: z.string().max(40), cloud_sync_enabled: z.boolean(), reading_notice_version: z.string().max(40).nullable(), client_metadata:clientMetadataSchema.optional() }).strict();
 export const syncRequestSchema = z.object({ schema_version: z.literal(1), content_id: contentIdSchema, client_updated_at: z.iso.datetime({offset:true}), values: readingSchema, updater_metadata:updaterMetadataSchema.optional() }).strict();
 export type SyncRequest = z.infer<typeof syncRequestSchema>;
 

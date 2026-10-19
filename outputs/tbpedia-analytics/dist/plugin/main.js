@@ -6101,12 +6101,12 @@ var en_default2 = {
   \u4E0D\u9858\u900F\u9732: "Prefer not to say",
   language: "UI language",
   languageHelp: "Changes apply to settings and new reading windows immediately. Command names update after reloading the plugin.",
-  connected: "Connected: {name}",
+  connected: "Hi {name} Connected successfully.",
   connectionStatus: "Connected: {name}. Cloud reading permission: {permission}.",
   preview: "Pending: {pending}; unchanged: {unchanged}; needs correction: {invalid}. Only reading fields, including reflections, will be uploaded.",
   summary: "Saved: {saved}; unchanged: {unchanged}; invalid: {invalid}; incomplete: {remaining}.",
   changedDuringUpload: "Changes were made during upload. Sync again to upload them.",
-  profileNotice: "Your profile is stored locally. Only Save and upload profile sends it to True Buddha Pedia Analytics database. It includes your nickname and any optional email, birth year/month, sex, country, reader type and organisation you provide, for reader management and future reading statistics. These fields are not written into articles. You can edit your profile or ask the administrator to delete cloud data. Each profile upload also sends your device type, plugin version, operating system and user-agent string for compatibility and troubleshooting. Only the device details from your latest profile upload are kept; no hardware identifiers are collected.",
+  profileNotice: "Your profile is stored locally. Only Save and upload profile sends it to True Buddha Pedia Analytics database. It includes your nickname and your email, birth year/month, sex, country, reader type and organisation you provide, for reader management and future reading statistics. These fields are not written into articles. You can edit your profile or ask the administrator to delete cloud data. Each profile upload also sends your device type, plugin version, operating system and user-agent string for compatibility and troubleshooting. Only the device details from your latest profile upload are kept; no hardware identifiers are collected. Complete every profile field and select at least one reader type before saving or uploading.",
   readingNotice: "When I accepted the reading data upload notice, only reading data you manually sync is sent to True Buddha Pedia Analytics database in the cloud, including reading progress, dates, ratings, recommended for keywords, Sub topic, classification for reader type, Buddhist knowledge level and practice level. Article bodies and unrelated properties are not uploaded. Disabling uploads stops future uploads but does not delete existing cloud data. Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
   noticeUnavailable: "This server requires a newer privacy notice. Update the plugin before accepting it or uploading.",
   invalidField: "Check this field's value and format.",
@@ -6158,7 +6158,25 @@ var en_default2 = {
   connectionAvailable: "Connection successful. Cloud storage is available.",
   recordReading: "Record my reading data",
   syncReadingCloud: "Sync reading data to cloud",
-  readingContentIdRequired: "This note needs a valid tbpedia_content_id in its frontmatter before you can record reading data."
+  readingContentIdRequired: "This note needs a valid tbpedia_content_id in its frontmatter before you can record reading data.",
+  requiredSuffix: "(required)",
+  profileRequiredHelp: "Complete every profile field and select at least one reader type before saving or uploading.",
+  readerTypesRequired: "Select at least one reader type.",
+  readerId: "Reader ID",
+  syncCredential: "Sync credential",
+  syncCredentialHelp: "Use the private sync credential from your existing vault. Keep it private; a reader ID alone cannot restore your account.",
+  copySyncCredential: "Copy sync credential",
+  credentialCopied: "Sync credential copied.",
+  readerSetup: "Reader setup",
+  newReader: "Register a new reader",
+  existingReader: "Connect an existing reader",
+  connectExistingReader: "Connect existing reader",
+  newReaderHelp: "Complete the profile below, then choose Save and upload profile to register with a new reader ID.",
+  readerAlreadyLinked: "This vault is already linked to a reader.",
+  readerOperationBusy: "Another reader operation is in progress. Try again when it finishes.",
+  readerIdInvalid: "Enter a valid reader ID.",
+  readerCredentialRequired: "Enter the existing reader\u2019s valid sync credential.",
+  readerIdentityMismatch: "The reader ID does not match this sync credential."
 };
 
 // plugin/locales/ja.json
@@ -6288,12 +6306,12 @@ var ja_default = {
   \u4E0D\u9858\u900F\u9732: "\u56DE\u7B54\u3057\u306A\u3044",
   language: "UI\u8A00\u8A9E",
   languageHelp: "\u5909\u66F4\u306F\u8A2D\u5B9A\u3068\u65B0\u3057\u3044\u8AAD\u66F8\u30A6\u30A3\u30F3\u30C9\u30A6\u306B\u3059\u3050\u306B\u9069\u7528\u3055\u308C\u307E\u3059\u3002\u30B3\u30DE\u30F3\u30C9\u540D\u306F\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u30EA\u30ED\u30FC\u30C9\u3059\u308B\u3068\u66F4\u65B0\u3055\u308C\u307E\u3059\u3002",
-  connected: "\u63A5\u7D9A\u6E08\u307F: {name}",
+  connected: "\u3053\u3093\u306B\u3061\u306F {name}\u3001\u63A5\u7D9A\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002",
   connectionStatus: "\u63A5\u7D9A\u6E08\u307F: {name}\u3002\u30AF\u30E9\u30A6\u30C9\u8AAD\u66F8\u6A29\u9650: {permission}\u3002",
   preview: "\u4FDD\u7559\u4E2D: {pending};\u5909\u66F4\u306A\u3057: {unchanged};\u4FEE\u6B63\u304C\u5FC5\u8981\u3067\u3059: {invalid}\u3002\u611F\u60F3\u3092\u542B\u3080\u8AAD\u66F8\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u307F\u304C\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u3059\u3002",
   summary: "\u4FDD\u5B58\u6E08\u307F: {saved};\u5909\u66F4\u306A\u3057: {unchanged};\u7121\u52B9: {invalid};\u4E0D\u5B8C\u5168: {remaining}\u3002",
   changedDuringUpload: "\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u4E2D\u306B\u5909\u66F4\u304C\u52A0\u3048\u3089\u308C\u307E\u3057\u305F\u3002\u518D\u5EA6\u540C\u671F\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3057\u307E\u3059\u3002",
-  profileNotice: "\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u307E\u3059\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u4FDD\u5B58\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u3060\u3051\u3067\u3001\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u304C True Buddha Pedia Analytics \u30C7\u30FC\u30BF\u30D9\u30FC\u30B9 \u306B\u9001\u4FE1\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u306B\u306F\u3001\u8AAD\u8005\u306E\u7BA1\u7406\u3068\u5C06\u6765\u306E\u8AAD\u66F8\u7D71\u8A08\u306E\u305F\u3081\u306B\u3001\u30CB\u30C3\u30AF\u30CD\u30FC\u30E0\u3068\u30AA\u30D7\u30B7\u30E7\u30F3\u306E\u96FB\u5B50\u30E1\u30FC\u30EB\u3001\u8A95\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u56FD\u3001\u8AAD\u8005\u306E\u7A2E\u985E\u3001\u7D44\u7E54\u304C\u63D0\u4F9B\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u3089\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306F\u8A18\u4E8B\u306B\u306F\u66F8\u304D\u8FBC\u307E\u308C\u307E\u305B\u3093\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u7DE8\u96C6\u3057\u305F\u308A\u3001\u7BA1\u7406\u8005\u306B\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306E\u524A\u9664\u3092\u4F9D\u983C\u3057\u305F\u308A\u3067\u304D\u307E\u3059\u3002 \u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u305F\u3073\u306B\u3001\u4E92\u63DB\u6027\u306E\u78BA\u8A8D\u3068\u554F\u984C\u306E\u8ABF\u67FB\u306E\u305F\u3081\u3001\u7AEF\u672B\u306E\u7A2E\u985E\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001OS\u3001\u30E6\u30FC\u30B6\u30FC\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u6587\u5B57\u5217\u3082\u9001\u4FE1\u3057\u307E\u3059\u3002\u6700\u65B0\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u6642\u306E\u7AEF\u672B\u60C5\u5831\u306E\u307F\u3092\u4FDD\u6301\u3057\u3001\u30CF\u30FC\u30C9\u30A6\u30A7\u30A2\u8B58\u5225\u5B50\u306F\u53CE\u96C6\u3057\u307E\u305B\u3093\u3002",
+  profileNotice: "\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u306F\u30ED\u30FC\u30AB\u30EB\u306B\u4FDD\u5B58\u3055\u308C\u307E\u3059\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u4FDD\u5B58\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u3060\u3051\u3067\u3001\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u304C True Buddha Pedia Analytics \u30C7\u30FC\u30BF\u30D9\u30FC\u30B9 \u306B\u9001\u4FE1\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u306B\u306F\u3001\u8AAD\u8005\u306E\u7BA1\u7406\u3068\u5C06\u6765\u306E\u8AAD\u66F8\u7D71\u8A08\u306E\u305F\u3081\u306B\u3001\u30CB\u30C3\u30AF\u30CD\u30FC\u30E0\u3068\u96FB\u5B50\u30E1\u30FC\u30EB\u3001\u8A95\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u56FD\u3001\u8AAD\u8005\u306E\u7A2E\u985E\u3001\u7D44\u7E54\u304C\u63D0\u4F9B\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u3089\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306F\u8A18\u4E8B\u306B\u306F\u66F8\u304D\u8FBC\u307E\u308C\u307E\u305B\u3093\u3002\u30D7\u30ED\u30D5\u30A1\u30A4\u30EB\u3092\u7DE8\u96C6\u3057\u305F\u308A\u3001\u7BA1\u7406\u8005\u306B\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306E\u524A\u9664\u3092\u4F9D\u983C\u3057\u305F\u308A\u3067\u304D\u307E\u3059\u3002 \u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u305F\u3073\u306B\u3001\u4E92\u63DB\u6027\u306E\u78BA\u8A8D\u3068\u554F\u984C\u306E\u8ABF\u67FB\u306E\u305F\u3081\u3001\u7AEF\u672B\u306E\u7A2E\u985E\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001OS\u3001\u30E6\u30FC\u30B6\u30FC\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u6587\u5B57\u5217\u3082\u9001\u4FE1\u3057\u307E\u3059\u3002\u6700\u65B0\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u6642\u306E\u7AEF\u672B\u60C5\u5831\u306E\u307F\u3092\u4FDD\u6301\u3057\u3001\u30CF\u30FC\u30C9\u30A6\u30A7\u30A2\u8B58\u5225\u5B50\u306F\u53CE\u96C6\u3057\u307E\u305B\u3093\u3002 \u4FDD\u5B58\u307E\u305F\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u524D\u306B\u3001\u3059\u3079\u3066\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u9805\u76EE\u3092\u5165\u529B\u3057\u3001\u8AAD\u8005\u30BF\u30A4\u30D7\u30921\u3064\u4EE5\u4E0A\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   readingNotice: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u306B\u95A2\u3059\u308B\u8AAC\u660E\u306B\u540C\u610F\u3059\u308B\u3068\u3001\u624B\u52D5\u3067\u540C\u671F\u3057\u305F\u8AAD\u66F8\u30C7\u30FC\u30BF\u306E\u307F\u304C\u30AF\u30E9\u30A6\u30C9\u4E0A\u306E True Buddha Pedia Analytics \u30C7\u30FC\u30BF\u30D9\u30FC\u30B9\u306B\u9001\u4FE1\u3055\u308C\u307E\u3059\u3002\u3053\u308C\u306B\u306F\u3001\u8AAD\u66F8\u306E\u9032\u6357\u3001\u65E5\u4ED8\u3001\u8A55\u4FA1\u3001\u304A\u3059\u3059\u3081\u3001\u30AD\u30FC\u30EF\u30FC\u30C9\u3001\u30B5\u30D6\u30C8\u30D4\u30C3\u30AF\u3001\u8AAD\u8005\u30BF\u30A4\u30D7\u306E\u5206\u985E\u3001\u4ECF\u6559\u77E5\u8B58\u30EC\u30D9\u30EB\u3001\u4FEE\u884C\u30EC\u30D9\u30EB\u304C\u542B\u307E\u308C\u307E\u3059\u3002 \u8A18\u4E8B\u672C\u6587\u3084\u95A2\u9023\u306E\u306A\u3044\u30D7\u30ED\u30D1\u30C6\u30A3\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3055\u308C\u307E\u305B\u3093\u3002\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u7121\u52B9\u306B\u3059\u308B\u3068\u3001\u4ECA\u5F8C\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u306F\u505C\u6B62\u3055\u308C\u307E\u3059\u304C\u3001\u65E2\u5B58\u306E\u30AF\u30E9\u30A6\u30C9 \u30C7\u30FC\u30BF\u306F\u524A\u9664\u3055\u308C\u307E\u305B\u3093\u3002 \u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002",
   noticeUnavailable: "\u30B5\u30FC\u30D0\u30FC\u304C\u65B0\u3057\u3044\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u901A\u77E5\u3078\u306E\u540C\u610F\u3092\u6C42\u3081\u3066\u3044\u307E\u3059\u3002\u540C\u610F\u307E\u305F\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u524D\u306B\u3001\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u66F4\u65B0\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   invalidField: "\u3053\u306E\u30D5\u30A3\u30FC\u30EB\u30C9\u306E\u5024\u3068\u5F62\u5F0F\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
@@ -6345,7 +6363,25 @@ var ja_default = {
   connectionAvailable: "\u63A5\u7D9A\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002\u30AF\u30E9\u30A6\u30C9\u4FDD\u5B58\u3092\u5229\u7528\u3067\u304D\u307E\u3059\u3002",
   recordReading: "\u81EA\u5206\u306E\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u8A18\u9332",
   syncReadingCloud: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u30AF\u30E9\u30A6\u30C9\u306B\u540C\u671F",
-  readingContentIdRequired: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u8A18\u9332\u3059\u308B\u306B\u306F\u3001\u30CE\u30FC\u30C8\u306E\u30D5\u30ED\u30F3\u30C8\u30DE\u30BF\u30FC\u306B\u6709\u52B9\u306A tbpedia_content_id \u304C\u5FC5\u8981\u3067\u3059\u3002"
+  readingContentIdRequired: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u8A18\u9332\u3059\u308B\u306B\u306F\u3001\u30CE\u30FC\u30C8\u306E\u30D5\u30ED\u30F3\u30C8\u30DE\u30BF\u30FC\u306B\u6709\u52B9\u306A tbpedia_content_id \u304C\u5FC5\u8981\u3067\u3059\u3002",
+  requiredSuffix: "\uFF08\u5FC5\u9808\uFF09",
+  profileRequiredHelp: "\u4FDD\u5B58\u307E\u305F\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u524D\u306B\u3001\u3059\u3079\u3066\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u9805\u76EE\u3092\u5165\u529B\u3057\u3001\u8AAD\u8005\u30BF\u30A4\u30D7\u30921\u3064\u4EE5\u4E0A\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  readerTypesRequired: "\u8AAD\u8005\u30BF\u30A4\u30D7\u30921\u3064\u4EE5\u4E0A\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  readerId: "\u8AAD\u8005ID",
+  syncCredential: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831",
+  syncCredentialHelp: "\u65E2\u5B58\u306E\u4FDD\u7BA1\u5EAB\u306E\u975E\u516C\u958B\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u4F7F\u7528\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8AAD\u8005ID\u3060\u3051\u3067\u306F\u5FA9\u5143\u3067\u304D\u307E\u305B\u3093\u3002",
+  copySyncCredential: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u30B3\u30D4\u30FC",
+  credentialCopied: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F\u3002",
+  readerSetup: "\u8AAD\u8005\u306E\u8A2D\u5B9A",
+  newReader: "\u65B0\u3057\u3044\u8AAD\u8005\u3092\u767B\u9332",
+  existingReader: "\u65E2\u5B58\u306E\u8AAD\u8005\u306B\u63A5\u7D9A",
+  connectExistingReader: "\u65E2\u5B58\u306E\u8AAD\u8005\u306B\u63A5\u7D9A",
+  newReaderHelp: "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u5165\u529B\u3057\u3001\u4FDD\u5B58\u3057\u3066\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u3068\u65B0\u3057\u3044\u8AAD\u8005ID\u3067\u767B\u9332\u3055\u308C\u307E\u3059\u3002",
+  readerAlreadyLinked: "\u3053\u306E\u4FDD\u7BA1\u5EAB\u306F\u3059\u3067\u306B\u8AAD\u8005\u306B\u63A5\u7D9A\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
+  readerOperationBusy: "\u51E6\u7406\u4E2D\u3067\u3059\u3002\u5B8C\u4E86\u5F8C\u306B\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  readerIdInvalid: "\u6709\u52B9\u306A\u8AAD\u8005ID\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  readerCredentialRequired: "\u65E2\u5B58\u306E\u8AAD\u8005\u306E\u6709\u52B9\u306A\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  readerIdentityMismatch: "\u8AAD\u8005ID\u304C\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3068\u4E00\u81F4\u3057\u307E\u305B\u3093\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6475,12 +6511,12 @@ var fr_default = {
   \u4E0D\u9858\u900F\u9732: "Je pr\xE9f\xE8re ne pas dire",
   language: "Langue de l'interface utilisateur",
   languageHelp: "Les modifications s\u2019appliquent imm\xE9diatement aux param\xE8tres et aux nouvelles fen\xEAtres de lecture. Les noms des commandes sont mis \xE0 jour apr\xE8s le rechargement du plugin.",
-  connected: "Connect\xE9\xA0: {name}",
+  connected: "Bonjour {name}, connexion r\xE9ussie.",
   connectionStatus: "Connect\xE9\xA0: {name}. Autorisation de lecture du cloud\xA0: {permission}.",
   preview: "En attente\xA0: {pending}\xA0; inchang\xE9\xA0: {unchanged}\xA0; doit \xEAtre corrig\xE9\xA0: {invalid}. Seuls les champs de lecture, y compris les r\xE9flexions, seront t\xE9l\xE9vers\xE9s.",
   summary: "Enregistr\xE9\xA0: {saved}\xA0; inchang\xE9\xA0: {unchanged}\xA0; invalide\xA0: {invalid}\xA0; incomplet : {remaining}.",
   changedDuringUpload: "Des modifications ont \xE9t\xE9 apport\xE9es lors du t\xE9l\xE9versement. Synchronisez \xE0 nouveau pour les t\xE9l\xE9verser.",
-  profileNotice: "Votre profil est conserv\xE9 localement. Seul le bouton \xAB Enregistrer et t\xE9l\xE9verser le profil \xBB l\u2019envoie \xE0 la base de donn\xE9es True Buddha Pedia Analytics. Il comprend votre pseudonyme et les renseignements facultatifs fournis : courriel, ann\xE9e et mois de naissance, sexe, pays, type de lecteur et organisation. Ils servent \xE0 g\xE9rer les lecteurs et aux futures statistiques de lecture. Ces champs ne sont pas ajout\xE9s aux articles. Vous pouvez modifier votre profil ou demander \xE0 l\u2019administrateur de supprimer les donn\xE9es dans le cloud. Chaque t\xE9l\xE9versement du profil transmet aussi le type d\u2019appareil, la version du module, le syst\xE8me d\u2019exploitation et la cha\xEEne d\u2019agent utilisateur pour la compatibilit\xE9 et le d\xE9pannage. Seules les informations de l\u2019appareil du dernier t\xE9l\xE9versement du profil sont conserv\xE9es ; aucun identifiant mat\xE9riel n\u2019est collect\xE9.",
+  profileNotice: "Votre profil est conserv\xE9 localement. Seul le bouton \xAB Enregistrer et t\xE9l\xE9verser le profil \xBB l\u2019envoie \xE0 la base de donn\xE9es True Buddha Pedia Analytics. Il comprend votre pseudonyme et les renseignements fournis : courriel, ann\xE9e et mois de naissance, sexe, pays, type de lecteur et organisation. Ils servent \xE0 g\xE9rer les lecteurs et aux futures statistiques de lecture. Ces champs ne sont pas ajout\xE9s aux articles. Vous pouvez modifier votre profil ou demander \xE0 l\u2019administrateur de supprimer les donn\xE9es dans le cloud. Chaque t\xE9l\xE9versement du profil transmet aussi le type d\u2019appareil, la version du module, le syst\xE8me d\u2019exploitation et la cha\xEEne d\u2019agent utilisateur pour la compatibilit\xE9 et le d\xE9pannage. Seules les informations de l\u2019appareil du dernier t\xE9l\xE9versement du profil sont conserv\xE9es ; aucun identifiant mat\xE9riel n\u2019est collect\xE9. Remplissez tous les champs du profil et s\xE9lectionnez au moins un type de lecteur avant de sauvegarder ou de t\xE9l\xE9verser.",
   readingNotice: "Apr\xE8s acceptation de la notice de t\xE9l\xE9versement des donn\xE9es de lecture, seules les donn\xE9es que vous synchronisez manuellement sont envoy\xE9es \xE0 la base de donn\xE9es True Buddha Pedia Analytics dans le cloud : progression de lecture, dates, notes, recommandations, mots-cl\xE9s, sous-th\xE8mes, classifications par type de lecteur, niveau de connaissances bouddhiques et niveau de pratique. Les corps des articles et les propri\xE9t\xE9s non li\xE9es ne sont pas t\xE9l\xE9vers\xE9s. La d\xE9sactivation des t\xE9l\xE9versements arr\xEAte les futurs t\xE9l\xE9versements mais ne supprime pas les donn\xE9es cloud existantes. Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e.",
   noticeUnavailable: "Le serveur exige une nouvelle notice de confidentialit\xE9. Mettez \xE0 jour le module avant de donner votre accord ou de t\xE9l\xE9verser des donn\xE9es.",
   invalidField: "V\xE9rifiez la valeur et le format de ce champ.",
@@ -6532,7 +6568,25 @@ var fr_default = {
   connectionAvailable: "Connexion r\xE9ussie. Le stockage cloud est disponible.",
   recordReading: "Enregistrer mes donn\xE9es de lecture",
   syncReadingCloud: "Synchroniser les donn\xE9es de lecture vers le cloud",
-  readingContentIdRequired: "Cette note doit contenir un tbpedia_content_id valide dans son frontmatter pour enregistrer les donn\xE9es de lecture."
+  readingContentIdRequired: "Cette note doit contenir un tbpedia_content_id valide dans son frontmatter pour enregistrer les donn\xE9es de lecture.",
+  requiredSuffix: "(obligatoire)",
+  profileRequiredHelp: "Remplissez tous les champs du profil et s\xE9lectionnez au moins un type de lecteur avant de sauvegarder ou de t\xE9l\xE9verser.",
+  readerTypesRequired: "S\xE9lectionnez au moins un type de lecteur.",
+  readerId: "Identifiant du lecteur",
+  syncCredential: "Cl\xE9 de synchronisation",
+  syncCredentialHelp: "Utilisez la cl\xE9 priv\xE9e de votre coffre existant. Gardez-la secr\xE8te ; l\u2019identifiant seul ne suffit pas.",
+  copySyncCredential: "Copier la cl\xE9",
+  credentialCopied: "Cl\xE9 copi\xE9e.",
+  readerSetup: "Configuration du lecteur",
+  newReader: "Inscrire un nouveau lecteur",
+  existingReader: "Connecter un lecteur existant",
+  connectExistingReader: "Connecter le lecteur",
+  newReaderHelp: "Remplissez le profil puis enregistrez et t\xE9l\xE9versez-le pour obtenir un nouvel identifiant.",
+  readerAlreadyLinked: "Ce coffre est d\xE9j\xE0 li\xE9 \xE0 un lecteur.",
+  readerOperationBusy: "Une op\xE9ration est en cours. R\xE9essayez apr\xE8s sa fin.",
+  readerIdInvalid: "Saisissez un identifiant valide.",
+  readerCredentialRequired: "Saisissez la cl\xE9 de synchronisation valide du lecteur.",
+  readerIdentityMismatch: "L\u2019identifiant ne correspond pas \xE0 cette cl\xE9."
 };
 
 // plugin/locales/es.json
@@ -6662,12 +6716,12 @@ var es_default = {
   \u4E0D\u9858\u900F\u9732: "Prefiero no decir",
   language: "Idioma de la interfaz de usuario",
   languageHelp: "Los cambios se aplican inmediatamente a la configuraci\xF3n y a las nuevas ventanas de lectura. Los nombres de los comandos se actualizan despu\xE9s de recargar el complemento.",
-  connected: "Conectado: {name}",
+  connected: "Hola {name}, conexi\xF3n correcta.",
   connectionStatus: "Conectado: {name}. Permiso de lectura en la nube: {permission}.",
   preview: "Pendiente: {pending}; sin cambios: {unchanged}; necesita correcci\xF3n: {invalid}. S\xF3lo se cargar\xE1n campos de lectura, incluidas las reflexiones.",
   summary: "Guardado: {saved}; sin cambios: {unchanged}; no v\xE1lido: {invalid}; incompleto: {remaining}.",
   changedDuringUpload: "Se realizaron cambios durante la carga. Sincroniza nuevamente para subirlos.",
-  profileNotice: "Su perfil se almacena localmente. Solo Guardar y cargar el perfil lo env\xEDa a la base de datos True Buddha Pedia Analytics. Incluye su apodo y cualquier correo electr\xF3nico opcional, a\xF1o/mes de nacimiento, sexo, pa\xEDs, tipo de lector y organizaci\xF3n que proporcione, para la gesti\xF3n de lectores y estad\xEDsticas de lectura futuras. Estos campos no est\xE1n escritos en art\xEDculos. Puede editar su perfil o pedirle al administrador que elimine los datos de la nube. Cada carga del perfil tambi\xE9n env\xEDa el tipo de dispositivo, la versi\xF3n del complemento, el sistema operativo y la cadena de agente de usuario para comprobar la compatibilidad y resolver problemas. Solo se conservan los datos del dispositivo de la \xFAltima carga del perfil; no se recopilan identificadores de hardware.",
+  profileNotice: "Su perfil se almacena localmente. Solo Guardar y cargar el perfil lo env\xEDa a la base de datos True Buddha Pedia Analytics. Incluye su apodo y su correo electr\xF3nico, a\xF1o/mes de nacimiento, sexo, pa\xEDs, tipo de lector y organizaci\xF3n que proporcione, para la gesti\xF3n de lectores y estad\xEDsticas de lectura futuras. Estos campos no est\xE1n escritos en art\xEDculos. Puede editar su perfil o pedirle al administrador que elimine los datos de la nube. Cada carga del perfil tambi\xE9n env\xEDa el tipo de dispositivo, la versi\xF3n del complemento, el sistema operativo y la cadena de agente de usuario para comprobar la compatibilidad y resolver problemas. Solo se conservan los datos del dispositivo de la \xFAltima carga del perfil; no se recopilan identificadores de hardware. Completa todos los campos del perfil y selecciona al menos un tipo de lector antes de guardar o subir.",
   readingNotice: "Tras aceptar el aviso de carga de datos de lectura, solo los datos que sincroniza manualmente se env\xEDan a la base de datos True Buddha Pedia Analytics en la nube, incluidos el progreso de lectura, las fechas, las valoraciones, las recomendaciones, las palabras clave, los subtemas, las clasificaciones por tipo de lector, el nivel de conocimientos budistas y el nivel de pr\xE1ctica. Los cuerpos de los art\xEDculos y las propiedades no relacionadas no se cargan. Deshabilitar las cargas detiene las cargas futuras pero no elimina los datos existentes en la nube. Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada.",
   noticeUnavailable: "Este servidor requiere un aviso de privacidad m\xE1s reciente. Actualice el complemento antes de aceptarlo o cargarlo.",
   invalidField: "Verifique el valor y el formato de este campo.",
@@ -6719,7 +6773,25 @@ var es_default = {
   connectionAvailable: "Conexi\xF3n correcta. El almacenamiento en la nube est\xE1 disponible.",
   recordReading: "Registrar mis datos de lectura",
   syncReadingCloud: "Sincronizar datos de lectura con la nube",
-  readingContentIdRequired: "Esta nota necesita un tbpedia_content_id v\xE1lido en su frontmatter para registrar datos de lectura."
+  readingContentIdRequired: "Esta nota necesita un tbpedia_content_id v\xE1lido en su frontmatter para registrar datos de lectura.",
+  requiredSuffix: "(obligatorio)",
+  profileRequiredHelp: "Completa todos los campos del perfil y selecciona al menos un tipo de lector antes de guardar o subir.",
+  readerTypesRequired: "Selecciona al menos un tipo de lector.",
+  readerId: "ID de lector",
+  syncCredential: "Credencial de sincronizaci\xF3n",
+  syncCredentialHelp: "Usa la credencial privada de tu b\xF3veda existente. Mantenla en secreto; el ID no basta.",
+  copySyncCredential: "Copiar credencial",
+  credentialCopied: "Credencial copiada.",
+  readerSetup: "Configuraci\xF3n del lector",
+  newReader: "Registrar un lector nuevo",
+  existingReader: "Conectar un lector existente",
+  connectExistingReader: "Conectar lector existente",
+  newReaderHelp: "Completa el perfil y gu\xE1rdalo y s\xFAbelo para registrarte con un ID nuevo.",
+  readerAlreadyLinked: "Esta b\xF3veda ya est\xE1 vinculada a un lector.",
+  readerOperationBusy: "Hay una operaci\xF3n en curso. Int\xE9ntalo cuando termine.",
+  readerIdInvalid: "Introduce un ID de lector v\xE1lido.",
+  readerCredentialRequired: "Introduce la credencial de sincronizaci\xF3n v\xE1lida del lector.",
+  readerIdentityMismatch: "El ID no coincide con esta credencial."
 };
 
 // plugin/locales/de.json
@@ -6849,12 +6921,12 @@ var de_default = {
   \u4E0D\u9858\u900F\u9732: "Sag es lieber nicht",
   language: "UI-Sprache",
   languageHelp: "\xC4nderungen gelten sofort f\xFCr Einstellungen und neue Lesefenster. Befehlsnamen werden nach dem Neuladen des Plugins aktualisiert.",
-  connected: "Verbunden: {name}",
+  connected: "Hallo {name}, erfolgreich verbunden.",
   connectionStatus: "Verbunden: {name}. Cloud-Leseberechtigung: {permission}.",
   preview: "Ausstehend: {pending}; unver\xE4ndert: {unchanged}; Korrekturbedarf: {invalid}. Es werden nur Lesefelder inklusive Reflexionen hochgeladen.",
   summary: "Gespeichert: {saved}; unver\xE4ndert: {unchanged}; ung\xFCltig: {invalid}; unvollst\xE4ndig: {remaining}.",
   changedDuringUpload: "Beim Hochladen wurden \xC4nderungen vorgenommen. Synchronisieren Sie erneut, um sie hochzuladen.",
-  profileNotice: "Ihr Profil wird lokal gespeichert. Nur \u201EProfil speichern und hochladen\u201C sendet es an die True Buddha Pedia Analytics-Datenbank. Dazu geh\xF6ren Ihr Spitzname und alle optionalen E-Mail-Adressen, Geburtsjahr/-monat, Geschlecht, Land, Lesertyp und Organisation, die Sie f\xFCr die Leserverwaltung und zuk\xFCnftige Lesestatistiken angeben. Diese Felder werden nicht in Artikel geschrieben. Sie k\xF6nnen Ihr Profil bearbeiten oder den Administrator bitten, Cloud-Daten zu l\xF6schen. Bei jedem Profil-Upload werden auch Ger\xE4tetyp, Plugin-Version, Betriebssystem und User-Agent-Zeichenfolge zur Kompatibilit\xE4tspr\xFCfung und Fehlerbehebung gesendet. Gespeichert werden nur die Ger\xE4tedaten des letzten Profil-Uploads; Hardware-Kennungen werden nicht erfasst.",
+  profileNotice: "Ihr Profil wird lokal gespeichert. Nur \u201EProfil speichern und hochladen\u201C sendet es an die True Buddha Pedia Analytics-Datenbank. Dazu geh\xF6ren Ihr Spitzname und Ihre E-Mail-Adresse, Geburtsjahr/-monat, Geschlecht, Land, Lesertyp und Organisation, die Sie f\xFCr die Leserverwaltung und zuk\xFCnftige Lesestatistiken angeben. Diese Felder werden nicht in Artikel geschrieben. Sie k\xF6nnen Ihr Profil bearbeiten oder den Administrator bitten, Cloud-Daten zu l\xF6schen. Bei jedem Profil-Upload werden auch Ger\xE4tetyp, Plugin-Version, Betriebssystem und User-Agent-Zeichenfolge zur Kompatibilit\xE4tspr\xFCfung und Fehlerbehebung gesendet. Gespeichert werden nur die Ger\xE4tedaten des letzten Profil-Uploads; Hardware-Kennungen werden nicht erfasst. F\xFCllen Sie vor dem Speichern oder Hochladen alle Profilfelder aus und w\xE4hlen Sie mindestens einen Lesertyp.",
   readingNotice: "Nach Zustimmung zum Hinweis zum Hochladen von Lesedaten werden nur die manuell synchronisierten Lesedaten an die True Buddha Pedia Analytics-Datenbank in der Cloud gesendet. Dazu geh\xF6ren Lesefortschritt, Datumsangaben, Bewertungen, Empfehlungen, Schl\xFCsselw\xF6rter, Unterthemen, Einordnungen nach Lesertyp, buddhistischer Wissensstand und Praxisniveau. Artikeltexte und nicht verwandte Eigenschaften werden nicht hochgeladen. Durch das Deaktivieren von Uploads werden zuk\xFCnftige Uploads gestoppt, vorhandene Cloud-Daten werden jedoch nicht gel\xF6scht. Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
   noticeUnavailable: "F\xFCr diesen Server ist eine neuere Datenschutzerkl\xE4rung erforderlich. Aktualisieren Sie das Plugin, bevor Sie es akzeptieren oder hochladen.",
   invalidField: "\xDCberpr\xFCfen Sie den Wert und das Format dieses Feldes.",
@@ -6906,7 +6978,25 @@ var de_default = {
   connectionAvailable: "Verbindung erfolgreich. Cloud-Speicher ist verf\xFCgbar.",
   recordReading: "Meine Lesedaten erfassen",
   syncReadingCloud: "Lesedaten mit der Cloud synchronisieren",
-  readingContentIdRequired: "Diese Notiz ben\xF6tigt eine g\xFCltige tbpedia_content_id im Frontmatter, bevor Lesedaten erfasst werden k\xF6nnen."
+  readingContentIdRequired: "Diese Notiz ben\xF6tigt eine g\xFCltige tbpedia_content_id im Frontmatter, bevor Lesedaten erfasst werden k\xF6nnen.",
+  requiredSuffix: "(erforderlich)",
+  profileRequiredHelp: "F\xFCllen Sie vor dem Speichern oder Hochladen alle Profilfelder aus und w\xE4hlen Sie mindestens einen Lesertyp.",
+  readerTypesRequired: "W\xE4hlen Sie mindestens einen Lesertyp.",
+  readerId: "Leser-ID",
+  syncCredential: "Synchronisierungsschl\xFCssel",
+  syncCredentialHelp: "Verwenden Sie den privaten Schl\xFCssel Ihres bestehenden Vaults. Die Leser-ID allein reicht nicht aus.",
+  copySyncCredential: "Schl\xFCssel kopieren",
+  credentialCopied: "Schl\xFCssel kopiert.",
+  readerSetup: "Lesereinrichtung",
+  newReader: "Neuen Leser registrieren",
+  existingReader: "Bestehenden Leser verbinden",
+  connectExistingReader: "Bestehenden Leser verbinden",
+  newReaderHelp: "F\xFCllen Sie das Profil aus und speichern und laden Sie es hoch, um eine neue Leser-ID zu erhalten.",
+  readerAlreadyLinked: "Dieser Vault ist bereits mit einem Leser verkn\xFCpft.",
+  readerOperationBusy: "Ein Vorgang l\xE4uft. Versuchen Sie es danach erneut.",
+  readerIdInvalid: "Geben Sie eine g\xFCltige Leser-ID ein.",
+  readerCredentialRequired: "Geben Sie den g\xFCltigen Synchronisierungsschl\xFCssel des Lesers ein.",
+  readerIdentityMismatch: "Die Leser-ID passt nicht zu diesem Schl\xFCssel."
 };
 
 // plugin/locales/nl.json
@@ -7036,12 +7126,12 @@ var nl_default = {
   \u4E0D\u9858\u900F\u9732: "Zeg het liever niet",
   language: "UI-taal",
   languageHelp: "Wijzigingen zijn onmiddellijk van toepassing op instellingen en nieuwe leesvensters. Commandonamen worden bijgewerkt nadat de plug-in opnieuw is geladen.",
-  connected: "Aangesloten: {name}",
+  connected: "Hallo {name}, verbinding geslaagd.",
   connectionStatus: "Aangesloten: {name}. Toestemming voor cloudlezen: {permission}.",
   preview: "In behandeling: {pending}; ongewijzigd: {unchanged}; correctie nodig: {invalid}. Alleen leesvelden, inclusief reflecties, worden ge\xFCpload.",
   summary: "Opgeslagen: {saved}; ongewijzigd: {unchanged}; ongeldig: {invalid}; onvolledig: {remaining}.",
   changedDuringUpload: "Er zijn wijzigingen aangebracht tijdens het uploaden. Synchroniseer opnieuw om ze te uploaden.",
-  profileNotice: "Uw profiel wordt lokaal opgeslagen. Alleen het profiel Opslaan en uploaden stuurt het naar de True Buddha Pedia Analytics-database. Het omvat uw bijnaam en eventuele optionele e-mail, geboortejaar/maand, geslacht, land, lezerstype en organisatie die u opgeeft, voor lezersbeheer en toekomstige leesstatistieken. Deze velden worden niet in artikelen geschreven. U kunt uw profiel bewerken of de beheerder vragen cloudgegevens te verwijderen. Bij elke profielupload worden ook het apparaattype, de plug-inversie, het besturingssysteem en de user-agenttekenreeks verzonden voor compatibiliteit en probleemoplossing. Alleen de apparaatgegevens van de laatste profielupload worden bewaard; er worden geen hardware-identificatoren verzameld.",
+  profileNotice: "Uw profiel wordt lokaal opgeslagen. Alleen het profiel Opslaan en uploaden stuurt het naar de True Buddha Pedia Analytics-database. Het omvat uw bijnaam en uw e-mail, geboortejaar/maand, geslacht, land, lezerstype en organisatie die u opgeeft, voor lezersbeheer en toekomstige leesstatistieken. Deze velden worden niet in artikelen geschreven. U kunt uw profiel bewerken of de beheerder vragen cloudgegevens te verwijderen. Bij elke profielupload worden ook het apparaattype, de plug-inversie, het besturingssysteem en de user-agenttekenreeks verzonden voor compatibiliteit en probleemoplossing. Alleen de apparaatgegevens van de laatste profielupload worden bewaard; er worden geen hardware-identificatoren verzameld. Vul alle profielvelden in en selecteer minstens \xE9\xE9n lezerstype voordat u opslaat of uploadt.",
   readingNotice: "Na acceptatie van de kennisgeving over het uploaden van leesgegevens worden alleen de gegevens die u handmatig synchroniseert naar de True Buddha Pedia Analytics-database in de cloud verzonden, waaronder leesvoortgang, datums, beoordelingen, aanbevelingen, trefwoorden, subonderwerpen, indelingen naar lezerstype, boeddhistisch kennisniveau en beoefeningsniveau. Artikelteksten en niet-gerelateerde eigenschappen worden niet ge\xFCpload. Als u uploads uitschakelt, worden toekomstige uploads gestopt, maar worden bestaande cloudgegevens niet verwijderd. Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie.",
   noticeUnavailable: "Voor deze server is een nieuwere privacyverklaring vereist. Update de plug-in voordat u deze accepteert of uploadt.",
   invalidField: "Controleer de waarde en indeling van dit veld.",
@@ -7093,7 +7183,25 @@ var nl_default = {
   connectionAvailable: "Verbinding geslaagd. Cloudopslag is beschikbaar.",
   recordReading: "Mijn leesgegevens vastleggen",
   syncReadingCloud: "Leesgegevens synchroniseren met de cloud",
-  readingContentIdRequired: "Deze notitie heeft een geldige tbpedia_content_id in de frontmatter nodig om leesgegevens vast te leggen."
+  readingContentIdRequired: "Deze notitie heeft een geldige tbpedia_content_id in de frontmatter nodig om leesgegevens vast te leggen.",
+  requiredSuffix: "(verplicht)",
+  profileRequiredHelp: "Vul alle profielvelden in en selecteer minstens \xE9\xE9n lezerstype voordat u opslaat of uploadt.",
+  readerTypesRequired: "Selecteer minstens \xE9\xE9n lezerstype.",
+  readerId: "Lezer-ID",
+  syncCredential: "Synchronisatiesleutel",
+  syncCredentialHelp: "Gebruik de priv\xE9sleutel uit uw bestaande kluis. Houd deze geheim; alleen een lezer-ID is niet voldoende.",
+  copySyncCredential: "Sleutel kopi\xEBren",
+  credentialCopied: "Sleutel gekopieerd.",
+  readerSetup: "Lezer instellen",
+  newReader: "Nieuwe lezer registreren",
+  existingReader: "Bestaande lezer verbinden",
+  connectExistingReader: "Bestaande lezer verbinden",
+  newReaderHelp: "Vul het profiel in en sla het op en upload het om een nieuwe lezer-ID te krijgen.",
+  readerAlreadyLinked: "Deze kluis is al gekoppeld aan een lezer.",
+  readerOperationBusy: "Er loopt een bewerking. Probeer het daarna opnieuw.",
+  readerIdInvalid: "Voer een geldige lezer-ID in.",
+  readerCredentialRequired: "Voer de geldige synchronisatiesleutel van de lezer in.",
+  readerIdentityMismatch: "De lezer-ID komt niet overeen met deze sleutel."
 };
 
 // plugin/locales/sv.json
@@ -7223,12 +7331,12 @@ var sv_default = {
   \u4E0D\u9858\u900F\u9732: "F\xF6redrar att inte s\xE4ga",
   language: "UI-spr\xE5k",
   languageHelp: "\xC4ndringar g\xE4ller inst\xE4llningar och nya l\xE4sf\xF6nster omedelbart. Kommandonamn uppdateras efter att plugin-programmet laddats om.",
-  connected: "Ansluten: {name}",
+  connected: "Hej {name}, anslutningen lyckades.",
   connectionStatus: "Ansluten: {name}. Molnl\xE4sningsbeh\xF6righet: {permission}.",
   preview: "V\xE4ntande: {pending}; of\xF6r\xE4ndrad: {unchanged}; beh\xF6ver korrigering: {invalid}. Endast l\xE4sf\xE4lt, inklusive reflektioner, kommer att laddas upp.",
   summary: "Sparad: {saved}; of\xF6r\xE4ndrad: {unchanged}; ogiltig: {invalid}; ofullst\xE4ndig: {remaining}.",
   changedDuringUpload: "\xC4ndringar gjordes under uppladdningen. Synkronisera igen f\xF6r att ladda upp dem.",
-  profileNotice: "Din profil lagras lokalt. Endast Spara och ladda upp profil skickar den till databasen True Buddha Pedia Analytics. Det inkluderar ditt smeknamn och valfri e-post, f\xF6delse\xE5r/m\xE5nad, k\xF6n, land, l\xE4sartyp och organisation du tillhandah\xE5ller, f\xF6r l\xE4sarhantering och framtida l\xE4sstatistik. Dessa f\xE4lt \xE4r inte inskrivna i artiklar. Du kan redigera din profil eller be administrat\xF6ren att radera molndata. Varje profiluppladdning skickar \xE4ven enhetstyp, till\xE4ggsversion, operativsystem och anv\xE4ndaragentstr\xE4ng f\xF6r kompatibilitet och fels\xF6kning. Endast enhetsuppgifterna fr\xE5n den senaste profiluppladdningen sparas; inga maskinvaruidentifierare samlas in.",
+  profileNotice: "Din profil lagras lokalt. Endast Spara och ladda upp profil skickar den till databasen True Buddha Pedia Analytics. Det inkluderar ditt smeknamn och e-post, f\xF6delse\xE5r/m\xE5nad, k\xF6n, land, l\xE4sartyp och organisation du tillhandah\xE5ller, f\xF6r l\xE4sarhantering och framtida l\xE4sstatistik. Dessa f\xE4lt \xE4r inte inskrivna i artiklar. Du kan redigera din profil eller be administrat\xF6ren att radera molndata. Varje profiluppladdning skickar \xE4ven enhetstyp, till\xE4ggsversion, operativsystem och anv\xE4ndaragentstr\xE4ng f\xF6r kompatibilitet och fels\xF6kning. Endast enhetsuppgifterna fr\xE5n den senaste profiluppladdningen sparas; inga maskinvaruidentifierare samlas in. Fyll i alla profilf\xE4lt och v\xE4lj minst en l\xE4sartyp innan du sparar eller laddar upp.",
   readingNotice: "N\xE4r du har godk\xE4nt informationen om uppladdning av l\xE4sdata skickas endast de l\xE4sdata som du synkroniserar manuellt till databasen True Buddha Pedia Analytics i molnet. Detta omfattar l\xE4sframsteg, datum, betyg, rekommendationer, nyckelord, under\xE4mnen, klassificeringar efter l\xE4sartyp, buddhistisk kunskapsniv\xE5 och ut\xF6vningsniv\xE5. Artikeltexter och icke-relaterade egenskaper laddas inte upp. Om du inaktiverar uppladdningar stoppas framtida uppladdningar men befintlig molndata raderas inte. L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel.",
   noticeUnavailable: "Den h\xE4r servern kr\xE4ver ett nyare sekretessmeddelande. Uppdatera plugin-programmet innan du accepterar det eller laddar upp det.",
   invalidField: "Kontrollera detta f\xE4lts v\xE4rde och format.",
@@ -7280,7 +7388,25 @@ var sv_default = {
   connectionAvailable: "Anslutningen lyckades. Molnlagring \xE4r tillg\xE4nglig.",
   recordReading: "Registrera mina l\xE4sdata",
   syncReadingCloud: "Synkronisera l\xE4sdata till molnet",
-  readingContentIdRequired: "Anteckningen beh\xF6ver ett giltigt tbpedia_content_id i frontmatter innan l\xE4sdata kan registreras."
+  readingContentIdRequired: "Anteckningen beh\xF6ver ett giltigt tbpedia_content_id i frontmatter innan l\xE4sdata kan registreras.",
+  requiredSuffix: "(obligatoriskt)",
+  profileRequiredHelp: "Fyll i alla profilf\xE4lt och v\xE4lj minst en l\xE4sartyp innan du sparar eller laddar upp.",
+  readerTypesRequired: "V\xE4lj minst en l\xE4sartyp.",
+  readerId: "L\xE4sar-ID",
+  syncCredential: "Synkroniseringsnyckel",
+  syncCredentialHelp: "Anv\xE4nd den privata nyckeln fr\xE5n ditt befintliga valv. H\xE5ll den hemlig; enbart l\xE4sar-ID r\xE4cker inte.",
+  copySyncCredential: "Kopiera nyckel",
+  credentialCopied: "Nyckeln kopierad.",
+  readerSetup: "L\xE4sarinst\xE4llning",
+  newReader: "Registrera ny l\xE4sare",
+  existingReader: "Anslut befintlig l\xE4sare",
+  connectExistingReader: "Anslut befintlig l\xE4sare",
+  newReaderHelp: "Fyll i profilen och spara och ladda upp den f\xF6r att f\xE5 ett nytt l\xE4sar-ID.",
+  readerAlreadyLinked: "Valvet \xE4r redan kopplat till en l\xE4sare.",
+  readerOperationBusy: "En \xE5tg\xE4rd p\xE5g\xE5r. F\xF6rs\xF6k igen n\xE4r den \xE4r klar.",
+  readerIdInvalid: "Ange ett giltigt l\xE4sar-ID.",
+  readerCredentialRequired: "Ange l\xE4sarens giltiga synkroniseringsnyckel.",
+  readerIdentityMismatch: "L\xE4sar-ID st\xE4mmer inte med denna nyckel."
 };
 
 // plugin/locales/ko.json
@@ -7410,12 +7536,12 @@ var ko_default = {
   \u4E0D\u9858\u900F\u9732: "\uB9D0\uD558\uC9C0 \uC54A\uB294 \uAC83\uC774 \uC88B\uC2B5\uB2C8\uB2E4",
   language: "UI \uC5B8\uC5B4",
   languageHelp: "\uBCC0\uACBD\uC0AC\uD56D\uC740 \uC124\uC815 \uBC0F \uC0C8 \uC77D\uAE30 \uCC3D\uC5D0 \uC989\uC2DC \uC801\uC6A9\uB429\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uB85C\uB4DC\uD55C \uD6C4 \uBA85\uB839 \uC774\uB984\uC774 \uC5C5\uB370\uC774\uD2B8\uB429\uB2C8\uB2E4.",
-  connected: "\uC5F0\uACB0\uB428: {name}",
+  connected: "\uC548\uB155\uD558\uC138\uC694 {name}, \uC5F0\uACB0\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4.",
   connectionStatus: "\uC5F0\uACB0\uB428: {name}. \uD074\uB77C\uC6B0\uB4DC \uC77D\uAE30 \uAD8C\uD55C: {permission}.",
   preview: "\uBCF4\uB958 \uC911: {pending}; \uBCC0\uACBD\uB418\uC9C0 \uC54A\uC74C: {unchanged}; \uC218\uC815 \uD544\uC694: {invalid}. \uBC18\uC131\uC744 \uD3EC\uD568\uD55C \uC77D\uAE30 \uD544\uB4DC\uB9CC \uC5C5\uB85C\uB4DC\uB429\uB2C8\uB2E4.",
   summary: "\uC800\uC7A5\uB428: {saved}; \uBCC0\uACBD\uB418\uC9C0 \uC54A\uC74C: {unchanged}; \uC720\uD6A8\uD558\uC9C0 \uC54A\uC74C: {invalid}; \uBD88\uC644\uC804: {remaining}.",
   changedDuringUpload: "\uC5C5\uB85C\uB4DC \uC911\uC5D0 \uBCC0\uACBD\uC0AC\uD56D\uC774 \uBC1C\uC0DD\uD588\uC2B5\uB2C8\uB2E4. \uC5C5\uB85C\uB4DC\uD558\uB824\uBA74 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
-  profileNotice: "\uADC0\uD558\uC758 \uD504\uB85C\uD544\uC740 \uB85C\uCEEC\uC5D0 \uC800\uC7A5\uB429\uB2C8\uB2E4. \uD504\uB85C\uD544 \uC800\uC7A5 \uBC0F \uC5C5\uB85C\uB4DC\uB9CC True Buddha Pedia Analytics \uB370\uC774\uD130\uBCA0\uC774\uC2A4\uB85C \uBCF4\uB0C5\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC790 \uAD00\uB9AC \uBC0F \uD5A5\uD6C4 \uB3C5\uC11C \uD1B5\uACC4\uB97C \uC704\uD574 \uADC0\uD558\uC758 \uB2C9\uB124\uC784\uACFC \uC120\uD0DD\uC801 \uC774\uBA54\uC77C, \uC0DD\uB144\uC6D4\uC77C, \uC131\uBCC4, \uAD6D\uAC00, \uB3C5\uC790 \uC720\uD615 \uBC0F \uADC0\uD558\uAC00 \uC81C\uACF5\uD558\uB294 \uC870\uC9C1\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uC774\uB7EC\uD55C \uD544\uB4DC\uB294 \uAE30\uC0AC\uC5D0 \uAE30\uB85D\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uD3B8\uC9D1\uD558\uAC70\uB098 \uAD00\uB9AC\uC790\uC5D0\uAC8C \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130 \uC0AD\uC81C\uB97C \uC694\uCCAD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uC5C5\uB85C\uB4DC\uD560 \uB54C\uB9C8\uB2E4 \uD638\uD658\uC131 \uD655\uC778\uACFC \uBB38\uC81C \uD574\uACB0\uC744 \uC704\uD574 \uAE30\uAE30 \uC720\uD615, \uD50C\uB7EC\uADF8\uC778 \uBC84\uC804, \uC6B4\uC601 \uCCB4\uC81C \uBC0F \uC0AC\uC6A9\uC790 \uC5D0\uC774\uC804\uD2B8 \uBB38\uC790\uC5F4\uB3C4 \uC804\uC1A1\uD569\uB2C8\uB2E4. \uAC00\uC7A5 \uCD5C\uADFC \uD504\uB85C\uD544 \uC5C5\uB85C\uB4DC\uC758 \uAE30\uAE30 \uC815\uBCF4\uB9CC \uC800\uC7A5\uD558\uBA70 \uD558\uB4DC\uC6E8\uC5B4 \uC2DD\uBCC4\uC790\uB294 \uC218\uC9D1\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4.",
+  profileNotice: "\uADC0\uD558\uC758 \uD504\uB85C\uD544\uC740 \uB85C\uCEEC\uC5D0 \uC800\uC7A5\uB429\uB2C8\uB2E4. \uD504\uB85C\uD544 \uC800\uC7A5 \uBC0F \uC5C5\uB85C\uB4DC\uB9CC True Buddha Pedia Analytics \uB370\uC774\uD130\uBCA0\uC774\uC2A4\uB85C \uBCF4\uB0C5\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC790 \uAD00\uB9AC \uBC0F \uD5A5\uD6C4 \uB3C5\uC11C \uD1B5\uACC4\uB97C \uC704\uD574 \uADC0\uD558\uC758 \uB2C9\uB124\uC784\uACFC \uC774\uBA54\uC77C, \uC0DD\uB144\uC6D4\uC77C, \uC131\uBCC4, \uAD6D\uAC00, \uB3C5\uC790 \uC720\uD615 \uBC0F \uADC0\uD558\uAC00 \uC81C\uACF5\uD558\uB294 \uC870\uC9C1\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uC774\uB7EC\uD55C \uD544\uB4DC\uB294 \uAE30\uC0AC\uC5D0 \uAE30\uB85D\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uD3B8\uC9D1\uD558\uAC70\uB098 \uAD00\uB9AC\uC790\uC5D0\uAC8C \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130 \uC0AD\uC81C\uB97C \uC694\uCCAD\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4. \uD504\uB85C\uD544\uC744 \uC5C5\uB85C\uB4DC\uD560 \uB54C\uB9C8\uB2E4 \uD638\uD658\uC131 \uD655\uC778\uACFC \uBB38\uC81C \uD574\uACB0\uC744 \uC704\uD574 \uAE30\uAE30 \uC720\uD615, \uD50C\uB7EC\uADF8\uC778 \uBC84\uC804, \uC6B4\uC601 \uCCB4\uC81C \uBC0F \uC0AC\uC6A9\uC790 \uC5D0\uC774\uC804\uD2B8 \uBB38\uC790\uC5F4\uB3C4 \uC804\uC1A1\uD569\uB2C8\uB2E4. \uAC00\uC7A5 \uCD5C\uADFC \uD504\uB85C\uD544 \uC5C5\uB85C\uB4DC\uC758 \uAE30\uAE30 \uC815\uBCF4\uB9CC \uC800\uC7A5\uD558\uBA70 \uD558\uB4DC\uC6E8\uC5B4 \uC2DD\uBCC4\uC790\uB294 \uC218\uC9D1\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC800\uC7A5\uD558\uAC70\uB098 \uC5C5\uB85C\uB4DC\uD558\uAE30 \uC804\uC5D0 \uBAA8\uB4E0 \uD504\uB85C\uD544 \uD56D\uBAA9\uC744 \uC791\uC131\uD558\uACE0 \uB3C5\uC790 \uC720\uD615\uC744 \uD558\uB098 \uC774\uC0C1 \uC120\uD0DD\uD558\uC138\uC694.",
   readingNotice: "\uB3C5\uC11C \uB370\uC774\uD130 \uC5C5\uB85C\uB4DC \uC548\uB0B4\uC5D0 \uB3D9\uC758\uD558\uBA74 \uC9C1\uC811 \uB3D9\uAE30\uD654\uD55C \uB3C5\uC11C \uB370\uC774\uD130\uB9CC \uD074\uB77C\uC6B0\uB4DC\uC758 True Buddha Pedia Analytics \uB370\uC774\uD130\uBCA0\uC774\uC2A4\uB85C \uC804\uC1A1\uB429\uB2C8\uB2E4. \uC5EC\uAE30\uC5D0\uB294 \uB3C5\uC11C \uC9C4\uD589 \uC0C1\uD669, \uB0A0\uC9DC, \uD3C9\uC810, \uCD94\uCC9C, \uD0A4\uC6CC\uB4DC, \uD558\uC704 \uC8FC\uC81C, \uB3C5\uC790 \uC720\uD615 \uBD84\uB958, \uBD88\uAD50 \uC9C0\uC2DD \uC218\uC900 \uBC0F \uC218\uD589 \uC218\uC900\uC774 \uD3EC\uD568\uB429\uB2C8\uB2E4. \uAE00 \uBCF8\uBB38\uC774\uB098 \uAD00\uB828 \uC5C6\uB294 \uC18D\uC131\uC740 \uC5C5\uB85C\uB4DC\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uC5C5\uB85C\uB4DC\uB97C \uBE44\uD65C\uC131\uD654\uD558\uBA74 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB294 \uC911\uC9C0\uB418\uC9C0\uB9CC \uAE30\uC874 \uD074\uB77C\uC6B0\uB4DC \uB370\uC774\uD130\uB294 \uC0AD\uC81C\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4. \uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4.",
   noticeUnavailable: "\uC774 \uC11C\uBC84\uC5D0\uB294 \uCD5C\uC2E0 \uAC1C\uC778 \uC815\uBCF4 \uBCF4\uD638 \uC815\uCC45\uC774 \uD544\uC694\uD569\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uC218\uB77D\uD558\uAC70\uB098 \uC5C5\uB85C\uB4DC\uD558\uAE30 \uC804\uC5D0 \uD50C\uB7EC\uADF8\uC778\uC744 \uC5C5\uB370\uC774\uD2B8\uD558\uC138\uC694.",
   invalidField: "\uC774 \uD544\uB4DC\uC758 \uAC12\uACFC \uD615\uC2DD\uC744 \uD655\uC778\uD558\uC138\uC694.",
@@ -7467,7 +7593,25 @@ var ko_default = {
   connectionAvailable: "\uC5F0\uACB0\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4. \uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC18C\uB97C \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
   recordReading: "\uB0B4 \uB3C5\uC11C \uB370\uC774\uD130 \uAE30\uB85D",
   syncReadingCloud: "\uB3C5\uC11C \uB370\uC774\uD130\uB97C \uD074\uB77C\uC6B0\uB4DC\uC5D0 \uB3D9\uAE30\uD654",
-  readingContentIdRequired: "\uB3C5\uC11C \uB370\uC774\uD130\uB97C \uAE30\uB85D\uD558\uB824\uBA74 \uB178\uD2B8\uC758 \uD504\uB7F0\uD2B8\uB9E4\uD130\uC5D0 \uC720\uD6A8\uD55C tbpedia_content_id\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4."
+  readingContentIdRequired: "\uB3C5\uC11C \uB370\uC774\uD130\uB97C \uAE30\uB85D\uD558\uB824\uBA74 \uB178\uD2B8\uC758 \uD504\uB7F0\uD2B8\uB9E4\uD130\uC5D0 \uC720\uD6A8\uD55C tbpedia_content_id\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4.",
+  requiredSuffix: "(\uD544\uC218)",
+  profileRequiredHelp: "\uC800\uC7A5\uD558\uAC70\uB098 \uC5C5\uB85C\uB4DC\uD558\uAE30 \uC804\uC5D0 \uBAA8\uB4E0 \uD504\uB85C\uD544 \uD56D\uBAA9\uC744 \uC791\uC131\uD558\uACE0 \uB3C5\uC790 \uC720\uD615\uC744 \uD558\uB098 \uC774\uC0C1 \uC120\uD0DD\uD558\uC138\uC694.",
+  readerTypesRequired: "\uB3C5\uC790 \uC720\uD615\uC744 \uD558\uB098 \uC774\uC0C1 \uC120\uD0DD\uD558\uC138\uC694.",
+  readerId: "\uB3C5\uC790 ID",
+  syncCredential: "\uB3D9\uAE30\uD654 \uC778\uC99D \uD0A4",
+  syncCredentialHelp: "\uAE30\uC874 \uBCF4\uAD00\uD568\uC758 \uBE44\uACF5\uAC1C \uC778\uC99D \uD0A4\uB97C \uC0AC\uC6A9\uD558\uC138\uC694. \uBE44\uBC00\uB85C \uBCF4\uAD00\uD558\uC138\uC694. \uB3C5\uC790 ID\uB9CC\uC73C\uB85C\uB294 \uBCF5\uC6D0\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.",
+  copySyncCredential: "\uC778\uC99D \uD0A4 \uBCF5\uC0AC",
+  credentialCopied: "\uC778\uC99D \uD0A4\uB97C \uBCF5\uC0AC\uD588\uC2B5\uB2C8\uB2E4.",
+  readerSetup: "\uB3C5\uC790 \uC124\uC815",
+  newReader: "\uC0C8 \uB3C5\uC790 \uB4F1\uB85D",
+  existingReader: "\uAE30\uC874 \uB3C5\uC790 \uC5F0\uACB0",
+  connectExistingReader: "\uAE30\uC874 \uB3C5\uC790 \uC5F0\uACB0",
+  newReaderHelp: "\uD504\uB85C\uD544\uC744 \uC791\uC131\uD558\uACE0 \uC800\uC7A5 \uBC0F \uC5C5\uB85C\uB4DC\uD558\uBA74 \uC0C8 \uB3C5\uC790 ID\uB85C \uB4F1\uB85D\uB429\uB2C8\uB2E4.",
+  readerAlreadyLinked: "\uC774 \uBCF4\uAD00\uD568\uC740 \uC774\uBBF8 \uB3C5\uC790\uC640 \uC5F0\uACB0\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.",
+  readerOperationBusy: "\uC791\uC5C5\uC774 \uC9C4\uD589 \uC911\uC785\uB2C8\uB2E4. \uC644\uB8CC \uD6C4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.",
+  readerIdInvalid: "\uC720\uD6A8\uD55C \uB3C5\uC790 ID\uB97C \uC785\uB825\uD558\uC138\uC694.",
+  readerCredentialRequired: "\uAE30\uC874 \uB3C5\uC790\uC758 \uC720\uD6A8\uD55C \uB3D9\uAE30\uD654 \uC778\uC99D \uD0A4\uB97C \uC785\uB825\uD558\uC138\uC694.",
+  readerIdentityMismatch: "\uB3C5\uC790 ID\uAC00 \uC774 \uC778\uC99D \uD0A4\uC640 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
 };
 
 // plugin/locales/zh-TW.json
@@ -7597,12 +7741,12 @@ var zh_TW_default = {
   \u4E0D\u9858\u900F\u9732: "\u4E0D\u9858\u900F\u9732",
   language: "\u4ECB\u9762\u8A9E\u8A00",
   languageHelp: "\u8B8A\u66F4\u6703\u7ACB\u5373\u5957\u7528\u81F3\u8A2D\u5B9A\u548C\u65B0\u7684\u95B1\u8B80\u8996\u7A97\u3002\u91CD\u65B0\u8F09\u5165\u63D2\u4EF6\u5F8C\u547D\u4EE4\u540D\u7A31\u6703\u66F4\u65B0\u3002",
-  connected: "\u5DF2\u9023\u7DDA\uFF1A{name}",
+  connected: "\u60A8\u597D {name}\uFF0C\u9023\u7DDA\u6210\u529F\u3002",
   connectionStatus: "\u5DF2\u9023\u7DDA\uFF1A{name}\u3002\u96F2\u7AEF\u95B1\u8B80\u6B0A\u9650\uFF1A{permission}\u3002",
   preview: "{pending} \u7BC7\u5F85\u4E0A\u50B3\u3001{unchanged} \u7BC7\u672A\u8B8A\u66F4\u3001{invalid} \u7BC7\u9700\u4FEE\u6B63\u3002\u53EA\u6709\u95B1\u8B80\u6B04\u4F4D\u6703\u4E0A\u50B3\uFF0C\u5305\u62EC\u95B1\u8B80\u611F\u60F3\u3002",
   summary: "{saved} \u7BC7\u5DF2\u5132\u5B58\u3001{unchanged} \u7BC7\u672A\u8B8A\u66F4\u3001{invalid} \u7BC7\u7121\u6548\u3001{remaining} \u7BC7\u672A\u5B8C\u6210\u3002",
   changedDuringUpload: "\u4E0A\u50B3\u671F\u9593\u6709\u65B0\u4FEE\u6539\uFF0C\u4ECD\u9700\u518D\u6B21\u540C\u6B65\u3002",
-  profileNotice: "\u8B80\u8005\u8CC7\u6599\u4FDD\u5B58\u5728\u672C\u6A5F\uFF0C\u53EA\u6709\u6309\u300C\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u300D\u624D\u6703\u50B3\u9001\u81F3 True Buddha Pedia Analytics \u8CC7\u6599\u5EAB\u3002\u8CC7\u6599\u5305\u62EC\u66B1\u7A31\uFF0C\u4EE5\u53CA\u81EA\u9858\u586B\u5BEB\u7684\u96FB\u90F5\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u570B\u5BB6\u3001\u8B80\u8005\u985E\u578B\u548C\u6A5F\u69CB\uFF0C\u7528\u65BC\u7BA1\u7406\u8B80\u8005\u53CA\u672A\u4F86\u7684\u95B1\u8B80\u7D71\u8A08\u3002\u6BCF\u6B21\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u4EA6\u6703\u50B3\u9001\u88DD\u7F6E\u985E\u578B\u3001\u5916\u639B\u7248\u672C\u3001\u4F5C\u696D\u7CFB\u7D71\u53CA\u4F7F\u7528\u8005\u4EE3\u7406\u5B57\u4E32\uFF0C\u7528\u65BC\u76F8\u5BB9\u6027\u8207\u554F\u984C\u6392\u67E5\uFF1B\u6BCF\u4F4D\u8B80\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u50B3\u7684\u88DD\u7F6E\u8CC7\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u9AD4\u8B58\u5225\u78BC\u3002\u9019\u4E9B\u6B04\u4F4D\u4E0D\u6703\u5BEB\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8CC7\u6599\uFF0C\u6216\u806F\u7D61\u7BA1\u7406\u54E1\u8981\u6C42\u522A\u9664\u96F2\u7AEF\u8CC7\u6599\u3002",
+  profileNotice: "\u8B80\u8005\u8CC7\u6599\u4FDD\u5B58\u5728\u672C\u6A5F\uFF0C\u53EA\u6709\u6309\u300C\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u300D\u624D\u6703\u50B3\u9001\u81F3 True Buddha Pedia Analytics \u8CC7\u6599\u5EAB\u3002\u8CC7\u6599\u5305\u62EC\u66B1\u7A31\uFF0C\u96FB\u90F5\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u5225\u3001\u570B\u5BB6\u3001\u8B80\u8005\u985E\u578B\u548C\u6A5F\u69CB\uFF0C\u7528\u65BC\u7BA1\u7406\u8B80\u8005\u53CA\u672A\u4F86\u7684\u95B1\u8B80\u7D71\u8A08\u3002\u6BCF\u6B21\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u4EA6\u6703\u50B3\u9001\u88DD\u7F6E\u985E\u578B\u3001\u5916\u639B\u7248\u672C\u3001\u4F5C\u696D\u7CFB\u7D71\u53CA\u4F7F\u7528\u8005\u4EE3\u7406\u5B57\u4E32\uFF0C\u7528\u65BC\u76F8\u5BB9\u6027\u8207\u554F\u984C\u6392\u67E5\uFF1B\u6BCF\u4F4D\u8B80\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u50B3\u7684\u88DD\u7F6E\u8CC7\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u9AD4\u8B58\u5225\u78BC\u3002\u9019\u4E9B\u6B04\u4F4D\u4E0D\u6703\u5BEB\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8CC7\u6599\uFF0C\u6216\u806F\u7D61\u7BA1\u7406\u54E1\u8981\u6C42\u522A\u9664\u96F2\u7AEF\u8CC7\u6599\u3002 \u5132\u5B58\u6216\u4E0A\u50B3\u524D\uFF0C\u8ACB\u586B\u5BEB\u6240\u6709\u500B\u4EBA\u8CC7\u6599\u6B04\u4F4D\uFF0C\u4E26\u81F3\u5C11\u52FE\u9078\u4E00\u7A2E\u8B80\u8005\u985E\u578B\u3002",
   readingNotice: "\u540C\u610F\u95B1\u8B80\u8CC7\u6599\u4E0A\u50B3\u8AAA\u660E\u5F8C\uFF0C\u53EA\u6709\u60A8\u624B\u52D5\u540C\u6B65\u7684\u95B1\u8B80\u8CC7\u6599\u6703\u50B3\u9001\u81F3\u96F2\u7AEF\u7684 True Buddha Pedia Analytics \u8CC7\u6599\u5EAB\uFF0C\u5305\u62EC\u95B1\u8B80\u9032\u5EA6\u3001\u65E5\u671F\u3001\u8A55\u5206\u3001\u95B1\u8B80\u63A8\u85A6\u3001\u95DC\u9375\u8A5E\u3001\u5B50\u4E3B\u984C\u3001\u8B80\u8005\u985E\u578B\u5206\u985E\u3001\u4F5B\u5B78\u7D1A\u5225\u53CA\u4FEE\u884C\u7D1A\u5225\u3002 \u6587\u7AE0\u6B63\u6587\u53CA\u7121\u95DC\u5C6C\u6027\u4E0D\u6703\u4E0A\u50B3\u3002\u505C\u7528\u6703\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\uFF0C\u4F46\u4E0D\u6703\u522A\u9664\u65E2\u6709\u96F2\u7AEF\u8CC7\u6599\u3002 \u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002",
   noticeUnavailable: "\u8A72\u4F3A\u670D\u5668\u9700\u8981\u66F4\u65B0\u7684\u96B1\u79C1\u6B0A\u8072\u660E\u3002\u5728\u63A5\u53D7\u6216\u4E0A\u50B3\u4E4B\u524D\u66F4\u65B0\u5916\u639B\u7A0B\u5F0F\u3002",
   invalidField: "\u6AA2\u67E5\u8A72\u6B04\u4F4D\u7684\u503C\u548C\u683C\u5F0F\u3002",
@@ -7654,7 +7798,25 @@ var zh_TW_default = {
   connectionAvailable: "\u9023\u7DDA\u6210\u529F\uFF0C\u96F2\u7AEF\u5132\u5B58\u53EF\u4F9B\u4F7F\u7528\u3002",
   recordReading: "\u8A18\u9304\u6211\u7684\u95B1\u8B80\u8CC7\u6599",
   syncReadingCloud: "\u540C\u6B65\u95B1\u8B80\u8CC7\u6599\u81F3\u96F2\u7AEF",
-  readingContentIdRequired: "\u6B64\u7B46\u8A18\u7684 frontmatter \u5FC5\u9808\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8A18\u9304\u95B1\u8B80\u8CC7\u6599\u3002"
+  readingContentIdRequired: "\u6B64\u7B46\u8A18\u7684 frontmatter \u5FC5\u9808\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8A18\u9304\u95B1\u8B80\u8CC7\u6599\u3002",
+  requiredSuffix: "\uFF08\u5FC5\u586B\uFF09",
+  profileRequiredHelp: "\u5132\u5B58\u6216\u4E0A\u50B3\u524D\uFF0C\u8ACB\u586B\u5BEB\u6240\u6709\u500B\u4EBA\u8CC7\u6599\u6B04\u4F4D\uFF0C\u4E26\u81F3\u5C11\u52FE\u9078\u4E00\u7A2E\u8B80\u8005\u985E\u578B\u3002",
+  readerTypesRequired: "\u8ACB\u81F3\u5C11\u52FE\u9078\u4E00\u7A2E\u8B80\u8005\u985E\u578B\u3002",
+  readerId: "\u8B80\u8005 ID",
+  syncCredential: "\u540C\u6B65\u6191\u8B49",
+  syncCredentialHelp: "\u8ACB\u4F7F\u7528\u539F\u6709 Vault \u7684\u79C1\u4EBA\u540C\u6B65\u6191\u8B49\u4E26\u59A5\u5584\u4FDD\u5BC6\uFF1B\u53EA\u6709\u8B80\u8005 ID \u7121\u6CD5\u6062\u5FA9\u5E33\u6236\u3002",
+  copySyncCredential: "\u8907\u88FD\u540C\u6B65\u6191\u8B49",
+  credentialCopied: "\u5DF2\u8907\u88FD\u540C\u6B65\u6191\u8B49\u3002",
+  readerSetup: "\u8B80\u8005\u8A2D\u5B9A",
+  newReader: "\u8A3B\u518A\u65B0\u8B80\u8005",
+  existingReader: "\u9023\u7D50\u73FE\u6709\u8B80\u8005",
+  connectExistingReader: "\u9023\u7D50\u73FE\u6709\u8B80\u8005",
+  newReaderHelp: "\u8ACB\u586B\u59A5\u4E0B\u65B9\u500B\u4EBA\u8CC7\u6599\uFF0C\u518D\u6309\u300C\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599\u300D\uFF0C\u5373\u53EF\u8A3B\u518A\u4E26\u53D6\u5F97\u65B0\u7684\u8B80\u8005 ID\u3002",
+  readerAlreadyLinked: "\u6B64 Vault \u5DF2\u9023\u7D50\u8B80\u8005\u3002",
+  readerOperationBusy: "\u8B80\u8005\u64CD\u4F5C\u6B63\u5728\u9032\u884C\uFF0C\u8ACB\u5B8C\u6210\u5F8C\u518D\u8A66\u3002",
+  readerIdInvalid: "\u8ACB\u8F38\u5165\u6709\u6548\u7684\u8B80\u8005 ID\u3002",
+  readerCredentialRequired: "\u8ACB\u8F38\u5165\u8A72\u8B80\u8005\u6709\u6548\u7684\u540C\u6B65\u6191\u8B49\u3002",
+  readerIdentityMismatch: "\u8B80\u8005 ID \u8207\u6B64\u540C\u6B65\u6191\u8B49\u4E0D\u7B26\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -7784,12 +7946,12 @@ var zh_CN_default = {
   \u4E0D\u9858\u900F\u9732: "\u5B81\u613F\u4E0D\u8BF4",
   language: "\u7528\u6237\u754C\u9762\u8BED\u8A00",
   languageHelp: "\u66F4\u6539\u4F1A\u7ACB\u5373\u5E94\u7528\u4E8E\u8BBE\u7F6E\u548C\u65B0\u7684\u9605\u8BFB\u7A97\u53E3\u3002\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u547D\u4EE4\u540D\u79F0\u4F1A\u66F4\u65B0\u3002",
-  connected: "\u8FDE\u63A5\uFF1A{name}",
+  connected: "\u60A8\u597D {name}\uFF0C\u8FDE\u63A5\u6210\u529F\u3002",
   connectionStatus: "\u8FDE\u63A5\uFF1A{name}\u3002\u4E91\u9605\u8BFB\u6743\u9650\uFF1A{permission}\u3002",
   preview: "\u5F85\u5B9A\uFF1A{pending}\uFF1B\u4E0D\u53D8\uFF1A{unchanged}\uFF1B\u9700\u8981\u66F4\u6B63\uFF1A{invalid}\u3002\u4EC5\u4E0A\u4F20\u9605\u8BFB\u5B57\u6BB5\uFF0C\u5305\u62EC\u53CD\u601D\u3002",
   summary: "\u5DF2\u4FDD\u5B58\uFF1A{saved}\uFF1B\u4E0D\u53D8\uFF1A{unchanged}\uFF1B\u65E0\u6548\uFF1A{invalid}\uFF1B\u4E0D\u5B8C\u6574\uFF1A{remaining}\u3002",
   changedDuringUpload: "\u4E0A\u4F20\u8FC7\u7A0B\u4E2D\u8FDB\u884C\u4E86\u66F4\u6539\u3002\u518D\u6B21\u540C\u6B65\u4EE5\u4E0A\u4F20\u5B83\u4EEC\u3002",
-  profileNotice: "\u8BFB\u8005\u8D44\u6599\u4FDD\u5B58\u5728\u672C\u5730\uFF0C\u53EA\u6709\u6309\u201C\u4FDD\u5B58\u5E76\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u201D\u624D\u4F1A\u4F20\u9001\u81F3 True Buddha Pedia Analytics \u6570\u636E\u5E93\u3002\u8D44\u6599\u5305\u62EC\u6635\u79F0\uFF0C\u4EE5\u53CA\u81EA\u613F\u586B\u5199\u7684\u90AE\u7BB1\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u522B\u3001\u56FD\u5BB6\u3001\u8BFB\u8005\u7C7B\u578B\u548C\u673A\u6784\uFF0C\u7528\u4E8E\u7BA1\u7406\u8BFB\u8005\u53CA\u672A\u6765\u7684\u9605\u8BFB\u7EDF\u8BA1\u3002\u8FD9\u4E9B\u5B57\u6BB5\u4E0D\u4F1A\u5199\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8D44\u6599\uFF0C\u6216\u8054\u7CFB\u7BA1\u7406\u5458\u8981\u6C42\u5220\u9664\u4E91\u7AEF\u8D44\u6599\u3002 \u6BCF\u6B21\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u4E5F\u4F1A\u53D1\u9001\u8BBE\u5907\u7C7B\u578B\u3001\u63D2\u4EF6\u7248\u672C\u3001\u64CD\u4F5C\u7CFB\u7EDF\u53CA\u7528\u6237\u4EE3\u7406\u5B57\u7B26\u4E32\uFF0C\u7528\u4E8E\u517C\u5BB9\u6027\u68C0\u67E5\u548C\u6545\u969C\u6392\u67E5\u3002\u6BCF\u4F4D\u8BFB\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u4F20\u7684\u8BBE\u5907\u8D44\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u4EF6\u6807\u8BC6\u7B26\u3002",
+  profileNotice: "\u8BFB\u8005\u8D44\u6599\u4FDD\u5B58\u5728\u672C\u5730\uFF0C\u53EA\u6709\u6309\u201C\u4FDD\u5B58\u5E76\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u201D\u624D\u4F1A\u4F20\u9001\u81F3 True Buddha Pedia Analytics \u6570\u636E\u5E93\u3002\u8D44\u6599\u5305\u62EC\u6635\u79F0\uFF0C\u90AE\u7BB1\u3001\u51FA\u751F\u5E74/\u6708\u3001\u6027\u522B\u3001\u56FD\u5BB6\u3001\u8BFB\u8005\u7C7B\u578B\u548C\u673A\u6784\uFF0C\u7528\u4E8E\u7BA1\u7406\u8BFB\u8005\u53CA\u672A\u6765\u7684\u9605\u8BFB\u7EDF\u8BA1\u3002\u8FD9\u4E9B\u5B57\u6BB5\u4E0D\u4F1A\u5199\u5165\u6587\u7AE0\u3002\u60A8\u53EF\u4EE5\u4FEE\u6539\u8D44\u6599\uFF0C\u6216\u8054\u7CFB\u7BA1\u7406\u5458\u8981\u6C42\u5220\u9664\u4E91\u7AEF\u8D44\u6599\u3002 \u6BCF\u6B21\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u4E5F\u4F1A\u53D1\u9001\u8BBE\u5907\u7C7B\u578B\u3001\u63D2\u4EF6\u7248\u672C\u3001\u64CD\u4F5C\u7CFB\u7EDF\u53CA\u7528\u6237\u4EE3\u7406\u5B57\u7B26\u4E32\uFF0C\u7528\u4E8E\u517C\u5BB9\u6027\u68C0\u67E5\u548C\u6545\u969C\u6392\u67E5\u3002\u6BCF\u4F4D\u8BFB\u8005\u53EA\u4FDD\u7559\u6700\u8FD1\u4E00\u6B21\u4E0A\u4F20\u7684\u8BBE\u5907\u8D44\u6599\uFF0C\u4E0D\u6536\u96C6\u786C\u4EF6\u6807\u8BC6\u7B26\u3002 \u4FDD\u5B58\u6216\u4E0A\u4F20\u524D\uFF0C\u8BF7\u586B\u5199\u6240\u6709\u4E2A\u4EBA\u8D44\u6599\u5B57\u6BB5\uFF0C\u5E76\u81F3\u5C11\u52FE\u9009\u4E00\u79CD\u8BFB\u8005\u7C7B\u578B\u3002",
   readingNotice: "\u540C\u610F\u9605\u8BFB\u8D44\u6599\u4E0A\u4F20\u8BF4\u660E\u540E\uFF0C\u53EA\u6709\u60A8\u624B\u52A8\u540C\u6B65\u7684\u9605\u8BFB\u8D44\u6599\u4F1A\u4F20\u9001\u81F3\u4E91\u7AEF\u7684 True Buddha Pedia Analytics \u6570\u636E\u5E93\uFF0C\u5305\u62EC\u9605\u8BFB\u8FDB\u5EA6\u3001\u65E5\u671F\u3001\u8BC4\u5206\u3001\u9605\u8BFB\u63A8\u8350\u3001\u5173\u952E\u8BCD\u3001\u5B50\u4E3B\u9898\u3001\u8BFB\u8005\u7C7B\u578B\u5206\u7C7B\u3001\u4F5B\u5B66\u7EA7\u522B\u53CA\u4FEE\u884C\u7EA7\u522B\u3002 \u6587\u7AE0\u6B63\u6587\u53CA\u65E0\u5173\u5C5E\u6027\u4E0D\u4F1A\u4E0A\u4F20\u3002\u505C\u7528\u4F1A\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\uFF0C\u4F46\u4E0D\u4F1A\u5220\u9664\u65E2\u6709\u4E91\u7AEF\u8D44\u6599\u3002 \u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002",
   noticeUnavailable: "\u8BE5\u670D\u52A1\u5668\u9700\u8981\u66F4\u65B0\u7684\u9690\u79C1\u58F0\u660E\u3002\u5728\u63A5\u53D7\u6216\u4E0A\u4F20\u4E4B\u524D\u66F4\u65B0\u63D2\u4EF6\u3002",
   invalidField: "\u68C0\u67E5\u8BE5\u5B57\u6BB5\u7684\u503C\u548C\u683C\u5F0F\u3002",
@@ -7841,7 +8003,25 @@ var zh_CN_default = {
   connectionAvailable: "\u8FDE\u63A5\u6210\u529F\uFF0C\u4E91\u7AEF\u5B58\u50A8\u53EF\u4F9B\u4F7F\u7528\u3002",
   recordReading: "\u8BB0\u5F55\u6211\u7684\u9605\u8BFB\u6570\u636E",
   syncReadingCloud: "\u540C\u6B65\u9605\u8BFB\u6570\u636E\u81F3\u4E91\u7AEF",
-  readingContentIdRequired: "\u6B64\u7B14\u8BB0\u7684 frontmatter \u5FC5\u987B\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8BB0\u5F55\u9605\u8BFB\u6570\u636E\u3002"
+  readingContentIdRequired: "\u6B64\u7B14\u8BB0\u7684 frontmatter \u5FC5\u987B\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8BB0\u5F55\u9605\u8BFB\u6570\u636E\u3002",
+  requiredSuffix: "\uFF08\u5FC5\u586B\uFF09",
+  profileRequiredHelp: "\u4FDD\u5B58\u6216\u4E0A\u4F20\u524D\uFF0C\u8BF7\u586B\u5199\u6240\u6709\u4E2A\u4EBA\u8D44\u6599\u5B57\u6BB5\uFF0C\u5E76\u81F3\u5C11\u52FE\u9009\u4E00\u79CD\u8BFB\u8005\u7C7B\u578B\u3002",
+  readerTypesRequired: "\u8BF7\u81F3\u5C11\u52FE\u9009\u4E00\u79CD\u8BFB\u8005\u7C7B\u578B\u3002",
+  readerId: "\u8BFB\u8005 ID",
+  syncCredential: "\u540C\u6B65\u51ED\u8BC1",
+  syncCredentialHelp: "\u8BF7\u4F7F\u7528\u539F\u6709 Vault \u7684\u79C1\u4EBA\u540C\u6B65\u51ED\u8BC1\u5E76\u59A5\u5584\u4FDD\u5BC6\uFF1B\u53EA\u6709\u8BFB\u8005 ID \u65E0\u6CD5\u6062\u590D\u8D26\u6237\u3002",
+  copySyncCredential: "\u590D\u5236\u540C\u6B65\u51ED\u8BC1",
+  credentialCopied: "\u5DF2\u590D\u5236\u540C\u6B65\u51ED\u8BC1\u3002",
+  readerSetup: "\u8BFB\u8005\u8BBE\u7F6E",
+  newReader: "\u6CE8\u518C\u65B0\u8BFB\u8005",
+  existingReader: "\u8FDE\u63A5\u73B0\u6709\u8BFB\u8005",
+  connectExistingReader: "\u8FDE\u63A5\u73B0\u6709\u8BFB\u8005",
+  newReaderHelp: "\u8BF7\u586B\u59A5\u4E0B\u65B9\u4E2A\u4EBA\u8D44\u6599\uFF0C\u518D\u6309\u201C\u4FDD\u5B58\u5E76\u4E0A\u4F20\u4E2A\u4EBA\u8D44\u6599\u201D\uFF0C\u5373\u53EF\u6CE8\u518C\u5E76\u53D6\u5F97\u65B0\u7684\u8BFB\u8005 ID\u3002",
+  readerAlreadyLinked: "\u6B64 Vault \u5DF2\u8FDE\u63A5\u8BFB\u8005\u3002",
+  readerOperationBusy: "\u8BFB\u8005\u64CD\u4F5C\u6B63\u5728\u8FDB\u884C\uFF0C\u8BF7\u5B8C\u6210\u540E\u518D\u8BD5\u3002",
+  readerIdInvalid: "\u8BF7\u8F93\u5165\u6709\u6548\u7684\u8BFB\u8005 ID\u3002",
+  readerCredentialRequired: "\u8BF7\u8F93\u5165\u8BE5\u8BFB\u8005\u6709\u6548\u7684\u540C\u6B65\u51ED\u8BC1\u3002",
+  readerIdentityMismatch: "\u8BFB\u8005 ID \u4E0E\u6B64\u540C\u6B65\u51ED\u8BC1\u4E0D\u7B26\u3002"
 };
 
 // plugin/locales/vi.json
@@ -7971,12 +8151,12 @@ var vi_default = {
   \u4E0D\u9858\u900F\u9732: "Kh\xF4ng mu\u1ED1n n\xF3i",
   language: "ng\xF4n ng\u1EEF giao di\u1EC7n ng\u01B0\u1EDDi d\xF9ng",
   languageHelp: "C\xE1c thay \u0111\u1ED5i s\u1EBD \xE1p d\u1EE5ng ngay l\u1EADp t\u1EE9c cho c\xE0i \u0111\u1EB7t v\xE0 c\u1EEDa s\u1ED5 \u0111\u1ECDc m\u1EDBi. C\u1EADp nh\u1EADt t\xEAn l\u1EC7nh sau khi t\u1EA3i l\u1EA1i plugin.",
-  connected: "\u0110\xE3 k\u1EBFt n\u1ED1i: {name}",
+  connected: "Ch\xE0o {name}, k\u1EBFt n\u1ED1i th\xE0nh c\xF4ng.",
   connectionStatus: "\u0110\xE3 k\u1EBFt n\u1ED1i: {name}. Quy\u1EC1n \u0111\u1ECDc tr\xEAn \u0111\xE1m m\xE2y: {permission}.",
   preview: "\u0110ang ch\u1EDD x\u1EED l\xFD: {pending}; kh\xF4ng thay \u0111\u1ED5i: {unchanged}; c\u1EA7n ch\u1EC9nh s\u1EEDa: {invalid}. Ch\u1EC9 c\xE1c tr\u01B0\u1EDDng \u0111\u1ECDc, bao g\u1ED3m c\u1EA3 ph\u1EA3n \xE1nh, m\u1EDBi \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn.",
   summary: "\u0110\xE3 l\u01B0u: {saved}; kh\xF4ng thay \u0111\u1ED5i: {unchanged}; kh\xF4ng h\u1EE3p l\u1EC7: {invalid}; ch\u01B0a ho\xE0n thi\u1EC7n: {remaining}.",
   changedDuringUpload: "Nh\u1EEFng thay \u0111\u1ED5i \u0111\xE3 \u0111\u01B0\u1EE3c th\u1EF1c hi\u1EC7n trong qu\xE1 tr\xECnh t\u1EA3i l\xEAn. \u0110\u1ED3ng b\u1ED9 h\xF3a l\u1EA1i \u0111\u1EC3 t\u1EA3i ch\xFAng l\xEAn.",
-  profileNotice: "H\u1ED3 s\u01A1 c\u1EE7a b\u1EA1n \u0111\u01B0\u1EE3c l\u01B0u tr\u1EEF c\u1EE5c b\u1ED9. Ch\u1EC9 L\u01B0u v\xE0 t\u1EA3i l\xEAn h\u1ED3 s\u01A1 m\u1EDBi g\u1EEDi n\xF3 t\u1EDBi c\u01A1 s\u1EDF d\u1EEF li\u1EC7u True Buddha Pedia Analytics. N\xF3 bao g\u1ED3m bi\u1EC7t hi\u1EC7u c\u1EE7a b\u1EA1n v\xE0 b\u1EA5t k\u1EF3 email t\xF9y ch\u1ECDn n\xE0o, n\u0103m/th\xE1ng sinh, gi\u1EDBi t\xEDnh, qu\u1ED1c gia, lo\u1EA1i ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 t\u1ED5 ch\u1EE9c m\xE0 b\u1EA1n cung c\u1EA5p \u0111\u1EC3 qu\u1EA3n l\xFD ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 th\u1ED1ng k\xEA vi\u1EC7c \u0111\u1ECDc trong t\u01B0\u01A1ng lai. Nh\u1EEFng tr\u01B0\u1EDDng n\xE0y kh\xF4ng \u0111\u01B0\u1EE3c vi\u1EBFt th\xE0nh b\xE0i vi\u1EBFt. B\u1EA1n c\xF3 th\u1EC3 ch\u1EC9nh s\u1EEDa h\u1ED3 s\u01A1 c\u1EE7a m\xECnh ho\u1EB7c y\xEAu c\u1EA7u qu\u1EA3n tr\u1ECB vi\xEAn x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y. M\u1ED7i l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn c\u0169ng g\u1EEDi lo\u1EA1i thi\u1EBFt b\u1ECB, phi\xEAn b\u1EA3n ph\u1EA7n b\u1ED5 tr\u1EE3, h\u1EC7 \u0111i\u1EC1u h\xE0nh v\xE0 chu\u1ED7i t\xE1c nh\xE2n ng\u01B0\u1EDDi d\xF9ng \u0111\u1EC3 ki\u1EC3m tra t\xEDnh t\u01B0\u01A1ng th\xEDch v\xE0 kh\u1EAFc ph\u1EE5c s\u1EF1 c\u1ED1. Ch\u1EC9 l\u01B0u th\xF4ng tin thi\u1EBFt b\u1ECB c\u1EE7a l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn g\u1EA7n nh\u1EA5t; kh\xF4ng thu th\u1EADp m\xE3 \u0111\u1ECBnh danh ph\u1EA7n c\u1EE9ng.",
+  profileNotice: "H\u1ED3 s\u01A1 c\u1EE7a b\u1EA1n \u0111\u01B0\u1EE3c l\u01B0u tr\u1EEF c\u1EE5c b\u1ED9. Ch\u1EC9 L\u01B0u v\xE0 t\u1EA3i l\xEAn h\u1ED3 s\u01A1 m\u1EDBi g\u1EEDi n\xF3 t\u1EDBi c\u01A1 s\u1EDF d\u1EEF li\u1EC7u True Buddha Pedia Analytics. N\xF3 bao g\u1ED3m bi\u1EC7t hi\u1EC7u c\u1EE7a b\u1EA1n v\xE0 email, n\u0103m/th\xE1ng sinh, gi\u1EDBi t\xEDnh, qu\u1ED1c gia, lo\u1EA1i ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 t\u1ED5 ch\u1EE9c m\xE0 b\u1EA1n cung c\u1EA5p \u0111\u1EC3 qu\u1EA3n l\xFD ng\u01B0\u1EDDi \u0111\u1ECDc v\xE0 th\u1ED1ng k\xEA vi\u1EC7c \u0111\u1ECDc trong t\u01B0\u01A1ng lai. Nh\u1EEFng tr\u01B0\u1EDDng n\xE0y kh\xF4ng \u0111\u01B0\u1EE3c vi\u1EBFt th\xE0nh b\xE0i vi\u1EBFt. B\u1EA1n c\xF3 th\u1EC3 ch\u1EC9nh s\u1EEDa h\u1ED3 s\u01A1 c\u1EE7a m\xECnh ho\u1EB7c y\xEAu c\u1EA7u qu\u1EA3n tr\u1ECB vi\xEAn x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y. M\u1ED7i l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn c\u0169ng g\u1EEDi lo\u1EA1i thi\u1EBFt b\u1ECB, phi\xEAn b\u1EA3n ph\u1EA7n b\u1ED5 tr\u1EE3, h\u1EC7 \u0111i\u1EC1u h\xE0nh v\xE0 chu\u1ED7i t\xE1c nh\xE2n ng\u01B0\u1EDDi d\xF9ng \u0111\u1EC3 ki\u1EC3m tra t\xEDnh t\u01B0\u01A1ng th\xEDch v\xE0 kh\u1EAFc ph\u1EE5c s\u1EF1 c\u1ED1. Ch\u1EC9 l\u01B0u th\xF4ng tin thi\u1EBFt b\u1ECB c\u1EE7a l\u1EA7n t\u1EA3i h\u1ED3 s\u01A1 l\xEAn g\u1EA7n nh\u1EA5t; kh\xF4ng thu th\u1EADp m\xE3 \u0111\u1ECBnh danh ph\u1EA7n c\u1EE9ng. \u0110i\u1EC1n t\u1EA5t c\u1EA3 c\xE1c tr\u01B0\u1EDDng h\u1ED3 s\u01A1 v\xE0 ch\u1ECDn \xEDt nh\u1EA5t m\u1ED9t lo\u1EA1i \u0111\u1ED9c gi\u1EA3 tr\u01B0\u1EDBc khi l\u01B0u ho\u1EB7c t\u1EA3i l\xEAn.",
   readingNotice: "Sau khi ch\u1EA5p nh\u1EADn th\xF4ng b\xE1o t\u1EA3i d\u1EEF li\u1EC7u \u0111\u1ECDc l\xEAn, ch\u1EC9 d\u1EEF li\u1EC7u b\u1EA1n \u0111\u1ED3ng b\u1ED9 th\u1EE7 c\xF4ng m\u1EDBi \u0111\u01B0\u1EE3c g\u1EEDi \u0111\u1EBFn c\u01A1 s\u1EDF d\u1EEF li\u1EC7u True Buddha Pedia Analytics tr\xEAn \u0111\xE1m m\xE2y, bao g\u1ED3m ti\u1EBFn tr\xECnh \u0111\u1ECDc, ng\xE0y th\xE1ng, \u0111\xE1nh gi\xE1, \u0111\u1EC1 xu\u1EA5t, t\u1EEB kh\xF3a, ch\u1EE7 \u0111\u1EC1 ph\u1EE5, ph\xE2n lo\u1EA1i theo lo\u1EA1i \u0111\u1ED9c gi\u1EA3, tr\xECnh \u0111\u1ED9 ki\u1EBFn th\u1EE9c Ph\u1EADt h\u1ECDc v\xE0 tr\xECnh \u0111\u1ED9 tu t\u1EADp. N\u1ED9i dung b\xE0i vi\u1EBFt v\xE0 c\xE1c thu\u1ED9c t\xEDnh kh\xF4ng li\xEAn quan kh\xF4ng \u0111\u01B0\u1EE3c t\u1EA3i l\xEAn. Vi\u1EC7c t\u1EAFt t\u1EA3i l\xEAn s\u1EBD d\u1EEBng t\u1EA3i l\xEAn trong t\u01B0\u01A1ng lai nh\u01B0ng kh\xF4ng x\xF3a d\u1EEF li\u1EC7u \u0111\xE1m m\xE2y hi\u1EC7n c\xF3. B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t.",
   noticeUnavailable: "M\xE1y ch\u1EE7 n\xE0y y\xEAu c\u1EA7u th\xF4ng b\xE1o b\u1EA3o m\u1EADt m\u1EDBi h\u01A1n. C\u1EADp nh\u1EADt plugin tr\u01B0\u1EDBc khi ch\u1EA5p nh\u1EADn ho\u1EB7c t\u1EA3i l\xEAn.",
   invalidField: "Ki\u1EC3m tra gi\xE1 tr\u1ECB v\xE0 \u0111\u1ECBnh d\u1EA1ng c\u1EE7a tr\u01B0\u1EDDng n\xE0y.",
@@ -8028,7 +8208,25 @@ var vi_default = {
   connectionAvailable: "K\u1EBFt n\u1ED1i th\xE0nh c\xF4ng. C\xF3 th\u1EC3 s\u1EED d\u1EE5ng l\u01B0u tr\u1EEF \u0111\xE1m m\xE2y.",
   recordReading: "Ghi l\u1EA1i d\u1EEF li\u1EC7u \u0111\u1ECDc c\u1EE7a t\xF4i",
   syncReadingCloud: "\u0110\u1ED3ng b\u1ED9 d\u1EEF li\u1EC7u \u0111\u1ECDc l\xEAn \u0111\xE1m m\xE2y",
-  readingContentIdRequired: "Ghi ch\xFA c\u1EA7n c\xF3 tbpedia_content_id h\u1EE3p l\u1EC7 trong frontmatter \u0111\u1EC3 ghi l\u1EA1i d\u1EEF li\u1EC7u \u0111\u1ECDc."
+  readingContentIdRequired: "Ghi ch\xFA c\u1EA7n c\xF3 tbpedia_content_id h\u1EE3p l\u1EC7 trong frontmatter \u0111\u1EC3 ghi l\u1EA1i d\u1EEF li\u1EC7u \u0111\u1ECDc.",
+  requiredSuffix: "(b\u1EAFt bu\u1ED9c)",
+  profileRequiredHelp: "\u0110i\u1EC1n t\u1EA5t c\u1EA3 c\xE1c tr\u01B0\u1EDDng h\u1ED3 s\u01A1 v\xE0 ch\u1ECDn \xEDt nh\u1EA5t m\u1ED9t lo\u1EA1i \u0111\u1ED9c gi\u1EA3 tr\u01B0\u1EDBc khi l\u01B0u ho\u1EB7c t\u1EA3i l\xEAn.",
+  readerTypesRequired: "Ch\u1ECDn \xEDt nh\u1EA5t m\u1ED9t lo\u1EA1i \u0111\u1ED9c gi\u1EA3.",
+  readerId: "ID \u0111\u1ED9c gi\u1EA3",
+  syncCredential: "Kh\xF3a \u0111\u1ED3ng b\u1ED9",
+  syncCredentialHelp: "D\xF9ng kh\xF3a ri\xEAng t\u01B0 t\u1EEB kho hi\u1EC7n c\xF3. Gi\u1EEF b\xED m\u1EADt; ch\u1EC9 ID \u0111\u1ED9c gi\u1EA3 kh\xF4ng \u0111\u1EE7 \u0111\u1EC3 kh\xF4i ph\u1EE5c.",
+  copySyncCredential: "Sao ch\xE9p kh\xF3a",
+  credentialCopied: "\u0110\xE3 sao ch\xE9p kh\xF3a.",
+  readerSetup: "Thi\u1EBFt l\u1EADp \u0111\u1ED9c gi\u1EA3",
+  newReader: "\u0110\u0103ng k\xFD \u0111\u1ED9c gi\u1EA3 m\u1EDBi",
+  existingReader: "K\u1EBFt n\u1ED1i \u0111\u1ED9c gi\u1EA3 hi\u1EC7n c\xF3",
+  connectExistingReader: "K\u1EBFt n\u1ED1i \u0111\u1ED9c gi\u1EA3 hi\u1EC7n c\xF3",
+  newReaderHelp: "\u0110i\u1EC1n h\u1ED3 s\u01A1 r\u1ED3i l\u01B0u v\xE0 t\u1EA3i l\xEAn \u0111\u1EC3 \u0111\u0103ng k\xFD v\u1EDBi ID \u0111\u1ED9c gi\u1EA3 m\u1EDBi.",
+  readerAlreadyLinked: "Kho n\xE0y \u0111\xE3 li\xEAn k\u1EBFt v\u1EDBi m\u1ED9t \u0111\u1ED9c gi\u1EA3.",
+  readerOperationBusy: "M\u1ED9t thao t\xE1c \u0111ang di\u1EC5n ra. Th\u1EED l\u1EA1i sau khi ho\xE0n t\u1EA5t.",
+  readerIdInvalid: "Nh\u1EADp ID \u0111\u1ED9c gi\u1EA3 h\u1EE3p l\u1EC7.",
+  readerCredentialRequired: "Nh\u1EADp kh\xF3a \u0111\u1ED3ng b\u1ED9 h\u1EE3p l\u1EC7 c\u1EE7a \u0111\u1ED9c gi\u1EA3.",
+  readerIdentityMismatch: "ID \u0111\u1ED9c gi\u1EA3 kh\xF4ng kh\u1EDBp v\u1EDBi kh\xF3a n\xE0y."
 };
 
 // plugin/locales/id.json
@@ -8158,12 +8356,12 @@ var id_default = {
   \u4E0D\u9858\u900F\u9732: "Memilih untuk tidak mengatakannya",
   language: "bahasa UI",
   languageHelp: "Perubahan segera berlaku pada pengaturan dan jendela baca baru. Nama perintah diperbarui setelah memuat ulang plugin.",
-  connected: "Terhubung: {name}",
+  connected: "Hai {name}, berhasil terhubung.",
   connectionStatus: "Terhubung: {name}. Izin membaca awan: {permission}.",
   preview: "Tertunda: {pending}; tidak berubah: {unchanged}; perlu koreksi: {invalid}. Hanya bidang bacaan, termasuk refleksi, yang akan diunggah.",
   summary: "Disimpan: {saved}; tidak berubah: {unchanged}; tidak valid: {invalid}; tidak lengkap: {remaining}.",
   changedDuringUpload: "Perubahan dilakukan saat pengunggahan. Sinkronkan lagi untuk mengunggahnya.",
-  profileNotice: "Profil Anda disimpan secara lokal. Hanya Simpan dan unggah profil yang mengirimkannya ke database True Buddha Pedia Analytics. Ini mencakup nama panggilan Anda dan email opsional apa pun, tahun/bulan lahir, jenis kelamin, negara, jenis pembaca, dan organisasi yang Anda berikan, untuk manajemen pembaca dan statistik bacaan di masa mendatang. Bidang-bidang ini tidak ditulis menjadi artikel. Anda dapat mengedit profil Anda atau meminta administrator untuk menghapus data cloud. Setiap unggahan profil juga mengirim jenis perangkat, versi plugin, sistem operasi, dan string agen pengguna untuk kompatibilitas dan pemecahan masalah. Hanya detail perangkat dari unggahan profil terbaru yang disimpan; pengenal perangkat keras tidak dikumpulkan.",
+  profileNotice: "Profil Anda disimpan secara lokal. Hanya Simpan dan unggah profil yang mengirimkannya ke database True Buddha Pedia Analytics. Ini mencakup nama panggilan Anda dan email, tahun/bulan lahir, jenis kelamin, negara, jenis pembaca, dan organisasi yang Anda berikan, untuk manajemen pembaca dan statistik bacaan di masa mendatang. Bidang-bidang ini tidak ditulis menjadi artikel. Anda dapat mengedit profil Anda atau meminta administrator untuk menghapus data cloud. Setiap unggahan profil juga mengirim jenis perangkat, versi plugin, sistem operasi, dan string agen pengguna untuk kompatibilitas dan pemecahan masalah. Hanya detail perangkat dari unggahan profil terbaru yang disimpan; pengenal perangkat keras tidak dikumpulkan. Lengkapi semua kolom profil dan pilih setidaknya satu jenis pembaca sebelum menyimpan atau mengunggah.",
   readingNotice: "Setelah menyetujui pemberitahuan unggahan data bacaan, hanya data yang Anda sinkronkan secara manual yang dikirim ke database True Buddha Pedia Analytics di cloud, termasuk kemajuan membaca, tanggal, penilaian, rekomendasi, kata kunci, subtopik, klasifikasi jenis pembaca, tingkat pengetahuan Buddhis, dan tingkat praktik. Badan artikel dan properti yang tidak terkait tidak diunggah. Menonaktifkan unggahan akan menghentikan unggahan berikutnya tetapi tidak menghapus data cloud yang ada. Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
   noticeUnavailable: "Server ini memerlukan pemberitahuan privasi yang lebih baru. Perbarui plugin sebelum menerimanya atau mengunggahnya.",
   invalidField: "Periksa nilai dan format bidang ini.",
@@ -8215,7 +8413,25 @@ var id_default = {
   connectionAvailable: "Koneksi berhasil. Penyimpanan cloud tersedia.",
   recordReading: "Catat data bacaan saya",
   syncReadingCloud: "Sinkronkan data bacaan ke cloud",
-  readingContentIdRequired: "Catatan ini memerlukan tbpedia_content_id yang valid di frontmatter sebelum data bacaan dapat dicatat."
+  readingContentIdRequired: "Catatan ini memerlukan tbpedia_content_id yang valid di frontmatter sebelum data bacaan dapat dicatat.",
+  requiredSuffix: "(wajib)",
+  profileRequiredHelp: "Lengkapi semua kolom profil dan pilih setidaknya satu jenis pembaca sebelum menyimpan atau mengunggah.",
+  readerTypesRequired: "Pilih setidaknya satu jenis pembaca.",
+  readerId: "ID pembaca",
+  syncCredential: "Kredensial sinkronisasi",
+  syncCredentialHelp: "Gunakan kredensial pribadi dari vault lama. Jaga kerahasiaannya; ID pembaca saja tidak cukup.",
+  copySyncCredential: "Salin kredensial",
+  credentialCopied: "Kredensial disalin.",
+  readerSetup: "Pengaturan pembaca",
+  newReader: "Daftar pembaca baru",
+  existingReader: "Hubungkan pembaca lama",
+  connectExistingReader: "Hubungkan pembaca lama",
+  newReaderHelp: "Lengkapi profil lalu simpan dan unggah untuk mendaftar dengan ID pembaca baru.",
+  readerAlreadyLinked: "Vault ini sudah terhubung ke pembaca.",
+  readerOperationBusy: "Operasi sedang berlangsung. Coba lagi setelah selesai.",
+  readerIdInvalid: "Masukkan ID pembaca yang valid.",
+  readerCredentialRequired: "Masukkan kredensial sinkronisasi pembaca yang valid.",
+  readerIdentityMismatch: "ID pembaca tidak cocok dengan kredensial ini."
 };
 
 // plugin/locales/th.json
@@ -8345,12 +8561,12 @@ var th_default = {
   \u4E0D\u9858\u900F\u9732: "\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E17\u0E35\u0E48\u0E08\u0E30\u0E44\u0E21\u0E48\u0E1E\u0E39\u0E14",
   language: "\u0E20\u0E32\u0E29\u0E32 UI",
   languageHelp: "\u0E01\u0E32\u0E23\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07\u0E08\u0E30\u0E21\u0E35\u0E1C\u0E25\u0E01\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E41\u0E25\u0E30\u0E2B\u0E19\u0E49\u0E32\u0E15\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E17\u0E31\u0E19\u0E17\u0E35 \u0E0A\u0E37\u0E48\u0E2D\u0E04\u0E33\u0E2A\u0E31\u0E48\u0E07\u0E08\u0E30\u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E2B\u0E25\u0E31\u0E07\u0E08\u0E32\u0E01\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E0B\u0E49\u0E33",
-  connected: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E41\u0E25\u0E49\u0E27: {name}",
+  connected: "\u0E2A\u0E27\u0E31\u0E2A\u0E14\u0E35 {name} \u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08",
   connectionStatus: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E41\u0E25\u0E49\u0E27: {name} \u0E2A\u0E34\u0E17\u0E18\u0E34\u0E4C\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C: {permission}",
   preview: "\u0E23\u0E2D\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23: {pending}; \u0E44\u0E21\u0E48\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07: {unchanged}; \u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E01\u0E32\u0E23\u0E41\u0E01\u0E49\u0E44\u0E02: {invalid}. \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E0A\u0E48\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E23\u0E27\u0E21\u0E16\u0E36\u0E07\u0E01\u0E32\u0E23\u0E2A\u0E30\u0E17\u0E49\u0E2D\u0E19\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E16\u0E39\u0E01\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   summary: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E49\u0E27: {saved}; \u0E44\u0E21\u0E48\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07: {unchanged}; \u0E44\u0E21\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07: {invalid}; \u0E44\u0E21\u0E48\u0E2A\u0E21\u0E1A\u0E39\u0E23\u0E13\u0E4C: {remaining}",
   changedDuringUpload: "\u0E21\u0E35\u0E01\u0E32\u0E23\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E41\u0E1B\u0E25\u0E07\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14 \u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
-  profileNotice: "\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E16\u0E39\u0E01\u0E08\u0E31\u0E14\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07 \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07 \u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 True Buddha Pedia Analytics \u0E1B\u0E23\u0E30\u0E01\u0E2D\u0E1A\u0E14\u0E49\u0E27\u0E22\u0E0A\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E41\u0E25\u0E30\u0E2D\u0E35\u0E40\u0E21\u0E25\u0E40\u0E2A\u0E23\u0E34\u0E21 \u0E1B\u0E35\u0E40\u0E01\u0E34\u0E14/\u0E40\u0E14\u0E37\u0E2D\u0E19 \u0E40\u0E1E\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E17\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19 \u0E41\u0E25\u0E30\u0E2D\u0E07\u0E04\u0E4C\u0E01\u0E23\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E23\u0E30\u0E1A\u0E38 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E08\u0E31\u0E14\u0E01\u0E32\u0E23\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E41\u0E25\u0E30\u0E2A\u0E16\u0E34\u0E15\u0E34\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E0A\u0E48\u0E2D\u0E07\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E35\u0E49\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E40\u0E02\u0E35\u0E22\u0E19\u0E25\u0E07\u0E43\u0E19\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21 \u0E04\u0E38\u0E13\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E41\u0E01\u0E49\u0E44\u0E02\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E2B\u0E23\u0E37\u0E2D\u0E02\u0E2D\u0E43\u0E2B\u0E49\u0E1C\u0E39\u0E49\u0E14\u0E39\u0E41\u0E25\u0E23\u0E30\u0E1A\u0E1A\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49 \u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E41\u0E15\u0E48\u0E25\u0E30\u0E04\u0E23\u0E31\u0E49\u0E07\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19 \u0E23\u0E30\u0E1A\u0E1A\u0E1B\u0E0F\u0E34\u0E1A\u0E31\u0E15\u0E34\u0E01\u0E32\u0E23 \u0E41\u0E25\u0E30\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E15\u0E31\u0E27\u0E41\u0E17\u0E19\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E40\u0E02\u0E49\u0E32\u0E01\u0E31\u0E19\u0E44\u0E14\u0E49\u0E41\u0E25\u0E30\u0E41\u0E01\u0E49\u0E44\u0E02\u0E1B\u0E31\u0E0D\u0E2B\u0E32\u0E14\u0E49\u0E27\u0E22 \u0E42\u0E14\u0E22\u0E40\u0E01\u0E47\u0E1A\u0E40\u0E09\u0E1E\u0E32\u0E30\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C\u0E08\u0E32\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E04\u0E23\u0E31\u0E49\u0E07\u0E25\u0E48\u0E32\u0E2A\u0E38\u0E14 \u0E41\u0E25\u0E30\u0E44\u0E21\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E30\u0E1A\u0E38\u0E2E\u0E32\u0E23\u0E4C\u0E14\u0E41\u0E27\u0E23\u0E4C",
+  profileNotice: "\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E16\u0E39\u0E01\u0E08\u0E31\u0E14\u0E40\u0E01\u0E47\u0E1A\u0E44\u0E27\u0E49\u0E43\u0E19\u0E40\u0E04\u0E23\u0E37\u0E48\u0E2D\u0E07 \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07 \u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 True Buddha Pedia Analytics \u0E1B\u0E23\u0E30\u0E01\u0E2D\u0E1A\u0E14\u0E49\u0E27\u0E22\u0E0A\u0E37\u0E48\u0E2D\u0E40\u0E25\u0E48\u0E19\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E41\u0E25\u0E30\u0E2D\u0E35\u0E40\u0E21\u0E25 \u0E1B\u0E35\u0E40\u0E01\u0E34\u0E14/\u0E40\u0E14\u0E37\u0E2D\u0E19 \u0E40\u0E1E\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E17\u0E28 \u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19 \u0E41\u0E25\u0E30\u0E2D\u0E07\u0E04\u0E4C\u0E01\u0E23\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E23\u0E30\u0E1A\u0E38 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E08\u0E31\u0E14\u0E01\u0E32\u0E23\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E41\u0E25\u0E30\u0E2A\u0E16\u0E34\u0E15\u0E34\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E0A\u0E48\u0E2D\u0E07\u0E40\u0E2B\u0E25\u0E48\u0E32\u0E19\u0E35\u0E49\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E40\u0E02\u0E35\u0E22\u0E19\u0E25\u0E07\u0E43\u0E19\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21 \u0E04\u0E38\u0E13\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E41\u0E01\u0E49\u0E44\u0E02\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E02\u0E2D\u0E07\u0E04\u0E38\u0E13\u0E2B\u0E23\u0E37\u0E2D\u0E02\u0E2D\u0E43\u0E2B\u0E49\u0E1C\u0E39\u0E49\u0E14\u0E39\u0E41\u0E25\u0E23\u0E30\u0E1A\u0E1A\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49 \u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E41\u0E15\u0E48\u0E25\u0E30\u0E04\u0E23\u0E31\u0E49\u0E07\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19 \u0E23\u0E30\u0E1A\u0E1A\u0E1B\u0E0F\u0E34\u0E1A\u0E31\u0E15\u0E34\u0E01\u0E32\u0E23 \u0E41\u0E25\u0E30\u0E02\u0E49\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E15\u0E31\u0E27\u0E41\u0E17\u0E19\u0E1C\u0E39\u0E49\u0E43\u0E0A\u0E49 \u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E01\u0E32\u0E23\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E40\u0E02\u0E49\u0E32\u0E01\u0E31\u0E19\u0E44\u0E14\u0E49\u0E41\u0E25\u0E30\u0E41\u0E01\u0E49\u0E44\u0E02\u0E1B\u0E31\u0E0D\u0E2B\u0E32\u0E14\u0E49\u0E27\u0E22 \u0E42\u0E14\u0E22\u0E40\u0E01\u0E47\u0E1A\u0E40\u0E09\u0E1E\u0E32\u0E30\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E2D\u0E38\u0E1B\u0E01\u0E23\u0E13\u0E4C\u0E08\u0E32\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E04\u0E23\u0E31\u0E49\u0E07\u0E25\u0E48\u0E32\u0E2A\u0E38\u0E14 \u0E41\u0E25\u0E30\u0E44\u0E21\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E30\u0E1A\u0E38\u0E2E\u0E32\u0E23\u0E4C\u0E14\u0E41\u0E27\u0E23\u0E4C \u0E01\u0E23\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E17\u0E38\u0E01\u0E0A\u0E48\u0E2D\u0E07\u0E41\u0E25\u0E30\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E19\u0E49\u0E2D\u0E22\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E01\u0E48\u0E2D\u0E19\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E2B\u0E23\u0E37\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   readingNotice: "\u0E2B\u0E25\u0E31\u0E07\u0E08\u0E32\u0E01\u0E22\u0E2D\u0E21\u0E23\u0E31\u0E1A\u0E1B\u0E23\u0E30\u0E01\u0E32\u0E28\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19 \u0E40\u0E09\u0E1E\u0E32\u0E30\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E17\u0E35\u0E48\u0E04\u0E38\u0E13\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E14\u0E49\u0E27\u0E22\u0E15\u0E19\u0E40\u0E2D\u0E07\u0E40\u0E17\u0E48\u0E32\u0E19\u0E31\u0E49\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E2A\u0E48\u0E07\u0E44\u0E1B\u0E22\u0E31\u0E07\u0E10\u0E32\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25 True Buddha Pedia Analytics \u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C \u0E0B\u0E36\u0E48\u0E07\u0E23\u0E27\u0E21\u0E16\u0E36\u0E07\u0E04\u0E27\u0E32\u0E21\u0E04\u0E37\u0E1A\u0E2B\u0E19\u0E49\u0E32\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19 \u0E27\u0E31\u0E19\u0E17\u0E35\u0E48 \u0E04\u0E30\u0E41\u0E19\u0E19 \u0E04\u0E33\u0E41\u0E19\u0E30\u0E19\u0E33 \u0E04\u0E33\u0E2A\u0E33\u0E04\u0E31\u0E0D \u0E2B\u0E31\u0E27\u0E02\u0E49\u0E2D\u0E22\u0E48\u0E2D\u0E22 \u0E01\u0E32\u0E23\u0E08\u0E33\u0E41\u0E19\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19 \u0E23\u0E30\u0E14\u0E31\u0E1A\u0E04\u0E27\u0E32\u0E21\u0E23\u0E39\u0E49\u0E17\u0E32\u0E07\u0E1E\u0E38\u0E17\u0E18\u0E28\u0E32\u0E2A\u0E19\u0E32 \u0E41\u0E25\u0E30\u0E23\u0E30\u0E14\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E1B\u0E0F\u0E34\u0E1A\u0E31\u0E15\u0E34 \u0E40\u0E19\u0E37\u0E49\u0E2D\u0E2B\u0E32\u0E02\u0E2D\u0E07\u0E1A\u0E17\u0E04\u0E27\u0E32\u0E21\u0E41\u0E25\u0E30\u0E04\u0E38\u0E13\u0E2A\u0E21\u0E1A\u0E31\u0E15\u0E34\u0E17\u0E35\u0E48\u0E44\u0E21\u0E48\u0E40\u0E01\u0E35\u0E48\u0E22\u0E27\u0E02\u0E49\u0E2D\u0E07\u0E08\u0E30\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E23\u0E31\u0E1A\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14 \u0E01\u0E32\u0E23\u0E1B\u0E34\u0E14\u0E43\u0E0A\u0E49\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E08\u0E30\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E43\u0E19\u0E2D\u0E19\u0E32\u0E04\u0E15 \u0E41\u0E15\u0E48\u0E08\u0E30\u0E44\u0E21\u0E48\u0E25\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E17\u0E35\u0E48\u0E21\u0E35\u0E2D\u0E22\u0E39\u0E48 \u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22",
   noticeUnavailable: "\u0E40\u0E0B\u0E34\u0E23\u0E4C\u0E1F\u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E19\u0E35\u0E49\u0E15\u0E49\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E1B\u0E23\u0E30\u0E01\u0E32\u0E28\u0E04\u0E27\u0E32\u0E21\u0E40\u0E1B\u0E47\u0E19\u0E2A\u0E48\u0E27\u0E19\u0E15\u0E31\u0E27\u0E17\u0E35\u0E48\u0E43\u0E2B\u0E21\u0E48\u0E01\u0E27\u0E48\u0E32 \u0E2D\u0E31\u0E1B\u0E40\u0E14\u0E15\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E01\u0E48\u0E2D\u0E19\u0E17\u0E35\u0E48\u0E08\u0E30\u0E22\u0E2D\u0E21\u0E23\u0E31\u0E1A\u0E2B\u0E23\u0E37\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   invalidField: "\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E04\u0E48\u0E32\u0E41\u0E25\u0E30\u0E23\u0E39\u0E1B\u0E41\u0E1A\u0E1A\u0E02\u0E2D\u0E07\u0E0A\u0E48\u0E2D\u0E07\u0E19\u0E35\u0E49",
@@ -8402,7 +8618,25 @@ var th_default = {
   connectionAvailable: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08 \u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E43\u0E0A\u0E49\u0E17\u0E35\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49",
   recordReading: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E2D\u0E07\u0E09\u0E31\u0E19",
   syncReadingCloud: "\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E1B\u0E22\u0E31\u0E07\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C",
-  readingContentIdRequired: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E19\u0E35\u0E49\u0E15\u0E49\u0E2D\u0E07\u0E21\u0E35 tbpedia_content_id \u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E43\u0E19 frontmatter \u0E01\u0E48\u0E2D\u0E19\u0E08\u0E36\u0E07\u0E08\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E14\u0E49"
+  readingContentIdRequired: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E19\u0E35\u0E49\u0E15\u0E49\u0E2D\u0E07\u0E21\u0E35 tbpedia_content_id \u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E43\u0E19 frontmatter \u0E01\u0E48\u0E2D\u0E19\u0E08\u0E36\u0E07\u0E08\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E14\u0E49",
+  requiredSuffix: "(\u0E08\u0E33\u0E40\u0E1B\u0E47\u0E19)",
+  profileRequiredHelp: "\u0E01\u0E23\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E17\u0E38\u0E01\u0E0A\u0E48\u0E2D\u0E07\u0E41\u0E25\u0E30\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E19\u0E49\u0E2D\u0E22\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E01\u0E48\u0E2D\u0E19\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E2B\u0E23\u0E37\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
+  readerTypesRequired: "\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E19\u0E49\u0E2D\u0E22\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17",
+  readerId: "ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
+  syncCredential: "\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C",
+  syncCredentialHelp: "\u0E43\u0E0A\u0E49\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E2A\u0E48\u0E27\u0E19\u0E15\u0E31\u0E27\u0E08\u0E32\u0E01\u0E04\u0E25\u0E31\u0E07\u0E40\u0E14\u0E34\u0E21\u0E41\u0E25\u0E30\u0E40\u0E01\u0E47\u0E1A\u0E40\u0E1B\u0E47\u0E19\u0E04\u0E27\u0E32\u0E21\u0E25\u0E31\u0E1A ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E40\u0E14\u0E35\u0E22\u0E27\u0E44\u0E21\u0E48\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E1E\u0E2D",
+  copySyncCredential: "\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07",
+  credentialCopied: "\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E41\u0E25\u0E49\u0E27",
+  readerSetup: "\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
+  newReader: "\u0E25\u0E07\u0E17\u0E30\u0E40\u0E1A\u0E35\u0E22\u0E19\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E2B\u0E21\u0E48",
+  existingReader: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E14\u0E34\u0E21",
+  connectExistingReader: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E14\u0E34\u0E21",
+  newReaderHelp: "\u0E01\u0E23\u0E2D\u0E01\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E41\u0E25\u0E49\u0E27\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E41\u0E25\u0E30\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E25\u0E07\u0E17\u0E30\u0E40\u0E1A\u0E35\u0E22\u0E19\u0E14\u0E49\u0E27\u0E22 ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E2B\u0E21\u0E48",
+  readerAlreadyLinked: "\u0E04\u0E25\u0E31\u0E07\u0E19\u0E35\u0E49\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E42\u0E22\u0E07\u0E01\u0E31\u0E1A\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E41\u0E25\u0E49\u0E27",
+  readerOperationBusy: "\u0E21\u0E35\u0E01\u0E32\u0E23\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23\u0E2D\u0E22\u0E39\u0E48 \u0E42\u0E1B\u0E23\u0E14\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E40\u0E2A\u0E23\u0E47\u0E08\u0E2A\u0E34\u0E49\u0E19",
+  readerIdInvalid: "\u0E1B\u0E49\u0E2D\u0E19 ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07",
+  readerCredentialRequired: "\u0E1B\u0E49\u0E2D\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E02\u0E2D\u0E07\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
+  readerIdentityMismatch: "ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E21\u0E48\u0E15\u0E23\u0E07\u0E01\u0E31\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E19\u0E35\u0E49"
 };
 
 // plugin/locales/bo.json
@@ -8532,12 +8766,12 @@ var bo_default = {
   \u4E0D\u9858\u900F\u9732: "\u0F58\u0F0B\u0F56\u0F64\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F51\u0F42\u0F60\u0F0D",
   language: "UI\u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42",
   languageHelp: "\u0F56\u0F66\u0F92\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F51\u0F7A\u0F0B\u0F60\u0F55\u0FB2\u0F63\u0F0B\u0F58\u0F62\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F9F\u0F44\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F66\u0F92\u0F7A\u0F60\u0F74\u0F0B\u0F41\u0F74\u0F44\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F62\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F56\u0F62\u0FA1\u0F0B\u0F56\u0F40\u0F7C\u0F51\u0F0B\u0F58\u0F72\u0F44\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0D",
-  connected: "\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D: {name}",
+  connected: "{name} \u0F63\u0F42\u0F66\u0F0B\u0F56\u0F51\u0F7A\u0F0B\u0F58\u0F7C\u0F0D \u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0F7A\u0F42\u0F66\u0F0B\u0F42\u0FB2\u0F74\u0F56\u0F0D",
   connectionStatus: "\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D: {name}. \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F46\u0F7C\u0F42\u0F0B\u0F58\u0F46\u0F53\u0F0D {permission}.",
   preview: "\u0F66\u0F92\u0F74\u0F42\u0F0B\u0F56\u0F5E\u0F72\u0F53\u0F0B\u0F54\u0F0D: {pending}; \u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F0D: {unchanged}; \u0F53\u0F7C\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D {invalid}. \u0F56\u0F66\u0F58\u0F0B\u0F42\u0F5E\u0F72\u0F42\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F41\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F62\u0F92\u0FB1\u0F74\u0F0B\u0F62\u0F7A\u0F51\u0F0D",
   summary: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0D: {saved}; \u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F0D: {unchanged}; \u0F53\u0F74\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0B: {invalid}; \u0F58\u0F0B\u0F5A\u0F44\u0F0B\u0F56\u0F0D: {remaining}.",
   changedDuringUpload: "\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F45\u0F7C\u0F66\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F51\u0F7A\u0F0B\u0F51\u0F42\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F46\u0F7A\u0F51\u0F0B\u0F51\u0F74\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
-  profileNotice: "\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F51\u0F7A\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F42\u0F66\u0F7C\u0F42\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F61\u0F72\u0F66\u0F0BTrue Buddha Pedia Analytics \u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F63\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F56\u0F0B\u0F62\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F58\u0F72\u0F44\u0F0B\u0F60\u0F51\u0F7C\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F42\u0F51\u0F58\u0F0B\u0F42\u0F60\u0F72\u0F0B\u0F42\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F55\u0FB2\u0F72\u0F53\u0F0B\u0F42\u0F44\u0F0B\u0F62\u0F74\u0F44\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0FB1\u0F7A\u0F66\u0F0B\u0F63\u0F7C\u0F0D \u0F5F\u0FB3\u0F0B\u0F56\u0F0D \u0F55\u0F7C\u0F0B\u0F58\u0F7C\u0F0D \u0F62\u0F92\u0FB1\u0F63\u0F0B\u0F41\u0F56\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F58\u0F41\u0F7C\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F60\u0F5B\u0F74\u0F42\u0F66\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F61\u0F72\u0F42\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F51\u0F42\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F4F\u0F74\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F74\u0F56\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F44\u0F0B\u0F54\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F56\u0F40\u0F60\u0F0B\u0F56\u0F4F\u0F44\u0F0B\u0F46\u0F7C\u0F42 \u0F66\u0F92\u0F7A\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F7A\u0F44\u0F66\u0F0B\u0F62\u0F7A\u0F62\u0F0D \u0F58\u0F50\u0F74\u0F53\u0F0B\u0F60\u0F42\u0FB2\u0F72\u0F42\u0F0B\u0F51\u0F44\u0F0B\u0F51\u0F40\u0F60\u0F0B\u0F44\u0F63\u0F0B\u0F66\u0F7A\u0F63\u0F0B\u0F46\u0F7A\u0F51\u0F0D \u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F56\u0F40\u0F7C\u0F63\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F63\u0F42 \u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F0B\u0F5A\u0F56\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F55\u0FB2\u0F7A\u0F44\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F46\u0F7A\u0F66\u0F0B\u0F58\u0F50\u0F60\u0F0B\u0F58\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0D \u0F66\u0FB2\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F58\u0F72\u0F0B\u0F56\u0F66\u0FA1\u0F74\u0F0D",
+  profileNotice: "\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F51\u0F7A\u0F0B\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F42\u0F66\u0F7C\u0F42\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F61\u0F72\u0F66\u0F0BTrue Buddha Pedia Analytics \u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F63\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F56\u0F0B\u0F62\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F58\u0F72\u0F44\u0F0B\u0F60\u0F51\u0F7C\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F42\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F55\u0FB2\u0F72\u0F53\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0FB1\u0F7A\u0F66\u0F0B\u0F63\u0F7C\u0F0D \u0F5F\u0FB3\u0F0B\u0F56\u0F0D \u0F55\u0F7C\u0F0B\u0F58\u0F7C\u0F0D \u0F62\u0F92\u0FB1\u0F63\u0F0B\u0F41\u0F56\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F58\u0F41\u0F7C\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F60\u0F5B\u0F74\u0F42\u0F66\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F61\u0F72\u0F42\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F51\u0F42\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F4F\u0F74\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F66\u0FA1\u0F74\u0F51\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F74\u0F56\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F66\u0F90\u0FB1\u0F7C\u0F44\u0F0B\u0F54\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F56\u0F40\u0F60\u0F0B\u0F56\u0F4F\u0F44\u0F0B\u0F46\u0F7C\u0F42 \u0F66\u0F92\u0F7A\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F50\u0F7A\u0F44\u0F66\u0F0B\u0F62\u0F7A\u0F62\u0F0D \u0F58\u0F50\u0F74\u0F53\u0F0B\u0F60\u0F42\u0FB2\u0F72\u0F42\u0F0B\u0F51\u0F44\u0F0B\u0F51\u0F40\u0F60\u0F0B\u0F44\u0F63\u0F0B\u0F66\u0F7A\u0F63\u0F0B\u0F46\u0F7A\u0F51\u0F0D \u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F56\u0F40\u0F7C\u0F63\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F63\u0F42 \u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F0B\u0F5A\u0F56\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F55\u0FB2\u0F7A\u0F44\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F46\u0F7A\u0F66\u0F0B\u0F58\u0F50\u0F60\u0F0B\u0F58\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F46\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0D \u0F66\u0FB2\u0F0B\u0F46\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F58\u0F72\u0F0B\u0F56\u0F66\u0FA1\u0F74\u0F0D \u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F66\u0F58\u0F0B\u0F61\u0F62\u0F0B\u0F66\u0F90\u0FB1\u0F7A\u0F63\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F5A\u0F44\u0F0B\u0F58\u0F0B\u0F56\u0F40\u0F44\u0F0B\u0F53\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F49\u0F74\u0F44\u0F0B\u0F58\u0F50\u0F62\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   readingNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F63\u0F0B\u0F56\u0F64\u0F51\u0F0B\u0F63\u0F0B\u0F58\u0F7C\u0F66\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F62\u0F97\u0F7A\u0F66\u0F0D \u0F41\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F66\u0F0B\u0F63\u0F42\u0F0B\u0F50\u0F7C\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0FA6\u0FB1\u0F7C\u0F62\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F41\u0F7C\u0F0B\u0F53\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F53\u0F44\u0F0B\u0F42\u0F72\u0F0BTrue Buddha Pedia Analytics \u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F51\u0F74\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F51\u0F7A\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F60\u0F55\u0F7A\u0F63\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F5A\u0F7A\u0F66\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0D \u0F66\u0F90\u0F62\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0D \u0F60\u0F7C\u0F66\u0F0B\u0F66\u0FA6\u0FB1\u0F7C\u0F62\u0F0D \u0F42\u0F53\u0F51\u0F0B\u0F5A\u0F72\u0F42 \u0F56\u0F62\u0F97\u0F7C\u0F51\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F55\u0F63\u0F0B\u0F54\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F58\u0F41\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F51\u0F56\u0FB1\u0F7A\u0F0D \u0F53\u0F44\u0F0B\u0F46\u0F7C\u0F66\u0F0B\u0F64\u0F7A\u0F66\u0F0B\u0F56\u0FB1\u0F60\u0F72\u0F0B\u0F5A\u0F51\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F49\u0F58\u0F66\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F5A\u0F51\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F56\u0F45\u0F66\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F55\u0F74\u0F44\u0F0B\u0F54\u0F7C\u0F0B\u0F51\u0F44\u0F0B\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F56\u0F0B\u0F58\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0F92\u0FB1\u0F74\u0F0B\u0F53\u0F7C\u0F62\u0F0B\u0F55\u0F56\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F58\u0F7A\u0F51\u0F0D \u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F63\u0F95\u0F7C\u0F42\u0F66\u0F0B\u0F58\u0F72\u0F53\u0F0B\u0F56\u0F5F\u0F7C\u0F66\u0F0B\u0F53\u0F0B\u0F58\u0F0B\u0F60\u0F7C\u0F44\u0F66\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F60\u0F47\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F40\u0FB1\u0F44\u0F0B\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F66\u0F74\u0F56\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   noticeUnavailable: "\u0F42\u0F66\u0F56\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F63\u0F0B\u0F66\u0F92\u0F7A\u0F62\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F56\u0F62\u0FA1\u0F0B\u0F50\u0F7C\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D \u0F44\u0F7C\u0F66\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F61\u0F44\u0F0B\u0F53\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F51\u0F7A\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F56\u0F62\u0F97\u0F7A\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   invalidField: "\u0F61\u0F72\u0F42\u0F0B\u0F51\u0F74\u0F58\u0F0B\u0F60\u0F51\u0F72\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F53\u0F0B\u0F50\u0F44\u0F0B\u0F51\u0F44\u0F0B\u0F62\u0FA3\u0F58\u0F0B\u0F42\u0F5E\u0F42\u0F0B\u0F63\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F56\u0F64\u0F7A\u0F62\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0D",
@@ -8589,7 +8823,25 @@ var bo_default = {
   connectionAvailable: "\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0F7A\u0F42\u0F66\u0F0B\u0F42\u0FB2\u0F74\u0F56\u0F0D \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F56\u0F7A\u0F51\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F0B\u0F50\u0F74\u0F56\u0F0D",
   recordReading: "\u0F44\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51\u0F0D",
   syncReadingCloud: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42",
-  readingContentIdRequired: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B frontmatter \u0F53\u0F44\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B tbpedia_content_id \u0F61\u0F7C\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D"
+  readingContentIdRequired: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B frontmatter \u0F53\u0F44\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B tbpedia_content_id \u0F61\u0F7C\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
+  requiredSuffix: "(\u0F44\u0F7A\u0F66\u0F0B\u0F54\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D)",
+  profileRequiredHelp: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F66\u0F58\u0F0B\u0F61\u0F62\u0F0B\u0F66\u0F90\u0FB1\u0F7A\u0F63\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F5A\u0F44\u0F0B\u0F58\u0F0B\u0F56\u0F40\u0F44\u0F0B\u0F53\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F49\u0F74\u0F44\u0F0B\u0F58\u0F50\u0F62\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
+  readerTypesRequired: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F49\u0F74\u0F44\u0F0B\u0F58\u0F50\u0F62\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
+  readerId: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B ID",
+  syncCredential: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42",
+  syncCredentialHelp: "\u0F66\u0F94\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F44\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D ID \u0F41\u0F7C\u0F0B\u0F53\u0F66\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D",
+  copySyncCredential: "\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F51\u0FB2\u0F0B\u0F56\u0F64\u0F74\u0F66",
+  credentialCopied: "\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F51\u0FB2\u0F0B\u0F56\u0F64\u0F74\u0F66\u0F0B\u0F5F\u0F72\u0F53\u0F0D",
+  readerSetup: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F60\u0F42\u0F7C\u0F51",
+  newReader: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51",
+  existingReader: "\u0F66\u0F94\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F54\u0F0D",
+  connectExistingReader: "\u0F66\u0F94\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F54\u0F0D",
+  newReaderHelp: "\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F56\u0F40\u0F44\u0F0B\u0F53\u0F66\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F61\u0F62\u0F0B\u0F66\u0F90\u0FB1\u0F7A\u0F63\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F0B ID \u0F42\u0F66\u0F62\u0F0B\u0F54\u0F0B\u0F50\u0F7C\u0F56\u0F0D",
+  readerAlreadyLinked: "\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F51\u0F44\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F5F\u0F72\u0F53\u0F0D",
+  readerOperationBusy: "\u0F63\u0F66\u0F0B\u0F40\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F56\u0F5E\u0F72\u0F53\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
+  readerIdInvalid: "\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B ID \u0F60\u0F47\u0F74\u0F42\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
+  readerCredentialRequired: "\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
+  readerIdentityMismatch: "ID \u0F51\u0F44\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F58\u0F72\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -8664,6 +8916,7 @@ function fieldLabel(path) {
 }
 function validationReason(issue2) {
   const custom = {
+    "Select at least one reader type": "readerTypesRequired",
     "Invalid calendar date": "invalidDate",
     "Birth year cannot be in the future": "futureBirthYear",
     "Unknown country code": "unknownCountry",
@@ -8789,7 +9042,15 @@ var profileSchema = object({
   organisation: string2().trim().max(200).nullable()
 }).strict().refine((p) => p.birth_month === null || p.birth_year !== null, { path: ["birth_month"], message: "Birth year is required when birth month is supplied" });
 var emptyProfile = () => ({ nickname: "", email: null, birth_year: null, birth_month: null, sex: "PREFER_NOT_TO_SAY", country_code: null, reader_type: null, organisation: null });
-var profileRequestSchema = object({ schema_version: literal(1), profile: profileSchema, profile_notice_version: string2().max(40), cloud_sync_enabled: boolean2(), reading_notice_version: string2().max(40).nullable(), client_metadata: clientMetadataSchema.optional() }).strict();
+var completeProfileSchema = profileSchema.safeExtend({
+  email: email2().max(254),
+  birth_year: profileSchema.shape.birth_year.unwrap(),
+  birth_month: profileSchema.shape.birth_month.unwrap(),
+  country_code: profileSchema.shape.country_code.unwrap(),
+  organisation: string2().trim().min(1).max(200),
+  reader_type: profileReaderTypesSchema.refine((value) => value !== null && value.length > 0, "Select at least one reader type")
+});
+var profileRequestSchema = object({ schema_version: literal(1), profile: completeProfileSchema, profile_notice_version: string2().max(40), cloud_sync_enabled: boolean2(), reading_notice_version: string2().max(40).nullable(), client_metadata: clientMetadataSchema.optional() }).strict();
 var syncRequestSchema = object({ schema_version: literal(1), content_id: contentIdSchema, client_updated_at: iso_exports.datetime({ offset: true }), values: readingSchema, updater_metadata: updaterMetadataSchema.optional() }).strict();
 function canonicalSnapshot(contentId, values, updaterMetadata) {
   const normalized = readingSchema.parse(values);
@@ -8995,6 +9256,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   busy = false;
   persistTail = Promise.resolve();
   profileUpload;
+  restoringReader = false;
   readingActions = /* @__PURE__ */ new Map();
   async onload() {
     const loaded = await this.loadData();
@@ -9068,7 +9330,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   persistQuiet() {
     void this.persist().catch(() => new import_obsidian.Notice(t("\u5916\u639B\u8A2D\u5B9A\u7121\u6CD5\u5132\u5B58\uFF0C\u8ACB\u6AA2\u67E5 Vault \u7684\u5BEB\u5165\u6B0A\u9650\u3002")));
   }
-  async api(path, method = "GET", body, authenticated = true) {
+  async api(path, method = "GET", body, authenticated = true, credential = this.token) {
     let url;
     try {
       url = new URL(this.data.api_url);
@@ -9077,10 +9339,10 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     }
     if (url.protocol !== "https:" && !(url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname))) throw new UiError(t("API \u5FC5\u9808\u4F7F\u7528 HTTPS\u3002"));
     if (url.username || url.password || url.search || url.hash || url.pathname !== "/") throw new UiError(t("API \u8ACB\u586B\u5BEB\u4E3B\u6A5F\u7DB2\u5740\uFF0C\u4E0D\u542B\u8DEF\u5F91\u6216\u67E5\u8A62\u53C3\u6578\u3002"));
-    if (authenticated && !/^[A-Za-z0-9_-]{43}$/.test(this.token)) throw new GatewayError(401, "UNAUTHENTICATED");
+    if (authenticated && !/^[A-Za-z0-9_-]{43}$/.test(credential)) throw new GatewayError(401, "UNAUTHENTICATED");
     let response;
     try {
-      response = await (0, import_obsidian.requestUrl)({ url: new URL(path, url).toString(), method, headers: { ...authenticated ? { Authorization: `Bearer ${this.token}` } : {}, "Content-Type": "application/json" }, body: body === void 0 ? void 0 : JSON.stringify(body), throw: false });
+      response = await (0, import_obsidian.requestUrl)({ url: new URL(path, url).toString(), method, headers: { ...authenticated ? { Authorization: `Bearer ${credential}` } : {}, "Content-Type": "application/json" }, body: body === void 0 ? void 0 : JSON.stringify(body), throw: false });
     } catch {
       throw new UiError(t("\u7121\u6CD5\u9023\u7DDA\uFF1B\u672C\u6A5F\u8CC7\u6599\u5DF2\u4FDD\u7559\u3002\u8ACB\u7A0D\u5F8C\u624B\u52D5\u518D\u8A66\u3002"));
     }
@@ -9111,7 +9373,36 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       await this.connect();
       return;
     }
-    new import_obsidian.Notice(t("connectionAvailable"));
+    const nickname = this.data.profile.nickname.trim();
+    new import_obsidian.Notice(nickname ? t("connected", { name: nickname }) : t("connectionAvailable"));
+  }
+  async restoreExistingReader(readerId, credential) {
+    if (this.data.reader_id) throw new UiError(t("readerAlreadyLinked"));
+    if (this.busy || this.profileUpload || this.restoringReader) throw new UiError(t("readerOperationBusy"));
+    const id = uuid2().safeParse(readerId.trim());
+    if (!id.success) throw new UiError(t("readerIdInvalid"));
+    const token = credential.trim();
+    if (!/^[A-Za-z0-9_-]{43}$/.test(token)) throw new UiError(t("readerCredentialRequired"));
+    this.restoringReader = true;
+    try {
+      const me = meSchema.parse(await this.api("/v1/me", "GET", void 0, true, token));
+      if (me.reader_id !== id.data) throw new UiError(t("readerIdentityMismatch"));
+      const previous = { data: this.data, token: this.token, me: this.me };
+      this.data = { ...this.data, reader_id: me.reader_id, profile: { ...me.profile }, remember_token: true };
+      this.token = token;
+      this.me = me;
+      try {
+        await this.persist();
+      } catch (error2) {
+        this.data = previous.data;
+        this.token = previous.token;
+        this.me = previous.me;
+        throw error2;
+      }
+      new import_obsidian.Notice(t("connected", { name: me.profile.nickname }));
+    } finally {
+      this.restoringReader = false;
+    }
   }
   uploadProfile() {
     return this.profileUpload ??= this.performProfileUpload().finally(() => {
@@ -9119,12 +9410,13 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     });
   }
   async performProfileUpload() {
+    if (this.restoringReader) throw new UiError(t("readerOperationBusy"));
     if (this.data.reader_id && !this.me) await this.connect();
     const required2 = this.me?.required_notices ?? { profile_version: PROFILE_NOTICE_VERSION, reading_version: READING_NOTICE_VERSION };
     if (!noticeSupported(required2.profile_version, PROFILE_NOTICE_VERSION) || !noticeSupported(required2.reading_version, READING_NOTICE_VERSION)) throw new UiError(t("noticeUnavailable"));
     if (this.data.profile_notice_version !== required2.profile_version) throw new UiError(t("\u8ACB\u5148\u95B1\u8B80\u4E26\u540C\u610F\u500B\u4EBA\u8CC7\u6599\u8AAA\u660E\u3002"));
     if (this.data.local_upload_enabled && this.data.reading_notice_version !== required2.reading_version) throw new UiError(t("\u8ACB\u5148\u540C\u610F\u95B1\u8B80\u8CC7\u6599\u4E0A\u50B3\u8AAA\u660E\u3002"));
-    const profile = profileSchema.parse(this.data.profile);
+    const profile = completeProfileSchema.parse(this.data.profile);
     if (!this.token) {
       const bytes = crypto.getRandomValues(new Uint8Array(32));
       this.token = btoa(String.fromCharCode(...bytes)).replaceAll("+", "-").replaceAll("/", "_").replace(/=+$/, "");
@@ -9270,6 +9562,10 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     }
   }
   async runSync(files, force) {
+    if (this.restoringReader) {
+      new import_obsidian.Notice(t("readerOperationBusy"));
+      return;
+    }
     if (this.busy) {
       new import_obsidian.Notice(t("\u540C\u6B65\u6B63\u5728\u9032\u884C\u3002"));
       return;
@@ -9519,6 +9815,9 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     this.plugin = plugin;
   }
   plugin;
+  existingReader = false;
+  readerIdInput = "";
+  credentialInput = "";
   display() {
     setLocale(this.plugin.data.interface_language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
@@ -9545,15 +9844,52 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
       })));
     }
     el.createEl("h3", { text: t("\u8B80\u8005\u500B\u4EBA\u8CC7\u6599") });
+    if (p.data.reader_id) {
+      new import_obsidian.Setting(el).setName(t("readerId")).addText((t2) => {
+        t2.setValue(p.data.reader_id);
+        t2.inputEl.readOnly = true;
+      });
+      new import_obsidian.Setting(el).setName(t("syncCredential")).setDesc(t("syncCredentialHelp")).addButton((b) => b.setButtonText(t("copySyncCredential")).setDisabled(!p.token).onClick(() => run(async () => {
+        await navigator.clipboard.writeText(p.token);
+        new import_obsidian.Notice(t("credentialCopied"));
+      })));
+    } else {
+      new import_obsidian.Setting(el).setName(t("readerSetup")).addDropdown((d) => d.addOption("new", t("newReader")).addOption("existing", t("existingReader")).setValue(this.existingReader ? "existing" : "new").onChange((value) => {
+        this.existingReader = value === "existing";
+        this.display();
+      }));
+      if (this.existingReader) {
+        new import_obsidian.Setting(el).setName(t("readerId")).addText((t2) => t2.setValue(this.readerIdInput).onChange((value) => {
+          this.readerIdInput = value;
+        }));
+        new import_obsidian.Setting(el).setName(t("syncCredential")).setDesc(t("syncCredentialHelp")).addText((t2) => {
+          t2.inputEl.type = "password";
+          t2.inputEl.autocomplete = "off";
+          t2.setValue(this.credentialInput).onChange((value) => {
+            this.credentialInput = value;
+          });
+        });
+        new import_obsidian.Setting(el).addButton((b) => b.setCta().setButtonText(t("connectExistingReader")).onClick(() => run(async () => {
+          await p.restoreExistingReader(this.readerIdInput, this.credentialInput);
+          this.credentialInput = "";
+        })));
+        return;
+      }
+      el.createEl("p", { text: t("newReaderHelp"), cls: "setting-item-description" });
+    }
     const profile = p.data.profile;
-    for (const [key, label] of [["nickname", t("\u66B1\u7A31\uFF08\u5FC5\u586B\uFF09")], ["email", t("\u96FB\u90F5\uFF08\u9078\u586B\uFF0C\u4E0D\u9700\u9A57\u8B49\uFF09")], ["organisation", t("\u6240\u5C6C\u6A5F\u69CB\uFF08\u9078\u586B\uFF09")]]) new import_obsidian.Setting(el).setName(label).addText((t2) => {
+    el.createEl("p", { text: t("profileRequiredHelp"), cls: "setting-item-description" });
+    const requiredLabel = (field) => `${t(`field.${field}`)} ${t("requiredSuffix")}`;
+    for (const [key, label] of [["nickname", requiredLabel("nickname")], ["email", requiredLabel("email")], ["organisation", requiredLabel("organisation")]]) new import_obsidian.Setting(el).setName(label).addText((t2) => {
+      t2.inputEl.required = true;
       if (key === "email") t2.inputEl.type = "email";
       t2.setValue(profile[key] ?? "").onChange((v) => {
         if (key === "nickname") profile.nickname = v;
         else profile[key] = v.trim() || null;
       });
     });
-    new import_obsidian.Setting(el).setName(t("\u51FA\u751F\u5E74\u4EFD\uFF08\u9078\u586B\uFF09")).addText((t2) => {
+    new import_obsidian.Setting(el).setName(requiredLabel("birth_year")).addText((t2) => {
+      t2.inputEl.required = true;
       t2.inputEl.type = "number";
       t2.inputEl.min = "1900";
       t2.inputEl.max = String((/* @__PURE__ */ new Date()).getFullYear());
@@ -9561,31 +9897,46 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
         profile.birth_year = v === "" ? null : Number(v);
       });
     });
-    new import_obsidian.Setting(el).setName(t("\u51FA\u751F\u6708\u4EFD\uFF08\u9078\u586B\uFF09")).addDropdown((d) => {
+    new import_obsidian.Setting(el).setName(requiredLabel("birth_month")).addDropdown((d) => {
+      d.selectEl.required = true;
       d.addOption("", t("\u672A\u63D0\u4F9B"));
       for (let m = 1; m <= 12; m++) d.addOption(String(m), monthName(m));
       d.setValue(profile.birth_month === null ? "" : String(profile.birth_month)).onChange((v) => {
         profile.birth_month = v ? Number(v) : null;
       });
     });
-    new import_obsidian.Setting(el).setName(t("\u6027\u5225")).addDropdown((d) => d.addOptions(labels(SEX_LABELS)).setValue(profile.sex).onChange((v) => {
-      profile.sex = profileSchema.shape.sex.parse(v);
-    }));
-    new import_obsidian.Setting(el).setName(t("\u570B\u5BB6\uFF0F\u5730\u5340\uFF08\u9078\u586B\uFF09")).addDropdown((d) => {
+    new import_obsidian.Setting(el).setName(requiredLabel("sex")).addDropdown((d) => {
+      d.selectEl.required = true;
+      d.addOptions(labels(SEX_LABELS)).setValue(profile.sex).onChange((v) => {
+        profile.sex = profileSchema.shape.sex.parse(v);
+      });
+    });
+    new import_obsidian.Setting(el).setName(requiredLabel("country_code")).addDropdown((d) => {
+      d.selectEl.required = true;
       d.addOption("", t("\u672A\u63D0\u4F9B"));
       for (const code of [...COUNTRY_CODES].sort((a, b) => regionName(a).localeCompare(regionName(b), intlLocale()))) d.addOption(code, `${regionName(code)} (${code})`);
       d.setValue(profile.country_code ?? "").onChange((v) => {
         profile.country_code = v || null;
       });
     });
-    el.createEl("h4", { text: t("\u6211\u7684\u8B80\u8005\u985E\u578B\uFF08\u9078\u586B\uFF09") });
-    for (const [code, label] of Object.entries(labels(READER_LABELS))) new import_obsidian.Setting(el).setName(label).addToggle((t2) => {
+    const types = el.createEl("fieldset", { cls: "tbpa-reader-types" });
+    types.createEl("legend", { text: requiredLabel("reader_type") });
+    for (const [code, label] of Object.entries(labels(READER_LABELS))) {
       const selected = profileSchema.shape.reader_type.parse(code)[0];
-      t2.setValue(profile.reader_type?.includes(selected) ?? false).onChange((on) => {
+      const option = types.createEl("label", { cls: "tbpa-reader-type-option" });
+      const checkbox = option.createEl("input", { type: "checkbox" });
+      checkbox.checked = profile.reader_type?.includes(selected) ?? false;
+      option.createSpan({ text: label });
+      const updateValidity = () => {
+        for (const input of types.querySelectorAll("input")) input.setCustomValidity(profile.reader_type?.length ? "" : t("readerTypesRequired"));
+      };
+      checkbox.addEventListener("change", () => {
         const values = profile.reader_type ?? [];
-        profile.reader_type = profileSchema.shape.reader_type.parse(on ? [...values, selected] : values.filter((value) => value !== selected));
+        profile.reader_type = profileSchema.shape.reader_type.parse(checkbox.checked ? [...values, selected] : values.filter((value) => value !== selected));
+        updateValidity();
       });
-    });
+      updateValidity();
+    }
     const required2 = p.me?.required_notices;
     el.createEl("p", { text: noticeSupported(required2?.profile_version, PROFILE_NOTICE_VERSION) ? t("profileNotice") : t("noticeUnavailable"), cls: "tbpa-notice" });
     const profileVersion = required2?.profile_version ?? PROFILE_NOTICE_VERSION;
@@ -9613,7 +9964,7 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     }));
     if (!p.me || p.me.cloud_sync_enabled !== p.data.local_upload_enabled) el.createEl("p", { text: t("\u96F2\u7AEF\u6B0A\u9650\u5C1A\u5F85\u78BA\u8A8D\u6216\u5957\u7528\u3002"), cls: "setting-item-description" });
     new import_obsidian.Setting(el).addButton((b) => b.setButtonText(t("\u5132\u5B58\u500B\u4EBA\u8CC7\u6599\u65BC\u672C\u6A5F")).onClick(() => run(async () => {
-      profileSchema.parse(p.data.profile);
+      completeProfileSchema.parse(p.data.profile);
       await p.persist();
       new import_obsidian.Notice(t("\u500B\u4EBA\u8CC7\u6599\u5DF2\u5132\u5B58\u65BC\u672C\u6A5F\u3002"));
     }))).addButton((b) => b.setCta().setButtonText(t("\u5132\u5B58\u4E26\u4E0A\u50B3\u500B\u4EBA\u8CC7\u6599")).onClick(() => run(() => p.uploadProfile())));

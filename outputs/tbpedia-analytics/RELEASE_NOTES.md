@@ -1,3 +1,16 @@
+# v0.1.16 — Reader recovery and required profiles
+
+Released 19 October 2026.
+
+- Successful connection messages greet the reader by nickname.
+- Removes the settings connection-summary line and standalone Load cloud profile option.
+- Adds new-reader registration or existing-reader recovery using a reader ID and private sync credential, verifying the pair before saving the cloud profile locally. Linked readers can copy their credential for recovery in another vault.
+- Requires every profile field and at least one reader type before local saving or uploading. Replaces reader-type toggles with labeled checkbox boxes supporting multiple selections. Existing incomplete profiles remain readable.
+- Updates all 14 interface languages, profile-notice wording, and shared Worker request validation. The Worker validation change is built but has not been deployed.
+- Validation: typecheck and build pass; 84 of 85 automated tests pass. The existing catalogue test still reports two notes missing parent TBP-275. Native Obsidian UI testing has not been performed.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. Existing-reader recovery uses the current authenticated cloud service. Server-side required-field enforcement needs a separate Worker deployment; this plugin release does not deploy the Worker.
+
 # v0.1.15 — Reading shortcuts and content-ID validation
 
 Released 19 October 2026.

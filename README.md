@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.15](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.15)** — adds reading actions to the ribbon and tab headers, a cloud-sync ribbon icon, and content-ID validation.
+**Latest release: [v0.1.16](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.16)** — adds existing-reader recovery, required profile fields, reader-type checkboxes, and a personalized connection message.
 
 ## Install or upgrade
 
@@ -13,7 +13,21 @@ An Obsidian plugin for local reading progress and deliberate, authenticated uplo
 
 The configured API is `https://cfanalytics.tbpedia.org`. The profile notice, reading-data notice and manual upload permission are enabled by default on new installations. Upgrades preserve existing choices. Use **Save and upload profile** to apply cloud permissions; reading data uploads only when you choose to sync.
 
-The reading ribbon action is **Record my reading data**, with the same icon in each Markdown tab header. The **Sync reading data to cloud** ribbon icon opens the same changed-reading preview as the settings button. Recording and quick-status actions require a valid `tbpedia_content_id` in the note’s frontmatter; saves recheck this requirement. These interface changes are included in v0.1.15.
+The reading ribbon action is **Record my reading data**, with the same icon in each Markdown tab header. The **Sync reading data to cloud** ribbon icon opens the same changed-reading preview as the settings button. Recording and quick-status actions require a valid `tbpedia_content_id` in the note’s frontmatter; saves recheck this requirement. These interface changes are included in v0.1.16.
+
+## Reader profile setup
+
+The settings page no longer displays the connected-reader/permission summary or a separate **Load cloud profile** option.
+
+- For a new account, choose **Register a new reader**, complete every profile field, select at least one reader-type checkbox, then choose **Save and upload profile**. The cloud assigns a new reader ID.
+- For an existing account on an unlinked vault, choose **Connect an existing reader**, enter the existing **Reader ID** and **Sync credential**, then choose **Connect existing reader**. The plugin verifies that they match before copying the cloud profile into this vault and saving the credential. A reader ID alone cannot authenticate recovery.
+- In a linked vault, the reader ID is displayed read-only. Use **Copy sync credential** to obtain the private credential for connecting another vault. Keep it private.
+- Nickname, email, birth year, birth month, sex, country/region, organisation and at least one reader type are required before local profile saving or uploading. Reader types use labeled checkbox boxes and support multiple selections. Email format is validated; email ownership is not verified.
+- Existing incomplete profiles remain readable. Fill the missing fields before saving or uploading them. Recovery uses the existing authenticated service; it does not enroll a new cloud reader or upload profile/device data.
+
+To obtain the sync credential, open the original connected vault, reload the plugin, go to **Settings → True Buddha Pedia Analytics**, and click **Copy sync credential**. Copy the displayed **Reader ID** as well. On the new vault, select **Connect an existing reader** and enter both values. If the original credential is lost, contact the administrator; the reader ID alone cannot restore access.
+
+The plugin enforces these required fields locally. The matching Worker request-validation change is included in the source/build and requires a Worker deployment to enforce it for other clients.
 
 ## Interface and upload defaults
 
@@ -91,7 +105,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.15 release passes type checking and production builds. **72 of 73 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
+The v0.1.16 release passes type checking and production builds. **84 of 85 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

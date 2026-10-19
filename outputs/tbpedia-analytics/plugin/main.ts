@@ -1,7 +1,7 @@
 import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, MarkdownView, Platform, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
 import * as z from 'zod';
 import { t as tr, labels, LANGUAGES, setLocale, languagePreference, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
-import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
+import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, completeProfileSchema, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
 import { readingUpdatedAt, markReadingSynced, fromFrontmatter, toFrontmatter, trackedFingerprint, type Frontmatter } from '../shared/frontmatter';
 import { collectClientMetadata } from '../shared/client-metadata';
 import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metadata';
@@ -34,6 +34,7 @@ function message(error:unknown):string{
 export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;private persistTail:Promise<void>=Promise.resolve();
   private profileUpload:Promise<void>|undefined;
+  private restoringReader=false;
   private readingActions=new Map<MarkdownView,HTMLElement>();
   async onload(){
     const loaded:unknown=await this.loadData();
@@ -72,13 +73,13 @@ export default class TbpediaAnalytics extends Plugin{
   }
   async persist(){const snapshot=structuredClone({...this.data,stored_token:this.data.remember_token?this.token:''});const task=this.persistTail.then(()=>this.saveData(snapshot));this.persistTail=task.catch(()=>undefined);await task;}
   persistQuiet(){void this.persist().catch(()=>new Notice(tr("外掛設定無法儲存，請檢查 Vault 的寫入權限。")));}
-  async api(path:string,method='GET',body?:unknown,authenticated=true):Promise<unknown>{
+  async api(path:string,method='GET',body?:unknown,authenticated=true,credential=this.token):Promise<unknown>{
     let url:URL;try{url=new URL(this.data.api_url);}catch{throw new UiError(tr('API 請填寫主機網址，不含路徑或查詢參數。'));}
     if(url.protocol!=='https:'&&!(url.protocol==='http:'&&['localhost','127.0.0.1'].includes(url.hostname)))throw new UiError(tr("API 必須使用 HTTPS。"));
     if(url.username||url.password||url.search||url.hash||url.pathname!=='/')throw new UiError(tr("API 請填寫主機網址，不含路徑或查詢參數。"));
-    if(authenticated&&!/^[A-Za-z0-9_-]{43}$/.test(this.token))throw new GatewayError(401,'UNAUTHENTICATED');
+    if(authenticated&&!/^[A-Za-z0-9_-]{43}$/.test(credential))throw new GatewayError(401,'UNAUTHENTICATED');
     let response;
-    try{response=await requestUrl({url:new URL(path,url).toString(),method,headers:{...(authenticated?{Authorization:`Bearer ${this.token}`} : {}),'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),throw:false});}
+    try{response=await requestUrl({url:new URL(path,url).toString(),method,headers:{...(authenticated?{Authorization:`Bearer ${credential}`} : {}),'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),throw:false});}
     catch{throw new UiError(tr("無法連線；本機資料已保留。請稍後手動再試。"));}
     let value:unknown;try{value=response.json as unknown;}catch{throw new UiError(tr("伺服器未回傳有效資料。"));}
     if(response.status<200||response.status>=300){
@@ -97,18 +98,37 @@ export default class TbpediaAnalytics extends Plugin{
     const health=z.object({application:z.literal('tbpedia-analytics'),configured:z.boolean()}).parse(await this.api('/health','GET',undefined,false));
     if(!health.configured)throw new GatewayError(503,'NOT_CONFIGURED');
     if(this.data.reader_id&&this.token){await this.connect();return;}
-    new Notice(tr('connectionAvailable'));
+    const nickname=this.data.profile.nickname.trim();
+    new Notice(nickname?tr('connected',{name:nickname}):tr('connectionAvailable'));
+  }
+  async restoreExistingReader(readerId:string,credential:string){
+    if(this.data.reader_id)throw new UiError(tr('readerAlreadyLinked'));
+    if(this.busy||this.profileUpload||this.restoringReader)throw new UiError(tr('readerOperationBusy'));
+    const id=z.uuid().safeParse(readerId.trim());
+    if(!id.success)throw new UiError(tr('readerIdInvalid'));
+    const token=credential.trim();
+    if(!/^[A-Za-z0-9_-]{43}$/.test(token))throw new UiError(tr('readerCredentialRequired'));
+    this.restoringReader=true;
+    try{
+      const me=meSchema.parse(await this.api('/v1/me','GET',undefined,true,token));
+      if(me.reader_id!==id.data)throw new UiError(tr('readerIdentityMismatch'));
+      const previous={data:this.data,token:this.token,me:this.me};
+      this.data={...this.data,reader_id:me.reader_id,profile:{...me.profile},remember_token:true};this.token=token;this.me=me;
+      try{await this.persist();}catch(error){this.data=previous.data;this.token=previous.token;this.me=previous.me;throw error;}
+      new Notice(tr('connected',{name:me.profile.nickname}));
+    }finally{this.restoringReader=false;}
   }
   uploadProfile():Promise<void>{
     return this.profileUpload??=this.performProfileUpload().finally(()=>{this.profileUpload=undefined;});
   }
   private async performProfileUpload(){
+    if(this.restoringReader)throw new UiError(tr('readerOperationBusy'));
     if(this.data.reader_id&&!this.me)await this.connect();
     const required=this.me?.required_notices??{profile_version:PROFILE_NOTICE_VERSION,reading_version:READING_NOTICE_VERSION};
     if(!noticeSupported(required.profile_version,PROFILE_NOTICE_VERSION)||!noticeSupported(required.reading_version,READING_NOTICE_VERSION))throw new UiError(tr('noticeUnavailable'));
     if(this.data.profile_notice_version!==required.profile_version)throw new UiError(tr("請先閱讀並同意個人資料說明。"));
     if(this.data.local_upload_enabled&&this.data.reading_notice_version!==required.reading_version)throw new UiError(tr("請先同意閱讀資料上傳說明。"));
-    const profile=profileSchema.parse(this.data.profile);
+    const profile=completeProfileSchema.parse(this.data.profile);
     if(!this.token){
       const bytes=crypto.getRandomValues(new Uint8Array(32));
       this.token=btoa(String.fromCharCode(...bytes)).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');
@@ -196,6 +216,7 @@ export default class TbpediaAnalytics extends Plugin{
     catch(e){new Notice(message(e),10000);}
   }
   async runSync(files:TFile[],force:boolean){
+    if(this.restoringReader){new Notice(tr('readerOperationBusy'));return;}
     if(this.busy){new Notice(tr("同步正在進行。"));return;}
     this.busy=true;let saved=0,unchanged=0,invalid=0,attempted=0;const issues:string[]=[];
     try{
@@ -274,6 +295,7 @@ class ReadingModal extends Modal{
 }
 
 class AnalyticsSettings extends PluginSettingTab{
+  private existingReader=false;private readerIdInput='';private credentialInput='';
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
     setLocale(this.plugin.data.interface_language,getLanguage());
@@ -285,20 +307,38 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.testConnection())));
     if(p.me){el.createEl('p',{text:tr('connectionStatus',{name:p.me.profile.nickname,permission:tr(p.me.cloud_sync_enabled?'已開啟':'已停用')})});new Setting(el).setName(tr("使用現有雲端個人資料")).setDesc(tr("按下後才會取代目前的本機草稿。")).addButton(b=>b.setButtonText(tr("載入雲端資料")).onClick(()=>run(async()=>{p.data.profile={...p.me!.profile};await p.persist();})));}
     el.createEl('h3',{text:tr("讀者個人資料")});
+    if(p.data.reader_id){
+      new Setting(el).setName(tr('readerId')).addText(t=>{t.setValue(p.data.reader_id!);t.inputEl.readOnly=true;});
+      new Setting(el).setName(tr('syncCredential')).setDesc(tr('syncCredentialHelp')).addButton(b=>b.setButtonText(tr('copySyncCredential')).setDisabled(!p.token).onClick(()=>run(async()=>{await navigator.clipboard.writeText(p.token);new Notice(tr('credentialCopied'));})));
+    }else{
+      new Setting(el).setName(tr('readerSetup')).addDropdown(d=>d.addOption('new',tr('newReader')).addOption('existing',tr('existingReader')).setValue(this.existingReader?'existing':'new').onChange(value=>{this.existingReader=value==='existing';this.display();}));
+      if(this.existingReader){
+        new Setting(el).setName(tr('readerId')).addText(t=>t.setValue(this.readerIdInput).onChange(value=>{this.readerIdInput=value;}));
+        new Setting(el).setName(tr('syncCredential')).setDesc(tr('syncCredentialHelp')).addText(t=>{t.inputEl.type='password';t.inputEl.autocomplete='off';t.setValue(this.credentialInput).onChange(value=>{this.credentialInput=value;});});
+        new Setting(el).addButton(b=>b.setCta().setButtonText(tr('connectExistingReader')).onClick(()=>run(async()=>{await p.restoreExistingReader(this.readerIdInput,this.credentialInput);this.credentialInput='';})));
+        return;
+      }
+      el.createEl('p',{text:tr('newReaderHelp'),cls:'setting-item-description'});
+    }
     const profile=p.data.profile;
-    for(const [key,label]of [['nickname',tr("暱稱（必填）")],['email',tr("電郵（選填，不需驗證）")],['organisation',tr("所屬機構（選填）")]] as const)new Setting(el).setName(label).addText(t=>{if(key==='email')t.inputEl.type='email';t.setValue(profile[key]??'').onChange(v=>{if(key==='nickname')profile.nickname=v;else profile[key]=v.trim()||null;});});
-    new Setting(el).setName(tr("出生年份（選填）")).addText(t=>{t.inputEl.type='number';t.inputEl.min='1900';t.inputEl.max=String(new Date().getFullYear());t.setValue(profile.birth_year===null?'':String(profile.birth_year)).onChange(v=>{profile.birth_year=v===''?null:Number(v);});});
-    new Setting(el).setName(tr("出生月份（選填）")).addDropdown(d=>{d.addOption('',tr("未提供"));for(let m=1;m<=12;m++)d.addOption(String(m),monthName(m));d.setValue(profile.birth_month===null?'':String(profile.birth_month)).onChange(v=>{profile.birth_month=v?Number(v):null;});});
-    new Setting(el).setName(tr("性別")).addDropdown(d=>d.addOptions(labels(SEX_LABELS)).setValue(profile.sex).onChange(v=>{profile.sex=profileSchema.shape.sex.parse(v);}));
-    new Setting(el).setName(tr("國家／地區（選填）")).addDropdown(d=>{d.addOption('',tr("未提供"));for(const code of [...COUNTRY_CODES].sort((a,b)=>regionName(a).localeCompare(regionName(b),intlLocale())))d.addOption(code,`${regionName(code)} (${code})`);d.setValue(profile.country_code??'').onChange(v=>{profile.country_code=v||null;});});
-    el.createEl('h4',{text:tr("我的讀者類型（選填）")});
-    for(const [code,label]of Object.entries(labels(READER_LABELS)))new Setting(el).setName(label).addToggle(t=>{
+    el.createEl('p',{text:tr('profileRequiredHelp'),cls:'setting-item-description'});
+    const requiredLabel=(field:string)=>`${tr(`field.${field}`)} ${tr('requiredSuffix')}`;
+    for(const [key,label]of [['nickname',requiredLabel('nickname')],['email',requiredLabel('email')],['organisation',requiredLabel('organisation')]] as const)new Setting(el).setName(label).addText(t=>{t.inputEl.required=true;if(key==='email')t.inputEl.type='email';t.setValue(profile[key]??'').onChange(v=>{if(key==='nickname')profile.nickname=v;else profile[key]=v.trim()||null;});});
+    new Setting(el).setName(requiredLabel('birth_year')).addText(t=>{t.inputEl.required=true;t.inputEl.type='number';t.inputEl.min='1900';t.inputEl.max=String(new Date().getFullYear());t.setValue(profile.birth_year===null?'':String(profile.birth_year)).onChange(v=>{profile.birth_year=v===''?null:Number(v);});});
+    new Setting(el).setName(requiredLabel('birth_month')).addDropdown(d=>{d.selectEl.required=true;d.addOption('',tr("未提供"));for(let m=1;m<=12;m++)d.addOption(String(m),monthName(m));d.setValue(profile.birth_month===null?'':String(profile.birth_month)).onChange(v=>{profile.birth_month=v?Number(v):null;});});
+    new Setting(el).setName(requiredLabel('sex')).addDropdown(d=>{d.selectEl.required=true;d.addOptions(labels(SEX_LABELS)).setValue(profile.sex).onChange(v=>{profile.sex=profileSchema.shape.sex.parse(v);});});
+    new Setting(el).setName(requiredLabel('country_code')).addDropdown(d=>{d.selectEl.required=true;d.addOption('',tr("未提供"));for(const code of [...COUNTRY_CODES].sort((a,b)=>regionName(a).localeCompare(regionName(b),intlLocale())))d.addOption(code,`${regionName(code)} (${code})`);d.setValue(profile.country_code??'').onChange(v=>{profile.country_code=v||null;});});
+    const types=el.createEl('fieldset',{cls:'tbpa-reader-types'});
+    types.createEl('legend',{text:requiredLabel('reader_type')});
+    for(const [code,label]of Object.entries(labels(READER_LABELS))){
       const selected=profileSchema.shape.reader_type.parse(code)![0]!;
-      t.setValue(profile.reader_type?.includes(selected)??false).onChange(on=>{
-        const values=profile.reader_type??[];
-        profile.reader_type=profileSchema.shape.reader_type.parse(on?[...values,selected]:values.filter(value=>value!==selected));
-      });
-    });
+      const option=types.createEl('label',{cls:'tbpa-reader-type-option'});
+      const checkbox=option.createEl('input',{type:'checkbox'});checkbox.checked=profile.reader_type?.includes(selected)??false;
+      option.createSpan({text:label});
+      const updateValidity=()=>{for(const input of types.querySelectorAll('input'))input.setCustomValidity(profile.reader_type?.length?'':tr('readerTypesRequired'));};
+      checkbox.addEventListener('change',()=>{const values=profile.reader_type??[];profile.reader_type=profileSchema.shape.reader_type.parse(checkbox.checked?[...values,selected]:values.filter(value=>value!==selected));updateValidity();});
+      updateValidity();
+    }
     const required=p.me?.required_notices;
     el.createEl('p',{text:noticeSupported(required?.profile_version,PROFILE_NOTICE_VERSION)?tr('profileNotice'):tr('noticeUnavailable'),cls:'tbpa-notice'});
     const profileVersion=required?.profile_version??PROFILE_NOTICE_VERSION;const profileSupported=noticeSupported(profileVersion,PROFILE_NOTICE_VERSION);
@@ -308,7 +348,7 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).setName(tr("我同意閱讀資料上傳說明")).addToggle(t=>t.setDisabled(!readingSupported).setValue(readingSupported&&p.data.reading_notice_version===readingVersion).onChange(v=>{p.data.reading_notice_version=v?readingVersion:null;if(!v)p.data.local_upload_enabled=false;p.persistQuiet();}));
     new Setting(el).setName(tr("允許手動上傳閱讀資料")).setDesc(tr("關閉會立即停止本機上傳；按下方「儲存並上傳個人資料」才套用雲端設定。")).addToggle(t=>t.setValue(p.data.local_upload_enabled).onChange(v=>{if(v&&p.data.reading_notice_version!==readingVersion){t.setValue(false);new Notice(tr("請先同意閱讀資料上傳說明。"));return;}p.data.local_upload_enabled=v;p.persistQuiet();}));
     if(!p.me||p.me.cloud_sync_enabled!==p.data.local_upload_enabled)el.createEl('p',{text:tr("雲端權限尚待確認或套用。"),cls:'setting-item-description'});
-    new Setting(el).addButton(b=>b.setButtonText(tr("儲存個人資料於本機")).onClick(()=>run(async()=>{profileSchema.parse(p.data.profile);await p.persist();new Notice(tr("個人資料已儲存於本機。"));}))).addButton(b=>b.setCta().setButtonText(tr("儲存並上傳個人資料")).onClick(()=>run(()=>p.uploadProfile())));
+    new Setting(el).addButton(b=>b.setButtonText(tr("儲存個人資料於本機")).onClick(()=>run(async()=>{completeProfileSchema.parse(p.data.profile);await p.persist();new Notice(tr("個人資料已儲存於本機。"));}))).addButton(b=>b.setCta().setButtonText(tr("儲存並上傳個人資料")).onClick(()=>run(()=>p.uploadProfile())));
     new Setting(el).setName(tr("手動同步")).addButton(b=>b.setButtonText(tr("同步已變更閱讀資料至雲端")).onClick(()=>{void p.previewSync();}));
   }
 }

@@ -71,6 +71,7 @@ export function fieldLabel(path:readonly PropertyKey[]):string {
 }
 export function validationReason(issue:{code:string;message:string;minimum?:number|bigint;maximum?:number|bigint;format?:string}):string {
   const custom:Record<string,MessageKey>={
+    'Select at least one reader type':'readerTypesRequired',
     'Invalid calendar date':'invalidDate',
     'Birth year cannot be in the future':'futureBirthYear',
     'Unknown country code':'unknownCountry',
