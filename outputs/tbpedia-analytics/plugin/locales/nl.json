@@ -178,5 +178,8 @@
   "updaterChanged": "De geïnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
   "updaterSyncNotice": "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de geïnstalleerde collectie.",
   "analyticsMetadataReadError": "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw.",
-  "connectionAvailable": "Verbinding geslaagd. Cloudopslag is beschikbaar."
+  "connectionAvailable": "Verbinding geslaagd. Cloudopslag is beschikbaar.",
+  "recordReading": "Mijn leesgegevens vastleggen",
+  "syncReadingCloud": "Leesgegevens synchroniseren met de cloud",
+  "readingContentIdRequired": "Deze notitie heeft een geldige tbpedia_content_id in de frontmatter nodig om leesgegevens vast te leggen."
 }

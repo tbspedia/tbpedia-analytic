@@ -178,5 +178,8 @@
   "updaterChanged": "La colección instalada cambió durante la sincronización. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
   "updaterSyncNotice": "Los registros de lectura también incluyen la serie, edición, versión de Tbpedia, identificador de publicación, código de idioma y título de la colección instalada.",
   "analyticsMetadataReadError": "No se pueden leer o verificar los datos de la colección guardados en data.json del complemento de análisis. Recargue el complemento y vuelva a intentarlo.",
-  "connectionAvailable": "Conexión correcta. El almacenamiento en la nube está disponible."
+  "connectionAvailable": "Conexión correcta. El almacenamiento en la nube está disponible.",
+  "recordReading": "Registrar mis datos de lectura",
+  "syncReadingCloud": "Sincronizar datos de lectura con la nube",
+  "readingContentIdRequired": "Esta nota necesita un tbpedia_content_id válido en su frontmatter para registrar datos de lectura."
 }

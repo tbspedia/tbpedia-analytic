@@ -178,5 +178,8 @@
   "updaterChanged": "La collection installée a changé pendant la synchronisation. Les téléversements suivants ont été arrêtés. Vérifiez l’aperçu et relancez la synchronisation.",
   "updaterSyncNotice": "Les enregistrements de lecture incluent aussi la série, l’édition, la version de Tbpedia, l’identifiant de version, le code de langue et le titre de la collection installée.",
   "analyticsMetadataReadError": "Impossible de lire ou vérifier les informations de collection enregistrées dans le fichier data.json du module d’analyse. Rechargez le module et réessayez.",
-  "connectionAvailable": "Connexion réussie. Le stockage cloud est disponible."
+  "connectionAvailable": "Connexion réussie. Le stockage cloud est disponible.",
+  "recordReading": "Enregistrer mes données de lecture",
+  "syncReadingCloud": "Synchroniser les données de lecture vers le cloud",
+  "readingContentIdRequired": "Cette note doit contenir un tbpedia_content_id valide dans son frontmatter pour enregistrer les données de lecture."
 }

@@ -178,5 +178,8 @@
   "updaterChanged": "Die installierte Sammlung wurde während der Synchronisierung geändert. Weitere Uploads wurden gestoppt. Prüfen Sie die Vorschau und synchronisieren Sie erneut.",
   "updaterSyncNotice": "Lesedatensätze enthalten außerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
   "analyticsMetadataReadError": "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder bestätigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut.",
-  "connectionAvailable": "Verbindung erfolgreich. Cloud-Speicher ist verfügbar."
+  "connectionAvailable": "Verbindung erfolgreich. Cloud-Speicher ist verfügbar.",
+  "recordReading": "Meine Lesedaten erfassen",
+  "syncReadingCloud": "Lesedaten mit der Cloud synchronisieren",
+  "readingContentIdRequired": "Diese Notiz benötigt eine gültige tbpedia_content_id im Frontmatter, bevor Lesedaten erfasst werden können."
 }

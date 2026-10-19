@@ -178,5 +178,8 @@
   "updaterChanged": "Bộ sưu tập đã cài đặt thay đổi trong khi đồng bộ. Đã dừng các lượt tải lên tiếp theo. Xem trước và đồng bộ lại.",
   "updaterSyncNotice": "Bản ghi đọc cũng bao gồm loạt, ấn bản, phiên bản Tbpedia, mã bản phát hành, mã ngôn ngữ và tiêu đề của bộ sưu tập đã cài đặt.",
   "analyticsMetadataReadError": "Không thể đọc hoặc xác minh thông tin bộ sưu tập đã lưu trong data.json của phần bổ trợ phân tích. Tải lại phần bổ trợ rồi thử lại.",
-  "connectionAvailable": "Kết nối thành công. Có thể sử dụng lưu trữ đám mây."
+  "connectionAvailable": "Kết nối thành công. Có thể sử dụng lưu trữ đám mây.",
+  "recordReading": "Ghi lại dữ liệu đọc của tôi",
+  "syncReadingCloud": "Đồng bộ dữ liệu đọc lên đám mây",
+  "readingContentIdRequired": "Ghi chú cần có tbpedia_content_id hợp lệ trong frontmatter để ghi lại dữ liệu đọc."
 }

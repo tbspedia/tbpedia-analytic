@@ -178,5 +178,8 @@
   "updaterChanged": "Den installerade samlingen ändrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska förhandsvisningen och synkronisera igen.",
   "updaterSyncNotice": "Läsposter innehåller även den installerade samlingens serie, utgåva, Tbpedia-version, versions-ID, språkkod och titel.",
   "analyticsMetadataReadError": "Det gick inte att läsa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om tillägget och försök igen.",
-  "connectionAvailable": "Anslutningen lyckades. Molnlagring är tillgänglig."
+  "connectionAvailable": "Anslutningen lyckades. Molnlagring är tillgänglig.",
+  "recordReading": "Registrera mina läsdata",
+  "syncReadingCloud": "Synkronisera läsdata till molnet",
+  "readingContentIdRequired": "Anteckningen behöver ett giltigt tbpedia_content_id i frontmatter innan läsdata kan registreras."
 }

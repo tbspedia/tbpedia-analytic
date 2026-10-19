@@ -6155,7 +6155,10 @@ var en_default2 = {
   updaterChanged: "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
   updaterSyncNotice: "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
   analyticsMetadataReadError: "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again.",
-  connectionAvailable: "Connection successful. Cloud storage is available."
+  connectionAvailable: "Connection successful. Cloud storage is available.",
+  recordReading: "Record my reading data",
+  syncReadingCloud: "Sync reading data to cloud",
+  readingContentIdRequired: "This note needs a valid tbpedia_content_id in its frontmatter before you can record reading data."
 };
 
 // plugin/locales/ja.json
@@ -6339,7 +6342,10 @@ var ja_default = {
   updaterChanged: "\u540C\u671F\u4E2D\u306B\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u304C\u5909\u66F4\u3055\u308C\u305F\u305F\u3081\u3001\u4EE5\u964D\u306E\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3092\u505C\u6B62\u3057\u307E\u3057\u305F\u3002\u3082\u3046\u4E00\u5EA6\u30D7\u30EC\u30D3\u30E5\u30FC\u3057\u3066\u540C\u671F\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   updaterSyncNotice: "\u8AAD\u66F8\u8A18\u9332\u306B\u306F\u3001\u30A4\u30F3\u30B9\u30C8\u30FC\u30EB\u6E08\u307F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u306E\u30B7\u30EA\u30FC\u30BA\u3001\u30A8\u30C7\u30A3\u30B7\u30E7\u30F3\u3001Tbpedia\u306E\u30D0\u30FC\u30B8\u30E7\u30F3\u3001\u30EA\u30EA\u30FC\u30B9ID\u3001\u8A00\u8A9E\u30B3\u30FC\u30C9\u3001\u30BF\u30A4\u30C8\u30EB\u3082\u542B\u307E\u308C\u307E\u3059\u3002",
   analyticsMetadataReadError: "analytics\u306Edata.json\u306B\u4FDD\u5B58\u3055\u308C\u305F\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u60C5\u5831\u3092\u8AAD\u307F\u53D6\u308A\u3001\u78BA\u8A8D\u3067\u304D\u307E\u305B\u3093\u3002\u30D7\u30E9\u30B0\u30A4\u30F3\u3092\u518D\u8AAD\u307F\u8FBC\u307F\u3057\u3066\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  connectionAvailable: "\u63A5\u7D9A\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002\u30AF\u30E9\u30A6\u30C9\u4FDD\u5B58\u3092\u5229\u7528\u3067\u304D\u307E\u3059\u3002"
+  connectionAvailable: "\u63A5\u7D9A\u306B\u6210\u529F\u3057\u307E\u3057\u305F\u3002\u30AF\u30E9\u30A6\u30C9\u4FDD\u5B58\u3092\u5229\u7528\u3067\u304D\u307E\u3059\u3002",
+  recordReading: "\u81EA\u5206\u306E\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u8A18\u9332",
+  syncReadingCloud: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u30AF\u30E9\u30A6\u30C9\u306B\u540C\u671F",
+  readingContentIdRequired: "\u8AAD\u66F8\u30C7\u30FC\u30BF\u3092\u8A18\u9332\u3059\u308B\u306B\u306F\u3001\u30CE\u30FC\u30C8\u306E\u30D5\u30ED\u30F3\u30C8\u30DE\u30BF\u30FC\u306B\u6709\u52B9\u306A tbpedia_content_id \u304C\u5FC5\u8981\u3067\u3059\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6523,7 +6529,10 @@ var fr_default = {
   updaterChanged: "La collection install\xE9e a chang\xE9 pendant la synchronisation. Les t\xE9l\xE9versements suivants ont \xE9t\xE9 arr\xEAt\xE9s. V\xE9rifiez l\u2019aper\xE7u et relancez la synchronisation.",
   updaterSyncNotice: "Les enregistrements de lecture incluent aussi la s\xE9rie, l\u2019\xE9dition, la version de Tbpedia, l\u2019identifiant de version, le code de langue et le titre de la collection install\xE9e.",
   analyticsMetadataReadError: "Impossible de lire ou v\xE9rifier les informations de collection enregistr\xE9es dans le fichier data.json du module d\u2019analyse. Rechargez le module et r\xE9essayez.",
-  connectionAvailable: "Connexion r\xE9ussie. Le stockage cloud est disponible."
+  connectionAvailable: "Connexion r\xE9ussie. Le stockage cloud est disponible.",
+  recordReading: "Enregistrer mes donn\xE9es de lecture",
+  syncReadingCloud: "Synchroniser les donn\xE9es de lecture vers le cloud",
+  readingContentIdRequired: "Cette note doit contenir un tbpedia_content_id valide dans son frontmatter pour enregistrer les donn\xE9es de lecture."
 };
 
 // plugin/locales/es.json
@@ -6707,7 +6716,10 @@ var es_default = {
   updaterChanged: "La colecci\xF3n instalada cambi\xF3 durante la sincronizaci\xF3n. Se detuvieron las cargas restantes. Revise la vista previa y vuelva a sincronizar.",
   updaterSyncNotice: "Los registros de lectura tambi\xE9n incluyen la serie, edici\xF3n, versi\xF3n de Tbpedia, identificador de publicaci\xF3n, c\xF3digo de idioma y t\xEDtulo de la colecci\xF3n instalada.",
   analyticsMetadataReadError: "No se pueden leer o verificar los datos de la colecci\xF3n guardados en data.json del complemento de an\xE1lisis. Recargue el complemento y vuelva a intentarlo.",
-  connectionAvailable: "Conexi\xF3n correcta. El almacenamiento en la nube est\xE1 disponible."
+  connectionAvailable: "Conexi\xF3n correcta. El almacenamiento en la nube est\xE1 disponible.",
+  recordReading: "Registrar mis datos de lectura",
+  syncReadingCloud: "Sincronizar datos de lectura con la nube",
+  readingContentIdRequired: "Esta nota necesita un tbpedia_content_id v\xE1lido en su frontmatter para registrar datos de lectura."
 };
 
 // plugin/locales/de.json
@@ -6891,7 +6903,10 @@ var de_default = {
   updaterChanged: "Die installierte Sammlung wurde w\xE4hrend der Synchronisierung ge\xE4ndert. Weitere Uploads wurden gestoppt. Pr\xFCfen Sie die Vorschau und synchronisieren Sie erneut.",
   updaterSyncNotice: "Lesedatens\xE4tze enthalten au\xDFerdem Serie, Edition, Tbpedia-Version, Release-ID, Sprachcode und Titel der installierten Sammlung.",
   analyticsMetadataReadError: "Die in der data.json des Analyse-Plugins gespeicherten Sammlungsdaten konnten nicht gelesen oder best\xE4tigt werden. Laden Sie das Plugin neu und versuchen Sie es erneut.",
-  connectionAvailable: "Verbindung erfolgreich. Cloud-Speicher ist verf\xFCgbar."
+  connectionAvailable: "Verbindung erfolgreich. Cloud-Speicher ist verf\xFCgbar.",
+  recordReading: "Meine Lesedaten erfassen",
+  syncReadingCloud: "Lesedaten mit der Cloud synchronisieren",
+  readingContentIdRequired: "Diese Notiz ben\xF6tigt eine g\xFCltige tbpedia_content_id im Frontmatter, bevor Lesedaten erfasst werden k\xF6nnen."
 };
 
 // plugin/locales/nl.json
@@ -7075,7 +7090,10 @@ var nl_default = {
   updaterChanged: "De ge\xEFnstalleerde collectie is tijdens het synchroniseren gewijzigd. Verdere uploads zijn gestopt. Bekijk het voorbeeld en synchroniseer opnieuw.",
   updaterSyncNotice: "Leesrecords bevatten ook de serie, editie, Tbpedia-versie, release-ID, taalcode en titel van de ge\xEFnstalleerde collectie.",
   analyticsMetadataReadError: "De collectiegegevens in data.json van de analyseplug-in kunnen niet worden gelezen of gecontroleerd. Herlaad de plug-in en probeer opnieuw.",
-  connectionAvailable: "Verbinding geslaagd. Cloudopslag is beschikbaar."
+  connectionAvailable: "Verbinding geslaagd. Cloudopslag is beschikbaar.",
+  recordReading: "Mijn leesgegevens vastleggen",
+  syncReadingCloud: "Leesgegevens synchroniseren met de cloud",
+  readingContentIdRequired: "Deze notitie heeft een geldige tbpedia_content_id in de frontmatter nodig om leesgegevens vast te leggen."
 };
 
 // plugin/locales/sv.json
@@ -7259,7 +7277,10 @@ var sv_default = {
   updaterChanged: "Den installerade samlingen \xE4ndrades under synkroniseringen. Ytterligare uppladdningar stoppades. Granska f\xF6rhandsvisningen och synkronisera igen.",
   updaterSyncNotice: "L\xE4sposter inneh\xE5ller \xE4ven den installerade samlingens serie, utg\xE5va, Tbpedia-version, versions-ID, spr\xE5kkod och titel.",
   analyticsMetadataReadError: "Det gick inte att l\xE4sa eller verifiera samlingsuppgifterna i analysmodulens data.json. Ladda om till\xE4gget och f\xF6rs\xF6k igen.",
-  connectionAvailable: "Anslutningen lyckades. Molnlagring \xE4r tillg\xE4nglig."
+  connectionAvailable: "Anslutningen lyckades. Molnlagring \xE4r tillg\xE4nglig.",
+  recordReading: "Registrera mina l\xE4sdata",
+  syncReadingCloud: "Synkronisera l\xE4sdata till molnet",
+  readingContentIdRequired: "Anteckningen beh\xF6ver ett giltigt tbpedia_content_id i frontmatter innan l\xE4sdata kan registreras."
 };
 
 // plugin/locales/ko.json
@@ -7443,7 +7464,10 @@ var ko_default = {
   updaterChanged: "\uB3D9\uAE30\uD654 \uC911 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC774 \uBCC0\uACBD\uB418\uC5B4 \uC774\uD6C4 \uC5C5\uB85C\uB4DC\uB97C \uC911\uC9C0\uD588\uC2B5\uB2C8\uB2E4. \uBBF8\uB9AC\uBCF4\uAE30\uB97C \uD655\uC778\uD558\uACE0 \uB2E4\uC2DC \uB3D9\uAE30\uD654\uD558\uC138\uC694.",
   updaterSyncNotice: "\uB3C5\uC11C \uAE30\uB85D\uC5D0\uB294 \uC124\uCE58\uB41C \uCEEC\uB809\uC158\uC758 \uC2DC\uB9AC\uC988, \uC5D0\uB514\uC158, Tbpedia \uBC84\uC804, \uB9B4\uB9AC\uC2A4 ID, \uC5B8\uC5B4 \uCF54\uB4DC \uBC0F \uC81C\uBAA9\uB3C4 \uD3EC\uD568\uB429\uB2C8\uB2E4.",
   analyticsMetadataReadError: "\uBD84\uC11D \uD50C\uB7EC\uADF8\uC778\uC758 data.json\uC5D0 \uC800\uC7A5\uB41C \uCEEC\uB809\uC158 \uC815\uBCF4\uB97C \uC77D\uAC70\uB098 \uD655\uC778\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4. \uD50C\uB7EC\uADF8\uC778\uC744 \uB2E4\uC2DC \uBD88\uB7EC\uC628 \uB4A4 \uC7AC\uC2DC\uB3C4\uD558\uC138\uC694.",
-  connectionAvailable: "\uC5F0\uACB0\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4. \uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC18C\uB97C \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  connectionAvailable: "\uC5F0\uACB0\uC5D0 \uC131\uACF5\uD588\uC2B5\uB2C8\uB2E4. \uD074\uB77C\uC6B0\uB4DC \uC800\uC7A5\uC18C\uB97C \uC0AC\uC6A9\uD560 \uC218 \uC788\uC2B5\uB2C8\uB2E4.",
+  recordReading: "\uB0B4 \uB3C5\uC11C \uB370\uC774\uD130 \uAE30\uB85D",
+  syncReadingCloud: "\uB3C5\uC11C \uB370\uC774\uD130\uB97C \uD074\uB77C\uC6B0\uB4DC\uC5D0 \uB3D9\uAE30\uD654",
+  readingContentIdRequired: "\uB3C5\uC11C \uB370\uC774\uD130\uB97C \uAE30\uB85D\uD558\uB824\uBA74 \uB178\uD2B8\uC758 \uD504\uB7F0\uD2B8\uB9E4\uD130\uC5D0 \uC720\uD6A8\uD55C tbpedia_content_id\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4."
 };
 
 // plugin/locales/zh-TW.json
@@ -7627,7 +7651,10 @@ var zh_TW_default = {
   updaterChanged: "\u540C\u6B65\u671F\u9593\u5DF2\u5B89\u88DD\u7684\u6587\u96C6\u7248\u672C\u767C\u751F\u8B8A\u66F4\uFF1B\u5DF2\u505C\u6B62\u5F8C\u7E8C\u4E0A\u50B3\u3002\u8ACB\u91CD\u65B0\u9810\u89BD\u4E26\u540C\u6B65\u3002",
   updaterSyncNotice: "\u95B1\u8B80\u8A18\u9304\u4EA6\u5305\u542B\u5DF2\u5B89\u88DD\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u985E\u578B\u3001Tbpedia \u7248\u672C\u3001\u767C\u884C\u7DE8\u865F\u3001\u8A9E\u8A00\u4EE3\u78BC\u53CA\u6A19\u984C\u3002",
   analyticsMetadataReadError: "\u7121\u6CD5\u8B80\u53D6\u6216\u6838\u5C0D analytics data.json \u4E2D\u5132\u5B58\u7684\u6587\u96C6\u8CC7\u6599\u3002\u8ACB\u91CD\u65B0\u8F09\u5165\u5916\u639B\u5F8C\u518D\u8A66\u3002",
-  connectionAvailable: "\u9023\u7DDA\u6210\u529F\uFF0C\u96F2\u7AEF\u5132\u5B58\u53EF\u4F9B\u4F7F\u7528\u3002"
+  connectionAvailable: "\u9023\u7DDA\u6210\u529F\uFF0C\u96F2\u7AEF\u5132\u5B58\u53EF\u4F9B\u4F7F\u7528\u3002",
+  recordReading: "\u8A18\u9304\u6211\u7684\u95B1\u8B80\u8CC7\u6599",
+  syncReadingCloud: "\u540C\u6B65\u95B1\u8B80\u8CC7\u6599\u81F3\u96F2\u7AEF",
+  readingContentIdRequired: "\u6B64\u7B46\u8A18\u7684 frontmatter \u5FC5\u9808\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8A18\u9304\u95B1\u8B80\u8CC7\u6599\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -7811,7 +7838,10 @@ var zh_CN_default = {
   updaterChanged: "\u540C\u6B65\u671F\u95F4\u5DF2\u5B89\u88C5\u7684\u6587\u96C6\u7248\u672C\u53D1\u751F\u53D8\u5316\uFF0C\u5DF2\u505C\u6B62\u540E\u7EED\u4E0A\u4F20\u3002\u8BF7\u91CD\u65B0\u9884\u89C8\u5E76\u540C\u6B65\u3002",
   updaterSyncNotice: "\u9605\u8BFB\u8BB0\u5F55\u4E5F\u5305\u542B\u5DF2\u5B89\u88C5\u6587\u96C6\u7684\u7CFB\u5217\u3001\u7248\u672C\u7C7B\u578B\u3001Tbpedia \u7248\u672C\u3001\u53D1\u884C\u7F16\u53F7\u3001\u8BED\u8A00\u4EE3\u7801\u53CA\u6807\u9898\u3002",
   analyticsMetadataReadError: "\u65E0\u6CD5\u8BFB\u53D6\u6216\u6838\u5BF9 analytics data.json \u4E2D\u4FDD\u5B58\u7684\u6587\u96C6\u8D44\u6599\u3002\u8BF7\u91CD\u65B0\u52A0\u8F7D\u63D2\u4EF6\u540E\u91CD\u8BD5\u3002",
-  connectionAvailable: "\u8FDE\u63A5\u6210\u529F\uFF0C\u4E91\u7AEF\u5B58\u50A8\u53EF\u4F9B\u4F7F\u7528\u3002"
+  connectionAvailable: "\u8FDE\u63A5\u6210\u529F\uFF0C\u4E91\u7AEF\u5B58\u50A8\u53EF\u4F9B\u4F7F\u7528\u3002",
+  recordReading: "\u8BB0\u5F55\u6211\u7684\u9605\u8BFB\u6570\u636E",
+  syncReadingCloud: "\u540C\u6B65\u9605\u8BFB\u6570\u636E\u81F3\u4E91\u7AEF",
+  readingContentIdRequired: "\u6B64\u7B14\u8BB0\u7684 frontmatter \u5FC5\u987B\u5305\u542B\u6709\u6548\u7684 tbpedia_content_id\uFF0C\u624D\u80FD\u8BB0\u5F55\u9605\u8BFB\u6570\u636E\u3002"
 };
 
 // plugin/locales/vi.json
@@ -7995,7 +8025,10 @@ var vi_default = {
   updaterChanged: "B\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t thay \u0111\u1ED5i trong khi \u0111\u1ED3ng b\u1ED9. \u0110\xE3 d\u1EEBng c\xE1c l\u01B0\u1EE3t t\u1EA3i l\xEAn ti\u1EBFp theo. Xem tr\u01B0\u1EDBc v\xE0 \u0111\u1ED3ng b\u1ED9 l\u1EA1i.",
   updaterSyncNotice: "B\u1EA3n ghi \u0111\u1ECDc c\u0169ng bao g\u1ED3m lo\u1EA1t, \u1EA5n b\u1EA3n, phi\xEAn b\u1EA3n Tbpedia, m\xE3 b\u1EA3n ph\xE1t h\xE0nh, m\xE3 ng\xF4n ng\u1EEF v\xE0 ti\xEAu \u0111\u1EC1 c\u1EE7a b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 c\xE0i \u0111\u1EB7t.",
   analyticsMetadataReadError: "Kh\xF4ng th\u1EC3 \u0111\u1ECDc ho\u1EB7c x\xE1c minh th\xF4ng tin b\u1ED9 s\u01B0u t\u1EADp \u0111\xE3 l\u01B0u trong data.json c\u1EE7a ph\u1EA7n b\u1ED5 tr\u1EE3 ph\xE2n t\xEDch. T\u1EA3i l\u1EA1i ph\u1EA7n b\u1ED5 tr\u1EE3 r\u1ED3i th\u1EED l\u1EA1i.",
-  connectionAvailable: "K\u1EBFt n\u1ED1i th\xE0nh c\xF4ng. C\xF3 th\u1EC3 s\u1EED d\u1EE5ng l\u01B0u tr\u1EEF \u0111\xE1m m\xE2y."
+  connectionAvailable: "K\u1EBFt n\u1ED1i th\xE0nh c\xF4ng. C\xF3 th\u1EC3 s\u1EED d\u1EE5ng l\u01B0u tr\u1EEF \u0111\xE1m m\xE2y.",
+  recordReading: "Ghi l\u1EA1i d\u1EEF li\u1EC7u \u0111\u1ECDc c\u1EE7a t\xF4i",
+  syncReadingCloud: "\u0110\u1ED3ng b\u1ED9 d\u1EEF li\u1EC7u \u0111\u1ECDc l\xEAn \u0111\xE1m m\xE2y",
+  readingContentIdRequired: "Ghi ch\xFA c\u1EA7n c\xF3 tbpedia_content_id h\u1EE3p l\u1EC7 trong frontmatter \u0111\u1EC3 ghi l\u1EA1i d\u1EEF li\u1EC7u \u0111\u1ECDc."
 };
 
 // plugin/locales/id.json
@@ -8179,7 +8212,10 @@ var id_default = {
   updaterChanged: "Koleksi yang terpasang berubah saat sinkronisasi. Unggahan berikutnya dihentikan. Periksa pratinjau dan sinkronkan kembali.",
   updaterSyncNotice: "Catatan bacaan juga menyertakan seri, edisi, versi Tbpedia, ID rilis, kode bahasa, dan judul koleksi yang terpasang.",
   analyticsMetadataReadError: "Tidak dapat membaca atau memverifikasi informasi koleksi yang disimpan dalam data.json plugin analitik. Muat ulang plugin lalu coba lagi.",
-  connectionAvailable: "Koneksi berhasil. Penyimpanan cloud tersedia."
+  connectionAvailable: "Koneksi berhasil. Penyimpanan cloud tersedia.",
+  recordReading: "Catat data bacaan saya",
+  syncReadingCloud: "Sinkronkan data bacaan ke cloud",
+  readingContentIdRequired: "Catatan ini memerlukan tbpedia_content_id yang valid di frontmatter sebelum data bacaan dapat dicatat."
 };
 
 // plugin/locales/th.json
@@ -8363,7 +8399,10 @@ var th_default = {
   updaterChanged: "\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E40\u0E1B\u0E25\u0E35\u0E48\u0E22\u0E19\u0E23\u0E30\u0E2B\u0E27\u0E48\u0E32\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C \u0E08\u0E36\u0E07\u0E2B\u0E22\u0E38\u0E14\u0E01\u0E32\u0E23\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14\u0E17\u0E35\u0E48\u0E40\u0E2B\u0E25\u0E37\u0E2D \u0E42\u0E1B\u0E23\u0E14\u0E14\u0E39\u0E15\u0E31\u0E27\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E41\u0E25\u0E30\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
   updaterSyncNotice: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E08\u0E30\u0E23\u0E27\u0E21\u0E0B\u0E35\u0E23\u0E35\u0E2A\u0E4C \u0E09\u0E1A\u0E31\u0E1A \u0E40\u0E27\u0E2D\u0E23\u0E4C\u0E0A\u0E31\u0E19 Tbpedia \u0E23\u0E2B\u0E31\u0E2A\u0E23\u0E38\u0E48\u0E19 \u0E23\u0E2B\u0E31\u0E2A\u0E20\u0E32\u0E29\u0E32 \u0E41\u0E25\u0E30\u0E0A\u0E37\u0E48\u0E2D\u0E02\u0E2D\u0E07\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E15\u0E34\u0E14\u0E15\u0E31\u0E49\u0E07\u0E14\u0E49\u0E27\u0E22",
   analyticsMetadataReadError: "\u0E44\u0E21\u0E48\u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E2D\u0E48\u0E32\u0E19\u0E2B\u0E23\u0E37\u0E2D\u0E15\u0E23\u0E27\u0E08\u0E2A\u0E2D\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E04\u0E2D\u0E25\u0E40\u0E25\u0E01\u0E0A\u0E31\u0E19\u0E17\u0E35\u0E48\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E43\u0E19 data.json \u0E02\u0E2D\u0E07\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E27\u0E34\u0E40\u0E04\u0E23\u0E32\u0E30\u0E2B\u0E4C\u0E44\u0E14\u0E49 \u0E42\u0E1B\u0E23\u0E14\u0E42\u0E2B\u0E25\u0E14\u0E1B\u0E25\u0E31\u0E4A\u0E01\u0E2D\u0E34\u0E19\u0E43\u0E2B\u0E21\u0E48\u0E41\u0E25\u0E49\u0E27\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07",
-  connectionAvailable: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08 \u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E43\u0E0A\u0E49\u0E17\u0E35\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49"
+  connectionAvailable: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E2A\u0E33\u0E40\u0E23\u0E47\u0E08 \u0E2A\u0E32\u0E21\u0E32\u0E23\u0E16\u0E43\u0E0A\u0E49\u0E17\u0E35\u0E48\u0E40\u0E01\u0E47\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1A\u0E19\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E44\u0E14\u0E49",
+  recordReading: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E02\u0E2D\u0E07\u0E09\u0E31\u0E19",
+  syncReadingCloud: "\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E1B\u0E22\u0E31\u0E07\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C",
+  readingContentIdRequired: "\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E19\u0E35\u0E49\u0E15\u0E49\u0E2D\u0E07\u0E21\u0E35 tbpedia_content_id \u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E43\u0E19 frontmatter \u0E01\u0E48\u0E2D\u0E19\u0E08\u0E36\u0E07\u0E08\u0E30\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E01\u0E32\u0E23\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E14\u0E49"
 };
 
 // plugin/locales/bo.json
@@ -8547,7 +8586,10 @@ var bo_default = {
   updaterChanged: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F66\u0F90\u0F56\u0F66\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F63\u0F0B\u0F60\u0F42\u0FB1\u0F74\u0F62\u0F0B\u0F56\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F61\u0F62\u0F0B\u0F56\u0F66\u0F90\u0F74\u0F62\u0F0B\u0F58\u0F5A\u0F58\u0F66\u0F0B\u0F56\u0F5E\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F66\u0F94\u0F7C\u0F53\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
   updaterSyncNotice: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F50\u0F7C\u0F60\u0F72\u0F0B\u0F53\u0F44\u0F0B\u0F56\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F66\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F54\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F62\u0F56\u0F0B\u0F62\u0F72\u0F58\u0F0B\u0F51\u0F44\u0F0B\u0F0D \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D Tbpedia \u0F54\u0F62\u0F0B\u0F42\u0F5E\u0F72\u0F0D \u0F60\u0F42\u0FB2\u0F7A\u0F58\u0F0B\u0F66\u0FA4\u0F7A\u0F63\u0F0B\u0F44\u0F7C\u0F66\u0F0B\u0F60\u0F5B\u0F72\u0F53\u0F0B\u0F68\u0F44\u0F0B\u0F0D \u0F66\u0F90\u0F51\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F68\u0F44\u0F0B\u0F62\u0F9F\u0F42\u0F66\u0F0B\u0F51\u0F44\u0F0B\u0F41\u0F0B\u0F56\u0FB1\u0F44\u0F0B\u0F61\u0F44\u0F0B\u0F5A\u0F74\u0F51\u0F0B\u0F61\u0F7C\u0F51\u0F0D",
   analyticsMetadataReadError: "\u0F51\u0F56\u0FB1\u0F7A\u0F0B\u0F5E\u0F72\u0F56\u0F0B\u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0Bdata.json \u0F53\u0F44\u0F0B\u0F49\u0F62\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F62\u0FA9\u0F7C\u0F58\u0F0B\u0F5A\u0F7C\u0F42\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F60\u0F58\u0F0B\u0F62\u0F0B\u0F66\u0FA4\u0FB2\u0F7C\u0F51\u0F0B\u0F58\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F54\u0F0B\u0F63\u0F42\u0F0B\u0F68\u0F72\u0F53\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F51\u0F74\u0F0B\u0F56\u0FB3\u0F74\u0F42\u0F66\u0F0B\u0F53\u0F66\u0F0B\u0F61\u0F44\u0F0B\u0F56\u0F66\u0F90\u0FB1\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7C\u0F66\u0F0D",
-  connectionAvailable: "\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0F7A\u0F42\u0F66\u0F0B\u0F42\u0FB2\u0F74\u0F56\u0F0D \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F56\u0F7A\u0F51\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F0B\u0F50\u0F74\u0F56\u0F0D"
+  connectionAvailable: "\u0F60\u0F56\u0FB2\u0F7A\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F63\u0F7A\u0F42\u0F66\u0F0B\u0F42\u0FB2\u0F74\u0F56\u0F0D \u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F56\u0F7A\u0F51\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F0B\u0F50\u0F74\u0F56\u0F0D",
+  recordReading: "\u0F44\u0F60\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51\u0F0D",
+  syncReadingCloud: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F51\u0F74\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42",
+  readingContentIdRequired: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F60\u0F51\u0F7C\u0F53\u0F0B\u0F42\u0F5E\u0F72\u0F0B\u0F42\u0FB2\u0F44\u0F66\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F54\u0F62\u0F0B\u0F5F\u0F72\u0F53\u0F0B\u0F56\u0FB2\u0F72\u0F66\u0F0B\u0F40\u0FB1\u0F72\u0F0B frontmatter \u0F53\u0F44\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B tbpedia_content_id \u0F61\u0F7C\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -8953,6 +8995,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
   busy = false;
   persistTail = Promise.resolve();
   profileUpload;
+  readingActions = /* @__PURE__ */ new Map();
   async onload() {
     const loaded = await this.loadData();
     const languageMigration = migrateInterfaceLanguage(loaded ?? {});
@@ -8963,10 +9006,19 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     this.token = this.data.remember_token ? this.data.stored_token : "";
     await this.migrateReceipts(migration.data);
     this.addSettingTab(new AnalyticsSettings(this.app, this));
-    this.addRibbonIcon("book-open-check", t("Tbpedia \u95B1\u8B80\u8CC7\u6599"), () => {
+    this.addRibbonIcon("book-open-check", t("recordReading"), () => {
       void this.openReading();
     });
-    this.addCommand({ id: "open-reading", name: t("\u958B\u555F\u95B1\u8B80\u8CC7\u6599"), callback: () => {
+    this.addRibbonIcon("cloud-upload", t("syncReadingCloud"), () => {
+      void this.previewSync();
+    });
+    this.app.workspace.onLayoutReady(() => this.refreshReadingActions());
+    this.registerEvent(this.app.workspace.on("layout-change", () => this.refreshReadingActions()));
+    this.register(() => {
+      for (const action of this.readingActions.values()) action.remove();
+      this.readingActions.clear();
+    });
+    this.addCommand({ id: "open-reading", name: t("recordReading"), callback: () => {
       void this.openReading();
     } });
     this.addCommand({ id: "mark-reading", name: t("\u6A19\u8A18\u70BA\u5728\u8B80"), callback: () => {
@@ -9087,14 +9139,33 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     await this.connect();
     new import_obsidian.Notice(t("\u500B\u4EBA\u8CC7\u6599\u53CA\u96F2\u7AEF\u6B0A\u9650\u5DF2\u66F4\u65B0\u3002"));
   }
+  refreshReadingActions() {
+    const views = /* @__PURE__ */ new Set();
+    this.app.workspace.iterateAllLeaves((leaf) => {
+      if (!(leaf.view instanceof import_obsidian.MarkdownView)) return;
+      const view = leaf.view;
+      views.add(view);
+      if (!this.readingActions.has(view)) this.readingActions.set(view, view.addAction("book-open-check", t("recordReading"), () => {
+        if (view.file) void this.openReading(view.file);
+      }));
+    });
+    for (const [view, action] of this.readingActions) if (!views.has(view)) {
+      action.remove();
+      this.readingActions.delete(view);
+    }
+  }
+  requireReadingContentId(fm) {
+    if (!Object.hasOwn(fm, "tbpedia_content_id") || !contentIdSchema.safeParse(fm.tbpedia_content_id).success) throw new UiError(t("readingContentIdRequired"));
+  }
   async readNote(file) {
     return noteFrontmatter(await this.app.vault.read(file));
   }
-  async openReading() {
+  async openReading(target) {
     try {
-      const file = this.app.workspace.getActiveFile();
+      const file = target ?? this.app.workspace.getActiveFile();
       if (!file || file.extension !== "md") throw new UiError(t("\u8ACB\u5148\u958B\u555F Markdown \u6587\u7AE0\u3002"));
       const fm = await this.readNote(file);
+      this.requireReadingContentId(fm);
       new ReadingModal(this, file, fm).open();
     } catch (e) {
       new import_obsidian.Notice(message(e), 1e4);
@@ -9104,6 +9175,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     const normalized = readingSchema.parse(values);
     await this.app.fileManager.processFrontMatter(file, (fm) => {
       const current = record(fm) ? fm : {};
+      this.requireReadingContentId(current);
       if (trackedFingerprint(current) !== expected) throw new UiError(t("\u6587\u7AE0\u95B1\u8B80\u8CC7\u6599\u5DF2\u88AB\u5176\u4ED6\u64CD\u4F5C\u4FEE\u6539\uFF0C\u8ACB\u91CD\u65B0\u958B\u555F\u8868\u55AE\u3002"));
       Object.assign(fm, toFrontmatter(normalized));
       fm.tbpedia_reading_updated_at = (/* @__PURE__ */ new Date()).toISOString();
@@ -9114,6 +9186,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
       const file = this.app.workspace.getActiveFile();
       if (!file || file.extension !== "md") throw new UiError(t("\u8ACB\u5148\u958B\u555F\u6587\u7AE0\u3002"));
       const fm = await this.readNote(file);
+      this.requireReadingContentId(fm);
       const values = fromFrontmatter(fm);
       const next = statusAction(values, status);
       if (JSON.stringify(next) === JSON.stringify(values)) {
@@ -9451,7 +9524,7 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     const el = this.containerEl;
     el.empty();
     el.lang = intlLocale();
-    el.createEl("h2", { text: "Tbpedia Analytics" });
+    el.createEl("h2", { text: "True Buddha Pedia Analytics" });
     const p = this.plugin;
     new import_obsidian.Setting(el).setName(t("language")).setDesc(`${t("languageHelp")} ${t("followSystemHelp")}`).addDropdown((d) => d.addOption("system", t("followSystem")).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange((v) => {
       p.data.interface_language = languagePreference(v);

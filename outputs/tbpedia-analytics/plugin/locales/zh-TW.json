@@ -178,5 +178,8 @@
   "updaterChanged": "同步期間已安裝的文集版本發生變更；已停止後續上傳。請重新預覽並同步。",
   "updaterSyncNotice": "閱讀記錄亦包含已安裝文集的系列、版本類型、Tbpedia 版本、發行編號、語言代碼及標題。",
   "analyticsMetadataReadError": "無法讀取或核對 analytics data.json 中儲存的文集資料。請重新載入外掛後再試。",
-  "connectionAvailable": "連線成功，雲端儲存可供使用。"
+  "connectionAvailable": "連線成功，雲端儲存可供使用。",
+  "recordReading": "記錄我的閱讀資料",
+  "syncReadingCloud": "同步閱讀資料至雲端",
+  "readingContentIdRequired": "此筆記的 frontmatter 必須包含有效的 tbpedia_content_id，才能記錄閱讀資料。"
 }

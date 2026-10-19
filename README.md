@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.14](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.14)** — automatically scans all 10 collection categories in Traditional and Simplified Chinese and updates the profile and reading-data notices.
+**Latest release: [v0.1.15](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.15)** — adds reading actions to the ribbon and tab headers, a cloud-sync ribbon icon, and content-ID validation.
 
 ## Install or upgrade
 
@@ -13,9 +13,15 @@ An Obsidian plugin for local reading progress and deliberate, authenticated uplo
 
 The configured API is `https://cfanalytics.tbpedia.org`. The profile notice, reading-data notice and manual upload permission are enabled by default on new installations. Upgrades preserve existing choices. Use **Save and upload profile** to apply cloud permissions; reading data uploads only when you choose to sync.
 
+The reading ribbon action is **Record my reading data**, with the same icon in each Markdown tab header. The **Sync reading data to cloud** ribbon icon opens the same changed-reading preview as the settings button. Recording and quick-status actions require a valid `tbpedia_content_id` in the note’s frontmatter; saves recheck this requirement. These interface changes are included in v0.1.15.
+
 ## Interface and upload defaults
 
-The plugin no longer adds a status bar message or the final cloud-record deletion reminder in settings. The manual sync button and command are named **Sync changed reading data to cloud**, with corresponding translations in all 14 interface languages. Both notice options and manual upload permission default to enabled for new setups; saved choices remain unchanged on upgrades. Profile uploads and reading sync still require manual actions.
+The settings page heading is **True Buddha Pedia Analytics**. The profile and reading notices name the **True Buddha Pedia Analytics database** and describe the current uploaded data. The plugin no longer adds a status bar message or the final cloud-record deletion reminder in settings. The manual sync button and command are named **Sync changed reading data to cloud**, with corresponding translations in all 14 interface languages. Both notice options and manual upload permission default to enabled for new setups; saved choices remain unchanged on upgrades. Profile uploads and reading sync still require manual actions.
+
+### Notice and upload switches
+
+All three switches default to enabled on a new setup; existing saved choices are preserved. Turning off **Allow manual reading data uploads** immediately blocks reading uploads on that device. Turning off the reading-data notice also turns off that permission. Turning off the profile notice blocks profile uploads, but does not revoke server consent or automatically stop previously enabled reading uploads. Use **Save and upload profile** to apply cloud permission changes; local saving remains available.
 
 ## Automatic collection scanning
 
@@ -34,13 +40,13 @@ The folder selector has been removed. Bulk reading sync scans these root folders
 | 09 | 蓮香上師 / 莲香上师 |
 | 10 | 真佛宗 |
 
-Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning.
+Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning and are removed on reload. Both bulk and current-article sync use this fixed scope for catalogue-ID checks. Automatic scanning does not create missing IDs or enroll new cloud catalogue items.
 
 ## Sync receipts in article frontmatter
 
-Successful uploads save `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at` together in each article. The plugin compares that hash when checking for changed articles, without rewriting all receipts in `data.json` after every upload. Server, reader, credentials and collection settings remain in `data.json`.
+Successful uploads save `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at` together in each article. The plugin compares that hash when checking for changed articles, without rewriting all receipts in `data.json` after every upload. Server, reader, credentials and collection settings remain in `data.json`. This receipt layout assumes one reader and one server per vault. Receipt hashes and sync times are not included in the reading snapshot hash. `tbpedia_reading_updated_at` records the last local save and is required for uploads, including forced current-article sync. Missing timestamps are skipped, and invalid timestamps require correction. Server `synced_at` becomes `tbpedia_reading_sync_at`; the hash and timestamp are written together only when the note still matches the submitted reading data and local save time.
 
-On the first reload after upgrading, matching legacy receipts migrate to existing articles before the `receipts` map is removed from settings. Keep your existing `data.json` during installation. Receipts travel with notes when those notes sync between devices; devices whose notes have not synced may upload again. This change does not add multi-device conflict resolution.
+On the first reload after upgrading, matching legacy receipts migrate to existing articles before the `receipts` map is removed from settings. Keep your existing `data.json` during installation. A failed migration write leaves the original settings file for retry; existing frontmatter hashes are preserved. Missing, ambiguous or out-of-scope notes and receipts for other destinations are not imported. Receipts travel with notes when those notes sync between devices; devices whose notes have not synced may upload again. This change does not add multi-device conflict resolution.
 
 ## Collection metadata in reading sync
 
@@ -85,16 +91,10 @@ npm ci
 npm run check
 ```
 
-The v0.1.14 release passes type checking and production builds. **69 of 70 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. Native interactive Obsidian QA has not been performed.
+The v0.1.15 release passes type checking and production builds. **72 of 73 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)
 - [Phase 1 and 2 design specification](outputs/Tbpedia-Phase-1-and-2-Detailed-Design-Specification.md)
 
 Private credentials, vault backups, build caches and logs remain excluded from Git and release ZIPs.
-
-Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
-
-Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at` and the verified snapshot hash into `tbpedia_reading_sync_hash` in the same frontmatter update. Failed uploads do not update these fields; notes edited during upload are not marked as synced for the newer local version.
-
-Per-article sync receipts live in note frontmatter, rather than `data.json`. Changed-article sync compares the current reading snapshot with `tbpedia_reading_sync_hash`; current-article sync still forces an upload. On the first load after upgrading, matching legacy receipts for the configured server and reader migrate to existing, uniquely identified articles. Existing frontmatter hashes are preserved. The legacy `receipts` map is removed from settings after migration succeeds; a failed article write leaves the original settings file available for retry. Missing articles and receipts for other destinations are not imported. This layout assumes one reader and server per vault, and receipts travel between devices when the notes sync.

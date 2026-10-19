@@ -178,5 +178,8 @@
   "updaterChanged": "The installed collection changed during sync. Further uploads stopped. Preview and sync again.",
   "updaterSyncNotice": "Reading records also include the installed collection series, edition, Tbpedia version, release ID, language code and title.",
   "analyticsMetadataReadError": "Unable to read or verify the collection metadata saved in analytics data.json. Reload the plugin and try again.",
-  "connectionAvailable": "Connection successful. Cloud storage is available."
+  "connectionAvailable": "Connection successful. Cloud storage is available.",
+  "recordReading": "Record my reading data",
+  "syncReadingCloud": "Sync reading data to cloud",
+  "readingContentIdRequired": "This note needs a valid tbpedia_content_id in its frontmatter before you can record reading data."
 }

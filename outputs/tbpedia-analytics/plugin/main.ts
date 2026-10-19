@@ -1,4 +1,4 @@
-import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, Platform, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
+import { Plugin, PluginSettingTab, Modal, Setting, Notice, TFile, MarkdownView, Platform, getFrontMatterInfo, getLanguage, parseYaml, requestUrl, type App } from 'obsidian';
 import * as z from 'zod';
 import { t as tr, labels, LANGUAGES, setLocale, languagePreference, intlLocale, monthName, number, regionName, UiError, backendMessage, fieldLabel, validationReason } from './i18n';
 import { contentIdSchema, COUNTRY_CODES, defaults, DEPTH_LABELS, emptyProfile, FRONTMATTER_KEYS, PROFILE_NOTICE_VERSION, profileSchema, READER_LABELS, READING_NOTICE_VERSION, readingSchema, RECOMMENDATION_LABELS, SEX_LABELS, snapshotHash, statusAction, STATUS_LABELS, type ReadingValues, type ReadingKey, type ReaderProfile } from '../shared/schema';
@@ -34,6 +34,7 @@ function message(error:unknown):string{
 export default class TbpediaAnalytics extends Plugin{
   data:PluginData=dataSchema.parse({});token='';me:Me|null=null;busy=false;private persistTail:Promise<void>=Promise.resolve();
   private profileUpload:Promise<void>|undefined;
+  private readingActions=new Map<MarkdownView,HTMLElement>();
   async onload(){
     const loaded:unknown=await this.loadData();
     const languageMigration=migrateInterfaceLanguage(loaded??{});
@@ -42,8 +43,12 @@ export default class TbpediaAnalytics extends Plugin{
     this.data=dataSchema.parse(migration.data);setLocale(this.data.interface_language,getLanguage());this.token=this.data.remember_token?this.data.stored_token:'';
     await this.migrateReceipts(migration.data);
     this.addSettingTab(new AnalyticsSettings(this.app,this));
-    this.addRibbonIcon('book-open-check',tr("Tbpedia 閱讀資料"),()=>{void this.openReading();});
-    this.addCommand({id:'open-reading',name:tr("開啟閱讀資料"),callback:()=>{void this.openReading();}});
+    this.addRibbonIcon('book-open-check',tr('recordReading'),()=>{void this.openReading();});
+    this.addRibbonIcon('cloud-upload',tr('syncReadingCloud'),()=>{void this.previewSync();});
+    this.app.workspace.onLayoutReady(()=>this.refreshReadingActions());
+    this.registerEvent(this.app.workspace.on('layout-change',()=>this.refreshReadingActions()));
+    this.register(()=>{for(const action of this.readingActions.values())action.remove();this.readingActions.clear();});
+    this.addCommand({id:'open-reading',name:tr('recordReading'),callback:()=>{void this.openReading();}});
     this.addCommand({id:'mark-reading',name:tr("標記為在讀"),callback:()=>{void this.quickStatus('READING');}});
     this.addCommand({id:'mark-completed',name:tr("標記為已讀"),callback:()=>{void this.quickStatus('COMPLETED');}});
     this.addCommand({id:'reread',name:tr("開始重讀"),callback:()=>{void this.quickStatus('READING');}});
@@ -115,21 +120,34 @@ export default class TbpediaAnalytics extends Plugin{
     this.data.profile_uploaded_hash=JSON.stringify(profile);await this.persist();
     this.me=null;await this.connect();new Notice(tr("個人資料及雲端權限已更新。"));
   }
+  private refreshReadingActions(){
+    const views=new Set<MarkdownView>();
+    this.app.workspace.iterateAllLeaves(leaf=>{
+      if(!(leaf.view instanceof MarkdownView))return;
+      const view=leaf.view;views.add(view);
+      if(!this.readingActions.has(view))this.readingActions.set(view,view.addAction('book-open-check',tr('recordReading'),()=>{if(view.file)void this.openReading(view.file);}));
+    });
+    for(const [view,action] of this.readingActions)if(!views.has(view)){action.remove();this.readingActions.delete(view);}
+  }
+  private requireReadingContentId(fm:Frontmatter){
+    if(!Object.hasOwn(fm,'tbpedia_content_id')||!contentIdSchema.safeParse(fm.tbpedia_content_id).success)throw new UiError(tr('readingContentIdRequired'));
+  }
   async readNote(file:TFile){return noteFrontmatter(await this.app.vault.read(file));}
-  async openReading(){
-    try{const file=this.app.workspace.getActiveFile();if(!file||file.extension!=='md')throw new UiError(tr("請先開啟 Markdown 文章。"));const fm=await this.readNote(file);new ReadingModal(this,file,fm).open();}
+  async openReading(target?:TFile){
+    try{const file=target??this.app.workspace.getActiveFile();if(!file||file.extension!=='md')throw new UiError(tr("請先開啟 Markdown 文章。"));const fm=await this.readNote(file);this.requireReadingContentId(fm);new ReadingModal(this,file,fm).open();}
     catch(e){new Notice(message(e),10000);}
   }
   async saveReading(file:TFile,values:ReadingValues,expected:string){
     const normalized=readingSchema.parse(values);
     await this.app.fileManager.processFrontMatter(file,fm=>{
       const current:Frontmatter=record(fm)?fm:{};
+      this.requireReadingContentId(current);
       if(trackedFingerprint(current)!==expected)throw new UiError(tr("文章閱讀資料已被其他操作修改，請重新開啟表單。"));
       Object.assign(fm,toFrontmatter(normalized));fm.tbpedia_reading_updated_at=new Date().toISOString();
     });
   }
   async quickStatus(status:ReadingValues['reading_status']){
-    try{const file=this.app.workspace.getActiveFile();if(!file||file.extension!=='md')throw new UiError(tr("請先開啟文章。"));const fm=await this.readNote(file);const values=fromFrontmatter(fm);const next=statusAction(values,status);if(JSON.stringify(next)===JSON.stringify(values)){new Notice(tr("此文章已是此閱讀狀態；如要再次完成，請先開始重讀。"));return;}await this.saveReading(file,next,trackedFingerprint(fm));new Notice(tr("閱讀資料已儲存於本機。"));}
+    try{const file=this.app.workspace.getActiveFile();if(!file||file.extension!=='md')throw new UiError(tr("請先開啟文章。"));const fm=await this.readNote(file);this.requireReadingContentId(fm);const values=fromFrontmatter(fm);const next=statusAction(values,status);if(JSON.stringify(next)===JSON.stringify(values)){new Notice(tr("此文章已是此閱讀狀態；如要再次完成，請先開始重讀。"));return;}await this.saveReading(file,next,trackedFingerprint(fm));new Notice(tr("閱讀資料已儲存於本機。"));}
     catch(e){new Notice(message(e),10000);}
   }
   inScope(path:string){return inScanScope(path);}
@@ -259,7 +277,7 @@ class AnalyticsSettings extends PluginSettingTab{
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
     setLocale(this.plugin.data.interface_language,getLanguage());
-    const el=this.containerEl;el.empty();el.lang=intlLocale();el.createEl('h2',{text:'Tbpedia Analytics'});
+    const el=this.containerEl;el.empty();el.lang=intlLocale();el.createEl('h2',{text:'True Buddha Pedia Analytics'});
     const p=this.plugin;
     new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange(v=>{p.data.interface_language=languagePreference(v);setLocale(p.data.interface_language,getLanguage());p.persistQuiet();this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};

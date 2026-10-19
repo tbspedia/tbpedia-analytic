@@ -2,14 +2,18 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Current plugin release: **0.1.14**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.14).
+Latest published plugin release: **0.1.15**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.15).
 
-Version 0.1.14 replaces the folder selector with automatic scanning of all 10 collection categories and their subfolders, supporting both Traditional and Simplified Chinese names. The profile and reading-data notices now name the True Buddha Pedia Analytics database and describe the revised reading-data categories in all 14 interface languages. Existing settings and article frontmatter receipts are preserved.
+Version 0.1.15 adds the reading action to Markdown tab headers, renames it to Record my reading data, adds a cloud-sync ribbon icon, and requires a valid frontmatter content ID before recording. All 14 interface languages include the new labels and validation message. Existing settings and article frontmatter receipts are preserved.
+
+The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
+
+The reading ribbon action is **Record my reading data**, also available in each Markdown tab header. A **Sync reading data to cloud** ribbon icon opens the existing changed-reading sync preview. Notes must have a valid `tbpedia_content_id` in frontmatter before opening the reading form, using quick-status actions or saving reading data. Missing or invalid IDs show a notice without writing reading fields.
 
 ## What is implemented
 
 - Three NocoDB tables: `readers`, `content_items`, `reading_records`.
-- Reader profiles including optional birth year/month, sex, country, reader type and organisation. Email is optional and unverified.
+- Reader profiles including optional birth year/month, sex, country, multiple reader types and organisation. Email is optional and unverified.
 - A local Obsidian editor for all 17 reading fields, reading/rereading actions and safe frontmatter writes.
 - Manual uploads with native NocoDB v3 upsert, authenticated reader ownership, full-value read-back verification and local upload receipts.
 - Profile notice, reading-data notice and manual upload permission enabled by default for new setups. Uploads still require explicit profile upload and manual reading sync. No article bodies or unrelated frontmatter are sent.
@@ -32,15 +36,15 @@ The folder selector has been removed. Bulk reading sync scans these root folders
 | 09 | 蓮香上師 / 莲香上师 |
 | 10 | 真佛宗 |
 
-Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning.
+Each folder name includes its two-digit number and a space, such as `03 經藏部`. Duplicate names are listed once. Notes outside these roots are excluded from scanning; articles still need a valid `tbpedia_content_id`, and manual uploads require `tbpedia_reading_updated_at`. Legacy folder settings no longer control scanning and are removed on reload. Current-article sync also requires its content ID to occur exactly once in this scan scope; it only bypasses matching receipt hashes. Scanning does not assign IDs or enroll catalogue items. The Worker still requires each uploaded item to exist and be active in its catalogue.
 
 ## Article sync receipts
 
 Each verified reading upload writes `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at` in the same article frontmatter update. Changed-article sync compares the current snapshot with that hash; current-article sync still forces an upload. Failed uploads and notes edited during upload do not receive a receipt for the newer local version.
 
-`data.json` keeps settings, reader identity, credentials and collection metadata; it no longer stores per-article receipts or needs a full receipt-map save after each upload. Full-vault checks still scan article metadata.
+`data.json` keeps settings, reader identity, credentials and collection metadata; it no longer stores per-article receipts or needs a full receipt-map save after each upload. Scan operations still read eligible note files and calculate reading hashes; moving receipts does not eliminate this work. The improvement removes the growing receipt-map clone and settings rewrite after each successful article upload, rather than all settings reads/writes: connection and collection-metadata checks still use `data.json`.
 
-During the first reload after upgrading, legacy receipts for the configured server and reader migrate to existing, uniquely identified notes. Existing frontmatter hashes are preserved. The legacy map is removed only after the migration writes succeed; failed writes leave the original settings available for retry. Missing articles and receipts for other destinations are not imported. Preserve `data.json` when upgrading.
+During the first reload after upgrading, legacy receipts for the configured server and reader migrate to existing, uniquely identified notes. Existing frontmatter hashes are preserved. The legacy map is removed only after the migration writes succeed; failed writes leave the original settings available for retry. Missing, out-of-scope or duplicate-ID articles and receipts for other destinations are not imported. Preserve `data.json` when upgrading.
 
 This layout assumes one reader and server per vault. Receipts follow article files between devices when those files sync. Unsynced devices may upload again, and this change does not resolve conflicting edits between devices.
 
@@ -56,11 +60,23 @@ If the updater is absent, its absence does not erase collection metadata already
 
 The Reader Profile notice names the **True Buddha Pedia Analytics database**. The manual upload notice explains that manually synced data goes to this database in the cloud after acceptance, and lists reading progress, dates, ratings, recommendations, keywords, subtopics, reader-type classifications, Buddhist knowledge level and practice level. Existing explanations about article bodies, upload controls and collection metadata remain. All 14 languages have matching notice updates; the upload behavior is unchanged.
 
+### Notice and permission controls
+
+| Control | New setup default | Effect when turned off |
+| --- | --- | --- |
+| I accept the profile notice | Enabled (`profile-v2`) | Blocks Save and upload profile; does not revoke server consent or automatically disable reading uploads |
+| I accept the reading data upload notice | Enabled (`reading-v1`) | Clears local reading acceptance and immediately turns off manual reading uploads |
+| Allow manual reading data uploads | Enabled | Immediately blocks reading uploads on this device; cloud permission changes only after Save and upload profile succeeds |
+
+Existing explicit settings, including disabled options, survive upgrades. Upload permission cannot be turned on without the current reading notice. Unsupported server notice versions block acceptance/uploads until the plugin supports them. Save profile locally stays available. Turning a switch on does not enroll a reader or upload notes automatically. Applying a disabled cloud permission still requires an accepted profile notice.
+
+The standalone deletion reminder at the bottom of settings and the plugin status bar item are removed. The longer notices still explain retained cloud data. Sync feedback uses confirmation/result dialogs and notices.
+
 ## Reader device metadata
 
-After accepting the updated profile notice (`profile-v2`), **Save and upload profile** also sends `device_type`, `Client_version` (the plugin version), `os` and `user_agent` to the reader's existing NocoDB row. Each upload replaces the last device snapshot; this is not a device-history table. Metadata is not collected from the administrator's provisioning machine, written into notes, or uploaded on startup, local saves, connection tests or reading sync. No hardware identifier is collected.
+With the current profile notice (`profile-v2`) selected, **Save and upload profile** also sends `device_type`, `Client_version` (the plugin version), `os` and `user_agent` to the reader's existing NocoDB row. Each upload replaces the last device snapshot; this is not a device-history table. Metadata is not collected from the administrator's provisioning machine, written into notes, or uploaded on startup, local saves, connection tests or reading sync. No hardware identifier is collected.
 
-Existing readers must accept the new profile notice and save/upload their profile again before cloud reading uploads resume. Older plugins remain usable locally but need upgrading for the revised notice. Clients without metadata can still submit a profile after accepting the current notice; this preserves any previous device snapshot. Device details are client-reported and are not proof of device identity.
+Readers whose server consent is missing or older than `profile-v2` must select the current notice and save/upload their profile before cloud reading uploads resume. The latest wording changes retain `profile-v2` and `reading-v1`; they do not force renewed acceptance for readers already on those versions. Older plugins remain usable locally but need upgrading for the revised notice. Clients without metadata can still submit a profile after accepting the current notice; this preserves any previous device snapshot. Device details are client-reported and are not proof of device identity.
 
 ## Resizable reading popup
 
@@ -72,7 +88,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 180 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 183 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -97,7 +113,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.14 plugin passes type checking and production builds; 69 of 70 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.15 plugin passes type checking and production builds; 72 of 73 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
@@ -119,7 +135,9 @@ The updated Worker must be deployed together with the updated plugin to enable a
 
 ## MVP content selection and compatibility
 
-The selected catalogue has **245 items: four books and 241 chapters**, from `01 文集部` and `02 開示部`. Root-level duplicate/translated collections are not enrolled. The translated copy `C03 至上的智慧 (Supreme Wisdom).md` is excluded in favor of its canonical original.
+The original imported pilot catalogue had **245 items: four books and 241 chapters**, from `01 文集部` and `02 開示部`. Root-level duplicate/translated collections are not enrolled. The translated copy `C03 至上的智慧 (Supreme Wisdom).md` is excluded in favor of its canonical original.
+
+The current local audit (18 October 2026) finds **247 items: four books and 243 chapters**. Two added chapters under `275 解脫道口訣` lack a parent book entry `TBP-275`, which is the reported catalogue-test failure. That test also retains the original 245-item expectation. The audit utility still covers `01 文集部` and `02 開示部`; the plugin scan scope covers all 10 categories. A wider scan does not imply wider cloud catalogue enrollment.
 
 Stable IDs were inserted as `tbpedia_content_id` while preserving every original remaining byte of the selected notes. Originals are backed up under `private/vault-backup-*`. Document `reports/vault-audit.json` records the audit; `reports/content-map.json` maps local paths to IDs. Only catalogue metadata was imported during setup, not existing personal reading data.
 
@@ -140,7 +158,7 @@ Actual-vault adjustments to the design spec:
 | Directory/file | Purpose |
 |---|---|
 | `shared/` | Typed schemas, code/label mappings, fingerprints and legacy reading adapter |
-| `plugin/` | Obsidian plugin, manifest and CSS |
+| `plugin/` | Obsidian plugin, manifest, CSS, fixed scan scope and translation catalogs |
 | `worker/src/` | Worker routes, reader authentication and NocoDB v3 adapter |
 | `worker/wrangler.jsonc` | Deployment name and nonsecret bindings |
 | `worker-configuration.d.ts` | Environment bindings generated from Wrangler |
@@ -189,7 +207,7 @@ Enter the secret through the interactive prompt. If Wrangler asks to create the 
 
 `GET /health` is public and contains application/version/configuration status only. `/v1/me` and `/v1/reading/sync` require the reader token. The gateway fails closed if its service credential is missing.
 
-For future enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
+Ordinary readers enroll automatically through their first explicit **Save and upload profile** action; no manual key input or remember-key setting is shown. The following utility is an optional administrator workflow, not the normal setup path. For administrator-assisted enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
 
 ```powershell
 npm run provision -- --nickname "Reader nickname" --out private/new-reader.json
@@ -199,14 +217,14 @@ Use `--prepare-only` to create a private credential file and a separate row defi
 
 ## Important pilot limits
 
-One reader per vault and one active uploader per reader. Native upsert is not a distributed lock. After an uncertain network write, stop and explicitly resend the latest state when service recovers. Strong ordering, conflict merging and exactly-once processing are outside this MVP.
+One reader/server per vault. A vault may be copied or synced between devices, but use one active uploader at a time; device merging and server write ordering are not implemented. Receipts follow synced notes; a device with stale or missing notes/receipts may upload again or send older reading values. The manifest currently declares `isDesktopOnly: true`, so mobile use is not a supported release capability. Native upsert is not a distributed lock. After an uncertain network write, stop and explicitly resend the latest state when service recovers. Strong ordering, conflict merging and exactly-once processing are outside this MVP.
 
-Synced means the last saved snapshot was verified, not continuous two-way synchronization. Changes or deletions made directly in NocoDB are not detected automatically. **Sync this note** can force a resend. Local note deletion does not delete cloud records; disabling uploads also does not erase them.
+Synced means the last saved snapshot was verified, not continuous two-way synchronization. Changes or deletions made directly in NocoDB are not detected automatically. **Sync current article** can force a resend. Local note deletion does not delete cloud records; disabling uploads also does not erase them.
 
-The Tbpedia updater must preserve personal reading properties. This plugin cannot prevent an unrelated application from replacing an entire Markdown file. Keep ordinary vault backups.
+The Tbpedia updater must preserve all 17 personal reading properties, `tbpedia_content_id`, `tbpedia_reading_updated_at`, `tbpedia_reading_sync_at` and `tbpedia_reading_sync_hash`. This plugin cannot prevent an unrelated application from replacing an entire Markdown file. Keep ordinary vault backups.
 
 The later Community Edition target uses SQLite; NocoDB Cloud manages its own backend. Table and data portability is designed in, but an actual SQLite deployment/cutover requires the same native-API compatibility checks on the chosen edition/version. No paid-only uniqueness or UUID field is required.
 
 Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
 
-Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. Failed uploads do not update this field; notes edited during upload are not marked as synced for the newer local version.
+Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. The verified hash is saved as `tbpedia_reading_sync_hash` in the same frontmatter write. Receipt fields are excluded from hash input. Failed uploads do not update these fields; notes edited during upload are not marked as synced for the newer local version.
