@@ -2,13 +2,15 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.18**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.18).
+Latest published plugin release: **0.1.19**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.19).
 
-Version 0.1.18 simplifies existing-reader recovery to Reader ID alone and removes sync-credential input and copying controls. The cloud profile is retrieved and saved locally, with existing credentials preserved. Required profile fields, reader-type checkboxes, the personalized connection message and removal of obsolete connected-reader controls are retained.
+Version 0.1.19 replaces My reader type toggles in the reading form with multi-select checkboxes and limits Reading reflection to 300 visible characters with a live remaining count. Chinese input composition and combined Unicode characters are supported. Upgrade by replacing main.js, manifest.json and styles.css, preserving data.json, then reloading the plugin or restarting Obsidian. No Worker deployment is required.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
 The reading ribbon action is **Record my reading data**, also available in each Markdown tab header. A **Sync reading data to cloud** ribbon icon opens the existing changed-reading sync preview. Notes must have a valid `tbpedia_content_id` in frontmatter before opening the reading form, using quick-status actions or saving reading data. Missing or invalid IDs show a notice without writing reading fields.
+
+In the reading form, **My classification → My reader type** uses checkboxes for multiple selections. **Reading reflection** allows up to 300 visible characters in any language, with a live remaining-character count below the box. Spaces, punctuation and line breaks count; combined characters and emoji count as one visible character. The limit applies after Chinese or other IME composition finishes. Existing longer reflections remain readable and must be shortened before saving through the form.
 
 ## Reader profile setup
 
@@ -123,7 +125,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.18 plugin passes type checking and production builds; 87 of 88 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.19 plugin passes type checking and production builds; 91 of 92 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 

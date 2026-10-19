@@ -191,5 +191,7 @@
   "readerOperationBusy": "Một thao tác đang diễn ra. Thử lại sau khi hoàn tất.",
   "readerIdInvalid": "Nhập ID độc giả hợp lệ.",
   "readerRecoveryMismatch": "Đám mây trả về độc giả khác. Chưa lưu khôi phục.",
-  "readerIdHelp": "Nhập ID độc giả để lấy hồ sơ. Giữ bí mật vì ID cho phép truy cập tài khoản."
+  "readerIdHelp": "Nhập ID độc giả để lấy hồ sơ. Giữ bí mật vì ID cho phép truy cập tài khoản.",
+  "reflectionRemaining": "Còn {remaining} ký tự (tối đa {limit})",
+  "reflectionTooLong": "Hãy rút ngắn cảm nghĩ xuống còn {limit} ký tự trước khi lưu."
 }

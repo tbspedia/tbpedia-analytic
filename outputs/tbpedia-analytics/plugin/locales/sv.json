@@ -191,5 +191,7 @@
   "readerOperationBusy": "En åtgärd pågår. Försök igen när den är klar.",
   "readerIdInvalid": "Ange ett giltigt läsar-ID.",
   "readerRecoveryMismatch": "Molnet returnerade en annan läsare. Återställningen sparades inte.",
-  "readerIdHelp": "Ange ditt läsar-ID för att hämta profilen. Håll det hemligt: det ger åtkomst till kontot."
+  "readerIdHelp": "Ange ditt läsar-ID för att hämta profilen. Håll det hemligt: det ger åtkomst till kontot.",
+  "reflectionRemaining": "{remaining} tecken kvar (högst {limit})",
+  "reflectionTooLong": "Korta din reflektion till {limit} tecken innan du sparar."
 }

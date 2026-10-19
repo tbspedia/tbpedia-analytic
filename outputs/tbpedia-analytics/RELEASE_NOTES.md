@@ -1,3 +1,15 @@
+# v0.1.19 — Reading checkboxes and reflection limit
+
+Released 19 October 2026.
+
+- Replaces My classification → My reader type toggles in Record my reading data with labeled checkboxes supporting multiple selections.
+- Limits Reading reflection to 300 visible characters and shows a live remaining-character count below the input, translated in all 14 interface languages.
+- Counts combined Unicode characters and emoji as one visible character; spaces, punctuation and line breaks count. Handles Chinese and other IME composition before applying the limit to typed or pasted text.
+- Preserves existing longer reflections when opening the form and asks the reader to shorten them before saving. Existing frontmatter and cloud records are not migrated or truncated on upgrade.
+- Validation: type checking and production builds pass; 91 of 92 automated tests pass, including four new reflection-input tests. The existing local catalogue test still reports two notes missing parent TBP-275. Native interactive Obsidian QA has not been performed.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. No Worker deployment is required.
+
 # v0.1.18 — Reader-ID-only recovery
 
 Released 19 October 2026.

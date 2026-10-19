@@ -191,5 +191,7 @@
   "readerOperationBusy": "Operasi sedang berlangsung. Coba lagi setelah selesai.",
   "readerIdInvalid": "Masukkan ID pembaca yang valid.",
   "readerRecoveryMismatch": "Cloud mengembalikan pembaca lain. Pemulihan tidak disimpan.",
-  "readerIdHelp": "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun."
+  "readerIdHelp": "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun.",
+  "reflectionRemaining": "Tersisa {remaining} karakter (maksimal {limit})",
+  "reflectionTooLong": "Persingkat refleksi menjadi {limit} karakter sebelum menyimpan."
 }

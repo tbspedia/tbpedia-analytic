@@ -191,5 +191,7 @@
   "readerOperationBusy": "処理中です。完了後に再試行してください。",
   "readerIdInvalid": "有効な読者IDを入力してください。",
   "readerRecoveryMismatch": "別の読者情報が返されました。復元は保存されていません。",
-  "readerIdHelp": "読者IDを入力してプロフィールを取得します。IDでアカウントにアクセスできるため、秘密にしてください。"
+  "readerIdHelp": "読者IDを入力してプロフィールを取得します。IDでアカウントにアクセスできるため、秘密にしてください。",
+  "reflectionRemaining": "残り {remaining} 文字（最大 {limit} 文字）",
+  "reflectionTooLong": "保存する前に感想を {limit} 文字以内にしてください。"
 }

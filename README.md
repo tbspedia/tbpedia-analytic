@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.18](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.18)** — retrieves existing reader profiles using Reader ID alone, without a separate sync credential.
+**Latest release: [v0.1.19](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.19)** — multi-select reader-type checkboxes in the reading form and a 300-character reflection limit with a live remaining count.
 
 ## Install or upgrade
 
@@ -14,6 +14,10 @@ An Obsidian plugin for local reading progress and deliberate, authenticated uplo
 The configured API is `https://cfanalytics.tbpedia.org`. The profile notice, reading-data notice and manual upload permission are enabled by default on new installations. Upgrades preserve existing choices. Use **Save and upload profile** to apply cloud permissions; reading data uploads only when you choose to sync.
 
 The reading ribbon action is **Record my reading data**, with the same icon in each Markdown tab header. The **Sync reading data to cloud** ribbon icon opens the same changed-reading preview as the settings button. Recording and quick-status actions require a valid `tbpedia_content_id` in the note’s frontmatter; saves recheck this requirement. These interface changes are included in v0.1.18.
+
+## Reading form
+
+Under **My classification → My reader type**, select any combination of reader types using checkboxes. **Reading reflection** allows up to 300 visible characters, with a live remaining count. Spaces, punctuation and line breaks count; combined characters and emoji count as one. Chinese input composition finishes before the limit is applied. Existing longer reflections remain readable and must be shortened before saving through the form.
 
 ## Reader profile setup
 
@@ -101,7 +105,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.18 release passes type checking and production builds. **87 of 88 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
+The v0.1.19 release passes type checking and production builds. **91 of 92 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

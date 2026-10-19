@@ -191,5 +191,7 @@
   "readerOperationBusy": "Ein Vorgang läuft. Versuchen Sie es danach erneut.",
   "readerIdInvalid": "Geben Sie eine gültige Leser-ID ein.",
   "readerRecoveryMismatch": "Die Cloud hat einen anderen Leser zurückgegeben. Die Wiederherstellung wurde nicht gespeichert.",
-  "readerIdHelp": "Geben Sie Ihre Leser-ID ein, um das Profil abzurufen. Halten Sie sie geheim: Sie gewährt Kontozugriff."
+  "readerIdHelp": "Geben Sie Ihre Leser-ID ein, um das Profil abzurufen. Halten Sie sie geheim: Sie gewährt Kontozugriff.",
+  "reflectionRemaining": "Noch {remaining} Zeichen (maximal {limit})",
+  "reflectionTooLong": "Kürze deine Reflexion vor dem Speichern auf {limit} Zeichen."
 }

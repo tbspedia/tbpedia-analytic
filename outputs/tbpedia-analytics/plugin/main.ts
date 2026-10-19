@@ -8,6 +8,7 @@ import {readUpdaterMetadata,updaterMetadataSchema} from '../shared/updater-metad
 import {loadUpdaterMetadata,loadSavedUpdaterMetadata} from './updater';
 import {migrateInterfaceLanguage} from './settings-migrations';
 import {inScanScope} from './scan-scope';
+import {bindReflectionInput, reflectionLength, REFLECTION_LIMIT} from './reading-reflection';
 
 import {DEFAULT_API,migrateApiUrl} from '../shared/api';
 const dataSchema=z.object({...updaterMetadataSchema.shape,interface_language:z.string().default('system'),api_url:z.string().default(DEFAULT_API),reader_id:z.string().nullable().default(null),profile:profileSchema.safeExtend({nickname:z.string().max(100)}).default(emptyProfile),profile_notice_version:z.string().nullable().default(PROFILE_NOTICE_VERSION),reading_notice_version:z.string().nullable().default(READING_NOTICE_VERSION),local_upload_enabled:z.boolean().default(true),remember_token:z.boolean().default(false),stored_token:z.string().default(''),profile_uploaded_hash:z.string().nullable().default(null)});
@@ -280,15 +281,34 @@ class ReadingModal extends Modal{
     el.createEl('h3',{text:tr("閱讀日期")});
     for(const key of ['want_to_read_date','reading_start_date','completed_date','not_reading_date','abandoned_date'] as const)new Setting(el).setName(tr(FRONTMATTER_KEYS[key])).addText(t=>{t.inputEl.type='date';t.setValue(this.values[key]??'').onChange(v=>{this.values[key]=v||null;this.explicitDates.add(key);});});
     el.createEl('h3',{text:tr("感想與評價")});
-    new Setting(el).setName(tr("閱讀感想")).addTextArea(t=>t.setValue(this.values.reading_reflection??'').onChange(v=>{this.values.reading_reflection=v||null;}));
+    const reflection=new Setting(el).setName(tr("閱讀感想"));
+    reflection.controlEl.addClass('tbpa-reflection-control');
+    reflection.addTextArea(t=>{
+      t.setValue(this.values.reading_reflection??'');
+      const counter=reflection.controlEl.createEl('small',{cls:'setting-item-description tbpa-reflection-counter',attr:{id:'tbpa-reflection-counter','aria-live':'polite','aria-atomic':'true'}});
+      t.inputEl.setAttribute('aria-label',tr('閱讀感想'));
+      t.inputEl.setAttribute('aria-describedby','tbpa-reflection-counter');
+      bindReflectionInput(t.inputEl,(value,remaining)=>{
+        this.values.reading_reflection=value||null;
+        counter.setText(remaining>=0?tr('reflectionRemaining',{remaining,limit:REFLECTION_LIMIT}):tr('reflectionTooLong',{limit:REFLECTION_LIMIT}));
+        t.inputEl.setAttribute('aria-invalid',String(remaining<0));
+      });
+    });
     new Setting(el).setName(tr("我的閱讀推薦")).addDropdown(d=>d.addOption('',tr("未設定")).addOptions(labels(RECOMMENDATION_LABELS)).setValue(this.values.my_recommendation??'').onChange(v=>{this.values.my_recommendation=v?readingSchema.shape.my_recommendation.parse(v):null;}));
     new Setting(el).setName(tr("我的評分")).addDropdown(d=>{d.addOption('',tr("未評分"));for(let n=1;n<=5;n++)d.addOption(String(n),`${number(n)} / ${number(5)}`);d.setValue(this.values.my_rating===null?'':String(this.values.my_rating)).onChange(v=>{this.values.my_rating=v?Number(v):null;});});
     el.createEl('h3',{text:tr("我的分類")});
     for(const key of ['my_keywords','my_subtopics'] as const)new Setting(el).setName(tr(FRONTMATTER_KEYS[key])).setDesc(tr("每行一項。")).addTextArea(t=>t.setValue(this.values[key].join('\n')).onChange(v=>{this.values[key]=v.split('\n').map(s=>s.trim()).filter(Boolean);}));
-    el.createEl('p',{text:tr("我的讀者類型：此文章適合哪些讀者？"),cls:'setting-item-description'});
-    for(const [code,label]of Object.entries(labels(READER_LABELS)))new Setting(el).setName(label).addToggle(t=>{const parsed=readingSchema.shape.my_reader_types.parse([code])[0]!;t.setValue(this.values.my_reader_types.includes(parsed)).onChange(on=>{this.values.my_reader_types=on?[...new Set([...this.values.my_reader_types,parsed])]:this.values.my_reader_types.filter(c=>c!==parsed);});});
+    const readerTypes=el.createEl('fieldset',{cls:'tbpa-reader-types'});
+    readerTypes.createEl('legend',{text:tr("我的讀者類型：此文章適合哪些讀者？")});
+    for(const [code,label]of Object.entries(labels(READER_LABELS))){
+      const parsed=readingSchema.shape.my_reader_types.parse([code])[0]!;
+      const option=readerTypes.createEl('label',{cls:'tbpa-reader-type-option'});
+      const checkbox=option.createEl('input',{type:'checkbox'});checkbox.checked=this.values.my_reader_types.includes(parsed);
+      option.createSpan({text:label});
+      checkbox.addEventListener('change',()=>{this.values.my_reader_types=checkbox.checked?[...new Set([...this.values.my_reader_types,parsed])]:this.values.my_reader_types.filter(c=>c!==parsed);});
+    }
     for(const key of ['my_buddhist_level','my_practice_level'] as const)new Setting(el).setName(tr(FRONTMATTER_KEYS[key])).addDropdown(d=>{d.addOption('',tr("未設定"));for(let n=0;n<=3;n++)d.addOption(String(n),number(n));d.setValue(this.values[key]===null?'':String(this.values[key])).onChange(v=>{this.values[key]=v?Number(v):null;});});
-    const save=async(sync:boolean)=>{if(this.saving)return;this.saving=true;try{const values=readingSchema.parse(this.values);await this.plugin.saveReading(this.file,values,this.expected);this.close();new Notice(tr("閱讀資料已儲存於本機。"));if(sync)await this.plugin.runSync([this.file],true);}catch(e){error.setText(message(e));}finally{this.saving=false;}};
+    const save=async(sync:boolean)=>{if(this.saving)return;this.saving=true;try{if(reflectionLength(this.values.reading_reflection??'')>REFLECTION_LIMIT)throw new UiError(tr('reflectionTooLong',{limit:REFLECTION_LIMIT}));const values=readingSchema.parse(this.values);await this.plugin.saveReading(this.file,values,this.expected);this.close();new Notice(tr("閱讀資料已儲存於本機。"));if(sync)await this.plugin.runSync([this.file],true);}catch(e){error.setText(message(e));}finally{this.saving=false;}};
     new Setting(el).addButton(b=>b.setButtonText(tr("取消")).onClick(()=>this.close())).addButton(b=>b.setButtonText(tr("儲存並同步")).setDisabled(!this.plugin.data.local_upload_enabled).onClick(()=>{void save(true);})).addButton(b=>b.setCta().setButtonText(tr("儲存於本機")).onClick(()=>{void save(false);}));
   }
 }
