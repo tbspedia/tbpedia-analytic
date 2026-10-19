@@ -1,0 +1,26 @@
+{
+  "status": "deployed_and_installed",
+  "typecheck": "passed",
+  "build": "passed",
+  "worker_deployment_dry_run": "passed",
+  "automated_tests_passed": 87,
+  "automated_tests_failed": 1,
+  "test_failure": "Existing local catalogue: missing parent TBP-275",
+  "live_deployed": true,
+  "installed_plugin_updated": true,
+  "reader_id_permissions": [
+    "read_profile",
+    "update_profile",
+    "upload_reading_data"
+  ],
+  "legacy_credentials_preserved": true,
+  "user_explicitly_approved_account_access": true,
+  "worker_version_id": "fe369b5e-ea88-408f-b08f-1cf13ad1c503",
+  "live_checks": {
+    "reader_id_profile_retrieval": true,
+    "legacy_credential_still_valid": true,
+    "unknown_reader_id_rejected": true,
+    "health_configured": true,
+    "cloud_data_writes": 0
+  }
+}

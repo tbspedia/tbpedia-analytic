@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Điền tất cả các trường hồ sơ và chọn ít nhất một loại độc giả trước khi lưu hoặc tải lên.",
   "readerTypesRequired": "Chọn ít nhất một loại độc giả.",
   "readerId": "ID độc giả",
-  "syncCredential": "Khóa đồng bộ",
-  "syncCredentialHelp": "Dùng khóa riêng tư từ kho hiện có. Giữ bí mật; chỉ ID độc giả không đủ để khôi phục.",
-  "copySyncCredential": "Sao chép khóa",
-  "credentialCopied": "Đã sao chép khóa.",
   "readerSetup": "Thiết lập độc giả",
   "newReader": "Đăng ký độc giả mới",
   "existingReader": "Kết nối độc giả hiện có",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Kho này đã liên kết với một độc giả.",
   "readerOperationBusy": "Một thao tác đang diễn ra. Thử lại sau khi hoàn tất.",
   "readerIdInvalid": "Nhập ID độc giả hợp lệ.",
-  "readerCredentialRequired": "Nhập khóa đồng bộ hợp lệ của độc giả.",
-  "readerIdentityMismatch": "ID độc giả không khớp với khóa này."
+  "readerRecoveryMismatch": "Đám mây trả về độc giả khác. Chưa lưu khôi phục.",
+  "readerIdHelp": "Nhập ID độc giả để lấy hồ sơ. Giữ bí mật vì ID cho phép truy cập tài khoản."
 }

@@ -77,7 +77,7 @@ export default class TbpediaAnalytics extends Plugin{
     let url:URL;try{url=new URL(this.data.api_url);}catch{throw new UiError(tr('API 請填寫主機網址，不含路徑或查詢參數。'));}
     if(url.protocol!=='https:'&&!(url.protocol==='http:'&&['localhost','127.0.0.1'].includes(url.hostname)))throw new UiError(tr("API 必須使用 HTTPS。"));
     if(url.username||url.password||url.search||url.hash||url.pathname!=='/')throw new UiError(tr("API 請填寫主機網址，不含路徑或查詢參數。"));
-    if(authenticated&&!/^[A-Za-z0-9_-]{43}$/.test(credential))throw new GatewayError(401,'UNAUTHENTICATED');
+    if(authenticated&&!/^[A-Za-z0-9_-]{43}$/.test(credential)&&!z.uuid().safeParse(credential).success)throw new GatewayError(401,'UNAUTHENTICATED');
     let response;
     try{response=await requestUrl({url:new URL(path,url).toString(),method,headers:{...(authenticated?{Authorization:`Bearer ${credential}`} : {}),'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),throw:false});}
     catch{throw new UiError(tr("無法連線；本機資料已保留。請稍後手動再試。"));}
@@ -101,17 +101,16 @@ export default class TbpediaAnalytics extends Plugin{
     const nickname=this.data.profile.nickname.trim();
     new Notice(nickname?tr('connected',{name:nickname}):tr('connectionAvailable'));
   }
-  async restoreExistingReader(readerId:string,credential:string){
+  async restoreExistingReader(readerId:string){
     if(this.data.reader_id)throw new UiError(tr('readerAlreadyLinked'));
     if(this.busy||this.profileUpload||this.restoringReader)throw new UiError(tr('readerOperationBusy'));
-    const id=z.uuid().safeParse(readerId.trim());
+    const id=z.uuid().safeParse(readerId.trim().toLowerCase());
     if(!id.success)throw new UiError(tr('readerIdInvalid'));
-    const token=credential.trim();
-    if(!/^[A-Za-z0-9_-]{43}$/.test(token))throw new UiError(tr('readerCredentialRequired'));
+    const token=id.data;
     this.restoringReader=true;
     try{
       const me=meSchema.parse(await this.api('/v1/me','GET',undefined,true,token));
-      if(me.reader_id!==id.data)throw new UiError(tr('readerIdentityMismatch'));
+      if(me.reader_id!==id.data)throw new UiError(tr('readerRecoveryMismatch'));
       const previous={data:this.data,token:this.token,me:this.me};
       this.data={...this.data,reader_id:me.reader_id,profile:{...me.profile},remember_token:true};this.token=token;this.me=me;
       try{await this.persist();}catch(error){this.data=previous.data;this.token=previous.token;this.me=previous.me;throw error;}
@@ -295,7 +294,7 @@ class ReadingModal extends Modal{
 }
 
 class AnalyticsSettings extends PluginSettingTab{
-  private existingReader=false;private readerIdInput='';private credentialInput='';
+  private existingReader=false;private readerIdInput='';
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
     setLocale(this.plugin.data.interface_language,getLanguage());
@@ -307,14 +306,12 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.testConnection())));
     el.createEl('h3',{text:tr("讀者個人資料")});
     if(p.data.reader_id){
-      new Setting(el).setName(tr('readerId')).addText(t=>{t.setValue(p.data.reader_id!);t.inputEl.readOnly=true;});
-      new Setting(el).setName(tr('syncCredential')).setDesc(tr('syncCredentialHelp')).addButton(b=>b.setButtonText(tr('copySyncCredential')).setDisabled(!p.token).onClick(()=>run(async()=>{await navigator.clipboard.writeText(p.token);new Notice(tr('credentialCopied'));})));
+      new Setting(el).setName(tr('readerId')).setDesc(tr('readerIdHelp')).addText(t=>{t.setValue(p.data.reader_id!);t.inputEl.readOnly=true;});
     }else{
       new Setting(el).setName(tr('readerSetup')).addDropdown(d=>d.addOption('new',tr('newReader')).addOption('existing',tr('existingReader')).setValue(this.existingReader?'existing':'new').onChange(value=>{this.existingReader=value==='existing';this.display();}));
       if(this.existingReader){
         new Setting(el).setName(tr('readerId')).addText(t=>t.setValue(this.readerIdInput).onChange(value=>{this.readerIdInput=value;}));
-        new Setting(el).setName(tr('syncCredential')).setDesc(tr('syncCredentialHelp')).addText(t=>{t.inputEl.type='password';t.inputEl.autocomplete='off';t.setValue(this.credentialInput).onChange(value=>{this.credentialInput=value;});});
-        new Setting(el).addButton(b=>b.setCta().setButtonText(tr('connectExistingReader')).onClick(()=>run(async()=>{await p.restoreExistingReader(this.readerIdInput,this.credentialInput);this.credentialInput='';})));
+        new Setting(el).addButton(b=>b.setCta().setButtonText(tr('connectExistingReader')).onClick(()=>run(async()=>{await p.restoreExistingReader(this.readerIdInput);})));
         return;
       }
       el.createEl('p',{text:tr('newReaderHelp'),cls:'setting-item-description'});

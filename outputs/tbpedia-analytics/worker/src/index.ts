@@ -25,19 +25,23 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
     const db=new NocoDB(env,fetcher);
     // Keep account lookup behind one fixed table; callers cannot select a table.
     const bearer=request.headers.get('authorization')??'';
-    const token=/^Bearer ([A-Za-z0-9_-]{43})$/.exec(bearer)?.[1];
-    if(!token)throw authFailure();
-    const tokenHash=await sha256(token);
-    let rows=await db.find(env.READERS_TABLE_ID,{sync_token_hash:tokenHash});
+    const credential=/^Bearer ([A-Za-z0-9_-]+)$/.exec(bearer)?.[1];
+    if(!credential)throw authFailure();
+    const idCredential=z.uuid().safeParse(credential.toLowerCase());
+    const legacyToken=/^[A-Za-z0-9_-]{43}$/.test(credential);
+    if(!idCredential.success&&!legacyToken)throw authFailure();
+    // Reader ID is an access key by product choice; never rotate existing tokens on recovery.
+    const tokenHash=legacyToken?await sha256(credential):undefined;
+    let rows=await db.find(env.READERS_TABLE_ID,idCredential.success?{reader_id:idCredential.data}:{sync_token_hash:tokenHash!});
     // Enrollment happens only on an explicit profile upload with current consent.
     // GET, reading uploads, and revoked identities never create a reader.
     let enrollment: z.infer<typeof profileRequestSchema>|undefined;
-    if(rows.length===0&&path==='/v1/me'&&request.method==='PATCH'){
+    if(rows.length===0&&legacyToken&&path==='/v1/me'&&request.method==='PATCH'){
       enrollment=profileRequestSchema.parse(await requestJson(request,16*1024));
       if(enrollment.profile_notice_version!==env.PROFILE_NOTICE_VERSION||(enrollment.cloud_sync_enabled&&enrollment.reading_notice_version!==env.READING_NOTICE_VERSION))throw new ApiError(428,'CONSENT_REQUIRED','Review and accept the current privacy notice.');
       const now=new Date().toISOString();
       await db.createReader({...enrollment.profile,...enrollment.client_metadata,reader_id:crypto.randomUUID(),sync_token_hash:tokenHash,account_status:'ACTIVE',cloud_sync_enabled:false,created_at:now,updated_at:now,schema_version:1});
-      rows=await db.find(env.READERS_TABLE_ID,{sync_token_hash:tokenHash});
+      rows=await db.find(env.READERS_TABLE_ID,{sync_token_hash:tokenHash!});
     }
     const row=oneRow(rows,authFailure());
     if(row.fields.account_status!=='ACTIVE')throw authFailure();

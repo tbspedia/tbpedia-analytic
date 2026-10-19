@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Complete every profile field and select at least one reader type before saving or uploading.",
   "readerTypesRequired": "Select at least one reader type.",
   "readerId": "Reader ID",
-  "syncCredential": "Sync credential",
-  "syncCredentialHelp": "Use the private sync credential from your existing vault. Keep it private; a reader ID alone cannot restore your account.",
-  "copySyncCredential": "Copy sync credential",
-  "credentialCopied": "Sync credential copied.",
   "readerSetup": "Reader setup",
   "newReader": "Register a new reader",
   "existingReader": "Connect an existing reader",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "This vault is already linked to a reader.",
   "readerOperationBusy": "Another reader operation is in progress. Try again when it finishes.",
   "readerIdInvalid": "Enter a valid reader ID.",
-  "readerCredentialRequired": "Enter the existing reader’s valid sync credential.",
-  "readerIdentityMismatch": "The reader ID does not match this sync credential."
+  "readerRecoveryMismatch": "The cloud returned a different reader. Recovery was not saved.",
+  "readerIdHelp": "Enter your Reader ID to retrieve your profile. Keep it private: it grants access to your account."
 }

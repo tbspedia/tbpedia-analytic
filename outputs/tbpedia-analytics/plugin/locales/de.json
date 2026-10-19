@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Füllen Sie vor dem Speichern oder Hochladen alle Profilfelder aus und wählen Sie mindestens einen Lesertyp.",
   "readerTypesRequired": "Wählen Sie mindestens einen Lesertyp.",
   "readerId": "Leser-ID",
-  "syncCredential": "Synchronisierungsschlüssel",
-  "syncCredentialHelp": "Verwenden Sie den privaten Schlüssel Ihres bestehenden Vaults. Die Leser-ID allein reicht nicht aus.",
-  "copySyncCredential": "Schlüssel kopieren",
-  "credentialCopied": "Schlüssel kopiert.",
   "readerSetup": "Lesereinrichtung",
   "newReader": "Neuen Leser registrieren",
   "existingReader": "Bestehenden Leser verbinden",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Dieser Vault ist bereits mit einem Leser verknüpft.",
   "readerOperationBusy": "Ein Vorgang läuft. Versuchen Sie es danach erneut.",
   "readerIdInvalid": "Geben Sie eine gültige Leser-ID ein.",
-  "readerCredentialRequired": "Geben Sie den gültigen Synchronisierungsschlüssel des Lesers ein.",
-  "readerIdentityMismatch": "Die Leser-ID passt nicht zu diesem Schlüssel."
+  "readerRecoveryMismatch": "Die Cloud hat einen anderen Leser zurückgegeben. Die Wiederherstellung wurde nicht gespeichert.",
+  "readerIdHelp": "Geben Sie Ihre Leser-ID ein, um das Profil abzurufen. Halten Sie sie geheim: Sie gewährt Kontozugriff."
 }

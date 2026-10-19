@@ -217,3 +217,27 @@ test('reading sync checks saved updater fields instead of trusting an echoed has
   const b=await backend();const response=await handle(req('/v1/me','PATCH',{...profilePayload(),profile:{...completeProfile(),reader_type:[]}}),env,b.fetcher);
   assert.equal(response.status,422);assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);
  });
+
+test('Reader ID alone retrieves the profile without rotating legacy credentials or writing data',async()=>{
+ const b=await backend();const originalHash=b.tables[env.READERS_TABLE_ID]![0]!.fields.sync_token_hash;
+ const response=await handle(req('/v1/me','GET',undefined,readerId),env,b.fetcher);assert.equal(response.status,200);
+ const data=await response.json() as {reader_id:string;profile:{nickname:string}};assert.equal(data.reader_id,readerId);assert.equal(data.profile.nickname,'Synthetic reader');
+ assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);assert.equal(b.tables[env.READERS_TABLE_ID]![0]!.fields.sync_token_hash,originalHash);
+ assert.equal((await handle(req('/v1/me'),env,b.fetcher)).status,200);
+});
+test('Reader ID authentication supports profile saves and reading sync under the original reader identity',async()=>{
+ const b=await backend();assert.equal((await handle(req('/v1/me','PATCH',profilePayload(),readerId),env,b.fetcher)).status,200);
+ assert.equal(b.tables[env.READERS_TABLE_ID]!.length,1);
+ const row=b.tables[env.READERS_TABLE_ID]![0]!.fields;row.cloud_sync_enabled=true;
+ const response=await handle(req('/v1/reading/sync','POST',payload(),readerId),env,b.fetcher);assert.equal(response.status,200);
+ assert.equal(b.tables[env.READING_TABLE_ID]![0]!.fields.reader_id,readerId);
+});
+test('unknown, malformed or disabled Reader IDs never enroll or change readers',async()=>{
+ for(const id of ['not-an-id','650e8400-e29b-41d4-a716-446655440000',readerId]){
+  const b=await backend();if(id===readerId)b.tables[env.READERS_TABLE_ID]![0]!.fields.account_status='DISABLED';
+  for(const [path,method,body] of [['/v1/me','GET',undefined],['/v1/me','PATCH',profilePayload()],['/v1/reading/sync','POST',payload()]] as const){
+   const response=await handle(req(path,method,body,id),env,b.fetcher);assert.equal(response.status,401);
+  }
+  assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);assert.equal(b.tables[env.READERS_TABLE_ID]!.length,1);
+ }
+});

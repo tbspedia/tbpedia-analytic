@@ -13,7 +13,7 @@ files=[project/name for name in root_files]+[project/'worker/wrangler.jsonc']
 for name in folders:files.extend(p for p in (project/name).rglob('*') if p.is_file())
 files=sorted(set(files))
 secrets=[]
-for name,key in [('pilot-reader.json','reader_token'),('worker-secrets.json','NOCODB_API_TOKEN')]:
+for name,key in [('pilot-reader.json','reader_token'),('pilot-reader.json','reader_id'),('v011-live-reader.json','reader_id'),('worker-secrets.json','NOCODB_API_TOKEN')]:
     credential=project/'private'/name
     if credential.exists():
         value=json.loads(credential.read_text(encoding='utf-8')).get(key)
@@ -26,7 +26,7 @@ report={
     'version':version,'source_archive':source.name,'plugin_archive':plugin.name,
     'source_files':len(files),'credentials_excluded':True,
     'ui_languages':14,'messages_per_locale':len(json.loads((project/'plugin/locales/en.json').read_text(encoding='utf-8'))),
-    'typecheck':'passed','automated_tests_passed':84,'automated_tests_failed':1,'test_failure':'Local vault catalogue: missing parent TBP-275','build':'passed',
+    'typecheck':'passed','automated_tests_passed':87,'automated_tests_failed':1,'test_failure':'Local vault catalogue: missing parent TBP-275','build':'passed',
     'native_interactive_qa_performed':False,
     'plugin_main_sha256':hashlib.sha256((project/'dist/plugin/main.js').read_bytes()).hexdigest()
 }

@@ -182,10 +182,6 @@
   "profileRequiredHelp": "儲存或上傳前，請填寫所有個人資料欄位，並至少勾選一種讀者類型。",
   "readerTypesRequired": "請至少勾選一種讀者類型。",
   "readerId": "讀者 ID",
-  "syncCredential": "同步憑證",
-  "syncCredentialHelp": "請使用原有 Vault 的私人同步憑證並妥善保密；只有讀者 ID 無法恢復帳戶。",
-  "copySyncCredential": "複製同步憑證",
-  "credentialCopied": "已複製同步憑證。",
   "readerSetup": "讀者設定",
   "newReader": "註冊新讀者",
   "existingReader": "連結現有讀者",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "此 Vault 已連結讀者。",
   "readerOperationBusy": "讀者操作正在進行，請完成後再試。",
   "readerIdInvalid": "請輸入有效的讀者 ID。",
-  "readerCredentialRequired": "請輸入該讀者有效的同步憑證。",
-  "readerIdentityMismatch": "讀者 ID 與此同步憑證不符。"
+  "readerRecoveryMismatch": "雲端回傳的讀者不符，尚未儲存恢復資料。",
+  "readerIdHelp": "輸入讀者 ID 即可取得個人資料。此 ID 可用於存取您的帳戶，請妥善保密。"
 }

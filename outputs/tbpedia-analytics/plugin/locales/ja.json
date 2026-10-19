@@ -182,10 +182,6 @@
   "profileRequiredHelp": "保存またはアップロードする前に、すべてのプロフィール項目を入力し、読者タイプを1つ以上選択してください。",
   "readerTypesRequired": "読者タイプを1つ以上選択してください。",
   "readerId": "読者ID",
-  "syncCredential": "同期認証情報",
-  "syncCredentialHelp": "既存の保管庫の非公開同期認証情報を使用してください。読者IDだけでは復元できません。",
-  "copySyncCredential": "同期認証情報をコピー",
-  "credentialCopied": "同期認証情報をコピーしました。",
   "readerSetup": "読者の設定",
   "newReader": "新しい読者を登録",
   "existingReader": "既存の読者に接続",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "この保管庫はすでに読者に接続されています。",
   "readerOperationBusy": "処理中です。完了後に再試行してください。",
   "readerIdInvalid": "有効な読者IDを入力してください。",
-  "readerCredentialRequired": "既存の読者の有効な同期認証情報を入力してください。",
-  "readerIdentityMismatch": "読者IDが同期認証情報と一致しません。"
+  "readerRecoveryMismatch": "別の読者情報が返されました。復元は保存されていません。",
+  "readerIdHelp": "読者IDを入力してプロフィールを取得します。IDでアカウントにアクセスできるため、秘密にしてください。"
 }

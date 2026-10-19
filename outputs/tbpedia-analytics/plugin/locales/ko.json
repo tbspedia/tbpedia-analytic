@@ -182,10 +182,6 @@
   "profileRequiredHelp": "저장하거나 업로드하기 전에 모든 프로필 항목을 작성하고 독자 유형을 하나 이상 선택하세요.",
   "readerTypesRequired": "독자 유형을 하나 이상 선택하세요.",
   "readerId": "독자 ID",
-  "syncCredential": "동기화 인증 키",
-  "syncCredentialHelp": "기존 보관함의 비공개 인증 키를 사용하세요. 비밀로 보관하세요. 독자 ID만으로는 복원할 수 없습니다.",
-  "copySyncCredential": "인증 키 복사",
-  "credentialCopied": "인증 키를 복사했습니다.",
   "readerSetup": "독자 설정",
   "newReader": "새 독자 등록",
   "existingReader": "기존 독자 연결",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "이 보관함은 이미 독자와 연결되어 있습니다.",
   "readerOperationBusy": "작업이 진행 중입니다. 완료 후 다시 시도하세요.",
   "readerIdInvalid": "유효한 독자 ID를 입력하세요.",
-  "readerCredentialRequired": "기존 독자의 유효한 동기화 인증 키를 입력하세요.",
-  "readerIdentityMismatch": "독자 ID가 이 인증 키와 일치하지 않습니다."
+  "readerRecoveryMismatch": "클라우드가 다른 독자를 반환했습니다. 복구를 저장하지 않았습니다.",
+  "readerIdHelp": "독자 ID를 입력하여 프로필을 불러오세요. ID로 계정에 접근할 수 있으므로 비밀로 보관하세요."
 }

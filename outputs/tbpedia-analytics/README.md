@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.17**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.17).
+Latest published plugin release: **0.1.18**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.18).
 
-Version 0.1.17 fixes a missed settings block that still showed the connection summary and Load cloud profile option when a reader was connected in v0.1.16. Both are now removed, with a regression test covering an authenticated reader. Existing-reader recovery, required profile fields, reader-type checkboxes and the personalized connection message are retained.
+Version 0.1.18 simplifies existing-reader recovery to Reader ID alone and removes sync-credential input and copying controls. The cloud profile is retrieved and saved locally, with existing credentials preserved. Required profile fields, reader-type checkboxes, the personalized connection message and removal of obsolete connected-reader controls are retained.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
@@ -12,17 +12,13 @@ The reading ribbon action is **Record my reading data**, also available in each 
 
 ## Reader profile setup
 
-The settings page no longer displays the connected-reader/permission summary or a separate **Load cloud profile** option.
+- For a new account, choose **Register a new reader**, complete every required profile field, select at least one reader type, then choose **Save and upload profile**. The cloud assigns a new Reader ID.
+- To retrieve an existing account on an unlinked vault, choose **Connect an existing reader**, enter the **Reader ID**, then choose **Connect existing reader**. The profile is retrieved from the cloud and saved in this vault. No separate sync credential is required.
+- In the original connected vault, the **Reader ID** is shown read-only under **Settings → True Buddha Pedia Analytics**. Copy that ID to the new vault. The credential field and copy-credential button have been removed.
+- The Reader ID is an account access key: it permits profile retrieval, profile updates and reading uploads, subject to active-account, consent and upload-permission checks. Keep it private. Unknown or disabled IDs cannot register a new reader.
+- Recovery performs only a cloud profile read and leaves existing device credentials valid. Existing incomplete profiles remain readable; complete missing fields before saving or uploading. Email ownership is unverified.
 
-- For a new account, choose **Register a new reader**, complete every profile field, select at least one reader-type checkbox, then choose **Save and upload profile**. The cloud assigns a new reader ID.
-- For an existing account on an unlinked vault, choose **Connect an existing reader**, enter the existing **Reader ID** and **Sync credential**, then choose **Connect existing reader**. The plugin verifies that they match before copying the cloud profile into this vault and saving the credential. A reader ID alone cannot authenticate recovery.
-- In a linked vault, the reader ID is displayed read-only. Use **Copy sync credential** to obtain the private credential for connecting another vault. Keep it private.
-- Nickname, email, birth year, birth month, sex, country/region, organisation and at least one reader type are required before local profile saving or uploading. Reader types use labeled checkbox boxes and support multiple selections. Email format is validated; email ownership is not verified.
-- Existing incomplete profiles remain readable. Fill the missing fields before saving or uploading them. Recovery uses the existing authenticated service; it does not enroll a new cloud reader or upload profile/device data.
-
-To obtain the sync credential, open the original connected vault, reload the plugin, go to **Settings → True Buddha Pedia Analytics**, and click **Copy sync credential**. Copy the displayed **Reader ID** as well. On the new vault, select **Connect an existing reader** and enter both values. If the original credential is lost, contact the administrator; the reader ID alone cannot restore access.
-
-The plugin enforces these required fields locally. The matching Worker request-validation change is included in the source/build and requires a Worker deployment to enforce it for other clients.
+The cloud service now supports Reader-ID-only access and enforces required fields on profile uploads. Plugin release v0.1.18 includes this update. The compatible cloud service is already deployed.
 
 ## What is implemented
 
@@ -102,7 +98,7 @@ Choose **UI language** in the plugin settings. Choose **Follow system** to use O
 
 Supported codes: `en`, `ja`, `fr`, `es`, `de`, `nl`, `sv`, `ko`, `zh-TW`, `zh-CN`, `vi`, `id`, `th`, `bo`.
 
-The 14 bundled catalogs in `plugin/locales/` cover 197 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
+The 14 bundled catalogs in `plugin/locales/` cover 193 messages each: settings, reading forms, commands, option labels, consent notices, previews, sync progress/results, local validation, connection failures and all current backend error codes. Countries, months and numeric counters use the selected locale through Intl. Native date controls follow the host's available locale support. Product names, user content, file paths, stable enum codes and existing frontmatter property names are preserved.
 
 Settings and newly opened reading windows use the selected language immediately. Reload the plugin to refresh command-palette names and the ribbon tooltip. Unknown backend errors show a localized fallback rather than raw server text. A server requiring a newer notice version blocks consent/upload until the plugin includes that notice's translation.
 
@@ -127,7 +123,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.17 plugin passes type checking and production builds; 84 of 85 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.18 plugin passes type checking and production builds; 87 of 88 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
@@ -221,7 +217,7 @@ Enter the secret through the interactive prompt. If Wrangler asks to create the 
 
 `GET /health` is public and contains application/version/configuration status only. `/v1/me` and `/v1/reading/sync` require the reader token. The gateway fails closed if its service credential is missing.
 
-Ordinary readers enroll automatically through their first explicit **Save and upload profile** action; new-reader registration needs no manual credential input. Existing-reader recovery accepts the reader ID and sync credential. The following utility is an optional administrator workflow, not the normal setup path. For administrator-assisted enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
+Ordinary readers enroll automatically through their first explicit **Save and upload profile** action; new-reader registration needs no manual credential input. Existing-reader recovery accepts the reader ID alone. The following utility is an optional administrator workflow, not the normal setup path. For administrator-assisted enrollment, set `NOCODB_API_TOKEN`, `NOCODB_BASE_ID` and `READERS_TABLE_ID` in the administrator process environment, then run:
 
 ```powershell
 npm run provision -- --nickname "Reader nickname" --out private/new-reader.json

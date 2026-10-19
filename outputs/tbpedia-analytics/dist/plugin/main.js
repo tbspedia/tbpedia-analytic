@@ -6159,10 +6159,6 @@ var en_default2 = {
   profileRequiredHelp: "Complete every profile field and select at least one reader type before saving or uploading.",
   readerTypesRequired: "Select at least one reader type.",
   readerId: "Reader ID",
-  syncCredential: "Sync credential",
-  syncCredentialHelp: "Use the private sync credential from your existing vault. Keep it private; a reader ID alone cannot restore your account.",
-  copySyncCredential: "Copy sync credential",
-  credentialCopied: "Sync credential copied.",
   readerSetup: "Reader setup",
   newReader: "Register a new reader",
   existingReader: "Connect an existing reader",
@@ -6171,8 +6167,8 @@ var en_default2 = {
   readerAlreadyLinked: "This vault is already linked to a reader.",
   readerOperationBusy: "Another reader operation is in progress. Try again when it finishes.",
   readerIdInvalid: "Enter a valid reader ID.",
-  readerCredentialRequired: "Enter the existing reader\u2019s valid sync credential.",
-  readerIdentityMismatch: "The reader ID does not match this sync credential."
+  readerRecoveryMismatch: "The cloud returned a different reader. Recovery was not saved.",
+  readerIdHelp: "Enter your Reader ID to retrieve your profile. Keep it private: it grants access to your account."
 };
 
 // plugin/locales/ja.json
@@ -6360,10 +6356,6 @@ var ja_default = {
   profileRequiredHelp: "\u4FDD\u5B58\u307E\u305F\u306F\u30A2\u30C3\u30D7\u30ED\u30FC\u30C9\u3059\u308B\u524D\u306B\u3001\u3059\u3079\u3066\u306E\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u9805\u76EE\u3092\u5165\u529B\u3057\u3001\u8AAD\u8005\u30BF\u30A4\u30D7\u30921\u3064\u4EE5\u4E0A\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   readerTypesRequired: "\u8AAD\u8005\u30BF\u30A4\u30D7\u30921\u3064\u4EE5\u4E0A\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   readerId: "\u8AAD\u8005ID",
-  syncCredential: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831",
-  syncCredentialHelp: "\u65E2\u5B58\u306E\u4FDD\u7BA1\u5EAB\u306E\u975E\u516C\u958B\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u4F7F\u7528\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8AAD\u8005ID\u3060\u3051\u3067\u306F\u5FA9\u5143\u3067\u304D\u307E\u305B\u3093\u3002",
-  copySyncCredential: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u30B3\u30D4\u30FC",
-  credentialCopied: "\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u30B3\u30D4\u30FC\u3057\u307E\u3057\u305F\u3002",
   readerSetup: "\u8AAD\u8005\u306E\u8A2D\u5B9A",
   newReader: "\u65B0\u3057\u3044\u8AAD\u8005\u3092\u767B\u9332",
   existingReader: "\u65E2\u5B58\u306E\u8AAD\u8005\u306B\u63A5\u7D9A",
@@ -6372,8 +6364,8 @@ var ja_default = {
   readerAlreadyLinked: "\u3053\u306E\u4FDD\u7BA1\u5EAB\u306F\u3059\u3067\u306B\u8AAD\u8005\u306B\u63A5\u7D9A\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   readerOperationBusy: "\u51E6\u7406\u4E2D\u3067\u3059\u3002\u5B8C\u4E86\u5F8C\u306B\u518D\u8A66\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   readerIdInvalid: "\u6709\u52B9\u306A\u8AAD\u8005ID\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  readerCredentialRequired: "\u65E2\u5B58\u306E\u8AAD\u8005\u306E\u6709\u52B9\u306A\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-  readerIdentityMismatch: "\u8AAD\u8005ID\u304C\u540C\u671F\u8A8D\u8A3C\u60C5\u5831\u3068\u4E00\u81F4\u3057\u307E\u305B\u3093\u3002"
+  readerRecoveryMismatch: "\u5225\u306E\u8AAD\u8005\u60C5\u5831\u304C\u8FD4\u3055\u308C\u307E\u3057\u305F\u3002\u5FA9\u5143\u306F\u4FDD\u5B58\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002",
+  readerIdHelp: "\u8AAD\u8005ID\u3092\u5165\u529B\u3057\u3066\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002ID\u3067\u30A2\u30AB\u30A6\u30F3\u30C8\u306B\u30A2\u30AF\u30BB\u30B9\u3067\u304D\u308B\u305F\u3081\u3001\u79D8\u5BC6\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
 };
 
 // plugin/locales/fr.json
@@ -6561,10 +6553,6 @@ var fr_default = {
   profileRequiredHelp: "Remplissez tous les champs du profil et s\xE9lectionnez au moins un type de lecteur avant de sauvegarder ou de t\xE9l\xE9verser.",
   readerTypesRequired: "S\xE9lectionnez au moins un type de lecteur.",
   readerId: "Identifiant du lecteur",
-  syncCredential: "Cl\xE9 de synchronisation",
-  syncCredentialHelp: "Utilisez la cl\xE9 priv\xE9e de votre coffre existant. Gardez-la secr\xE8te ; l\u2019identifiant seul ne suffit pas.",
-  copySyncCredential: "Copier la cl\xE9",
-  credentialCopied: "Cl\xE9 copi\xE9e.",
   readerSetup: "Configuration du lecteur",
   newReader: "Inscrire un nouveau lecteur",
   existingReader: "Connecter un lecteur existant",
@@ -6573,8 +6561,8 @@ var fr_default = {
   readerAlreadyLinked: "Ce coffre est d\xE9j\xE0 li\xE9 \xE0 un lecteur.",
   readerOperationBusy: "Une op\xE9ration est en cours. R\xE9essayez apr\xE8s sa fin.",
   readerIdInvalid: "Saisissez un identifiant valide.",
-  readerCredentialRequired: "Saisissez la cl\xE9 de synchronisation valide du lecteur.",
-  readerIdentityMismatch: "L\u2019identifiant ne correspond pas \xE0 cette cl\xE9."
+  readerRecoveryMismatch: "Le serveur a renvoy\xE9 un autre lecteur. La restauration n\u2019a pas \xE9t\xE9 enregistr\xE9e.",
+  readerIdHelp: "Saisissez votre identifiant pour r\xE9cup\xE9rer le profil. Gardez-le secret : il donne acc\xE8s au compte."
 };
 
 // plugin/locales/es.json
@@ -6762,10 +6750,6 @@ var es_default = {
   profileRequiredHelp: "Completa todos los campos del perfil y selecciona al menos un tipo de lector antes de guardar o subir.",
   readerTypesRequired: "Selecciona al menos un tipo de lector.",
   readerId: "ID de lector",
-  syncCredential: "Credencial de sincronizaci\xF3n",
-  syncCredentialHelp: "Usa la credencial privada de tu b\xF3veda existente. Mantenla en secreto; el ID no basta.",
-  copySyncCredential: "Copiar credencial",
-  credentialCopied: "Credencial copiada.",
   readerSetup: "Configuraci\xF3n del lector",
   newReader: "Registrar un lector nuevo",
   existingReader: "Conectar un lector existente",
@@ -6774,8 +6758,8 @@ var es_default = {
   readerAlreadyLinked: "Esta b\xF3veda ya est\xE1 vinculada a un lector.",
   readerOperationBusy: "Hay una operaci\xF3n en curso. Int\xE9ntalo cuando termine.",
   readerIdInvalid: "Introduce un ID de lector v\xE1lido.",
-  readerCredentialRequired: "Introduce la credencial de sincronizaci\xF3n v\xE1lida del lector.",
-  readerIdentityMismatch: "El ID no coincide con esta credencial."
+  readerRecoveryMismatch: "La nube devolvi\xF3 otro lector. No se guard\xF3 la recuperaci\xF3n.",
+  readerIdHelp: "Introduce tu ID de lector para recuperar el perfil. Mantenlo en secreto: permite acceder a tu cuenta."
 };
 
 // plugin/locales/de.json
@@ -6963,10 +6947,6 @@ var de_default = {
   profileRequiredHelp: "F\xFCllen Sie vor dem Speichern oder Hochladen alle Profilfelder aus und w\xE4hlen Sie mindestens einen Lesertyp.",
   readerTypesRequired: "W\xE4hlen Sie mindestens einen Lesertyp.",
   readerId: "Leser-ID",
-  syncCredential: "Synchronisierungsschl\xFCssel",
-  syncCredentialHelp: "Verwenden Sie den privaten Schl\xFCssel Ihres bestehenden Vaults. Die Leser-ID allein reicht nicht aus.",
-  copySyncCredential: "Schl\xFCssel kopieren",
-  credentialCopied: "Schl\xFCssel kopiert.",
   readerSetup: "Lesereinrichtung",
   newReader: "Neuen Leser registrieren",
   existingReader: "Bestehenden Leser verbinden",
@@ -6975,8 +6955,8 @@ var de_default = {
   readerAlreadyLinked: "Dieser Vault ist bereits mit einem Leser verkn\xFCpft.",
   readerOperationBusy: "Ein Vorgang l\xE4uft. Versuchen Sie es danach erneut.",
   readerIdInvalid: "Geben Sie eine g\xFCltige Leser-ID ein.",
-  readerCredentialRequired: "Geben Sie den g\xFCltigen Synchronisierungsschl\xFCssel des Lesers ein.",
-  readerIdentityMismatch: "Die Leser-ID passt nicht zu diesem Schl\xFCssel."
+  readerRecoveryMismatch: "Die Cloud hat einen anderen Leser zur\xFCckgegeben. Die Wiederherstellung wurde nicht gespeichert.",
+  readerIdHelp: "Geben Sie Ihre Leser-ID ein, um das Profil abzurufen. Halten Sie sie geheim: Sie gew\xE4hrt Kontozugriff."
 };
 
 // plugin/locales/nl.json
@@ -7164,10 +7144,6 @@ var nl_default = {
   profileRequiredHelp: "Vul alle profielvelden in en selecteer minstens \xE9\xE9n lezerstype voordat u opslaat of uploadt.",
   readerTypesRequired: "Selecteer minstens \xE9\xE9n lezerstype.",
   readerId: "Lezer-ID",
-  syncCredential: "Synchronisatiesleutel",
-  syncCredentialHelp: "Gebruik de priv\xE9sleutel uit uw bestaande kluis. Houd deze geheim; alleen een lezer-ID is niet voldoende.",
-  copySyncCredential: "Sleutel kopi\xEBren",
-  credentialCopied: "Sleutel gekopieerd.",
   readerSetup: "Lezer instellen",
   newReader: "Nieuwe lezer registreren",
   existingReader: "Bestaande lezer verbinden",
@@ -7176,8 +7152,8 @@ var nl_default = {
   readerAlreadyLinked: "Deze kluis is al gekoppeld aan een lezer.",
   readerOperationBusy: "Er loopt een bewerking. Probeer het daarna opnieuw.",
   readerIdInvalid: "Voer een geldige lezer-ID in.",
-  readerCredentialRequired: "Voer de geldige synchronisatiesleutel van de lezer in.",
-  readerIdentityMismatch: "De lezer-ID komt niet overeen met deze sleutel."
+  readerRecoveryMismatch: "De cloud gaf een andere lezer terug. Het herstel is niet opgeslagen.",
+  readerIdHelp: "Voer uw lezer-ID in om uw profiel op te halen. Houd deze geheim: deze geeft toegang tot uw account."
 };
 
 // plugin/locales/sv.json
@@ -7365,10 +7341,6 @@ var sv_default = {
   profileRequiredHelp: "Fyll i alla profilf\xE4lt och v\xE4lj minst en l\xE4sartyp innan du sparar eller laddar upp.",
   readerTypesRequired: "V\xE4lj minst en l\xE4sartyp.",
   readerId: "L\xE4sar-ID",
-  syncCredential: "Synkroniseringsnyckel",
-  syncCredentialHelp: "Anv\xE4nd den privata nyckeln fr\xE5n ditt befintliga valv. H\xE5ll den hemlig; enbart l\xE4sar-ID r\xE4cker inte.",
-  copySyncCredential: "Kopiera nyckel",
-  credentialCopied: "Nyckeln kopierad.",
   readerSetup: "L\xE4sarinst\xE4llning",
   newReader: "Registrera ny l\xE4sare",
   existingReader: "Anslut befintlig l\xE4sare",
@@ -7377,8 +7349,8 @@ var sv_default = {
   readerAlreadyLinked: "Valvet \xE4r redan kopplat till en l\xE4sare.",
   readerOperationBusy: "En \xE5tg\xE4rd p\xE5g\xE5r. F\xF6rs\xF6k igen n\xE4r den \xE4r klar.",
   readerIdInvalid: "Ange ett giltigt l\xE4sar-ID.",
-  readerCredentialRequired: "Ange l\xE4sarens giltiga synkroniseringsnyckel.",
-  readerIdentityMismatch: "L\xE4sar-ID st\xE4mmer inte med denna nyckel."
+  readerRecoveryMismatch: "Molnet returnerade en annan l\xE4sare. \xC5terst\xE4llningen sparades inte.",
+  readerIdHelp: "Ange ditt l\xE4sar-ID f\xF6r att h\xE4mta profilen. H\xE5ll det hemligt: det ger \xE5tkomst till kontot."
 };
 
 // plugin/locales/ko.json
@@ -7566,10 +7538,6 @@ var ko_default = {
   profileRequiredHelp: "\uC800\uC7A5\uD558\uAC70\uB098 \uC5C5\uB85C\uB4DC\uD558\uAE30 \uC804\uC5D0 \uBAA8\uB4E0 \uD504\uB85C\uD544 \uD56D\uBAA9\uC744 \uC791\uC131\uD558\uACE0 \uB3C5\uC790 \uC720\uD615\uC744 \uD558\uB098 \uC774\uC0C1 \uC120\uD0DD\uD558\uC138\uC694.",
   readerTypesRequired: "\uB3C5\uC790 \uC720\uD615\uC744 \uD558\uB098 \uC774\uC0C1 \uC120\uD0DD\uD558\uC138\uC694.",
   readerId: "\uB3C5\uC790 ID",
-  syncCredential: "\uB3D9\uAE30\uD654 \uC778\uC99D \uD0A4",
-  syncCredentialHelp: "\uAE30\uC874 \uBCF4\uAD00\uD568\uC758 \uBE44\uACF5\uAC1C \uC778\uC99D \uD0A4\uB97C \uC0AC\uC6A9\uD558\uC138\uC694. \uBE44\uBC00\uB85C \uBCF4\uAD00\uD558\uC138\uC694. \uB3C5\uC790 ID\uB9CC\uC73C\uB85C\uB294 \uBCF5\uC6D0\uD560 \uC218 \uC5C6\uC2B5\uB2C8\uB2E4.",
-  copySyncCredential: "\uC778\uC99D \uD0A4 \uBCF5\uC0AC",
-  credentialCopied: "\uC778\uC99D \uD0A4\uB97C \uBCF5\uC0AC\uD588\uC2B5\uB2C8\uB2E4.",
   readerSetup: "\uB3C5\uC790 \uC124\uC815",
   newReader: "\uC0C8 \uB3C5\uC790 \uB4F1\uB85D",
   existingReader: "\uAE30\uC874 \uB3C5\uC790 \uC5F0\uACB0",
@@ -7578,8 +7546,8 @@ var ko_default = {
   readerAlreadyLinked: "\uC774 \uBCF4\uAD00\uD568\uC740 \uC774\uBBF8 \uB3C5\uC790\uC640 \uC5F0\uACB0\uB418\uC5B4 \uC788\uC2B5\uB2C8\uB2E4.",
   readerOperationBusy: "\uC791\uC5C5\uC774 \uC9C4\uD589 \uC911\uC785\uB2C8\uB2E4. \uC644\uB8CC \uD6C4 \uB2E4\uC2DC \uC2DC\uB3C4\uD558\uC138\uC694.",
   readerIdInvalid: "\uC720\uD6A8\uD55C \uB3C5\uC790 ID\uB97C \uC785\uB825\uD558\uC138\uC694.",
-  readerCredentialRequired: "\uAE30\uC874 \uB3C5\uC790\uC758 \uC720\uD6A8\uD55C \uB3D9\uAE30\uD654 \uC778\uC99D \uD0A4\uB97C \uC785\uB825\uD558\uC138\uC694.",
-  readerIdentityMismatch: "\uB3C5\uC790 ID\uAC00 \uC774 \uC778\uC99D \uD0A4\uC640 \uC77C\uCE58\uD558\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+  readerRecoveryMismatch: "\uD074\uB77C\uC6B0\uB4DC\uAC00 \uB2E4\uB978 \uB3C5\uC790\uB97C \uBC18\uD658\uD588\uC2B5\uB2C8\uB2E4. \uBCF5\uAD6C\uB97C \uC800\uC7A5\uD558\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.",
+  readerIdHelp: "\uB3C5\uC790 ID\uB97C \uC785\uB825\uD558\uC5EC \uD504\uB85C\uD544\uC744 \uBD88\uB7EC\uC624\uC138\uC694. ID\uB85C \uACC4\uC815\uC5D0 \uC811\uADFC\uD560 \uC218 \uC788\uC73C\uBBC0\uB85C \uBE44\uBC00\uB85C \uBCF4\uAD00\uD558\uC138\uC694."
 };
 
 // plugin/locales/zh-TW.json
@@ -7767,10 +7735,6 @@ var zh_TW_default = {
   profileRequiredHelp: "\u5132\u5B58\u6216\u4E0A\u50B3\u524D\uFF0C\u8ACB\u586B\u5BEB\u6240\u6709\u500B\u4EBA\u8CC7\u6599\u6B04\u4F4D\uFF0C\u4E26\u81F3\u5C11\u52FE\u9078\u4E00\u7A2E\u8B80\u8005\u985E\u578B\u3002",
   readerTypesRequired: "\u8ACB\u81F3\u5C11\u52FE\u9078\u4E00\u7A2E\u8B80\u8005\u985E\u578B\u3002",
   readerId: "\u8B80\u8005 ID",
-  syncCredential: "\u540C\u6B65\u6191\u8B49",
-  syncCredentialHelp: "\u8ACB\u4F7F\u7528\u539F\u6709 Vault \u7684\u79C1\u4EBA\u540C\u6B65\u6191\u8B49\u4E26\u59A5\u5584\u4FDD\u5BC6\uFF1B\u53EA\u6709\u8B80\u8005 ID \u7121\u6CD5\u6062\u5FA9\u5E33\u6236\u3002",
-  copySyncCredential: "\u8907\u88FD\u540C\u6B65\u6191\u8B49",
-  credentialCopied: "\u5DF2\u8907\u88FD\u540C\u6B65\u6191\u8B49\u3002",
   readerSetup: "\u8B80\u8005\u8A2D\u5B9A",
   newReader: "\u8A3B\u518A\u65B0\u8B80\u8005",
   existingReader: "\u9023\u7D50\u73FE\u6709\u8B80\u8005",
@@ -7779,8 +7743,8 @@ var zh_TW_default = {
   readerAlreadyLinked: "\u6B64 Vault \u5DF2\u9023\u7D50\u8B80\u8005\u3002",
   readerOperationBusy: "\u8B80\u8005\u64CD\u4F5C\u6B63\u5728\u9032\u884C\uFF0C\u8ACB\u5B8C\u6210\u5F8C\u518D\u8A66\u3002",
   readerIdInvalid: "\u8ACB\u8F38\u5165\u6709\u6548\u7684\u8B80\u8005 ID\u3002",
-  readerCredentialRequired: "\u8ACB\u8F38\u5165\u8A72\u8B80\u8005\u6709\u6548\u7684\u540C\u6B65\u6191\u8B49\u3002",
-  readerIdentityMismatch: "\u8B80\u8005 ID \u8207\u6B64\u540C\u6B65\u6191\u8B49\u4E0D\u7B26\u3002"
+  readerRecoveryMismatch: "\u96F2\u7AEF\u56DE\u50B3\u7684\u8B80\u8005\u4E0D\u7B26\uFF0C\u5C1A\u672A\u5132\u5B58\u6062\u5FA9\u8CC7\u6599\u3002",
+  readerIdHelp: "\u8F38\u5165\u8B80\u8005 ID \u5373\u53EF\u53D6\u5F97\u500B\u4EBA\u8CC7\u6599\u3002\u6B64 ID \u53EF\u7528\u65BC\u5B58\u53D6\u60A8\u7684\u5E33\u6236\uFF0C\u8ACB\u59A5\u5584\u4FDD\u5BC6\u3002"
 };
 
 // plugin/locales/zh-CN.json
@@ -7968,10 +7932,6 @@ var zh_CN_default = {
   profileRequiredHelp: "\u4FDD\u5B58\u6216\u4E0A\u4F20\u524D\uFF0C\u8BF7\u586B\u5199\u6240\u6709\u4E2A\u4EBA\u8D44\u6599\u5B57\u6BB5\uFF0C\u5E76\u81F3\u5C11\u52FE\u9009\u4E00\u79CD\u8BFB\u8005\u7C7B\u578B\u3002",
   readerTypesRequired: "\u8BF7\u81F3\u5C11\u52FE\u9009\u4E00\u79CD\u8BFB\u8005\u7C7B\u578B\u3002",
   readerId: "\u8BFB\u8005 ID",
-  syncCredential: "\u540C\u6B65\u51ED\u8BC1",
-  syncCredentialHelp: "\u8BF7\u4F7F\u7528\u539F\u6709 Vault \u7684\u79C1\u4EBA\u540C\u6B65\u51ED\u8BC1\u5E76\u59A5\u5584\u4FDD\u5BC6\uFF1B\u53EA\u6709\u8BFB\u8005 ID \u65E0\u6CD5\u6062\u590D\u8D26\u6237\u3002",
-  copySyncCredential: "\u590D\u5236\u540C\u6B65\u51ED\u8BC1",
-  credentialCopied: "\u5DF2\u590D\u5236\u540C\u6B65\u51ED\u8BC1\u3002",
   readerSetup: "\u8BFB\u8005\u8BBE\u7F6E",
   newReader: "\u6CE8\u518C\u65B0\u8BFB\u8005",
   existingReader: "\u8FDE\u63A5\u73B0\u6709\u8BFB\u8005",
@@ -7980,8 +7940,8 @@ var zh_CN_default = {
   readerAlreadyLinked: "\u6B64 Vault \u5DF2\u8FDE\u63A5\u8BFB\u8005\u3002",
   readerOperationBusy: "\u8BFB\u8005\u64CD\u4F5C\u6B63\u5728\u8FDB\u884C\uFF0C\u8BF7\u5B8C\u6210\u540E\u518D\u8BD5\u3002",
   readerIdInvalid: "\u8BF7\u8F93\u5165\u6709\u6548\u7684\u8BFB\u8005 ID\u3002",
-  readerCredentialRequired: "\u8BF7\u8F93\u5165\u8BE5\u8BFB\u8005\u6709\u6548\u7684\u540C\u6B65\u51ED\u8BC1\u3002",
-  readerIdentityMismatch: "\u8BFB\u8005 ID \u4E0E\u6B64\u540C\u6B65\u51ED\u8BC1\u4E0D\u7B26\u3002"
+  readerRecoveryMismatch: "\u4E91\u7AEF\u8FD4\u56DE\u7684\u8BFB\u8005\u4E0D\u7B26\uFF0C\u5C1A\u672A\u4FDD\u5B58\u6062\u590D\u8D44\u6599\u3002",
+  readerIdHelp: "\u8F93\u5165\u8BFB\u8005 ID \u5373\u53EF\u83B7\u53D6\u4E2A\u4EBA\u8D44\u6599\u3002\u6B64 ID \u53EF\u7528\u4E8E\u8BBF\u95EE\u60A8\u7684\u8D26\u6237\uFF0C\u8BF7\u59A5\u5584\u4FDD\u5BC6\u3002"
 };
 
 // plugin/locales/vi.json
@@ -8169,10 +8129,6 @@ var vi_default = {
   profileRequiredHelp: "\u0110i\u1EC1n t\u1EA5t c\u1EA3 c\xE1c tr\u01B0\u1EDDng h\u1ED3 s\u01A1 v\xE0 ch\u1ECDn \xEDt nh\u1EA5t m\u1ED9t lo\u1EA1i \u0111\u1ED9c gi\u1EA3 tr\u01B0\u1EDBc khi l\u01B0u ho\u1EB7c t\u1EA3i l\xEAn.",
   readerTypesRequired: "Ch\u1ECDn \xEDt nh\u1EA5t m\u1ED9t lo\u1EA1i \u0111\u1ED9c gi\u1EA3.",
   readerId: "ID \u0111\u1ED9c gi\u1EA3",
-  syncCredential: "Kh\xF3a \u0111\u1ED3ng b\u1ED9",
-  syncCredentialHelp: "D\xF9ng kh\xF3a ri\xEAng t\u01B0 t\u1EEB kho hi\u1EC7n c\xF3. Gi\u1EEF b\xED m\u1EADt; ch\u1EC9 ID \u0111\u1ED9c gi\u1EA3 kh\xF4ng \u0111\u1EE7 \u0111\u1EC3 kh\xF4i ph\u1EE5c.",
-  copySyncCredential: "Sao ch\xE9p kh\xF3a",
-  credentialCopied: "\u0110\xE3 sao ch\xE9p kh\xF3a.",
   readerSetup: "Thi\u1EBFt l\u1EADp \u0111\u1ED9c gi\u1EA3",
   newReader: "\u0110\u0103ng k\xFD \u0111\u1ED9c gi\u1EA3 m\u1EDBi",
   existingReader: "K\u1EBFt n\u1ED1i \u0111\u1ED9c gi\u1EA3 hi\u1EC7n c\xF3",
@@ -8181,8 +8137,8 @@ var vi_default = {
   readerAlreadyLinked: "Kho n\xE0y \u0111\xE3 li\xEAn k\u1EBFt v\u1EDBi m\u1ED9t \u0111\u1ED9c gi\u1EA3.",
   readerOperationBusy: "M\u1ED9t thao t\xE1c \u0111ang di\u1EC5n ra. Th\u1EED l\u1EA1i sau khi ho\xE0n t\u1EA5t.",
   readerIdInvalid: "Nh\u1EADp ID \u0111\u1ED9c gi\u1EA3 h\u1EE3p l\u1EC7.",
-  readerCredentialRequired: "Nh\u1EADp kh\xF3a \u0111\u1ED3ng b\u1ED9 h\u1EE3p l\u1EC7 c\u1EE7a \u0111\u1ED9c gi\u1EA3.",
-  readerIdentityMismatch: "ID \u0111\u1ED9c gi\u1EA3 kh\xF4ng kh\u1EDBp v\u1EDBi kh\xF3a n\xE0y."
+  readerRecoveryMismatch: "\u0110\xE1m m\xE2y tr\u1EA3 v\u1EC1 \u0111\u1ED9c gi\u1EA3 kh\xE1c. Ch\u01B0a l\u01B0u kh\xF4i ph\u1EE5c.",
+  readerIdHelp: "Nh\u1EADp ID \u0111\u1ED9c gi\u1EA3 \u0111\u1EC3 l\u1EA5y h\u1ED3 s\u01A1. Gi\u1EEF b\xED m\u1EADt v\xEC ID cho ph\xE9p truy c\u1EADp t\xE0i kho\u1EA3n."
 };
 
 // plugin/locales/id.json
@@ -8370,10 +8326,6 @@ var id_default = {
   profileRequiredHelp: "Lengkapi semua kolom profil dan pilih setidaknya satu jenis pembaca sebelum menyimpan atau mengunggah.",
   readerTypesRequired: "Pilih setidaknya satu jenis pembaca.",
   readerId: "ID pembaca",
-  syncCredential: "Kredensial sinkronisasi",
-  syncCredentialHelp: "Gunakan kredensial pribadi dari vault lama. Jaga kerahasiaannya; ID pembaca saja tidak cukup.",
-  copySyncCredential: "Salin kredensial",
-  credentialCopied: "Kredensial disalin.",
   readerSetup: "Pengaturan pembaca",
   newReader: "Daftar pembaca baru",
   existingReader: "Hubungkan pembaca lama",
@@ -8382,8 +8334,8 @@ var id_default = {
   readerAlreadyLinked: "Vault ini sudah terhubung ke pembaca.",
   readerOperationBusy: "Operasi sedang berlangsung. Coba lagi setelah selesai.",
   readerIdInvalid: "Masukkan ID pembaca yang valid.",
-  readerCredentialRequired: "Masukkan kredensial sinkronisasi pembaca yang valid.",
-  readerIdentityMismatch: "ID pembaca tidak cocok dengan kredensial ini."
+  readerRecoveryMismatch: "Cloud mengembalikan pembaca lain. Pemulihan tidak disimpan.",
+  readerIdHelp: "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun."
 };
 
 // plugin/locales/th.json
@@ -8571,10 +8523,6 @@ var th_default = {
   profileRequiredHelp: "\u0E01\u0E23\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C\u0E17\u0E38\u0E01\u0E0A\u0E48\u0E2D\u0E07\u0E41\u0E25\u0E30\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E19\u0E49\u0E2D\u0E22\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E01\u0E48\u0E2D\u0E19\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E2B\u0E23\u0E37\u0E2D\u0E2D\u0E31\u0E1B\u0E42\u0E2B\u0E25\u0E14",
   readerTypesRequired: "\u0E40\u0E25\u0E37\u0E2D\u0E01\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E19\u0E49\u0E2D\u0E22\u0E2B\u0E19\u0E36\u0E48\u0E07\u0E1B\u0E23\u0E30\u0E40\u0E20\u0E17",
   readerId: "ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
-  syncCredential: "\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C",
-  syncCredentialHelp: "\u0E43\u0E0A\u0E49\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E2A\u0E48\u0E27\u0E19\u0E15\u0E31\u0E27\u0E08\u0E32\u0E01\u0E04\u0E25\u0E31\u0E07\u0E40\u0E14\u0E34\u0E21\u0E41\u0E25\u0E30\u0E40\u0E01\u0E47\u0E1A\u0E40\u0E1B\u0E47\u0E19\u0E04\u0E27\u0E32\u0E21\u0E25\u0E31\u0E1A ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E2D\u0E22\u0E48\u0E32\u0E07\u0E40\u0E14\u0E35\u0E22\u0E27\u0E44\u0E21\u0E48\u0E40\u0E1E\u0E35\u0E22\u0E07\u0E1E\u0E2D",
-  copySyncCredential: "\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07",
-  credentialCopied: "\u0E04\u0E31\u0E14\u0E25\u0E2D\u0E01\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E41\u0E25\u0E49\u0E27",
   readerSetup: "\u0E15\u0E31\u0E49\u0E07\u0E04\u0E48\u0E32\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
   newReader: "\u0E25\u0E07\u0E17\u0E30\u0E40\u0E1A\u0E35\u0E22\u0E19\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E43\u0E2B\u0E21\u0E48",
   existingReader: "\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E15\u0E48\u0E2D\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E14\u0E34\u0E21",
@@ -8583,8 +8531,8 @@ var th_default = {
   readerAlreadyLinked: "\u0E04\u0E25\u0E31\u0E07\u0E19\u0E35\u0E49\u0E40\u0E0A\u0E37\u0E48\u0E2D\u0E21\u0E42\u0E22\u0E07\u0E01\u0E31\u0E1A\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E41\u0E25\u0E49\u0E27",
   readerOperationBusy: "\u0E21\u0E35\u0E01\u0E32\u0E23\u0E14\u0E33\u0E40\u0E19\u0E34\u0E19\u0E01\u0E32\u0E23\u0E2D\u0E22\u0E39\u0E48 \u0E42\u0E1B\u0E23\u0E14\u0E25\u0E2D\u0E07\u0E2D\u0E35\u0E01\u0E04\u0E23\u0E31\u0E49\u0E07\u0E40\u0E21\u0E37\u0E48\u0E2D\u0E40\u0E2A\u0E23\u0E47\u0E08\u0E2A\u0E34\u0E49\u0E19",
   readerIdInvalid: "\u0E1B\u0E49\u0E2D\u0E19 ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07",
-  readerCredentialRequired: "\u0E1B\u0E49\u0E2D\u0E19\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E01\u0E32\u0E23\u0E0B\u0E34\u0E07\u0E04\u0E4C\u0E17\u0E35\u0E48\u0E16\u0E39\u0E01\u0E15\u0E49\u0E2D\u0E07\u0E02\u0E2D\u0E07\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
-  readerIdentityMismatch: "ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E44\u0E21\u0E48\u0E15\u0E23\u0E07\u0E01\u0E31\u0E1A\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E23\u0E31\u0E1A\u0E23\u0E2D\u0E07\u0E19\u0E35\u0E49"
+  readerRecoveryMismatch: "\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E2A\u0E48\u0E07\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32 \u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E01\u0E39\u0E49\u0E04\u0E37\u0E19",
+  readerIdHelp: "\u0E1B\u0E49\u0E2D\u0E19 ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E14\u0E36\u0E07\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C \u0E40\u0E01\u0E47\u0E1A ID \u0E40\u0E1B\u0E47\u0E19\u0E04\u0E27\u0E32\u0E21\u0E25\u0E31\u0E1A\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E43\u0E0A\u0E49\u0E40\u0E02\u0E49\u0E32\u0E16\u0E36\u0E07\u0E1A\u0E31\u0E0D\u0E0A\u0E35\u0E44\u0E14\u0E49"
 };
 
 // plugin/locales/bo.json
@@ -8772,10 +8720,6 @@ var bo_default = {
   profileRequiredHelp: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F66\u0F58\u0F0B\u0F61\u0F62\u0F0B\u0F66\u0F90\u0FB1\u0F7A\u0F63\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F5A\u0F44\u0F0B\u0F58\u0F0B\u0F56\u0F40\u0F44\u0F0B\u0F53\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F49\u0F74\u0F44\u0F0B\u0F58\u0F50\u0F62\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   readerTypesRequired: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F62\u0F72\u0F42\u0F66\u0F0B\u0F49\u0F74\u0F44\u0F0B\u0F58\u0F50\u0F62\u0F0B\u0F42\u0F45\u0F72\u0F42\u0F0B\u0F60\u0F51\u0F7A\u0F58\u0F66\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D",
   readerId: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B ID",
-  syncCredential: "\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F42\u0F72\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42",
-  syncCredentialHelp: "\u0F66\u0F94\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F40\u0FB1\u0F72\u0F0B\u0F42\u0F66\u0F44\u0F0B\u0F56\u0F60\u0F72\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F66\u0FA4\u0FB1\u0F7C\u0F51\u0F0B\u0F51\u0F42\u0F7C\u0F66\u0F0D ID \u0F41\u0F7C\u0F0B\u0F53\u0F66\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F58\u0F72\u0F0B\u0F50\u0F74\u0F56\u0F0D",
-  copySyncCredential: "\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F51\u0FB2\u0F0B\u0F56\u0F64\u0F74\u0F66",
-  credentialCopied: "\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F51\u0FB2\u0F0B\u0F56\u0F64\u0F74\u0F66\u0F0B\u0F5F\u0F72\u0F53\u0F0D",
   readerSetup: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F60\u0F42\u0F7C\u0F51",
   newReader: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F42\u0F66\u0F62\u0F0B\u0F54\u0F0B\u0F50\u0F7C\u0F0B\u0F60\u0F42\u0F7C\u0F51",
   existingReader: "\u0F66\u0F94\u0F62\u0F0B\u0F61\u0F7C\u0F51\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F54\u0F0D",
@@ -8784,8 +8728,8 @@ var bo_default = {
   readerAlreadyLinked: "\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F60\u0F51\u0F72\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F51\u0F44\u0F0B\u0F58\u0F50\u0F74\u0F51\u0F0B\u0F5F\u0F72\u0F53\u0F0D",
   readerOperationBusy: "\u0F63\u0F66\u0F0B\u0F40\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F56\u0F5E\u0F72\u0F53\u0F0B\u0F61\u0F7C\u0F51\u0F0D \u0F62\u0F97\u0F7A\u0F66\u0F0B\u0F66\u0F74\u0F0B\u0F66\u0FB3\u0F62\u0F0B\u0F5A\u0F7C\u0F51\u0F0B\u0F63\u0F9F\u0F0B\u0F56\u0FB1\u0F7A\u0F51\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
   readerIdInvalid: "\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B ID \u0F60\u0F47\u0F74\u0F42\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
-  readerCredentialRequired: "\u0F5A\u0F74\u0F63\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0B\u0F42\u0FB1\u0F72\u0F0B\u0F58\u0F49\u0F58\u0F0B\u0F66\u0F92\u0FB2\u0F72\u0F42\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
-  readerIdentityMismatch: "ID \u0F51\u0F44\u0F0B\u0F51\u0F54\u0F44\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F58\u0F72\u0F0B\u0F58\u0F50\u0F74\u0F53\u0F0D"
+  readerRecoveryMismatch: "\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F53\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F42\u0F5E\u0F53\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F63\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0D",
+  readerIdHelp: "\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B ID \u0F56\u0F45\u0F74\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F51\u0F7A\u0F66\u0F0B\u0F62\u0FA9\u0F72\u0F66\u0F0B\u0F41\u0FB2\u0F62\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F50\u0F74\u0F56\u0F0B\u0F54\u0F66\u0F0B\u0F42\u0F66\u0F44\u0F0B\u0F56\u0F62\u0F0B\u0F49\u0F62\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -9283,7 +9227,7 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     }
     if (url.protocol !== "https:" && !(url.protocol === "http:" && ["localhost", "127.0.0.1"].includes(url.hostname))) throw new UiError(t("API \u5FC5\u9808\u4F7F\u7528 HTTPS\u3002"));
     if (url.username || url.password || url.search || url.hash || url.pathname !== "/") throw new UiError(t("API \u8ACB\u586B\u5BEB\u4E3B\u6A5F\u7DB2\u5740\uFF0C\u4E0D\u542B\u8DEF\u5F91\u6216\u67E5\u8A62\u53C3\u6578\u3002"));
-    if (authenticated && !/^[A-Za-z0-9_-]{43}$/.test(credential)) throw new GatewayError(401, "UNAUTHENTICATED");
+    if (authenticated && !/^[A-Za-z0-9_-]{43}$/.test(credential) && !uuid2().safeParse(credential).success) throw new GatewayError(401, "UNAUTHENTICATED");
     let response;
     try {
       response = await (0, import_obsidian.requestUrl)({ url: new URL(path, url).toString(), method, headers: { ...authenticated ? { Authorization: `Bearer ${credential}` } : {}, "Content-Type": "application/json" }, body: body === void 0 ? void 0 : JSON.stringify(body), throw: false });
@@ -9320,17 +9264,16 @@ var TbpediaAnalytics = class extends import_obsidian.Plugin {
     const nickname = this.data.profile.nickname.trim();
     new import_obsidian.Notice(nickname ? t("connected", { name: nickname }) : t("connectionAvailable"));
   }
-  async restoreExistingReader(readerId, credential) {
+  async restoreExistingReader(readerId) {
     if (this.data.reader_id) throw new UiError(t("readerAlreadyLinked"));
     if (this.busy || this.profileUpload || this.restoringReader) throw new UiError(t("readerOperationBusy"));
-    const id = uuid2().safeParse(readerId.trim());
+    const id = uuid2().safeParse(readerId.trim().toLowerCase());
     if (!id.success) throw new UiError(t("readerIdInvalid"));
-    const token = credential.trim();
-    if (!/^[A-Za-z0-9_-]{43}$/.test(token)) throw new UiError(t("readerCredentialRequired"));
+    const token = id.data;
     this.restoringReader = true;
     try {
       const me = meSchema.parse(await this.api("/v1/me", "GET", void 0, true, token));
-      if (me.reader_id !== id.data) throw new UiError(t("readerIdentityMismatch"));
+      if (me.reader_id !== id.data) throw new UiError(t("readerRecoveryMismatch"));
       const previous = { data: this.data, token: this.token, me: this.me };
       this.data = { ...this.data, reader_id: me.reader_id, profile: { ...me.profile }, remember_token: true };
       this.token = token;
@@ -9761,7 +9704,6 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
   plugin;
   existingReader = false;
   readerIdInput = "";
-  credentialInput = "";
   display() {
     setLocale(this.plugin.data.interface_language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
@@ -9782,14 +9724,10 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     new import_obsidian.Setting(el).addButton((b) => b.setButtonText(t("\u6E2C\u8A66\u9023\u7DDA")).onClick(() => run(() => p.testConnection())));
     el.createEl("h3", { text: t("\u8B80\u8005\u500B\u4EBA\u8CC7\u6599") });
     if (p.data.reader_id) {
-      new import_obsidian.Setting(el).setName(t("readerId")).addText((t2) => {
+      new import_obsidian.Setting(el).setName(t("readerId")).setDesc(t("readerIdHelp")).addText((t2) => {
         t2.setValue(p.data.reader_id);
         t2.inputEl.readOnly = true;
       });
-      new import_obsidian.Setting(el).setName(t("syncCredential")).setDesc(t("syncCredentialHelp")).addButton((b) => b.setButtonText(t("copySyncCredential")).setDisabled(!p.token).onClick(() => run(async () => {
-        await navigator.clipboard.writeText(p.token);
-        new import_obsidian.Notice(t("credentialCopied"));
-      })));
     } else {
       new import_obsidian.Setting(el).setName(t("readerSetup")).addDropdown((d) => d.addOption("new", t("newReader")).addOption("existing", t("existingReader")).setValue(this.existingReader ? "existing" : "new").onChange((value) => {
         this.existingReader = value === "existing";
@@ -9799,16 +9737,8 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
         new import_obsidian.Setting(el).setName(t("readerId")).addText((t2) => t2.setValue(this.readerIdInput).onChange((value) => {
           this.readerIdInput = value;
         }));
-        new import_obsidian.Setting(el).setName(t("syncCredential")).setDesc(t("syncCredentialHelp")).addText((t2) => {
-          t2.inputEl.type = "password";
-          t2.inputEl.autocomplete = "off";
-          t2.setValue(this.credentialInput).onChange((value) => {
-            this.credentialInput = value;
-          });
-        });
         new import_obsidian.Setting(el).addButton((b) => b.setCta().setButtonText(t("connectExistingReader")).onClick(() => run(async () => {
-          await p.restoreExistingReader(this.readerIdInput, this.credentialInput);
-          this.credentialInput = "";
+          await p.restoreExistingReader(this.readerIdInput);
         })));
         return;
       }

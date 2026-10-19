@@ -63,12 +63,12 @@ test('reader type checkboxes permit multiple selections and require at least one
   for(const input of inputs){input.checked=false;input.listeners.get('change')!();}
   assert.equal(p.instance.data.profile.reader_type,null);assert.ok(inputs.every(input=>input.validity));
 });
-test('unlinked readers can choose credential recovery instead of registering a new profile',async()=>{
+test('unlinked readers can choose reader ID recovery instead of registering a new profile',async()=>{
   const p=await setup();p.display();
   assert.ok(p.settings.some(s=>s.control.text==='Save and upload profile'));
   const mode=p.settings.find(s=>s.name==='Reader setup')!;assert.equal(mode.control.options.existing,'Connect an existing reader');
   p.settings.length=0;mode.control.change!('existing');
-  assert.ok(p.settings.some(s=>s.name==='Reader ID'));assert.equal(p.settings.find(s=>s.name==='Sync credential')?.control.inputEl.type,'password');
+  assert.ok(p.settings.some(s=>s.name==='Reader ID'));assert.ok(!p.settings.some(s=>s.name==='Sync credential'));
   assert.ok(p.settings.some(s=>s.control.text==='Connect existing reader'));assert.ok(!p.settings.some(s=>s.control.text==='Save and upload profile'));
 });
 test('local profile saving rejects empty required fields and accepts a complete profile',async()=>{

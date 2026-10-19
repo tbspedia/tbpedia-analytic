@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Remplissez tous les champs du profil et sélectionnez au moins un type de lecteur avant de sauvegarder ou de téléverser.",
   "readerTypesRequired": "Sélectionnez au moins un type de lecteur.",
   "readerId": "Identifiant du lecteur",
-  "syncCredential": "Clé de synchronisation",
-  "syncCredentialHelp": "Utilisez la clé privée de votre coffre existant. Gardez-la secrète ; l’identifiant seul ne suffit pas.",
-  "copySyncCredential": "Copier la clé",
-  "credentialCopied": "Clé copiée.",
   "readerSetup": "Configuration du lecteur",
   "newReader": "Inscrire un nouveau lecteur",
   "existingReader": "Connecter un lecteur existant",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Ce coffre est déjà lié à un lecteur.",
   "readerOperationBusy": "Une opération est en cours. Réessayez après sa fin.",
   "readerIdInvalid": "Saisissez un identifiant valide.",
-  "readerCredentialRequired": "Saisissez la clé de synchronisation valide du lecteur.",
-  "readerIdentityMismatch": "L’identifiant ne correspond pas à cette clé."
+  "readerRecoveryMismatch": "Le serveur a renvoyé un autre lecteur. La restauration n’a pas été enregistrée.",
+  "readerIdHelp": "Saisissez votre identifiant pour récupérer le profil. Gardez-le secret : il donne accès au compte."
 }

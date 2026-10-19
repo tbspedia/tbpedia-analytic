@@ -1,3 +1,16 @@
+# v0.1.18 — Reader-ID-only recovery
+
+Released 19 October 2026.
+
+- Simplifies existing-reader recovery to one Reader ID field; removes sync-credential input and copying controls.
+- Treats the Reader ID as an account access key for profile retrieval, profile updates and reading sync. Legacy credentials remain valid; recovery does not rotate them.
+- Validates IDs, active account status, existing consent and upload permissions; unknown IDs cannot enroll. ID recovery itself performs only a profile read.
+- Cloud deployed on 19 October 2026. Live read-only checks verify profile retrieval by Reader ID, legacy credential compatibility, rejection of unknown IDs and service health.
+- Updates all 14 interface languages and documents how to retrieve an existing profile using its Reader ID.
+- Validation: typecheck, builds and Worker deployment dry run pass. 87 of 88 tests pass; the existing catalogue test still reports two notes missing parent TBP-275.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. The compatible cloud service is already deployed. Reader IDs grant account access and should be kept private.
+
 # v0.1.17 — Remove obsolete connected-reader controls
 
 Released 19 October 2026.

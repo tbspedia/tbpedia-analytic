@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Fyll i alla profilfält och välj minst en läsartyp innan du sparar eller laddar upp.",
   "readerTypesRequired": "Välj minst en läsartyp.",
   "readerId": "Läsar-ID",
-  "syncCredential": "Synkroniseringsnyckel",
-  "syncCredentialHelp": "Använd den privata nyckeln från ditt befintliga valv. Håll den hemlig; enbart läsar-ID räcker inte.",
-  "copySyncCredential": "Kopiera nyckel",
-  "credentialCopied": "Nyckeln kopierad.",
   "readerSetup": "Läsarinställning",
   "newReader": "Registrera ny läsare",
   "existingReader": "Anslut befintlig läsare",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Valvet är redan kopplat till en läsare.",
   "readerOperationBusy": "En åtgärd pågår. Försök igen när den är klar.",
   "readerIdInvalid": "Ange ett giltigt läsar-ID.",
-  "readerCredentialRequired": "Ange läsarens giltiga synkroniseringsnyckel.",
-  "readerIdentityMismatch": "Läsar-ID stämmer inte med denna nyckel."
+  "readerRecoveryMismatch": "Molnet returnerade en annan läsare. Återställningen sparades inte.",
+  "readerIdHelp": "Ange ditt läsar-ID för att hämta profilen. Håll det hemligt: det ger åtkomst till kontot."
 }

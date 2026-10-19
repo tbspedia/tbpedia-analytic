@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Completa todos los campos del perfil y selecciona al menos un tipo de lector antes de guardar o subir.",
   "readerTypesRequired": "Selecciona al menos un tipo de lector.",
   "readerId": "ID de lector",
-  "syncCredential": "Credencial de sincronización",
-  "syncCredentialHelp": "Usa la credencial privada de tu bóveda existente. Mantenla en secreto; el ID no basta.",
-  "copySyncCredential": "Copiar credencial",
-  "credentialCopied": "Credencial copiada.",
   "readerSetup": "Configuración del lector",
   "newReader": "Registrar un lector nuevo",
   "existingReader": "Conectar un lector existente",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Esta bóveda ya está vinculada a un lector.",
   "readerOperationBusy": "Hay una operación en curso. Inténtalo cuando termine.",
   "readerIdInvalid": "Introduce un ID de lector válido.",
-  "readerCredentialRequired": "Introduce la credencial de sincronización válida del lector.",
-  "readerIdentityMismatch": "El ID no coincide con esta credencial."
+  "readerRecoveryMismatch": "La nube devolvió otro lector. No se guardó la recuperación.",
+  "readerIdHelp": "Introduce tu ID de lector para recuperar el perfil. Mantenlo en secreto: permite acceder a tu cuenta."
 }

@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Lengkapi semua kolom profil dan pilih setidaknya satu jenis pembaca sebelum menyimpan atau mengunggah.",
   "readerTypesRequired": "Pilih setidaknya satu jenis pembaca.",
   "readerId": "ID pembaca",
-  "syncCredential": "Kredensial sinkronisasi",
-  "syncCredentialHelp": "Gunakan kredensial pribadi dari vault lama. Jaga kerahasiaannya; ID pembaca saja tidak cukup.",
-  "copySyncCredential": "Salin kredensial",
-  "credentialCopied": "Kredensial disalin.",
   "readerSetup": "Pengaturan pembaca",
   "newReader": "Daftar pembaca baru",
   "existingReader": "Hubungkan pembaca lama",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Vault ini sudah terhubung ke pembaca.",
   "readerOperationBusy": "Operasi sedang berlangsung. Coba lagi setelah selesai.",
   "readerIdInvalid": "Masukkan ID pembaca yang valid.",
-  "readerCredentialRequired": "Masukkan kredensial sinkronisasi pembaca yang valid.",
-  "readerIdentityMismatch": "ID pembaca tidak cocok dengan kredensial ini."
+  "readerRecoveryMismatch": "Cloud mengembalikan pembaca lain. Pemulihan tidak disimpan.",
+  "readerIdHelp": "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun."
 }

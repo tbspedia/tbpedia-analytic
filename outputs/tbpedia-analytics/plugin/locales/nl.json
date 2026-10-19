@@ -182,10 +182,6 @@
   "profileRequiredHelp": "Vul alle profielvelden in en selecteer minstens één lezerstype voordat u opslaat of uploadt.",
   "readerTypesRequired": "Selecteer minstens één lezerstype.",
   "readerId": "Lezer-ID",
-  "syncCredential": "Synchronisatiesleutel",
-  "syncCredentialHelp": "Gebruik de privésleutel uit uw bestaande kluis. Houd deze geheim; alleen een lezer-ID is niet voldoende.",
-  "copySyncCredential": "Sleutel kopiëren",
-  "credentialCopied": "Sleutel gekopieerd.",
   "readerSetup": "Lezer instellen",
   "newReader": "Nieuwe lezer registreren",
   "existingReader": "Bestaande lezer verbinden",
@@ -194,6 +190,6 @@
   "readerAlreadyLinked": "Deze kluis is al gekoppeld aan een lezer.",
   "readerOperationBusy": "Er loopt een bewerking. Probeer het daarna opnieuw.",
   "readerIdInvalid": "Voer een geldige lezer-ID in.",
-  "readerCredentialRequired": "Voer de geldige synchronisatiesleutel van de lezer in.",
-  "readerIdentityMismatch": "De lezer-ID komt niet overeen met deze sleutel."
+  "readerRecoveryMismatch": "De cloud gaf een andere lezer terug. Het herstel is niet opgeslagen.",
+  "readerIdHelp": "Voer uw lezer-ID in om uw profiel op te halen. Houd deze geheim: deze geeft toegang tot uw account."
 }
