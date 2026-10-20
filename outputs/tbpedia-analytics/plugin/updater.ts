@@ -10,6 +10,10 @@ export async function loadUpdaterMetadata(adapter:Pick<DataAdapter,'exists'|'rea
     let text:string;
     try{text=await adapter.read(path);}catch(error){
       if(typeof error==='object'&&error!==null&&'code' in error&&error.code==='ENOENT')return null;
+      // Mobile adapters may report missing files without Node's ENOENT code.
+      // Check only after the read fails: hidden config files can be readable
+      // even when the adapter's existence check incorrectly reports false.
+      if(!await adapter.exists(path))return null;
       throw error;
     }
     if(text.length>1024*1024)throw new Error('Updater settings exceed the read limit');

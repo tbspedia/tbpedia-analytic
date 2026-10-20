@@ -1,6 +1,8 @@
+import {graphemeSegments} from 'unicode-segmenter/grapheme';
+
 export const REFLECTION_LIMIT = 300;
-const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
-const characters = (value: string) => Array.from(segmenter.segment(value), part => part.segment);
+// Bundle segmentation so older iOS/Android WebViews do not need Intl.Segmenter.
+const characters = (value: string) => Array.from(graphemeSegments(value), part => part.segment);
 export const reflectionLength = (value: string) => characters(value).length;
 
 // Let IMEs finish composing before limiting text; never split a visible character.

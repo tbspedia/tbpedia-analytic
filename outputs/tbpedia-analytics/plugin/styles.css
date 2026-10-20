@@ -40,3 +40,37 @@
 .tbpa-reader-type-option:has(input:checked) { border-color: var(--interactive-accent); background: var(--background-secondary); }
 .tbpa-reader-type-option:focus-within { outline: 2px solid var(--interactive-accent); outline-offset: 2px; }
 .tbpa-reader-type-option input { flex-shrink: 0; }
+
+/* Respect Obsidian mobile's modal/keyboard layout instead of desktop resizing. */
+.is-mobile .modal.tbpa-reading-modal {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  max-height: min(100%, calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+  resize: none;
+}
+.is-mobile .tbpa-reading .setting-item,
+.is-mobile .tbpa-settings .setting-item { display: block; }
+.is-mobile .tbpa-reading .setting-item-control,
+.is-mobile .tbpa-settings .setting-item-control { margin-top: 8px; width: 100%; max-width: 100%; flex-wrap: wrap; gap: 8px; }
+.is-mobile .tbpa-reading .setting-item-control textarea,
+.is-mobile .tbpa-reading .setting-item-control input:not([type="checkbox"]),
+.is-mobile .tbpa-reading .setting-item-control select,
+.is-mobile .tbpa-settings .setting-item-control input:not([type="checkbox"]),
+.is-mobile .tbpa-settings .setting-item-control select { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; font-size: 16px; }
+.is-mobile .tbpa-reading button,
+.is-mobile .tbpa-settings button,
+.is-mobile .tbpa-reading select,
+.is-mobile .tbpa-settings select,
+.is-mobile .tbpa-reading input:not([type="checkbox"]),
+.is-mobile .tbpa-settings input:not([type="checkbox"]),
+.is-mobile .tbpa-reader-type-option { min-height: 44px; }
+.is-mobile .tbpa-reading .setting-item-control button,
+.is-mobile .tbpa-settings .setting-item-control button { flex: 1 1 150px; white-space: normal; height: auto; }
+.is-mobile .tbpa-reader-types { min-width: 0; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); }
+.is-mobile .tbpa-reader-types legend { max-width: 100%; overflow-wrap: anywhere; }
+.is-mobile .tbpa-reader-type-option { min-width: 0; overflow-wrap: anywhere; }
+.is-mobile .tbpa-reading-modal .modal-content { overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }

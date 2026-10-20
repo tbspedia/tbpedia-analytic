@@ -27,6 +27,11 @@ test('a false config-file existence result does not discard readable updater set
   const result=await loadUpdaterMetadata({exists:async()=>false,read:async()=>JSON.stringify(metadata)},'.obsidian');
   assert.deepEqual(result,metadata);
 });
+
+test('mobile adapters can report an absent updater without an ENOENT code',async()=>{
+  assert.equal(await loadUpdaterMetadata({exists:async()=>false,read:async()=>{throw new Error('File does not exist');}},'.mobile-config'),null);
+  await assert.rejects(loadUpdaterMetadata({exists:async()=>{throw new Error('Storage unavailable');},read:async()=>{throw new Error('Read failed');}},'.mobile-config'),UiError);
+});
 test('reading sync metadata comes from the saved analytics data and excludes private settings',async()=>{
   const saved={...metadata,interface_language:'en',stored_token:'private-placeholder',reader_id:'reader',receipts:{note:{hash:'old'}}};
   const result=await loadSavedUpdaterMetadata(async()=>JSON.parse(JSON.stringify(saved)));

@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.19**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.19).
+Latest published plugin release: **0.1.20**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.20).
 
-Version 0.1.19 replaces My reader type toggles in the reading form with multi-select checkboxes and limits Reading reflection to 300 visible characters with a live remaining count. Chinese input composition and combined Unicode characters are supported. Upgrade by replacing main.js, manifest.json and styles.css, preserving data.json, then reloading the plugin or restarting Obsidian. No Worker deployment is required.
+Version 0.1.20 enables Android, iPhone and iPad loading, adapts the forms for touch screens, bundles Unicode segmentation for older mobile WebViews and handles missing updater settings through the vault adapter. Reading remains local-first with deliberate manual cloud uploads.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
@@ -17,6 +17,16 @@ In the reading form, **My classification → My reader type** uses checkboxes fo
 The `reading_records` fields `my_keywords`, `my_subtopics` and `my_reader_types` use native **MultiSelect** fields. The sync service sends arrays, creates missing choices before saving and verifies the saved selections. It also reads legacy JSON list text for migration compatibility. NocoDB options cannot contain English commas; use a Chinese comma (`，`) within an option instead. Local reading notes are not rewritten by this database change.
 
 The base-scoped service token requires **Records: Read & write**, **Tables: Read**, and **Fields: Read & write** to manage new choices. The existing token's expiry and all other permission categories are preserved. The migration verified all 28 original records and removed temporary verification data.
+
+## Mobile setup
+
+Version 0.1.20 enables Obsidian on **Android, iPhone and iPad** (`isDesktopOnly: false`). Install the release's `main.js`, `manifest.json` and `styles.css` in your mobile vault's configured `plugins/tbpedia-analytics/` directory (normally `.obsidian/plugins/tbpedia-analytics/`), preserve an existing `data.json`, then enable or reload the plugin on that device. Plugin files and settings may need separate syncing from your notes.
+
+Use the command palette to run **Record my reading data**, **Sync current article**, or **Sync changed reading data to cloud**. The ribbon actions remain available where Obsidian displays them. Reading and profile forms stack controls on mobile, provide larger touch targets and keep long forms scrollable.
+
+To use the same reader in a separate mobile vault, open **Settings → True Buddha Pedia Analytics → Connect an existing reader** and enter your existing Reader ID. Reading can be recorded offline; cloud uploads remain manual and require a connection. The companion Tbpedia updater is optional: missing updater settings do not block startup or sync and do not erase saved collection attribution.
+
+Mobile support has automated Android/iOS host-API coverage; physical phone/tablet and virtual-keyboard testing has not been performed. Use one active uploader at a time: this release does not add cross-device conflict merging. Sync your latest notes before uploading from another device.
 
 ## Reader profile setup
 
@@ -131,7 +141,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.19 plugin passes type checking and production builds; 91 of 92 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.20 plugin passes type checking and production builds; 99 of 100 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 
@@ -235,7 +245,7 @@ Use `--prepare-only` to create a private credential file and a separate row defi
 
 ## Important pilot limits
 
-One reader/server per vault. A vault may be copied or synced between devices, but use one active uploader at a time; device merging and server write ordering are not implemented. Receipts follow synced notes; a device with stale or missing notes/receipts may upload again or send older reading values. The manifest currently declares `isDesktopOnly: true`, so mobile use is not a supported release capability. Native upsert is not a distributed lock. After an uncertain network write, stop and explicitly resend the latest state when service recovers. Strong ordering, conflict merging and exactly-once processing are outside this MVP.
+One reader/server per vault. A vault may be copied or synced between devices, but use one active uploader at a time; device merging and server write ordering are not implemented. Receipts follow synced notes; a device with stale or missing notes/receipts may upload again or send older reading values. The manifest declares `isDesktopOnly: false`; mobile forms and host-API behavior have automated coverage, while physical Android/iOS testing remains outstanding. Native upsert is not a distributed lock. After an uncertain network write, stop and explicitly resend the latest state when service recovers. Strong ordering, conflict merging and exactly-once processing are outside this MVP.
 
 Synced means the last saved snapshot was verified, not continuous two-way synchronization. Changes or deletions made directly in NocoDB are not detected automatically. **Sync current article** can force a resend. Local note deletion does not delete cloud records; disabling uploads also does not erase them.
 

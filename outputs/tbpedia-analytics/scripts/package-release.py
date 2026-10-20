@@ -26,8 +26,8 @@ report={
     'version':version,'source_archive':source.name,'plugin_archive':plugin.name,
     'source_files':len(files),'credentials_excluded':True,
     'ui_languages':14,'messages_per_locale':len(json.loads((project/'plugin/locales/en.json').read_text(encoding='utf-8'))),
-    'typecheck':'passed','automated_tests_passed':91,'automated_tests_failed':1,'test_failure':'Local vault catalogue: missing parent TBP-275','build':'passed',
-    'native_interactive_qa_performed':False,
+    'typecheck':'passed','automated_tests_passed':99,'automated_tests_failed':1,'test_failure':'Local vault catalogue: missing parent TBP-275','build':'passed',
+    'native_interactive_qa_performed':False,'physical_mobile_qa_performed':False,'mobile_host_api_tests':'passed',
     'plugin_main_sha256':hashlib.sha256((project/'dist/plugin/main.js').read_bytes()).hexdigest()
 }
 (project/'reports/release-verification.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
@@ -36,7 +36,8 @@ with zipfile.ZipFile(source,'w',zipfile.ZIP_DEFLATED) as archive:
 with zipfile.ZipFile(plugin,'w',zipfile.ZIP_DEFLATED) as archive:
     for name in ['main.js','manifest.json','styles.css']:
         archive.write(project/'dist/plugin'/name,'tbpedia-analytics/'+name)
-    archive.write(project/'licenses/zod-LICENSE.txt','tbpedia-analytics/zod-LICENSE.txt')
+    for license_file in sorted((project/'licenses').glob('*')):
+        if license_file.is_file():archive.write(license_file,'tbpedia-analytics/'+license_file.name)
 for path in [source,plugin]:
     with zipfile.ZipFile(path) as archive:
         assert archive.testzip() is None

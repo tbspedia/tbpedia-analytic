@@ -10,6 +10,7 @@ class Element{
   children:Element[]=[];listeners=new Map<string,()=>void>();checked=false;validity='';type='';required=false;readOnly=false;
   constructor(public tag='',public options:Record<string,unknown>={}){this.type=String(options.type??'');}
   empty(){this.children=[];}
+  addClass(){}
   createEl(tag:string,options:Record<string,unknown>={}){const child=new Element(tag,options);this.children.push(child);return child;}
   createSpan(options:Record<string,unknown>){return this.createEl('span',options);}
   querySelectorAll(tag:string):Element[]{return this.children.flatMap(child=>[...(child.tag===tag?[child]:[]),...child.querySelectorAll(tag)]);}

@@ -318,7 +318,7 @@ class AnalyticsSettings extends PluginSettingTab{
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
   display(){
     setLocale(this.plugin.data.interface_language,getLanguage());
-    const el=this.containerEl;el.empty();el.lang=intlLocale();el.createEl('h2',{text:'True Buddha Pedia Analytics'});
+    const el=this.containerEl;el.empty();el.addClass('tbpa-settings');el.lang=intlLocale();el.createEl('h2',{text:'True Buddha Pedia Analytics'});
     const p=this.plugin;
     new Setting(el).setName(tr('language')).setDesc(`${tr('languageHelp')} ${tr('followSystemHelp')}`).addDropdown(d=>d.addOption('system',tr('followSystem')).addOptions(LANGUAGES).setValue(languagePreference(p.data.interface_language)).onChange(v=>{p.data.interface_language=languagePreference(v);setLocale(p.data.interface_language,getLanguage());p.persistQuiet();this.display();}));
     const run=(action:()=>Promise<void>)=>{void action().then(()=>this.display()).catch(e=>new Notice(message(e),12000));};

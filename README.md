@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.19](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.19)** — multi-select reader-type checkboxes in the reading form and a 300-character reflection limit with a live remaining count.
+**Latest release: [v0.1.20](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.20)** — Android, iPhone and iPad support with touch-friendly reading forms and mobile-compatible Unicode counting.
 
 ## Install or upgrade
 
@@ -22,6 +22,16 @@ Under **My classification → My reader type**, select any combination of reader
 ## NocoDB multi-select storage
 
 The reading-record fields `my_keywords`, `my_subtopics` and `my_reader_types` are native multi-select fields. Cloud sync adds new choices and verifies saved selections; all 28 original records were preserved during migration. NocoDB options cannot contain an English comma: use `，` within an option. This server update works with the existing plugin installation.
+
+## Mobile setup
+
+Version 0.1.20 enables Obsidian on **Android, iPhone and iPad** (`isDesktopOnly: false`). Install the release's `main.js`, `manifest.json` and `styles.css` in your mobile vault's configured `plugins/tbpedia-analytics/` directory (normally `.obsidian/plugins/tbpedia-analytics/`), preserve an existing `data.json`, then enable or reload the plugin on that device. Plugin files and settings may need separate syncing from your notes.
+
+Use the command palette to run **Record my reading data**, **Sync current article**, or **Sync changed reading data to cloud**. The ribbon actions remain available where Obsidian displays them. Reading and profile forms stack controls on mobile, provide larger touch targets and keep long forms scrollable.
+
+To use the same reader in a separate mobile vault, open **Settings → True Buddha Pedia Analytics → Connect an existing reader** and enter your existing Reader ID. Reading can be recorded offline; cloud uploads remain manual and require a connection. The companion Tbpedia updater is optional: missing updater settings do not block startup or sync and do not erase saved collection attribution.
+
+Mobile support has automated Android/iOS host-API coverage; physical phone/tablet and virtual-keyboard testing has not been performed. Use one active uploader at a time: this release does not add cross-device conflict merging. Sync your latest notes before uploading from another device.
 
 ## Reader profile setup
 
@@ -109,7 +119,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.19 release passes type checking and production builds. **91 of 92 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
+The v0.1.20 release passes type checking and production builds. **99 of 100 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

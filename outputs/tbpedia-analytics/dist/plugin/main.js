@@ -1,3 +1,27 @@
+/*! unicode-segmenter
+MIT License
+
+Copyright (c) 2024 Hyeseong Kim <hey@hyeseong.kim>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+*/
 "use strict";
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -9056,6 +9080,7 @@ async function loadUpdaterMetadata(adapter, configDir) {
       text = await adapter.read(path);
     } catch (error2) {
       if (typeof error2 === "object" && error2 !== null && "code" in error2 && error2.code === "ENOENT") return null;
+      if (!await adapter.exists(path)) return null;
       throw error2;
     }
     if (text.length > 1024 * 1024) throw new Error("Updater settings exceed the read limit");
@@ -9113,10 +9138,166 @@ function inScanScope(path) {
   return parts.length > 0 && folders.has((root ?? "").replace(/[\u200B-\u200D\uFEFF]/g, "").trim());
 }
 
+// node_modules/unicode-segmenter/core.js
+function decodeUnicodeData(data, cats, emit) {
+  let len = data.length, i = 0, j = 0, p = -1;
+  let read = () => {
+    let n = 0, shift = 0, d;
+    do {
+      d = parseInt(data[i++], 36);
+      n += (d & 15) << shift;
+      shift += 4;
+    } while (d & 16);
+    return n;
+  };
+  while (i < len) {
+    let from = p + 1 + read();
+    emit(from, p = from + read(), cats ? parseInt(cats[j++], 36) : 0);
+  }
+}
+function findUnicodeRangeCategory(cp, starts, ends) {
+  let lo = 0, hi = starts.length - 1;
+  while (lo <= hi) {
+    let mid = lo + hi >>> 1, end = ends[mid];
+    if (cp < starts[mid]) hi = mid - 1;
+    else if (cp > end >>> 5) lo = mid + 1;
+    else return end & 31;
+  }
+  return 0;
+}
+
+// node_modules/unicode-segmenter/_grapheme_data.js
+var grapheme_data = (
+  /** @type {UnicodeDataEncoding} */
+  "090001000h1v5g2903000hl2v6jh16ng1s210111110o35aa10u2k1g10l6600152113h2010u1q1r5aq3890o13181214r22k3158q2n1000v100h1k20000001207030001160721k171001h1j11610332010010321210090411021c1c02100o301201412230u1130b100h1j116111420120411001100k11l10051001h1j11611142011000321210072411021d0g10r3000000132120090o200200g1j11f2012031213711271t1001o301001000001121371b1f0c101h1l2011001031212000080a1t1001m40400102101600i11t301006c7i601008b6p41r10101041h3d0004115a1j290p3q223000511010100g1501010302003172030c0010016000e0i6v50n40n5tl12ir33s12t11u11cj30100060700010a90t220000l71i20m7203010241000502rd101004k300000006101027050920g3t22bk1300616g209030207u18c1000t10003010501b2o20000102000004g37070101o921c000640602001mcv3rg20000001o16d0c0m1fg6g2h30m10q55f1vm11c0ma0p1a42nc0ne1a090q3314902021204020112030318250105bb1201110i1021i15101131502141b15120511011k1155132040202510201010603060a1f02040104210b1g3290e0e0kn11vs12j11j3040pp12t80g6v1qi2500c0r51ktl7319g21g51gh103040n11010040j51i3f01q1h1d0m27p1a0000cs13200523j200010301010100v140018a4q2501010101c08000i1f12601011g3012215110u1a0001015000pcq181000100011000iji5fvc0u91g5bhg20ie0l94lo6002115303121s12240la1tj23h44tj11t45m4ah33q700000l3ep2021a200t220301012040a0i320j2040007f00100r20c100g3208000011531000s520201036020t900207l1101n311000000321210090a12634b910201l22001051020120011020000e1i520701020000n10h5001050000010000010001re0010323010001r11i520701000001q6000000107l600000230004gg12080001lc62027111n1000411230000000000t820321030030r10090n205001380800501020n2050c0001mc00002000000nc006150000i5l1100600010001q753011160000i441111000000rl11019100000c1h201043102n10ltk1f006eoss2b0202gs94r36si2033ku101m373h50b1rqs4113sli1t22m1uh2435070726u13k92rr7m34h380e0m141egl561g1261114k60ga6nn10t33sv13uf1jf0207150qt16t66pr60n23k6bf1f0e1l29g71c1e029j1n30p11ea0k1028139m16rb2v621122i52213040tf1u3b51n17127c0232041d120819052c28220104060306l5g3l4572g130152cqdl2c3o37a5o27u11c32d9m2cu2191obo57eh9gg1tv3"
+);
+var grapheme_cats = "262122424333333393233393339333333333393393bf3b3b3b3b3f3f3bffff33b3bb33ff3f33b3b3333333bffff3b33bb33f33bffff33b3bb33ff3f33b3bbb333b3ff33b333f33b3b3b3b3333b3bf33b3bb39333b33b33b3b3b333b333333b3b33333f3b33b3ffb3f3fff3f3b33f35dc33333f3b3b3b33323333b3bb3b33b3fb3b3333b33333bff3b3f33bfb3b3ff3b3b3b3b3b333b333b3323e224423444444444444444444444444444444444444444444444444444444444444444444444444444444433334433333333b3b3bb33333b353bff3b3b3b3f3ff3b3b333bfff3f33333fb3bb3fb3b3bb33232333f333fff333333333b3b3333bb3b39393f3b3fbf33bb3b393b3b3b3333b33b33b3bbb33b33ffff3b3333bb3933b3b3b333b3b3b3b3b33b3b3b33b3b3b33b3b33b33b3b3b3fffff3bb39b9b3b33b3bf3f3b33f3b3f93b33b3b3bb33b33b3b3b3333393b3b3b33b39bffb3b332333b333dd3b3333233332333333333333333333333333333444444444444a4444444444444344444444444444444444444444444444444444444444";
+var grapheme_pairs = "0001000000010010000000100000000000000000000000000001000000010018000100000001001000010101100101100000000000000000000100000001111000010000000110101001110111111111000100000021001000010000000100100001000000011010000100000001111000014000000100180001000000010010";
+
+// node_modules/unicode-segmenter/grapheme.js
+var T0 = new Uint8Array(12448);
+var T1 = new Uint8Array(1440);
+var T2 = new Uint8Array(2816);
+var TAIL_S;
+var TAIL_E;
+{
+  let fill = (t2, lo, from, to, cat2) => {
+    let end = to - lo + 1, len = t2.length;
+    if (end > 0 && from - lo < len) {
+      t2.fill(cat2, from > lo ? from - lo : 0, end > len ? len : end);
+    }
+  };
+  let starts = new Uint32Array(320), ends = new Uint32Array(320), n = 0;
+  decodeUnicodeData(grapheme_data, grapheme_cats, (from, to, cat2) => {
+    fill(T0, 0, from, to, cat2);
+    fill(T1, 42592, from, to, cat2);
+    fill(T2, 126976, from, to, cat2);
+    if (to >= 65040 && !(from >= 126976 && to <= 129791)) {
+      starts[n] = from;
+      ends[n++] = to << 5 | cat2;
+    }
+  });
+  TAIL_S = starts.slice(0, n);
+  TAIL_E = ends.slice(0, n);
+}
+function cat(cp) {
+  if (cp < 12448) return T0[cp];
+  if (cp < 42592) return cp === 12951 || cp === 12953 ? 4 : 0;
+  if (cp < 44032) return T1[cp - 42592];
+  if (cp < 55204) return (cp - 44032) % 28 ? 8 : 7;
+  if (cp >= 126976 && cp < 129792) return T2[cp - 126976];
+  if (cp >>> 4 === 4064) return 3;
+  return catRare(cp);
+}
+function catRare(cp) {
+  if (cp < 57344) {
+    if (cp <= 55238) return cp >= 55216 ? 13 : 0;
+    return cp >= 55243 && cp <= 55291 ? 12 : 0;
+  }
+  if (cp < 65024) return cp === 64286 ? 3 : 0;
+  if (cp >= 917504) {
+    if (cp > 921599) return 0;
+    return cp >= 917536 && cp < 917632 || cp >= 917760 && cp < 918e3 ? 3 : 2;
+  }
+  return findUnicodeRangeCategory(cp, TAIL_S, TAIL_E);
+}
+var PAIR = Uint8Array.from(grapheme_pairs);
+function isLinker(cp) {
+  return cp === 2381 || cp === 2509 || cp === 2765 || cp === 2893 || cp === 3149 || cp === 3405 || cp === 4153 || cp === 6098 || cp === 6752 || cp === 6980 || cp === 7083 || cp === 43456 || cp === 43766 || cp === 68159 || cp === 69939 || cp === 70608 || cp === 71998 || cp === 72263 || cp === 72345 || cp === 73538;
+}
+function nextExtend(st, cp) {
+  if (cp === 8204) return st & 21;
+  if (st & 8 || isLinker(cp)) return st & 21 | 40;
+  return st & 21 | 32;
+}
+function nextState(st, c, cp) {
+  if (c === 3) return st & 32 ? nextExtend(st, cp) : st & 21;
+  if (c === 4) return 17;
+  if (c === 10) return st & 2 ^ 3;
+  if (c === 14) return (st & 16) >> 2 | st & 41;
+  if (c === 15) return 33;
+  return 1;
+}
+function* graphemeSegments(input) {
+  let len = input.length;
+  if (len === 0) return;
+  let cp = (
+    /** @type {number} */
+    input.codePointAt(0)
+  );
+  let cursor = cp > 65535 ? 2 : 1;
+  let catBefore = cat(cp);
+  let st = nextState(1, catBefore, cp);
+  let index = 0;
+  let hd = cp;
+  let catBegin = catBefore;
+  while (cursor < len) {
+    cp = /** @type {number} */
+    input.codePointAt(cursor);
+    let catAfter = cat(cp);
+    let boundary = !(st & PAIR[catBefore << 4 | catAfter]);
+    st = nextState(st, catAfter, cp);
+    if (boundary) {
+      yield {
+        segment: input.slice(index, cursor),
+        index,
+        input,
+        _hd: hd,
+        _catBegin: (
+          /** @type {GraphemeCategoryNum} */
+          catBegin === 15 ? 0 : catBegin
+        ),
+        _catEnd: (
+          /** @type {GraphemeCategoryNum} */
+          catBefore === 15 ? 0 : catBefore
+        )
+      };
+      index = cursor;
+      hd = cp;
+      catBegin = catAfter;
+    }
+    cursor += cp > 65535 ? 2 : 1;
+    catBefore = catAfter;
+  }
+  yield {
+    segment: input.slice(index),
+    index,
+    input,
+    _hd: hd,
+    _catBegin: (
+      /** @type {GraphemeCategoryNum} */
+      catBegin === 15 ? 0 : catBegin
+    ),
+    _catEnd: (
+      /** @type {GraphemeCategoryNum} */
+      catBefore === 15 ? 0 : catBefore
+    )
+  };
+}
+
 // plugin/reading-reflection.ts
 var REFLECTION_LIMIT = 300;
-var segmenter = new Intl.Segmenter(void 0, { granularity: "grapheme" });
-var characters = (value) => Array.from(segmenter.segment(value), (part) => part.segment);
+var characters = (value) => Array.from(graphemeSegments(value), (part) => part.segment);
 var reflectionLength = (value) => characters(value).length;
 function bindReflectionInput(input, update) {
   let composing = false;
@@ -9780,6 +9961,7 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     setLocale(this.plugin.data.interface_language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
     el.empty();
+    el.addClass("tbpa-settings");
     el.lang = intlLocale();
     el.createEl("h2", { text: "True Buddha Pedia Analytics" });
     const p = this.plugin;

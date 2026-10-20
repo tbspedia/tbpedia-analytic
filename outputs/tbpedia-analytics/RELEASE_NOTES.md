@@ -1,3 +1,17 @@
+# v0.1.20 — Android, iPhone and iPad support
+
+Released 20 October 2026.
+
+- Enables mobile installation by setting `isDesktopOnly: false` in both plugin manifests.
+- Uses Obsidian vault adapters and `requestUrl`; the browser bundle has no Node.js or Electron runtime imports.
+- Bundles Unicode grapheme segmentation so the 300-character reflection limit works without native `Intl.Segmenter`, preserving combined characters, emoji and Chinese IME behavior.
+- Treats a companion updater file that a mobile adapter reports as absent without ENOENT as optional, while preserving saved metadata and reporting unreadable existing files.
+- Adapts reading and profile forms for touch: stacked/full-width inputs, 44px minimum touch targets, wrapping buttons, safe-area sizing and scrollable mobile dialogs.
+- Includes Android/iOS host-API simulations for startup, offline saving and Obsidian networking, plus missing-file and Unicode regression tests. Typecheck/build pass; 99 of 100 tests pass. The known local catalogue failure is missing parent TBP-275. Physical phone/tablet and virtual-keyboard testing has not been performed.
+- Includes the source/schema compatibility update for native NocoDB multi-select lists; that cloud update is already deployed.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. Install or sync the plugin files to each mobile vault and enable the plugin there. Existing-reader recovery accepts your Reader ID. No new Worker deployment is required. Cross-device conflict merging remains outside this release; use one active uploader at a time.
+
 # v0.1.19 — Reading checkboxes and reflection limit
 
 Released 19 October 2026.
