@@ -1,0 +1,29 @@
+{
+  "migration_date": "2026-10-19",
+  "permission_and_live_verification_date": "2026-10-20",
+  "fields": {
+    "my_keywords": "MultiSelect",
+    "my_subtopics": "MultiSelect",
+    "my_reader_types": "MultiSelect"
+  },
+  "original_records_verified": 28,
+  "original_selections_preserved": true,
+  "synthetic_upload_verified": true,
+  "new_choices_verified": true,
+  "test_records_removed": true,
+  "obsolete_conversion_choices_removed": true,
+  "worker_deployment": "6b33cb01-19cb-4187-9a89-4af2c69fc0ef",
+  "worker_permissions": {
+    "records": "read_write",
+    "tables": "read",
+    "fields": "read_write"
+  },
+  "native_interactive_obsidian_qa": false,
+  "validation": {
+    "typecheck": "passed",
+    "build": "passed",
+    "automated_tests_passed": 94,
+    "automated_tests_failed": 1,
+    "existing_test_failure": "Local vault catalogue: missing parent TBP-275"
+  }
+}

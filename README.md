@@ -19,6 +19,10 @@ The reading ribbon action is **Record my reading data**, with the same icon in e
 
 Under **My classification → My reader type**, select any combination of reader types using checkboxes. **Reading reflection** allows up to 300 visible characters, with a live remaining count. Spaces, punctuation and line breaks count; combined characters and emoji count as one. Chinese input composition finishes before the limit is applied. Existing longer reflections remain readable and must be shortened before saving through the form.
 
+## NocoDB multi-select storage
+
+The reading-record fields `my_keywords`, `my_subtopics` and `my_reader_types` are native multi-select fields. Cloud sync adds new choices and verifies saved selections; all 28 original records were preserved during migration. NocoDB options cannot contain an English comma: use `，` within an option. This server update works with the existing plugin installation.
+
 ## Reader profile setup
 
 - For a new account, choose **Register a new reader**, complete every required profile field, select at least one reader type, then choose **Save and upload profile**. The cloud assigns a new Reader ID.

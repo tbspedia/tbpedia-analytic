@@ -18,6 +18,13 @@ async function backend(){
   const fetcher:Fetcher=async(input,init)=>{
     assert.equal(new Headers(init?.headers).get('xc-token'),env.NOCODB_API_TOKEN);
     assert.equal(init?.redirect,'manual','authenticated database requests must never follow redirects');
+    if(input.includes('/api/v3/meta/')){
+      const body=typeof init?.body==='string'?JSON.parse(init.body):null;
+      calls.push({url:input,method:init?.method??'GET',body});
+      if(init?.method==='GET')return Response.json({fields:['my_keywords','my_subtopics','my_reader_types'].map(title=>({id:title,type:'MultiSelect',title,options:{choices:[]}}))});
+      if(init?.method==='POST')return Response.json({});
+      throw new Error('Unexpected metadata operation');
+    }
     const url=new URL(input);const tableId=url.pathname.split('/')[5]!;const rows=tables[tableId];assert.ok(rows,'only configured tables may be used');
     const tail=url.pathname.split('/records')[1]??'';const method=init?.method??'GET';const body=typeof init?.body==='string'?JSON.parse(init.body):null;
     calls.push({url:input,method,body});
@@ -47,7 +54,18 @@ async function backend(){
   return {tables,fetcher,calls,dropRating:()=>{omitRating=true;},dropMetadata:()=>{omitMetadata=true;},dropRelease:()=>{omitRelease=true;}};
 }
 function req(path:string,method='GET',body?:unknown,credential=token){return new Request('https://worker.example'+path,{method,headers:{Authorization:`Bearer ${credential}`,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body)});}
-function payload(){return {schema_version:1,content_id:'TBP-154-C00',client_updated_at:'2026-10-17T08:00:00Z',values:{...defaults(),my_rating:5,my_buddhist_level:0,reading_reflection:'中文\n第二行 🌸',my_keywords:['空性','引號"','逗,號']}};}
+function payload(){return {schema_version:1,content_id:'TBP-154-C00',client_updated_at:'2026-10-17T08:00:00Z',values:{...defaults(),my_rating:5,my_buddhist_level:0,reading_reflection:'中文\n第二行 🌸',my_keywords:['空性','引號"','逗，號']}};}
+
+test('multi-select uploads reject English commas before any database write',async()=>{
+  for(const key of ['my_keywords','my_subtopics'] as const){
+    const b=await backend();const p=payload();p.values[key]=['包含,逗號'];
+    const response=await handle(req('/v1/reading/sync','POST',p),env,b.fetcher);
+    assert.equal(response.status,422);
+    assert.match((await response.json() as {error:{message:string}}).error.message,/cannot contain commas/);
+    assert.ok(b.calls.every(call=>call.method==='GET'));
+    assert.equal(b.tables[env.READING_TABLE_ID]!.length,0);
+  }
+});
 
 test('connection test works without credentials and never reads or writes reader data',async()=>{
   const b=await backend();
@@ -114,8 +132,8 @@ test('complete profile edits preserve identity and required fields cannot be cle
 test('native upsert creates, updates, clears and safely resends one snapshot',async()=>{
   const b=await backend();const p=payload();
   for(let i=0;i<3;i++){const response=await handle(req('/v1/reading/sync','POST',p),env,b.fetcher);assert.equal(response.status,200,await response.clone().text());}
-  assert.equal(b.tables[env.READING_TABLE_ID]!.length,1);const fields=b.tables[env.READING_TABLE_ID]![0]!.fields;assert.equal(fields.reading_count,0);assert.equal(fields.planned_reading,false);assert.equal(fields.my_buddhist_level,0);assert.equal(fields.my_keywords,JSON.stringify(p.values.my_keywords));
-  const cleared={...p,values:{...defaults()}};const response=await handle(req('/v1/reading/sync','POST',cleared),env,b.fetcher);assert.equal(response.status,200);assert.equal(fields.my_rating,null);assert.equal(fields.reading_reflection,null);assert.equal(fields.my_keywords,'[]');assert.equal(b.tables[env.READING_TABLE_ID]!.length,1);
+  assert.equal(b.tables[env.READING_TABLE_ID]!.length,1);const fields=b.tables[env.READING_TABLE_ID]![0]!.fields;assert.equal(fields.reading_count,0);assert.equal(fields.planned_reading,false);assert.equal(fields.my_buddhist_level,0);assert.deepEqual(fields.my_keywords,p.values.my_keywords);
+  const cleared={...p,values:{...defaults()}};const response=await handle(req('/v1/reading/sync','POST',cleared),env,b.fetcher);assert.equal(response.status,200);assert.equal(fields.my_rating,null);assert.equal(fields.reading_reflection,null);assert.deepEqual(fields.my_keywords,[]);assert.equal(b.tables[env.READING_TABLE_ID]!.length,1);
 });
 test('forged reader identity and invalid field values never write',async()=>{
   const b=await backend();for(const p of [{...payload(),reader_id:'another-reader'},{...payload(),values:{...payload().values,my_rating:6}},{...payload(),content_id:'bad,(id)'}]){const r=await handle(req('/v1/reading/sync','POST',p),env,b.fetcher);assert.equal(r.status,422);}

@@ -342,11 +342,33 @@
       },
       {
         "title": "my_keywords",
-        "type": "LongText"
+        "type": "MultiSelect",
+        "options": {
+          "choices": []
+        }
       },
       {
         "title": "my_reader_types",
-        "type": "LongText"
+        "type": "MultiSelect",
+        "options": {
+          "choices": [
+            {
+              "title": "GENERAL"
+            },
+            {
+              "title": "NEW_REFUGE"
+            },
+            {
+              "title": "BUDDHIST_STUDENT"
+            },
+            {
+              "title": "PRACTITIONER"
+            },
+            {
+              "title": "TBS_PRACTITIONER"
+            }
+          ]
+        }
       },
       {
         "title": "my_buddhist_level",
@@ -358,7 +380,10 @@
       },
       {
         "title": "my_subtopics",
-        "type": "LongText"
+        "type": "MultiSelect",
+        "options": {
+          "choices": []
+        }
       },
       {
         "title": "seriesId",

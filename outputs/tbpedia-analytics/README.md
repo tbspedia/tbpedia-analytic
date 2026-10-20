@@ -12,6 +12,12 @@ The reading ribbon action is **Record my reading data**, also available in each 
 
 In the reading form, **My classification → My reader type** uses checkboxes for multiple selections. **Reading reflection** allows up to 300 visible characters in any language, with a live remaining-character count below the box. Spaces, punctuation and line breaks count; combined characters and emoji count as one visible character. The limit applies after Chinese or other IME composition finishes. Existing longer reflections remain readable and must be shortened before saving through the form.
 
+## NocoDB multi-select storage
+
+The `reading_records` fields `my_keywords`, `my_subtopics` and `my_reader_types` use native **MultiSelect** fields. The sync service sends arrays, creates missing choices before saving and verifies the saved selections. It also reads legacy JSON list text for migration compatibility. NocoDB options cannot contain English commas; use a Chinese comma (`，`) within an option instead. Local reading notes are not rewritten by this database change.
+
+The base-scoped service token requires **Records: Read & write**, **Tables: Read**, and **Fields: Read & write** to manage new choices. The existing token's expiry and all other permission categories are preserved. The migration verified all 28 original records and removed temporary verification data.
+
 ## Reader profile setup
 
 - For a new account, choose **Register a new reader**, complete every required profile field, select at least one reader type, then choose **Save and upload profile**. The cloud assigns a new Reader ID.

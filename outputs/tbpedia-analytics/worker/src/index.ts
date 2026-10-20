@@ -67,6 +67,7 @@ export async function handle(request:Request,env:Env,fetcher?:Fetcher):Promise<R
     }
     if(path==='/v1/reading/sync'&&request.method==='POST'){
       const payload=syncRequestSchema.parse(await requestJson(request,128*1024));
+      if([...payload.values.my_keywords,...payload.values.my_subtopics].some(value=>value.includes(',')))throw new ApiError(422,'VALIDATION_FAILED','Multi-select keywords and subtopics cannot contain commas. Use a Chinese comma (，) within an option.');
       if(!booleanValue(row.fields.cloud_sync_enabled))throw new ApiError(403,'UPLOAD_DISABLED','Cloud reading uploads are disabled.');
       if(row.fields.profile_consent_version!==env.PROFILE_NOTICE_VERSION||!row.fields.profile_consent_at||row.fields.reading_consent_version!==env.READING_NOTICE_VERSION||!row.fields.reading_consent_at)throw new ApiError(428,'CONSENT_REQUIRED','Review the current profile and reading notices.');
       const content=oneRow(await db.find(env.CONTENT_TABLE_ID,{content_id:payload.content_id}),new ApiError(404,'CONTENT_NOT_FOUND','This item is not in the approved catalogue.'));
