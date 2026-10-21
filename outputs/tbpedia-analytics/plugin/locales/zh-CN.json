@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "云端返回的读者不符，尚未保存恢复资料。",
   "readerIdHelp": "输入读者 ID 即可获取个人资料。此 ID 可用于访问您的账户，请妥善保密。",
   "reflectionRemaining": "还可输入 {remaining} 字（最多 {limit} 字）",
-  "reflectionTooLong": "请将阅读感想缩短至 {limit} 字以内再保存。"
+  "reflectionTooLong": "请将阅读感想缩短至 {limit} 字以内再保存。",
+  "showReaderId": "显示读者 ID",
+  "hideReaderId": "隐藏读者 ID"
 }

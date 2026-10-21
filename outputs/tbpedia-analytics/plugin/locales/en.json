@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "The cloud returned a different reader. Recovery was not saved.",
   "readerIdHelp": "Enter your Reader ID to retrieve your profile. Keep it private: it grants access to your account.",
   "reflectionRemaining": "{remaining} characters remaining (maximum {limit})",
-  "reflectionTooLong": "Shorten your reflection to {limit} characters before saving."
+  "reflectionTooLong": "Shorten your reflection to {limit} characters before saving.",
+  "showReaderId": "Show Reader ID",
+  "hideReaderId": "Hide Reader ID"
 }

@@ -2,9 +2,9 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.20**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.20).
+Latest published plugin release: **0.1.21**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.21).
 
-Version 0.1.20 enables Android, iPhone and iPad loading, adapts the forms for touch screens, bundles Unicode segmentation for older mobile WebViews and handles missing updater settings through the vault adapter. Reading remains local-first with deliberate manual cloud uploads.
+Version 0.1.21 masks the saved Reader ID with asterisks until you click **Show Reader ID**. Click **Hide Reader ID** to conceal it again; closing or refreshing settings also restores the mask. The change supports desktop, Android, iPhone and iPad, and the underlying saved ID is unchanged.
 
 The settings page heading is **True Buddha Pedia Analytics**. The plugin ID and folder name remain `tbpedia-analytics`.
 
@@ -32,7 +32,7 @@ Mobile support has automated Android/iOS host-API coverage; physical phone/table
 
 - For a new account, choose **Register a new reader**, complete every required profile field, select at least one reader type, then choose **Save and upload profile**. The cloud assigns a new Reader ID.
 - To retrieve an existing account on an unlinked vault, choose **Connect an existing reader**, enter the **Reader ID**, then choose **Connect existing reader**. The profile is retrieved from the cloud and saved in this vault. No separate sync credential is required.
-- In the original connected vault, the **Reader ID** is shown read-only under **Settings → True Buddha Pedia Analytics**. Copy that ID to the new vault. The credential field and copy-credential button have been removed.
+- In the original connected vault, the **Reader ID** is read-only and masked with asterisks by default; choose **Show Reader ID** to reveal it and **Hide Reader ID** to mask it again. Closing or refreshing settings hides it automatically. Find it under **Settings → True Buddha Pedia Analytics**. Copy that ID to the new vault. The credential field and copy-credential button have been removed.
 - The Reader ID is an account access key: it permits profile retrieval, profile updates and reading uploads, subject to active-account, consent and upload-permission checks. Keep it private. Unknown or disabled IDs cannot register a new reader.
 - Recovery performs only a cloud profile read and leaves existing device credentials valid. Existing incomplete profiles remain readable; complete missing fields before saving or uploading. Email ownership is unverified.
 
@@ -141,7 +141,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.20 plugin passes type checking and production builds; 99 of 100 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.21 plugin passes type checking and production builds; 100 of 101 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 

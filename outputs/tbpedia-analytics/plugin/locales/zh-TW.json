@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "雲端回傳的讀者不符，尚未儲存恢復資料。",
   "readerIdHelp": "輸入讀者 ID 即可取得個人資料。此 ID 可用於存取您的帳戶，請妥善保密。",
   "reflectionRemaining": "還可輸入 {remaining} 字（最多 {limit} 字）",
-  "reflectionTooLong": "請將閱讀感想縮短至 {limit} 字以內再儲存。"
+  "reflectionTooLong": "請將閱讀感想縮短至 {limit} 字以內再儲存。",
+  "showReaderId": "顯示讀者 ID",
+  "hideReaderId": "隱藏讀者 ID"
 }

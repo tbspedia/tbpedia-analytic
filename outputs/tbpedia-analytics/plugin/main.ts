@@ -315,8 +315,11 @@ class ReadingModal extends Modal{
 
 class AnalyticsSettings extends PluginSettingTab{
   private existingReader=false;private readerIdInput='';
+  private maskReaderId=()=>{};
   constructor(app:App,private plugin:TbpediaAnalytics){super(app,plugin);}
+  hide(){this.maskReaderId();}
   display(){
+    this.maskReaderId();this.maskReaderId=()=>{};
     setLocale(this.plugin.data.interface_language,getLanguage());
     const el=this.containerEl;el.empty();el.addClass('tbpa-settings');el.lang=intlLocale();el.createEl('h2',{text:'True Buddha Pedia Analytics'});
     const p=this.plugin;
@@ -326,7 +329,16 @@ class AnalyticsSettings extends PluginSettingTab{
     new Setting(el).addButton(b=>b.setButtonText(tr("測試連線")).onClick(()=>run(()=>p.testConnection())));
     el.createEl('h3',{text:tr("讀者個人資料")});
     if(p.data.reader_id){
-      new Setting(el).setName(tr('readerId')).setDesc(tr('readerIdHelp')).addText(t=>{t.setValue(p.data.reader_id!);t.inputEl.readOnly=true;});
+      let revealed=false;let updateValue=()=>{};
+      new Setting(el).setName(tr('readerId')).setDesc(tr('readerIdHelp')).addText(t=>{
+        t.inputEl.readOnly=true;t.inputEl.autocomplete='off';t.inputEl.spellcheck=false;
+        t.inputEl.setAttribute('aria-label',tr('readerId'));
+        updateValue=()=>{t.setValue(revealed?p.data.reader_id!:'*'.repeat(36));};updateValue();
+      }).addButton(b=>{
+        const update=()=>{updateValue();b.setButtonText(tr(revealed?'hideReaderId':'showReaderId'));b.buttonEl.setAttribute('aria-pressed',String(revealed));};
+        this.maskReaderId=()=>{revealed=false;update();};
+        b.onClick(()=>{revealed=!revealed;update();});update();
+      });
     }else{
       new Setting(el).setName(tr('readerSetup')).addDropdown(d=>d.addOption('new',tr('newReader')).addOption('existing',tr('existingReader')).setValue(this.existingReader?'existing':'new').onChange(value=>{this.existingReader=value==='existing';this.display();}));
       if(this.existingReader){

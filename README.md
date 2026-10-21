@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.20](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.20)** — Android, iPhone and iPad support with touch-friendly reading forms and mobile-compatible Unicode counting.
+**Latest release: [v0.1.21](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.21)** — Reader ID hidden behind asterisks by default, with an explicit Show/Hide control on desktop and mobile.
 
 ## Install or upgrade
 
@@ -37,7 +37,7 @@ Mobile support has automated Android/iOS host-API coverage; physical phone/table
 
 - For a new account, choose **Register a new reader**, complete every required profile field, select at least one reader type, then choose **Save and upload profile**. The cloud assigns a new Reader ID.
 - To retrieve an existing account on an unlinked vault, choose **Connect an existing reader**, enter the **Reader ID**, then choose **Connect existing reader**. The profile is retrieved from the cloud and saved in this vault. No separate sync credential is required.
-- In the original connected vault, the **Reader ID** is shown read-only under **Settings → True Buddha Pedia Analytics**. Copy that ID to the new vault. The credential field and copy-credential button have been removed.
+- In the original connected vault, the **Reader ID** is read-only and masked with asterisks by default; choose **Show Reader ID** to reveal it and **Hide Reader ID** to mask it again. Closing or refreshing settings hides it automatically. Find it under **Settings → True Buddha Pedia Analytics**. Copy that ID to the new vault. The credential field and copy-credential button have been removed.
 - The Reader ID is an account access key: it permits profile retrieval, profile updates and reading uploads, subject to active-account, consent and upload-permission checks. Keep it private. Unknown or disabled IDs cannot register a new reader.
 - Recovery performs only a cloud profile read and leaves existing device credentials valid. Existing incomplete profiles remain readable; complete missing fields before saving or uploading. Email ownership is unverified.
 
@@ -119,7 +119,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.20 release passes type checking and production builds. **99 of 100 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
+The v0.1.21 release passes type checking and production builds. **100 of 101 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)

@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "클라우드가 다른 독자를 반환했습니다. 복구를 저장하지 않았습니다.",
   "readerIdHelp": "독자 ID를 입력하여 프로필을 불러오세요. ID로 계정에 접근할 수 있으므로 비밀로 보관하세요.",
   "reflectionRemaining": "{remaining}자 남음 (최대 {limit}자)",
-  "reflectionTooLong": "저장하기 전에 감상을 {limit}자 이내로 줄여 주세요."
+  "reflectionTooLong": "저장하기 전에 감상을 {limit}자 이내로 줄여 주세요.",
+  "showReaderId": "독자 ID 표시",
+  "hideReaderId": "독자 ID 숨기기"
 }

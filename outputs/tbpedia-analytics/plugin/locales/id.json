@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "Cloud mengembalikan pembaca lain. Pemulihan tidak disimpan.",
   "readerIdHelp": "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun.",
   "reflectionRemaining": "Tersisa {remaining} karakter (maksimal {limit})",
-  "reflectionTooLong": "Persingkat refleksi menjadi {limit} karakter sebelum menyimpan."
+  "reflectionTooLong": "Persingkat refleksi menjadi {limit} karakter sebelum menyimpan.",
+  "showReaderId": "Tampilkan ID pembaca",
+  "hideReaderId": "Sembunyikan ID pembaca"
 }

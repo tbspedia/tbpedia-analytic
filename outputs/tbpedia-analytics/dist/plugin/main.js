@@ -6194,7 +6194,9 @@ var en_default2 = {
   readerRecoveryMismatch: "The cloud returned a different reader. Recovery was not saved.",
   readerIdHelp: "Enter your Reader ID to retrieve your profile. Keep it private: it grants access to your account.",
   reflectionRemaining: "{remaining} characters remaining (maximum {limit})",
-  reflectionTooLong: "Shorten your reflection to {limit} characters before saving."
+  reflectionTooLong: "Shorten your reflection to {limit} characters before saving.",
+  showReaderId: "Show Reader ID",
+  hideReaderId: "Hide Reader ID"
 };
 
 // plugin/locales/ja.json
@@ -6393,7 +6395,9 @@ var ja_default = {
   readerRecoveryMismatch: "\u5225\u306E\u8AAD\u8005\u60C5\u5831\u304C\u8FD4\u3055\u308C\u307E\u3057\u305F\u3002\u5FA9\u5143\u306F\u4FDD\u5B58\u3055\u308C\u3066\u3044\u307E\u305B\u3093\u3002",
   readerIdHelp: "\u8AAD\u8005ID\u3092\u5165\u529B\u3057\u3066\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002ID\u3067\u30A2\u30AB\u30A6\u30F3\u30C8\u306B\u30A2\u30AF\u30BB\u30B9\u3067\u304D\u308B\u305F\u3081\u3001\u79D8\u5BC6\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
   reflectionRemaining: "\u6B8B\u308A {remaining} \u6587\u5B57\uFF08\u6700\u5927 {limit} \u6587\u5B57\uFF09",
-  reflectionTooLong: "\u4FDD\u5B58\u3059\u308B\u524D\u306B\u611F\u60F3\u3092 {limit} \u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+  reflectionTooLong: "\u4FDD\u5B58\u3059\u308B\u524D\u306B\u611F\u60F3\u3092 {limit} \u6587\u5B57\u4EE5\u5185\u306B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
+  showReaderId: "\u8AAD\u8005ID\u3092\u8868\u793A",
+  hideReaderId: "\u8AAD\u8005ID\u3092\u96A0\u3059"
 };
 
 // plugin/locales/fr.json
@@ -6592,7 +6596,9 @@ var fr_default = {
   readerRecoveryMismatch: "Le serveur a renvoy\xE9 un autre lecteur. La restauration n\u2019a pas \xE9t\xE9 enregistr\xE9e.",
   readerIdHelp: "Saisissez votre identifiant pour r\xE9cup\xE9rer le profil. Gardez-le secret : il donne acc\xE8s au compte.",
   reflectionRemaining: "{remaining} caract\xE8res restants (maximum {limit})",
-  reflectionTooLong: "R\xE9duisez votre r\xE9flexion \xE0 {limit} caract\xE8res avant de sauvegarder."
+  reflectionTooLong: "R\xE9duisez votre r\xE9flexion \xE0 {limit} caract\xE8res avant de sauvegarder.",
+  showReaderId: "Afficher l\u2019identifiant du lecteur",
+  hideReaderId: "Masquer l\u2019identifiant du lecteur"
 };
 
 // plugin/locales/es.json
@@ -6791,7 +6797,9 @@ var es_default = {
   readerRecoveryMismatch: "La nube devolvi\xF3 otro lector. No se guard\xF3 la recuperaci\xF3n.",
   readerIdHelp: "Introduce tu ID de lector para recuperar el perfil. Mantenlo en secreto: permite acceder a tu cuenta.",
   reflectionRemaining: "Quedan {remaining} caracteres (m\xE1ximo {limit})",
-  reflectionTooLong: "Acorta tu reflexi\xF3n a {limit} caracteres antes de guardar."
+  reflectionTooLong: "Acorta tu reflexi\xF3n a {limit} caracteres antes de guardar.",
+  showReaderId: "Mostrar ID de lector",
+  hideReaderId: "Ocultar ID de lector"
 };
 
 // plugin/locales/de.json
@@ -6990,7 +6998,9 @@ var de_default = {
   readerRecoveryMismatch: "Die Cloud hat einen anderen Leser zur\xFCckgegeben. Die Wiederherstellung wurde nicht gespeichert.",
   readerIdHelp: "Geben Sie Ihre Leser-ID ein, um das Profil abzurufen. Halten Sie sie geheim: Sie gew\xE4hrt Kontozugriff.",
   reflectionRemaining: "Noch {remaining} Zeichen (maximal {limit})",
-  reflectionTooLong: "K\xFCrze deine Reflexion vor dem Speichern auf {limit} Zeichen."
+  reflectionTooLong: "K\xFCrze deine Reflexion vor dem Speichern auf {limit} Zeichen.",
+  showReaderId: "Leser-ID anzeigen",
+  hideReaderId: "Leser-ID verbergen"
 };
 
 // plugin/locales/nl.json
@@ -7189,7 +7199,9 @@ var nl_default = {
   readerRecoveryMismatch: "De cloud gaf een andere lezer terug. Het herstel is niet opgeslagen.",
   readerIdHelp: "Voer uw lezer-ID in om uw profiel op te halen. Houd deze geheim: deze geeft toegang tot uw account.",
   reflectionRemaining: "Nog {remaining} tekens (maximaal {limit})",
-  reflectionTooLong: "Kort je reflectie in tot {limit} tekens voordat je opslaat."
+  reflectionTooLong: "Kort je reflectie in tot {limit} tekens voordat je opslaat.",
+  showReaderId: "Lezers-ID tonen",
+  hideReaderId: "Lezers-ID verbergen"
 };
 
 // plugin/locales/sv.json
@@ -7388,7 +7400,9 @@ var sv_default = {
   readerRecoveryMismatch: "Molnet returnerade en annan l\xE4sare. \xC5terst\xE4llningen sparades inte.",
   readerIdHelp: "Ange ditt l\xE4sar-ID f\xF6r att h\xE4mta profilen. H\xE5ll det hemligt: det ger \xE5tkomst till kontot.",
   reflectionRemaining: "{remaining} tecken kvar (h\xF6gst {limit})",
-  reflectionTooLong: "Korta din reflektion till {limit} tecken innan du sparar."
+  reflectionTooLong: "Korta din reflektion till {limit} tecken innan du sparar.",
+  showReaderId: "Visa l\xE4sar-ID",
+  hideReaderId: "D\xF6lj l\xE4sar-ID"
 };
 
 // plugin/locales/ko.json
@@ -7587,7 +7601,9 @@ var ko_default = {
   readerRecoveryMismatch: "\uD074\uB77C\uC6B0\uB4DC\uAC00 \uB2E4\uB978 \uB3C5\uC790\uB97C \uBC18\uD658\uD588\uC2B5\uB2C8\uB2E4. \uBCF5\uAD6C\uB97C \uC800\uC7A5\uD558\uC9C0 \uC54A\uC558\uC2B5\uB2C8\uB2E4.",
   readerIdHelp: "\uB3C5\uC790 ID\uB97C \uC785\uB825\uD558\uC5EC \uD504\uB85C\uD544\uC744 \uBD88\uB7EC\uC624\uC138\uC694. ID\uB85C \uACC4\uC815\uC5D0 \uC811\uADFC\uD560 \uC218 \uC788\uC73C\uBBC0\uB85C \uBE44\uBC00\uB85C \uBCF4\uAD00\uD558\uC138\uC694.",
   reflectionRemaining: "{remaining}\uC790 \uB0A8\uC74C (\uCD5C\uB300 {limit}\uC790)",
-  reflectionTooLong: "\uC800\uC7A5\uD558\uAE30 \uC804\uC5D0 \uAC10\uC0C1\uC744 {limit}\uC790 \uC774\uB0B4\uB85C \uC904\uC5EC \uC8FC\uC138\uC694."
+  reflectionTooLong: "\uC800\uC7A5\uD558\uAE30 \uC804\uC5D0 \uAC10\uC0C1\uC744 {limit}\uC790 \uC774\uB0B4\uB85C \uC904\uC5EC \uC8FC\uC138\uC694.",
+  showReaderId: "\uB3C5\uC790 ID \uD45C\uC2DC",
+  hideReaderId: "\uB3C5\uC790 ID \uC228\uAE30\uAE30"
 };
 
 // plugin/locales/zh-TW.json
@@ -7786,7 +7802,9 @@ var zh_TW_default = {
   readerRecoveryMismatch: "\u96F2\u7AEF\u56DE\u50B3\u7684\u8B80\u8005\u4E0D\u7B26\uFF0C\u5C1A\u672A\u5132\u5B58\u6062\u5FA9\u8CC7\u6599\u3002",
   readerIdHelp: "\u8F38\u5165\u8B80\u8005 ID \u5373\u53EF\u53D6\u5F97\u500B\u4EBA\u8CC7\u6599\u3002\u6B64 ID \u53EF\u7528\u65BC\u5B58\u53D6\u60A8\u7684\u5E33\u6236\uFF0C\u8ACB\u59A5\u5584\u4FDD\u5BC6\u3002",
   reflectionRemaining: "\u9084\u53EF\u8F38\u5165 {remaining} \u5B57\uFF08\u6700\u591A {limit} \u5B57\uFF09",
-  reflectionTooLong: "\u8ACB\u5C07\u95B1\u8B80\u611F\u60F3\u7E2E\u77ED\u81F3 {limit} \u5B57\u4EE5\u5167\u518D\u5132\u5B58\u3002"
+  reflectionTooLong: "\u8ACB\u5C07\u95B1\u8B80\u611F\u60F3\u7E2E\u77ED\u81F3 {limit} \u5B57\u4EE5\u5167\u518D\u5132\u5B58\u3002",
+  showReaderId: "\u986F\u793A\u8B80\u8005 ID",
+  hideReaderId: "\u96B1\u85CF\u8B80\u8005 ID"
 };
 
 // plugin/locales/zh-CN.json
@@ -7985,7 +8003,9 @@ var zh_CN_default = {
   readerRecoveryMismatch: "\u4E91\u7AEF\u8FD4\u56DE\u7684\u8BFB\u8005\u4E0D\u7B26\uFF0C\u5C1A\u672A\u4FDD\u5B58\u6062\u590D\u8D44\u6599\u3002",
   readerIdHelp: "\u8F93\u5165\u8BFB\u8005 ID \u5373\u53EF\u83B7\u53D6\u4E2A\u4EBA\u8D44\u6599\u3002\u6B64 ID \u53EF\u7528\u4E8E\u8BBF\u95EE\u60A8\u7684\u8D26\u6237\uFF0C\u8BF7\u59A5\u5584\u4FDD\u5BC6\u3002",
   reflectionRemaining: "\u8FD8\u53EF\u8F93\u5165 {remaining} \u5B57\uFF08\u6700\u591A {limit} \u5B57\uFF09",
-  reflectionTooLong: "\u8BF7\u5C06\u9605\u8BFB\u611F\u60F3\u7F29\u77ED\u81F3 {limit} \u5B57\u4EE5\u5185\u518D\u4FDD\u5B58\u3002"
+  reflectionTooLong: "\u8BF7\u5C06\u9605\u8BFB\u611F\u60F3\u7F29\u77ED\u81F3 {limit} \u5B57\u4EE5\u5185\u518D\u4FDD\u5B58\u3002",
+  showReaderId: "\u663E\u793A\u8BFB\u8005 ID",
+  hideReaderId: "\u9690\u85CF\u8BFB\u8005 ID"
 };
 
 // plugin/locales/vi.json
@@ -8184,7 +8204,9 @@ var vi_default = {
   readerRecoveryMismatch: "\u0110\xE1m m\xE2y tr\u1EA3 v\u1EC1 \u0111\u1ED9c gi\u1EA3 kh\xE1c. Ch\u01B0a l\u01B0u kh\xF4i ph\u1EE5c.",
   readerIdHelp: "Nh\u1EADp ID \u0111\u1ED9c gi\u1EA3 \u0111\u1EC3 l\u1EA5y h\u1ED3 s\u01A1. Gi\u1EEF b\xED m\u1EADt v\xEC ID cho ph\xE9p truy c\u1EADp t\xE0i kho\u1EA3n.",
   reflectionRemaining: "C\xF2n {remaining} k\xFD t\u1EF1 (t\u1ED1i \u0111a {limit})",
-  reflectionTooLong: "H\xE3y r\xFAt ng\u1EAFn c\u1EA3m ngh\u0129 xu\u1ED1ng c\xF2n {limit} k\xFD t\u1EF1 tr\u01B0\u1EDBc khi l\u01B0u."
+  reflectionTooLong: "H\xE3y r\xFAt ng\u1EAFn c\u1EA3m ngh\u0129 xu\u1ED1ng c\xF2n {limit} k\xFD t\u1EF1 tr\u01B0\u1EDBc khi l\u01B0u.",
+  showReaderId: "Hi\u1EC7n ID \u0111\u1ED9c gi\u1EA3",
+  hideReaderId: "\u1EA8n ID \u0111\u1ED9c gi\u1EA3"
 };
 
 // plugin/locales/id.json
@@ -8383,7 +8405,9 @@ var id_default = {
   readerRecoveryMismatch: "Cloud mengembalikan pembaca lain. Pemulihan tidak disimpan.",
   readerIdHelp: "Masukkan ID pembaca untuk mengambil profil. Jaga kerahasiaannya karena ID memberikan akses akun.",
   reflectionRemaining: "Tersisa {remaining} karakter (maksimal {limit})",
-  reflectionTooLong: "Persingkat refleksi menjadi {limit} karakter sebelum menyimpan."
+  reflectionTooLong: "Persingkat refleksi menjadi {limit} karakter sebelum menyimpan.",
+  showReaderId: "Tampilkan ID pembaca",
+  hideReaderId: "Sembunyikan ID pembaca"
 };
 
 // plugin/locales/th.json
@@ -8582,7 +8606,9 @@ var th_default = {
   readerRecoveryMismatch: "\u0E04\u0E25\u0E32\u0E27\u0E14\u0E4C\u0E2A\u0E48\u0E07\u0E02\u0E49\u0E2D\u0E21\u0E39\u0E25\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\u0E01\u0E25\u0E31\u0E1A\u0E21\u0E32 \u0E22\u0E31\u0E07\u0E44\u0E21\u0E48\u0E44\u0E14\u0E49\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01\u0E01\u0E32\u0E23\u0E01\u0E39\u0E49\u0E04\u0E37\u0E19",
   readerIdHelp: "\u0E1B\u0E49\u0E2D\u0E19 ID \u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19\u0E40\u0E1E\u0E37\u0E48\u0E2D\u0E14\u0E36\u0E07\u0E42\u0E1B\u0E23\u0E44\u0E1F\u0E25\u0E4C \u0E40\u0E01\u0E47\u0E1A ID \u0E40\u0E1B\u0E47\u0E19\u0E04\u0E27\u0E32\u0E21\u0E25\u0E31\u0E1A\u0E40\u0E1E\u0E23\u0E32\u0E30\u0E43\u0E0A\u0E49\u0E40\u0E02\u0E49\u0E32\u0E16\u0E36\u0E07\u0E1A\u0E31\u0E0D\u0E0A\u0E35\u0E44\u0E14\u0E49",
   reflectionRemaining: "\u0E40\u0E2B\u0E25\u0E37\u0E2D {remaining} \u0E2D\u0E31\u0E01\u0E02\u0E23\u0E30 (\u0E2A\u0E39\u0E07\u0E2A\u0E38\u0E14 {limit})",
-  reflectionTooLong: "\u0E42\u0E1B\u0E23\u0E14\u0E22\u0E48\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E23\u0E39\u0E49\u0E2A\u0E36\u0E01\u0E43\u0E2B\u0E49\u0E40\u0E2B\u0E25\u0E37\u0E2D\u0E44\u0E21\u0E48\u0E40\u0E01\u0E34\u0E19 {limit} \u0E2D\u0E31\u0E01\u0E02\u0E23\u0E30\u0E01\u0E48\u0E2D\u0E19\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01"
+  reflectionTooLong: "\u0E42\u0E1B\u0E23\u0E14\u0E22\u0E48\u0E2D\u0E04\u0E27\u0E32\u0E21\u0E23\u0E39\u0E49\u0E2A\u0E36\u0E01\u0E43\u0E2B\u0E49\u0E40\u0E2B\u0E25\u0E37\u0E2D\u0E44\u0E21\u0E48\u0E40\u0E01\u0E34\u0E19 {limit} \u0E2D\u0E31\u0E01\u0E02\u0E23\u0E30\u0E01\u0E48\u0E2D\u0E19\u0E1A\u0E31\u0E19\u0E17\u0E36\u0E01",
+  showReaderId: "\u0E41\u0E2A\u0E14\u0E07\u0E23\u0E2B\u0E31\u0E2A\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19",
+  hideReaderId: "\u0E0B\u0E48\u0E2D\u0E19\u0E23\u0E2B\u0E31\u0E2A\u0E1C\u0E39\u0E49\u0E2D\u0E48\u0E32\u0E19"
 };
 
 // plugin/locales/bo.json
@@ -8781,7 +8807,9 @@ var bo_default = {
   readerRecoveryMismatch: "\u0F66\u0FA4\u0FB2\u0F72\u0F53\u0F0B\u0F58\u0F5B\u0F7C\u0F51\u0F0B\u0F53\u0F66\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F0B\u0F42\u0F5E\u0F53\u0F0B\u0F5E\u0F72\u0F42\u0F0B\u0F63\u0F7C\u0F42\u0F0B\u0F56\u0FB1\u0F74\u0F44\u0F0B\u0F0D \u0F66\u0FB3\u0F62\u0F0B\u0F42\u0F66\u0F7C\u0F0B\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0D",
   readerIdHelp: "\u0F62\u0F44\u0F0B\u0F42\u0F72\u0F0B ID \u0F56\u0F45\u0F74\u0F42\u0F0B\u0F53\u0F66\u0F0B\u0F42\u0F53\u0F66\u0F0B\u0F5A\u0F74\u0F63\u0F0B\u0F63\u0F7A\u0F53\u0F0B\u0F50\u0F74\u0F56\u0F0D \u0F51\u0F7A\u0F66\u0F0B\u0F62\u0FA9\u0F72\u0F66\u0F0B\u0F41\u0FB2\u0F62\u0F0B\u0F60\u0F47\u0F74\u0F42\u0F0B\u0F50\u0F74\u0F56\u0F0B\u0F54\u0F66\u0F0B\u0F42\u0F66\u0F44\u0F0B\u0F56\u0F62\u0F0B\u0F49\u0F62\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
   reflectionRemaining: "\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F56\u0FB2\u0F74\u0F0B {remaining} \u0F63\u0FB7\u0F42\u0F0B\u0F61\u0F7C\u0F51\u0F0D (\u0F58\u0F44\u0F0B\u0F58\u0F50\u0F60\u0F0B {limit})",
-  reflectionTooLong: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F5A\u0F7C\u0F62\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F56\u0FB2\u0F74\u0F0B {limit} \u0F53\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F50\u0F74\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D"
+  reflectionTooLong: "\u0F49\u0F62\u0F0B\u0F5A\u0F42\u0F66\u0F0B\u0F58\u0F0B\u0F56\u0FB1\u0F66\u0F0B\u0F42\u0F7C\u0F44\u0F0B\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F5A\u0F7C\u0F62\u0F0B\u0F61\u0F72\u0F42\u0F0B\u0F60\u0F56\u0FB2\u0F74\u0F0B {limit} \u0F53\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F50\u0F74\u0F44\u0F0B\u0F51\u0F74\u0F0B\u0F42\u0F4F\u0F7C\u0F44\u0F0B\u0F62\u0F7C\u0F42\u0F66\u0F0D",
+  showReaderId: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B ID \u0F66\u0F9F\u0F7C\u0F53\u0F0D",
+  hideReaderId: "\u0F40\u0FB3\u0F7C\u0F42\u0F0B\u0F54\u0F0B\u0F54\u0F7C\u0F60\u0F72\u0F0B ID \u0F66\u0FA6\u0F7A\u0F51\u0F0D"
 };
 
 // plugin/i18n.ts
@@ -9957,7 +9985,15 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
   plugin;
   existingReader = false;
   readerIdInput = "";
+  maskReaderId = () => {
+  };
+  hide() {
+    this.maskReaderId();
+  }
   display() {
+    this.maskReaderId();
+    this.maskReaderId = () => {
+    };
     setLocale(this.plugin.data.interface_language, (0, import_obsidian.getLanguage)());
     const el = this.containerEl;
     el.empty();
@@ -9978,9 +10014,33 @@ var AnalyticsSettings = class extends import_obsidian.PluginSettingTab {
     new import_obsidian.Setting(el).addButton((b) => b.setButtonText(t("\u6E2C\u8A66\u9023\u7DDA")).onClick(() => run(() => p.testConnection())));
     el.createEl("h3", { text: t("\u8B80\u8005\u500B\u4EBA\u8CC7\u6599") });
     if (p.data.reader_id) {
+      let revealed = false;
+      let updateValue = () => {
+      };
       new import_obsidian.Setting(el).setName(t("readerId")).setDesc(t("readerIdHelp")).addText((t2) => {
-        t2.setValue(p.data.reader_id);
         t2.inputEl.readOnly = true;
+        t2.inputEl.autocomplete = "off";
+        t2.inputEl.spellcheck = false;
+        t2.inputEl.setAttribute("aria-label", t("readerId"));
+        updateValue = () => {
+          t2.setValue(revealed ? p.data.reader_id : "*".repeat(36));
+        };
+        updateValue();
+      }).addButton((b) => {
+        const update = () => {
+          updateValue();
+          b.setButtonText(t(revealed ? "hideReaderId" : "showReaderId"));
+          b.buttonEl.setAttribute("aria-pressed", String(revealed));
+        };
+        this.maskReaderId = () => {
+          revealed = false;
+          update();
+        };
+        b.onClick(() => {
+          revealed = !revealed;
+          update();
+        });
+        update();
       });
     } else {
       new import_obsidian.Setting(el).setName(t("readerSetup")).addDropdown((d) => d.addOption("new", t("newReader")).addOption("existing", t("existingReader")).setValue(this.existingReader ? "existing" : "new").onChange((value) => {

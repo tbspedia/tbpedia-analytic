@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "Le serveur a renvoyé un autre lecteur. La restauration n’a pas été enregistrée.",
   "readerIdHelp": "Saisissez votre identifiant pour récupérer le profil. Gardez-le secret : il donne accès au compte.",
   "reflectionRemaining": "{remaining} caractères restants (maximum {limit})",
-  "reflectionTooLong": "Réduisez votre réflexion à {limit} caractères avant de sauvegarder."
+  "reflectionTooLong": "Réduisez votre réflexion à {limit} caractères avant de sauvegarder.",
+  "showReaderId": "Afficher l’identifiant du lecteur",
+  "hideReaderId": "Masquer l’identifiant du lecteur"
 }

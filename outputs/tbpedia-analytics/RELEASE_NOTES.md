@@ -1,3 +1,15 @@
+# v0.1.21 — Hide Reader ID by default
+
+Released 21 October 2026.
+
+- Displays the saved, read-only Reader ID as asterisks by default instead of exposing the account access key when settings open.
+- Adds explicit Show Reader ID / Hide Reader ID buttons with accessible pressed-state feedback and translations in all 14 interface languages.
+- Automatically restores the mask when settings close or refresh. Revealing the ID does not change the saved identity or upload credentials.
+- Retains desktop and mobile support and existing reader recovery.
+- Validation: type checking and production builds pass; 100 of 101 automated tests pass, including the reveal/hide/close/reopen regression. The existing local catalogue test still reports missing parent TBP-275. Physical mobile and native Obsidian UI testing have not been performed.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. No Worker deployment is required.
+
 # v0.1.20 — Android, iPhone and iPad support
 
 Released 20 October 2026.

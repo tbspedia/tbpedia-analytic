@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "La nube devolvió otro lector. No se guardó la recuperación.",
   "readerIdHelp": "Introduce tu ID de lector para recuperar el perfil. Mantenlo en secreto: permite acceder a tu cuenta.",
   "reflectionRemaining": "Quedan {remaining} caracteres (máximo {limit})",
-  "reflectionTooLong": "Acorta tu reflexión a {limit} caracteres antes de guardar."
+  "reflectionTooLong": "Acorta tu reflexión a {limit} caracteres antes de guardar.",
+  "showReaderId": "Mostrar ID de lector",
+  "hideReaderId": "Ocultar ID de lector"
 }

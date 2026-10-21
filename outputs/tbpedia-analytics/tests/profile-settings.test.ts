@@ -16,9 +16,10 @@ class Element{
   querySelectorAll(tag:string):Element[]{return this.children.flatMap(child=>[...(child.tag===tag?[child]:[]),...child.querySelectorAll(tag)]);}
   addEventListener(event:string,callback:()=>void){this.listeners.set(event,callback);}
   setCustomValidity(message:string){this.validity=message;}
+  setAttribute(name:string,value:string){this.options[name]=value;}
 }
 class Control{
-  inputEl=new Element('input');selectEl=new Element('select');value:unknown;options:Record<string,string>={};text='';change?:(v:string)=>void;click?:()=>void;
+  inputEl=new Element('input');selectEl=new Element('select');buttonEl=new Element('button');value:unknown;options:Record<string,string>={};text='';change?:(v:string)=>void;click?:()=>void;
   setValue(value:unknown){this.value=value;return this;}
   onChange(callback:(value:string)=>void){this.change=callback;return this;}
   addOption(key:string,label:string){this.options[key]=label;return this;}
@@ -29,7 +30,7 @@ class Control{
 }
 async function setup(){
   const settings:Array<{name:string;kind:string;control:Control}>=[];const notices:string[]=[];let saves=0;
-  let tab!:{display:()=>void;containerEl:Element};
+  let tab!:{display:()=>void;hide:()=>void;containerEl:Element};
   class Setting{
     name='';constructor(_el:Element){}setName(name:string){this.name=name;return this;}setDesc(){return this;}
     control(kind:string,cb:(c:Control)=>void){const control=new Control();cb(control);settings.push({name:this.name,kind,control});return this;}
@@ -45,7 +46,7 @@ async function setup(){
   instance.migrateReceipts=async()=>{};instance.refreshUpdaterMetadata=async()=>({seriesId:null,editionId:null,tbpedia:null,releaseId:null,languageCode:null,title:null});
   await instance.onload();
   const display=()=>{settings.length=0;tab.display();};
-  return {instance,settings,notices,display,get root(){return tab.containerEl;},get saves(){return saves;}};
+  return {instance,settings,notices,display,hide:()=>tab.hide(),get root(){return tab.containerEl;},get saves(){return saves;}};
 }
 test('settings omit the cloud summary and load option; all profile inputs are required',async()=>{
   const p=await setup();p.instance.data.reader_id='550e8400-e29b-41d4-a716-446655440000';
@@ -63,6 +64,20 @@ test('reader type checkboxes permit multiple selections and require at least one
   assert.equal(JSON.stringify(p.instance.data.profile.reader_type),JSON.stringify(['GENERAL','NEW_REFUGE']));assert.ok(inputs.every(input=>!input.validity));
   for(const input of inputs){input.checked=false;input.listeners.get('change')!();}
   assert.equal(p.instance.data.profile.reader_type,null);assert.ok(inputs.every(input=>input.validity));
+});
+
+test('Reader ID is masked until explicitly revealed and remasked on hiding or reopening settings',async()=>{
+  const p=await setup();const id='550e8400-e29b-41d4-a716-446655440000';p.instance.data.reader_id=id;p.display();
+  const input=p.settings.find(s=>s.name==='Reader ID'&&s.kind==='text')!.control;
+  const button=p.settings.find(s=>s.name==='Reader ID'&&s.kind==='button')!.control;
+  assert.equal(input.value,'*'.repeat(36));assert.ok(input.inputEl.readOnly);
+  assert.equal(button.text,'Show Reader ID');assert.equal(button.buttonEl.options['aria-pressed'],'false');
+  button.click!();assert.equal(input.value,id);assert.equal(button.text,'Hide Reader ID');assert.equal(button.buttonEl.options['aria-pressed'],'true');
+  button.click!();assert.equal(input.value,'*'.repeat(36));
+  button.click!();p.hide();assert.equal(input.value,'*'.repeat(36));assert.equal(button.text,'Show Reader ID');
+  button.click!();p.display();assert.equal(input.value,'*'.repeat(36));
+  assert.equal(p.settings.find(s=>s.name==='Reader ID'&&s.kind==='text')!.control.value,'*'.repeat(36));
+  assert.equal(p.instance.data.reader_id,id);
 });
 test('unlinked readers can choose reader ID recovery instead of registering a new profile',async()=>{
   const p=await setup();p.display();

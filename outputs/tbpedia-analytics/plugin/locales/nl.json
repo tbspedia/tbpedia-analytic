@@ -193,5 +193,7 @@
   "readerRecoveryMismatch": "De cloud gaf een andere lezer terug. Het herstel is niet opgeslagen.",
   "readerIdHelp": "Voer uw lezer-ID in om uw profiel op te halen. Houd deze geheim: deze geeft toegang tot uw account.",
   "reflectionRemaining": "Nog {remaining} tekens (maximaal {limit})",
-  "reflectionTooLong": "Kort je reflectie in tot {limit} tekens voordat je opslaat."
+  "reflectionTooLong": "Kort je reflectie in tot {limit} tekens voordat je opslaat.",
+  "showReaderId": "Lezers-ID tonen",
+  "hideReaderId": "Lezers-ID verbergen"
 }
