@@ -2,7 +2,7 @@
 
 An Obsidian plugin for local reading progress and deliberate, authenticated uploads to NocoDB.
 
-**Latest release: [v0.1.21](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.21)** — Reader ID hidden behind asterisks by default, with an explicit Show/Hide control on desktop and mobile.
+**Latest release: [v0.1.22](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.22)** — Self-hosted NocoDB migration with existing reader identities and plugin settings preserved.
 
 ## Install or upgrade
 

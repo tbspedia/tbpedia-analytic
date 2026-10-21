@@ -2,7 +2,7 @@
 
 An offline-first Obsidian reading editor with deliberate, authenticated uploads to NocoDB. This implementation uses the sample AnalyticsV1 vault and the new `tbpedia-analytics` NocoDB project/Cloudflare Worker.
 
-Latest published plugin release: **0.1.21**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.21).
+Latest published plugin release: **0.1.22**. [Download release assets](https://github.com/tbspedia/tbpedia-analytic/releases/tag/v0.1.22).
 
 Version 0.1.21 masks the saved Reader ID with asterisks until you click **Show Reader ID**. Click **Hide Reader ID** to conceal it again; closing or refreshing settings also restores the mask. The change supports desktop, Android, iPhone and iPad, and the underlying saved ID is unchanged.
 
@@ -141,7 +141,7 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 
 See `reports/nocodb-migration-20261021.json` for the current database migration verification and `reports/deployment-status.json` for historical deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
-The Worker is deployed and configured. The v0.1.21 plugin passes type checking and production builds; 100 of 101 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
+The Worker is deployed and configured. The v0.1.22 plugin passes type checking and production builds; 100 of 101 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
 ## Start using the sample vault
 

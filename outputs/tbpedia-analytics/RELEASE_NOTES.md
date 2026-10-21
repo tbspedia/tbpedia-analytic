@@ -1,3 +1,17 @@
+# v0.1.22 — Self-hosted NocoDB migration
+
+Released 21 October 2026.
+
+- Uses the migrated analytics backend at `https://cfanalytics.tbpedia.org`, backed by `https://nocodb.tbpedia.org` and base `pk5gkscsb1ke74u`.
+- Updates deployment defaults, generated Worker bindings, tests and administrative scripts to the migrated readers, content and reading tables.
+- Retains existing reader IDs, credential hashes, reading records, saved profile choices and manual upload permissions. The database service token remains server-side.
+- Keeps the Reader ID masking, desktop/mobile support and existing plugin endpoint.
+- Both existing readers authenticated against the migrated backend; all 245 catalogue items and 29 reading records were verified.
+
+Validation: TypeScript and production builds pass; 100 of 101 tests pass. The existing local sample-vault catalogue test still reports two notes missing parent `TBP-275`. Native Obsidian and physical mobile UI tests were not repeated.
+
+Upgrade: preserve `data.json`, replace `main.js`, `manifest.json` and `styles.css`, then reload the plugin or restart Obsidian. The database cutover is already live; this release does not redeploy the Worker.
+
 # v0.1.21 — Hide Reader ID by default
 
 Released 21 October 2026.
