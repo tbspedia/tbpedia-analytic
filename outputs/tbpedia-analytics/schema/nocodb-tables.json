@@ -410,21 +410,6 @@
         "type": "LongText"
       },
       {
-        "title": "LegacyCloudRecordId",
-        "type": "Number",
-        "description": "Original NocoDB Cloud record ID, preserved from migration."
-      },
-      {
-        "title": "LegacyCloudCreatedAt",
-        "type": "DateTime",
-        "description": "Original NocoDB Cloud creation timestamp, preserved from migration."
-      },
-      {
-        "title": "LegacyCloudUpdatedAt",
-        "type": "DateTime",
-        "description": "Original NocoDB Cloud update timestamp, preserved from migration."
-      },
-      {
         "title": "SourceRecordId",
         "type": "Formula",
         "description": "Current self-hosted record ID.",

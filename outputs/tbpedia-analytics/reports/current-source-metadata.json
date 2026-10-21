@@ -28,18 +28,21 @@
   "synthetic_rows_removed": true,
   "date": "2026-10-21",
   "existing_records_verified": 32,
-  "historical_cloud_values_preserved": true,
   "all_current_source_fields_populated": true,
-  "legacy_fields": [
-    "LegacyCloudRecordId",
-    "LegacyCloudCreatedAt",
-    "LegacyCloudUpdatedAt"
-  ],
   "formulas": {
     "SourceRecordId": "{Id}",
     "SourceCreatedAt": "{CreatedAt}",
     "SourceUpdatedAt": "IF({UpdatedAt}, {UpdatedAt}, {CreatedAt})"
   },
   "plugin_reinstall_required": false,
-  "worker_redeployment_required": false
+  "worker_redeployment_required": false,
+  "legacy_fields_removed_by_user_request": true,
+  "records_verified_after_legacy_removal": 33,
+  "current_source_fields_verified_after_removal": true,
+  "historical_cloud_values_preserved_before_user_requested_removal": true,
+  "removed_legacy_fields": [
+    "LegacyCloudRecordId",
+    "LegacyCloudCreatedAt",
+    "LegacyCloudUpdatedAt"
+  ]
 }

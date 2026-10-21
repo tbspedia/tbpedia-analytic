@@ -302,10 +302,10 @@ future record. The Worker sends reading values normally; it does not submit
 these calculated fields or maintain a second copy of the timestamps. The ID
 and creation time stay stable while the update time advances on later saves.
 
-The former migration-only fields were renamed to `LegacyCloudRecordId`,
-`LegacyCloudCreatedAt` and `LegacyCloudUpdatedAt` without changing their values
-or field IDs. All 32 pre-change reading records were checked: current Source
-metadata is populated and every historical cloud value is preserved.
+The three legacy migration columns were removed on 21 October 2026 at the
+user’s request. Existing reading records remain, and their current Source ID,
+creation time and update time were verified after removal. The saved schema
+definition also omits the legacy columns.
 
 Refresh the NocoDB table after this schema change to see the new field identities.
 The current plugin and Worker support the change without a redeployment.
