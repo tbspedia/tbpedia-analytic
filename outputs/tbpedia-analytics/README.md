@@ -286,3 +286,26 @@ are updated through the existing upsert instead of duplicated.
 Type checking, builds and all 28 targeted Worker/list tests passed. Live
 uploads with empty lists, a reader type, mixed values, and cleared lists all
 succeeded and retained one record across retries. Synthetic records were removed.
+
+## Current reading record Source metadata — 21 October 2026
+
+The reading table now uses these fields for current self-hosted tracking:
+
+| Field | Automatic value |
+| --- | --- |
+| `SourceRecordId` | Current record `Id` |
+| `SourceCreatedAt` | Native `CreatedAt` |
+| `SourceUpdatedAt` | Native `UpdatedAt`, or `CreatedAt` until the first update |
+
+These are read-only NocoDB Formula fields, calculated for every existing and
+future record. The Worker sends reading values normally; it does not submit
+these calculated fields or maintain a second copy of the timestamps. The ID
+and creation time stay stable while the update time advances on later saves.
+
+The former migration-only fields were renamed to `LegacyCloudRecordId`,
+`LegacyCloudCreatedAt` and `LegacyCloudUpdatedAt` without changing their values
+or field IDs. All 32 pre-change reading records were checked: current Source
+metadata is populated and every historical cloud value is preserved.
+
+Refresh the NocoDB table after this schema change to see the new field identities.
+The current plugin and Worker support the change without a redeployment.
