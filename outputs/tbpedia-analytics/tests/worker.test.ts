@@ -7,7 +7,7 @@ import type {Fetcher,NocoRow} from '../worker/src/nocodb';
 
 const token='A'.repeat(43);
 const readerId='8b73ca2e-44a7-4d6b-b5b9-1f3f2b8ea201';
-const env:Env={NOCODB_URL:'https://app.nocodb.com',NOCODB_BASE_ID:'pwxyh62oc4wdhbg',READERS_TABLE_ID:'m0jtd86do2fo2vv',CONTENT_TABLE_ID:'m22h8q52rgo45i8',READING_TABLE_ID:'mmphejly9cd41bk',PROFILE_NOTICE_VERSION:'profile-v2',READING_NOTICE_VERSION:'reading-v1',NOCODB_API_TOKEN:'test-service-token'};
+const env:Env={NOCODB_URL:'https://nocodb.tbpedia.org',NOCODB_BASE_ID:'pk5gkscsb1ke74u',READERS_TABLE_ID:'mfm8g7avui42yc2',CONTENT_TABLE_ID:'mxaz7a2x6a4bu3m',READING_TABLE_ID:'mqb9kdgs3h3vvli',PROFILE_NOTICE_VERSION:'profile-v2',READING_NOTICE_VERSION:'reading-v1',NOCODB_API_TOKEN:'test-service-token'};
 async function backend(){
   const tables:Record<string,NocoRow[]>={
     [env.READERS_TABLE_ID]:[{id:1,fields:{...emptyProfile(),reader_id:readerId,nickname:'Synthetic reader',sync_token_hash:await sha256(token),account_status:'ACTIVE',cloud_sync_enabled:true,profile_consent_version:'profile-v2',profile_consent_at:'2026-10-17T00:00:00Z',reading_consent_version:'reading-v1',reading_consent_at:'2026-10-17T00:00:00Z'}}],

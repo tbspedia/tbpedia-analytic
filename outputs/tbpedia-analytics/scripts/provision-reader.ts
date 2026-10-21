@@ -18,7 +18,7 @@ if(args.includes('--prepare-only')){
 }else{
   const serviceToken=process.env.NOCODB_API_TOKEN;const base=process.env.NOCODB_BASE_ID;const table=process.env.READERS_TABLE_ID;
   if(!serviceToken||!base||!table)throw new Error('Set NOCODB_API_TOKEN, NOCODB_BASE_ID and READERS_TABLE_ID, or use --prepare-only. Credential file was prepared but enrollment did not run.');
-  const response=await fetch(`${process.env.NOCODB_URL??'https://app.nocodb.com'}/api/v3/data/${base}/${table}/records`,{method:'POST',headers:{'xc-token':serviceToken,'content-type':'application/json'},body:JSON.stringify([{fields}]),redirect:'error',signal:AbortSignal.timeout(30000)});
+  const response=await fetch(`${process.env.NOCODB_URL??'https://nocodb.tbpedia.org'}/api/v3/data/${base}/${table}/records`,{method:'POST',headers:{'xc-token':serviceToken,'content-type':'application/json'},body:JSON.stringify([{fields}]),redirect:'error',signal:AbortSignal.timeout(30000)});
   if(!response.ok)throw new Error(`Enrollment failed with HTTP ${response.status}. Credential is not enrolled.`);
   await response.body?.cancel();console.log(JSON.stringify({reader_id:readerId,credential_file:output,created_remotely:true}));
 }

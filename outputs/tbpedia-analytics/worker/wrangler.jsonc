@@ -10,11 +10,11 @@
   "preview_urls": false,
   "observability": {"enabled": true, "head_sampling_rate": 1, "logs": {"enabled": true, "invocation_logs": false}},
   "vars": {
-    "NOCODB_URL": "https://app.nocodb.com",
-    "NOCODB_BASE_ID": "pwxyh62oc4wdhbg",
-    "READERS_TABLE_ID": "m0jtd86do2fo2vv",
-    "CONTENT_TABLE_ID": "m22h8q52rgo45i8",
-    "READING_TABLE_ID": "mmphejly9cd41bk",
+    "NOCODB_URL": "https://nocodb.tbpedia.org",
+    "NOCODB_BASE_ID": "pk5gkscsb1ke74u",
+    "READERS_TABLE_ID": "mfm8g7avui42yc2",
+    "CONTENT_TABLE_ID": "mxaz7a2x6a4bu3m",
+    "READING_TABLE_ID": "mqb9kdgs3h3vvli",
     "PROFILE_NOTICE_VERSION": "profile-v2",
     "READING_NOTICE_VERSION": "reading-v1"
   },

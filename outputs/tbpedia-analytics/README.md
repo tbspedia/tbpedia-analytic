@@ -130,16 +130,16 @@ Run `npm run check` to typecheck, verify catalog parity/placeholders and error-c
 |---|---|
 | Worker name | `tbpedia-analytics` |
 | Expected API URL | `https://cfanalytics.tbpedia.org` |
-| NocoDB project | `tbpedia-analytics` |
-| NocoDB base ID | `pwxyh62oc4wdhbg` |
-| Readers table | `m0jtd86do2fo2vv` |
-| Content table | `m22h8q52rgo45i8` |
-| Reading table | `mmphejly9cd41bk` |
+| NocoDB project | `tbpedia-database` |
+| NocoDB base ID | `pk5gkscsb1ke74u` |
+| Readers table | `mfm8g7avui42yc2` |
+| Content table | `mxaz7a2x6a4bu3m` |
+| Reading table | `mqb9kdgs3h3vvli` |
 | Local vault | `C:\Users\lotus\OneDrive - SJKC Yu Hua Kajang\Obsidian\AnalyticsV1` |
 
-[Open the NocoDB catalogue](https://app.nocodb.com/whvc04xw/pwxyh62oc4wdhbg/m22h8q52rgo45i8)
+[Open the NocoDB catalogue](https://nocodb.tbpedia.org/w18ay3wx/pk5gkscsb1ke74u/mxaz7a2x6a4bu3m)
 
-See `reports/deployment-status.json` for verified deployment status; the expected URL alone is not evidence that cloud capture is configured.
+See `reports/nocodb-migration-20261021.json` for the current database migration verification and `reports/deployment-status.json` for historical deployment status; the expected URL alone is not evidence that cloud capture is configured.
 
 The Worker is deployed and configured. The v0.1.21 plugin passes type checking and production builds; 100 of 101 automated tests pass. The existing local vault catalogue test reports missing parent `TBP-275` for two notes. The six-field updater integration was verified with 12 live API checks and NocoDB read-back; synthetic test rows were removed. See `reports/live-updater.json` for that integration run and `reports/release-verification.json` for the packaged release. New installations start with both notices accepted and manual upload permission enabled; upgrades preserve the reader’s existing choices. Native interactive Obsidian QA has not been performed.
 
@@ -256,3 +256,16 @@ The later Community Edition target uses SQLite; NocoDB Cloud manages its own bac
 Manual reading uploads require the note frontmatter to contain `tbpedia_reading_updated_at`. Notes without this field are excluded from the pending preview and skipped by both changed-article and current-article sync, even when forced. Saving reading data through the plugin adds this timestamp automatically. Existing cloud records are not deleted.
 
 Reading timestamps: `client_updated_at` uses the note's `tbpedia_reading_updated_at` (last local save). After a verified upload, the plugin writes the returned server `synced_at` into `tbpedia_reading_sync_at`, so the note and NocoDB share the same sync timestamp. The verified hash is saved as `tbpedia_reading_sync_hash` in the same frontmatter write. Receipt fields are excluded from hash input. Failed uploads do not update these fields; notes edited during upload are not marked as synced for the newer local version.
+
+## Self-hosted NocoDB migration — 21 October 2026
+
+The live Worker now uses `https://nocodb.tbpedia.org` and base
+`pk5gkscsb1ke74u`. The service token is stored only in the Worker secret
+`NOCODB_API_TOKEN`; provide it through the environment when running administrative
+scripts. Never place it in the Obsidian plugin, generated assets or Git.
+
+All 245 catalogue entries, both stable reader identities and credential hashes,
+and all 29 reading records were verified in the new base. Both existing readers
+authenticated successfully through `https://cfanalytics.tbpedia.org/v1/me`.
+Worker code and reader-facing endpoints were retained during the settings-only
+cutover. Existing notice versions and reader permissions were preserved.

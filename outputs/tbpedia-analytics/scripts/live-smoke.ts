@@ -4,15 +4,16 @@ import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {randomBytes,randomUUID,createHash} from 'node:crypto';
 import {defaults,emptyProfile} from '../shared/schema';
 
-const service=JSON.parse(await readFile('private/worker-secrets.json','utf8')) as {NOCODB_API_TOKEN:string};
-const base='pwxyh62oc4wdhbg',readers='m0jtd86do2fo2vv',readings='mmphejly9cd41bk';
+const serviceToken=process.env.NOCODB_API_TOKEN;
+if(!serviceToken)throw new Error('Set NOCODB_API_TOKEN in the environment; never pass it as a command-line argument.');
+const base='pk5gkscsb1ke74u',readers='mfm8g7avui42yc2',readings='mqb9kdgs3h3vvli';
 const api=DEFAULT_API;
 const token=randomBytes(32).toString('base64url'),readerId=randomUUID();
 const checks:Array<{name:string;status:string}>=[];let createdReaderId:string|number|undefined;
 const createdReadingIds:Array<string|number>=[];
 async function noco(table:string,method='GET',body?:unknown,where?:string){
-  const url=new URL(`https://app.nocodb.com/api/v3/data/${base}/${table}/records`);if(where)url.searchParams.set('where',where);
-  const response=await fetch(url,{method,headers:{'xc-token':service.NOCODB_API_TOKEN,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),redirect:'error',signal:AbortSignal.timeout(30000)});
+  const url=new URL(`https://nocodb.tbpedia.org/api/v3/data/${base}/${table}/records`);if(where)url.searchParams.set('where',where);
+  const response=await fetch(url,{method,headers:{'xc-token':serviceToken,'content-type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),redirect:'error',signal:AbortSignal.timeout(30000)});
   if(!response.ok){await response.body?.cancel();throw new Error(`NocoDB ${method} failed with HTTP ${response.status}`);}
   return await response.json() as {records:Array<{id:string|number;fields:Record<string,unknown>}>};
 }

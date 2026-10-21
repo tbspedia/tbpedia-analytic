@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-21",
+  "database_host": "https://nocodb.tbpedia.org",
+  "base_id": "pk5gkscsb1ke74u",
+  "tables": {
+    "readers": "mfm8g7avui42yc2",
+    "content_items": "mxaz7a2x6a4bu3m",
+    "reading_records": "mqb9kdgs3h3vvli"
+  },
+  "worker_version": "0b604d69-ff6f-4893-ac4e-d1fb661d8902",
+  "traffic_percent": 100,
+  "catalogue_entries_verified": 245,
+  "reader_identities_and_hashes_verified": 2,
+  "reading_records_verified": 29,
+  "authenticated_existing_readers_verified": 2,
+  "code_changed_during_cutover": false,
+  "token_committed": false,
+  "typecheck": "passed",
+  "targeted_tests_passed": 37
+}
