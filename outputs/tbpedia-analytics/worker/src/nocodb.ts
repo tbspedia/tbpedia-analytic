@@ -76,9 +76,9 @@ export function readReading(fields:Record<string,unknown>):ReadingValues{
   for(const key of READING_KEYS){
     let value=fields[key];
     if(['my_keywords','my_reader_types','my_subtopics'].includes(key)){
-      // MultiSelect returns arrays (or null for an empty cell). Read old JSON text
-      // as well so backups and records encountered during migration remain valid.
-      if(value===null)value=[];
+      // Empty MultiSelect cells vary by NocoDB backend: null, [] or "".
+      // Retain legacy JSON-list support without accepting malformed saved values.
+      if(value===null||value==='')value=[];
       else if(typeof value==='string'){
         try{value=JSON.parse(value) as unknown;}catch{throw new ApiError(502,'BACKEND_ERROR','A saved list could not be parsed.');}
       }

@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-21",
+  "worker_version_id": "d02a08e5-6793-4046-b1d8-6ea09fa3ddf4",
+  "root_cause": "Self-hosted NocoDB serializes empty MultiSelect cells as an empty string.",
+  "regression_before": {
+    "passed": 26,
+    "failed": 2
+  },
+  "regression_after": {
+    "passed": 28,
+    "failed": 0
+  },
+  "typecheck": "passed",
+  "build": "passed",
+  "live_cases": [
+    "empty-lists",
+    "existing-reader-type",
+    "mixed-values",
+    "clear-lists"
+  ],
+  "live_status_codes": [
+    200,
+    200,
+    200,
+    200
+  ],
+  "records_after_repeated_synthetic_uploads": 1,
+  "synthetic_records_removed": true,
+  "real_reader_data_modified": false,
+  "plugin_reinstall_required": false
+}

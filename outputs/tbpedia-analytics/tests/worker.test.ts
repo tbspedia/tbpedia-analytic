@@ -259,3 +259,26 @@ test('unknown, malformed or disabled Reader IDs never enroll or change readers',
   assert.equal(b.calls.filter(call=>call.method!=='GET').length,0);assert.equal(b.tables[env.READERS_TABLE_ID]!.length,1);
  }
 });
+
+
+test('reading uploads verify self-hosted empty-string multi-select cells and remain idempotent',async()=>{
+  const db=await backend();
+  const fetcher:Fetcher=async(input,init)=>{
+    const response=await db.fetcher(input,init);
+    if((init?.method??'GET')==='GET'&&new URL(input).pathname.includes(`/${env.READING_TABLE_ID}/records/`)){
+      const row=await response.json() as NocoRow;
+      for(const key of ['my_keywords','my_subtopics','my_reader_types']){
+        if(Array.isArray(row.fields[key])&&(row.fields[key] as unknown[]).length===0)row.fields[key]='';
+      }
+      return Response.json(row);
+    }
+    return response;
+  };
+  for(const values of [defaults(),{...defaults(),my_reader_types:['GENERAL' as const]},defaults()]){
+    const request={...payload(),values};
+    const response=await handle(req('/v1/reading/sync','POST',request),env,fetcher);
+    assert.equal(response.status,200,JSON.stringify(await response.clone().json()));
+    assert.equal((await response.json() as {snapshot_hash:string}).snapshot_hash,await snapshotHash(request.content_id,values));
+  }
+  assert.equal(db.tables[env.READING_TABLE_ID]!.length,1);
+});

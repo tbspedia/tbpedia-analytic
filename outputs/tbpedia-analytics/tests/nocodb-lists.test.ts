@@ -9,9 +9,9 @@ test('multi-select lists round-trip as native arrays, including Chinese and quot
   assert.deepEqual(fields.my_keywords,values.my_keywords);
   assert.deepEqual(readReading(fields),values);
 });
-test('empty multi-select cells support null and arrays, with legacy JSON compatibility',()=>{
+test('empty multi-select cells support self-hosted empty strings, null and arrays, with legacy JSON compatibility',()=>{
   const fields=readingFields(defaults());
-  for(const empty of [null,[],'[]'])assert.deepEqual(readReading({...fields,my_keywords:empty,my_subtopics:empty,my_reader_types:empty}),defaults());
+  for(const empty of ['',null,[],'[]'])assert.deepEqual(readReading({...fields,my_keywords:empty,my_subtopics:empty,my_reader_types:empty}),defaults());
   assert.deepEqual(readReading({...fields,my_keywords:'["菩提心"]'}).my_keywords,['菩提心']);
   for(const invalid of [undefined,'not JSON','{}',[123]])assert.throws(()=>readReading({...fields,my_keywords:invalid}));
 });

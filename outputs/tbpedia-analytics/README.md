@@ -269,3 +269,20 @@ and all 29 reading records were verified in the new base. Both existing readers
 authenticated successfully through `https://cfanalytics.tbpedia.org/v1/me`.
 Worker code and reader-facing endpoints were retained during the settings-only
 cutover. Existing notice versions and reader permissions were preserved.
+
+## Reading verification fix — 21 October 2026
+
+Self-hosted NocoDB returns empty multi-select cells as an empty string. The
+analytics Worker now normalizes that representation to an empty list before
+verifying saved reading fields. Array and null responses, legacy JSON arrays,
+and strict checks against malformed values are retained.
+
+Backend revision `d02a08e5-6793-4046-b1d8-6ea09fa3ddf4` fixes the error
+“The database operation could not be verified” caused by empty keywords,
+reader types or subtopics. Existing plugins can retry their manual upload;
+no plugin reinstall is required. Records saved before the verification error
+are updated through the existing upsert instead of duplicated.
+
+Type checking, builds and all 28 targeted Worker/list tests passed. Live
+uploads with empty lists, a reader type, mixed values, and cleared lists all
+succeeded and retained one record across retries. Synthetic records were removed.
