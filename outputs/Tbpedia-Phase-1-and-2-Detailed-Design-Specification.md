@@ -180,6 +180,26 @@ One row represents the latest saved cloud snapshot for a reader and content item
 | `languageCode` | Single line text | Optional/null | Collection language, 1–64 characters when present |
 | `title` | Long text | Optional/null | Collection title, 1–1,000 characters when present |
 
+#### Current timestamp mapping and table visibility
+
+The self-hosted reading view shows `Id`, `client_updated_at` and `synced_at`
+alongside reading values and collection metadata. The native NocoDB system
+fields `CreatedAt` and `UpdatedAt` remain in the database but are hidden in
+this view. They are database audit fields, not note frontmatter timestamps;
+`UpdatedAt` may remain null until the record's first update.
+
+| Frontmatter property | API/database field | Lifecycle |
+| --- | --- | --- |
+| `tbpedia_reading_updated_at` | `client_updated_at` | Plugin local-save time sent unchanged in a manual upload |
+| `tbpedia_reading_sync_at` | `synced_at` | Server save time returned and written to the note after verification |
+| `tbpedia_reading_sync_hash` | `snapshot_hash` | Verified server snapshot digest written with the sync time |
+
+The redundant `SourceRecordId`, `SourceCreatedAt`, `SourceUpdatedAt`,
+`LegacyCloudRecordId`, `LegacyCloudCreatedAt` and `LegacyCloudUpdatedAt`
+columns were removed on 21 October 2026. Do not recreate them when provisioning
+`reading_records`. This changes the database schema/view only; it does not
+change the sync request contract or remove any personal reading frontmatter.
+
 The logical key is `(reader_id, content_id)`. Keep reader demographics only in `readers`; do not copy birth information, sex or organisation into every reading row. Future reporting can join through `reader_id`.
 
 Do not add an event table, event IDs, server revisions or per-action timestamps. The five reading dates store the latest occurrence of their respective statuses. Older occurrences are not retained by the MVP.

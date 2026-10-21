@@ -1,3 +1,14 @@
+# Post-release database and documentation updates — 21 October 2026
+
+These updates apply to the deployed service and database after plugin v0.1.22.
+They do not require a plugin reinstall or a version bump.
+
+- Fixed reading-save verification when self-hosted NocoDB returns empty multi-select cells as empty strings. All 28 targeted tests and four live reading-upload cases passed; temporary test records were removed.
+- Removed redundant `SourceRecordId`, `SourceCreatedAt`, `SourceUpdatedAt` and all three `LegacyCloud…` columns from `reading_records` and its setup schema.
+- Hid the native `CreatedAt` and `UpdatedAt` system columns in the reading view. NocoDB retains these fields internally.
+- Documented the exact frontmatter mappings: `tbpedia_reading_updated_at` → `client_updated_at`; server `synced_at` → `tbpedia_reading_sync_at` after successful verification. The verified `snapshot_hash` is saved as `tbpedia_reading_sync_hash`.
+- Retained `Id`, `client_updated_at`, `synced_at`, reading values, reader identities and existing note receipts. Refresh an open NocoDB table to load the updated layout.
+
 # v0.1.22 — Self-hosted NocoDB migration
 
 Released 21 October 2026.

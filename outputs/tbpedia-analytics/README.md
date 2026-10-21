@@ -289,18 +289,43 @@ succeeded and retained one record across retries. Synthetic records were removed
 
 ## Reading record IDs and timestamps — 21 October 2026
 
-The reading table uses these fields:
+The reading table uses the following record and timestamp fields:
 
-| Field | Purpose |
-| --- | --- |
-| `Id` | Current database record ID |
-| `CreatedAt` | Native database record creation timestamp |
-| `UpdatedAt` | Native database record modification timestamp; may be null until the first update |
-| `client_updated_at` | Note frontmatter `tbpedia_reading_updated_at`, sent by the plugin |
-| `synced_at` | Server sync timestamp, returned to note frontmatter `tbpedia_reading_sync_at` after verification |
+| Database field | Visibility | Purpose |
+| --- | --- | --- |
+| `Id` | Visible | NocoDB record ID; stays the same when the reader/content row is updated |
+| `client_updated_at` | Visible | Exact `tbpedia_reading_updated_at` value sent from the note |
+| `synced_at` | Visible | Server timestamp assigned when saving the cloud snapshot |
+| `CreatedAt` | Hidden system field | Native database record creation time |
+| `UpdatedAt` | Hidden system field | Native database modification time; may be null until the first update |
 
-The redundant `SourceRecordId`, `SourceCreatedAt` and `SourceUpdatedAt`
-formula columns were removed at the user's request. The three `LegacyCloud…`
-migration columns had also been removed. Their definitions are omitted from the
-current setup schema. Reading records and the five fields above are retained.
-The existing plugin and Worker support this simplified table without redeployment.
+### Note frontmatter mapping
+
+| Note frontmatter | Database mapping | Written by |
+| --- | --- | --- |
+| `tbpedia_reading_updated_at` | Sent as `client_updated_at` | Plugin when reading data is saved locally |
+| `tbpedia_reading_sync_at` | Receives server `synced_at` | Plugin after a successful, verified upload |
+| `tbpedia_reading_sync_hash` | Receives server `snapshot_hash` | Plugin in the same frontmatter write as the sync time |
+
+A local save changes the reading values and `tbpedia_reading_updated_at`; it
+does not confirm that the data is in the cloud. During manual sync, the Worker
+saves `client_updated_at` from the request and assigns `synced_at` using server
+time. The plugin writes the returned receipt only after checking the content
+ID, snapshot hash, and that the local note still matches the submitted values
+and local save timestamp. Failed uploads do not mark newer local data synced.
+
+`CreatedAt` and `UpdatedAt` are managed by NocoDB and hidden in this table's
+view. They are independent database audit timestamps and do not map to either
+frontmatter property. NocoDB retains the native system fields internally.
+
+### Removed columns
+
+`SourceRecordId`, `SourceCreatedAt`, `SourceUpdatedAt`, `LegacyCloudRecordId`,
+`LegacyCloudCreatedAt` and `LegacyCloudUpdatedAt` were removed from
+`reading_records`. They are also absent from the current setup schema. The
+reading records, application timestamps and existing note receipts remain.
+
+The current plugin and Worker support this simplified table without a rebuild
+or redeployment. Refresh an already-open NocoDB table to load its current
+column layout. Existing `data.json`, reader credentials and upload choices
+are preserved.

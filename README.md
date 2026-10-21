@@ -76,6 +76,28 @@ Successful uploads save `tbpedia_reading_sync_hash` and `tbpedia_reading_sync_at
 
 On the first reload after upgrading, matching legacy receipts migrate to existing articles before the `receipts` map is removed from settings. Keep your existing `data.json` during installation. A failed migration write leaves the original settings file for retry; existing frontmatter hashes are preserved. Missing, ambiguous or out-of-scope notes and receipts for other destinations are not imported. Receipts travel with notes when those notes sync between devices; devices whose notes have not synced may upload again. This change does not add multi-device conflict resolution.
 
+## Reading timestamps and database columns
+
+| Note frontmatter | Cloud `reading_records` field | Direction and meaning |
+| --- | --- | --- |
+| `tbpedia_reading_updated_at` | `client_updated_at` | Note → cloud: time reading data was last saved locally |
+| `tbpedia_reading_sync_at` | `synced_at` | Cloud → note after verification: server time of the successful cloud save |
+| `tbpedia_reading_sync_hash` | `snapshot_hash` | Verified server snapshot hash saved as the note's sync receipt |
+
+Saving reading data locally updates `tbpedia_reading_updated_at`; it does not
+by itself confirm a cloud upload. Successful manual sync writes the server's
+receipt time and hash back to the note only when the submitted note version
+still matches. A later local edit remains pending until it is synced.
+
+The table shows `Id`, `client_updated_at` and `synced_at` for record tracking.
+NocoDB keeps its native `CreatedAt` and `UpdatedAt` fields internally; both are
+hidden in the reading table view. They describe database row creation and
+modification, independently of the note's local save time.
+
+The redundant `SourceRecordId`, `SourceCreatedAt`, `SourceUpdatedAt` and the
+three `LegacyCloud…` columns were removed. No plugin reinstall is needed for
+these database/view changes. See the [detailed field reference](outputs/tbpedia-analytics/README.md#reading-record-ids-and-timestamps--21-october-2026).
+
 ## Collection metadata in reading sync
 
 The plugin captures only these fields from `plugins/tbpedia-update/data.json`, saves them in `plugins/tbpedia-analytics/data.json`, and reads that saved copy when uploading each reading record:
@@ -119,7 +141,7 @@ npm ci
 npm run check
 ```
 
-The v0.1.21 release passes type checking and production builds. **100 of 101 automated tests pass**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
+The v0.1.22 release passed type checking and production builds. **100 of 101 automated tests passed for that release**; the local vault catalogue test reports a missing parent `TBP-275`. The current audit finds 247 items (four books and 243 chapters), including two chapters without that parent; the test still expects the original 245-item pilot fixture. Native interactive Obsidian QA has not been performed.
 
 - [Detailed setup, reader provisioning and API configuration](outputs/tbpedia-analytics/README.md)
 - [Release notes](outputs/tbpedia-analytics/RELEASE_NOTES.md)
