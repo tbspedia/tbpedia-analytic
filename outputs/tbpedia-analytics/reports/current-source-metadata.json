@@ -44,5 +44,14 @@
     "LegacyCloudRecordId",
     "LegacyCloudCreatedAt",
     "LegacyCloudUpdatedAt"
+  ],
+  "status": "historical-verification-superseded-by-source-column-removal",
+  "source_formula_columns_removed_by_user_request": true,
+  "retained_tracking_fields": [
+    "Id",
+    "CreatedAt",
+    "UpdatedAt",
+    "client_updated_at",
+    "synced_at"
   ]
 }

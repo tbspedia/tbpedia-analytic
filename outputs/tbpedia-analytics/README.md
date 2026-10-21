@@ -287,25 +287,20 @@ Type checking, builds and all 28 targeted Worker/list tests passed. Live
 uploads with empty lists, a reader type, mixed values, and cleared lists all
 succeeded and retained one record across retries. Synthetic records were removed.
 
-## Current reading record Source metadata — 21 October 2026
+## Reading record IDs and timestamps — 21 October 2026
 
-The reading table now uses these fields for current self-hosted tracking:
+The reading table uses these fields:
 
-| Field | Automatic value |
+| Field | Purpose |
 | --- | --- |
-| `SourceRecordId` | Current record `Id` |
-| `SourceCreatedAt` | Native `CreatedAt` |
-| `SourceUpdatedAt` | Native `UpdatedAt`, or `CreatedAt` until the first update |
+| `Id` | Current database record ID |
+| `CreatedAt` | Native database record creation timestamp |
+| `UpdatedAt` | Native database record modification timestamp; may be null until the first update |
+| `client_updated_at` | Note frontmatter `tbpedia_reading_updated_at`, sent by the plugin |
+| `synced_at` | Server sync timestamp, returned to note frontmatter `tbpedia_reading_sync_at` after verification |
 
-These are read-only NocoDB Formula fields, calculated for every existing and
-future record. The Worker sends reading values normally; it does not submit
-these calculated fields or maintain a second copy of the timestamps. The ID
-and creation time stay stable while the update time advances on later saves.
-
-The three legacy migration columns were removed on 21 October 2026 at the
-user’s request. Existing reading records remain, and their current Source ID,
-creation time and update time were verified after removal. The saved schema
-definition also omits the legacy columns.
-
-Refresh the NocoDB table after this schema change to see the new field identities.
-The current plugin and Worker support the change without a redeployment.
+The redundant `SourceRecordId`, `SourceCreatedAt` and `SourceUpdatedAt`
+formula columns were removed at the user's request. The three `LegacyCloud…`
+migration columns had also been removed. Their definitions are omitted from the
+current setup schema. Reading records and the five fields above are retained.
+The existing plugin and Worker support this simplified table without redeployment.

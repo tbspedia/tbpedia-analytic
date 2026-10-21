@@ -408,30 +408,6 @@
       {
         "title": "title",
         "type": "LongText"
-      },
-      {
-        "title": "SourceRecordId",
-        "type": "Formula",
-        "description": "Current self-hosted record ID.",
-        "options": {
-          "formula": "{Id}"
-        }
-      },
-      {
-        "title": "SourceCreatedAt",
-        "type": "Formula",
-        "description": "Current self-hosted record creation timestamp.",
-        "options": {
-          "formula": "{CreatedAt}"
-        }
-      },
-      {
-        "title": "SourceUpdatedAt",
-        "type": "Formula",
-        "description": "Current self-hosted record last-save timestamp; creation time until first update.",
-        "options": {
-          "formula": "IF({UpdatedAt}, {UpdatedAt}, {CreatedAt})"
-        }
       }
     ]
   }
